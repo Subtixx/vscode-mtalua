@@ -1,0 +1,44 @@
+{
+    "$schema": "vscode://schemas/color-theme",
+    "name": "Dark MTA Edit (Visual Studio)",
+    "include": "./dark_vs.json",
+    "tokenColors":[
+        {
+            "name": "Function Name",
+            "scope": "entity.name.function",
+            "settings": {
+                "foreground": "#c2ffaf"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function",
+            "settings": {
+                "foreground": "#b7afff"
+            }
+        },
+        {
+            "name": "MTA Client-Side Function",
+            "scope": "MTAClientFunction",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FF1e0a"
+            }
+        },
+        {
+            "name": "MTA Server-Side Function",
+            "scope": "MTAServerFunction",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FD971F"
+            }
+        },
+        {
+            "name": "MTA Shared Function",
+            "scope": "MTASharedFunction",
+            "settings": {
+                "foreground": "#0084ff"
+            }
+        }
+    ]
+}
