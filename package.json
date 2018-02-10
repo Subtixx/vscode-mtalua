@@ -1,17 +1,27 @@
 {
     "name": "mtasa-lua",
     "displayName": "MTA:SA Lua",
-    "description": "MTA:SA Lua Syntax + Highlighting",
+    "description": "MTA:SA Lua Syntax Highlighting + Snippets",
     "version": "0.0.1",
     "publisher": "subtixx",
+    "license": "GPL v3.0",
+    "icon": "images/logo.png",
+    "galleryBanner": {
+        "color": "#C80000",
+        "theme": "dark"
+    },
+    "homepage": "https://github.com/Subtixx/vscode-mtalua/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/Subtixx/vscode-mtalua/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Subtixx/vscode-mtalua.git"
+    },
     "engines": {
         "vscode": "^1.20.0"
     },
-    "categories": [
-        "Languages",
-        "Themes",
-        "Snippets"
-    ],
+    "categories": ["Languages", "Themes", "Snippets"],
     "contributes": {
         "languages": [{
             "id": "mtalua",
