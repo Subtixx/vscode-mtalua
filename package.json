@@ -9,7 +9,8 @@
     },
     "categories": [
         "Languages",
-        "Themes"
+        "Themes",
+        "Snippets"
     ],
     "contributes": {
         "languages": [{
@@ -33,6 +34,12 @@
                 "label": "Dark MTA Edit (Visual Studio)",
                 "uiTheme": "vs-dark",
                 "path": "./themes/Dark-MTA-Edit.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "mtalua",
+                "path": "./snippets/snippets.json"
             }
         ]
     }
