@@ -1,0 +1,3108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Server Scripting Functions - Multi Theft Auto: Wiki</title>
+    <script>document.documentElement.className = document.documentElement.className.replace(/(^|\s)client-nojs(\s|$)/, "$1client-js$2");</script>
+    <script>(window.RLQ = window.RLQ || []).push(function () {
+            mw.config.set({ "wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Server_Scripting_Functions", "wgTitle": "Server Scripting Functions", "wgCurRevisionId": 52761, "wgRevisionId": 52761, "wgArticleId": 1280, "wgIsArticle": true, "wgIsRedirect": false, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": [], "wgBreakFrames": false, "wgPageContentLanguage": "en", "wgPageContentModel": "wikitext", "wgSeparatorTransformTable": ["", ""], "wgDigitTransformTable": ["", ""], "wgDefaultDateFormat": "dmy", "wgMonthNames": ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"], "wgMonthNamesShort": ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], "wgRelevantPageName": "Server_Scripting_Functions", "wgRelevantArticleId": 1280, "wgRequestId": "060833bc19edd8c253d06b02", "wgIsProbablyEditable": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgWikiEditorEnabledModules": { "toolbar": false, "dialogs": false, "preview": false, "publish": false } }); mw.loader.implement("user.options", function ($, jQuery, require, module) { mw.user.options.set({ "variant": "en" }); }); mw.loader.implement("user.tokens", function ($, jQuery, require, module) {
+                mw.user.tokens.set({ "editToken": "+\\", "patrolToken": "+\\", "watchToken": "+\\", "csrfToken": "+\\" });/*@nomin*/;
+
+            }); mw.loader.load(["mediawiki.page.startup"]);
+        });</script>
+    <link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cmediawiki.sectionAnchor%7Cmediawiki.skinning.content.externallinks%7Cmediawiki.skinning.interface%7Cskins.monobook.styles&amp;only=styles&amp;skin=monobook"
+    />
+    <!--[if IE 6]><link rel="stylesheet" href="/skins/MonoBook/IE60Fixes.css?303" media="screen"/><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" href="/skins/MonoBook/IE70Fixes.css?303" media="screen"/><![endif]-->
+    <meta name="ResourceLoaderDynamicStyles" content="" />
+    <link rel="stylesheet" href="/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=monobook" />
+    <script async="" src="/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=monobook"></script>
+    <meta name="generator" content="MediaWiki 1.27.1" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Multi Theft Auto: Wiki (en)"
+    />
+    <link rel="EditURI" type="application/rsd+xml" href="https://wiki.multitheftauto.com/api.php?action=rsd" />
+    <link rel="copyright" href="http://www.gnu.org/copyleft/fdl.html" />
+    <link rel="alternate" type="application/atom+xml" title="Multi Theft Auto: Wiki Atom feed" href="/index.php?title=Special:RecentChanges&amp;feed=atom"
+    />
+    <meta name='headingclass' content='' data-class='server' data-subcaption=''>
+</head>
+
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Server_Scripting_Functions rootpage-Server_Scripting_Functions skin-monobook action-view">
+    <div id="globalWrapper">
+        <div id="column-content">
+            <div id="content" class="mw-body" role="main">
+                <a id="top"></a>
+
+                <div class="mw-indicators">
+                </div>
+                <h1 id="firstHeading" class="firstHeading" lang="en">Server Scripting Functions</h1>
+
+                <div id="bodyContent" class="mw-body-content">
+                    <div id="siteSub">From Multi Theft Auto: Wiki</div>
+                    <div id="contentSub"></div>
+                    <div id="jump-to-nav" class="mw-jump">Jump to:
+                        <a href="#column-one">navigation</a>,
+                        <a href="#searchInput">search</a>
+                    </div>
+
+                    <!-- start content -->
+                    <div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr">
+                        <p>
+                            <!--HC-->
+                        </p>
+                        <div style="background: #CEDFF2; border: 3px solid #CEDFF2;">
+                            <b>Contributors:</b> Did you create a page but it's not on this list? Confused?
+                            <b>Read:
+                                <a href="/wiki/Adding_Pages_to_Categories_and_Templates" title="Adding Pages to Categories and Templates"
+                                    class="mw-redirect">Adding Pages to Categories and Templates</a>
+                            </b>
+                        </div>
+                        <p>This page lists all the
+                            <b>server-side</b> scripting functions that have been implemented and are available as native functions.
+                            To request a function or event, use
+                            <a href="/wiki/Requested_Functions_and_Events" title="Requested Functions and Events">Requested Functions and Events</a> or
+                            <a rel="nofollow" class="external free" href="https://bugs.mtasa.com">https://bugs.mtasa.com</a>.
+                        </p>
+                        <p>Please note that the scripting functions can also be extended by loading in dynamic modules that
+                            provide new functionality, such as utility functions. These scripting functions are non-native
+                            and require the module to be loaded in order to work.
+                        </p>
+                        <p>Head over to
+                            <a href="/wiki/Modules" title="Modules">Modules</a> for a list of non-native serverside functions and modules that are available.
+                        </p>
+                        <p>For more functions, check the
+                            <a href="/wiki/Useful_Functions" title="Useful Functions">useful functions page</a>.
+                        </p>
+                        <p>
+                            <b>Client-side scripting functions can be found here:
+                                <a href="/wiki/Client_Scripting_Functions"
+                                    title="Client Scripting Functions">Client Scripting Functions</a>.</b>
+                        </p>
+                        <div id="toc" class="toc">
+                            <div id="toctitle">
+                                <h2>Contents</h2>
+                            </div>
+                            <ul>
+                                <li class="toclevel-1 tocsection-1">
+                                    <a href="#Account_functions">
+                                        <span class="tocnumber">1</span>
+                                        <span class="toctext">Account functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-2">
+                                    <a href="#ACL_functions">
+                                        <span class="tocnumber">2</span>
+                                        <span class="toctext">ACL functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-3">
+                                    <a href="#Admin_functions">
+                                        <span class="tocnumber">3</span>
+                                        <span class="toctext">Admin functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-4">
+                                    <a href="#Audio_functions">
+                                        <span class="tocnumber">4</span>
+                                        <span class="toctext">Audio functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-5">
+                                    <a href="#Announcement_functions">
+                                        <span class="tocnumber">5</span>
+                                        <span class="toctext">Announcement functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-6">
+                                    <a href="#Blip_functions">
+                                        <span class="tocnumber">6</span>
+                                        <span class="toctext">Blip functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-7">
+                                    <a href="#Camera_functions">
+                                        <span class="tocnumber">7</span>
+                                        <span class="toctext">Camera functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-8">
+                                    <a href="#Clothes_and_body_functions">
+                                        <span class="tocnumber">8</span>
+                                        <span class="toctext">Clothes and body functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-9">
+                                    <a href="#Collision_shape_functions">
+                                        <span class="tocnumber">9</span>
+                                        <span class="toctext">Collision shape functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-10">
+                                    <a href="#Cursor_functions">
+                                        <span class="tocnumber">10</span>
+                                        <span class="toctext">Cursor functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-11">
+                                    <a href="#Element_functions">
+                                        <span class="tocnumber">11</span>
+                                        <span class="toctext">Element functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-12">
+                                    <a href="#Event_functions">
+                                        <span class="tocnumber">12</span>
+                                        <span class="toctext">Event functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-13">
+                                    <a href="#Explosion_functions">
+                                        <span class="tocnumber">13</span>
+                                        <span class="toctext">Explosion functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-14">
+                                    <a href="#File_functions">
+                                        <span class="tocnumber">14</span>
+                                        <span class="toctext">File functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-15">
+                                    <a href="#HTTP_functions">
+                                        <span class="tocnumber">15</span>
+                                        <span class="toctext">HTTP functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-16">
+                                    <a href="#Input_functions">
+                                        <span class="tocnumber">16</span>
+                                        <span class="toctext">Input functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-17">
+                                    <a href="#Map_functions">
+                                        <span class="tocnumber">17</span>
+                                        <span class="toctext">Map functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-18">
+                                    <a href="#Marker_functions">
+                                        <span class="tocnumber">18</span>
+                                        <span class="toctext">Marker functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-19">
+                                    <a href="#Matrix_functions">
+                                        <span class="tocnumber">19</span>
+                                        <span class="toctext">Matrix functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-20">
+                                    <a href="#Module_functions">
+                                        <span class="tocnumber">20</span>
+                                        <span class="toctext">Module functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-21">
+                                    <a href="#Object_functions">
+                                        <span class="tocnumber">21</span>
+                                        <span class="toctext">Object functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-22">
+                                    <a href="#Ped_functions">
+                                        <span class="tocnumber">22</span>
+                                        <span class="toctext">Ped functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-23">
+                                    <a href="#Pickup_functions">
+                                        <span class="tocnumber">23</span>
+                                        <span class="toctext">Pickup functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-24">
+                                    <a href="#Player_functions">
+                                        <span class="tocnumber">24</span>
+                                        <span class="toctext">Player functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-25">
+                                    <a href="#Projectile_functions">
+                                        <span class="tocnumber">25</span>
+                                        <span class="toctext">Projectile functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-26">
+                                    <a href="#Radar_area_functions">
+                                        <span class="tocnumber">26</span>
+                                        <span class="toctext">Radar area functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-27">
+                                    <a href="#Resource_functions">
+                                        <span class="tocnumber">27</span>
+                                        <span class="toctext">Resource functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-28">
+                                    <a href="#Server_functions">
+                                        <span class="tocnumber">28</span>
+                                        <span class="toctext">Server functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-29">
+                                    <a href="#Settings_registry_functions">
+                                        <span class="tocnumber">29</span>
+                                        <span class="toctext">Settings registry functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-30">
+                                    <a href="#SQL_functions">
+                                        <span class="tocnumber">30</span>
+                                        <span class="toctext">SQL functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-31">
+                                    <a href="#Team_functions">
+                                        <span class="tocnumber">31</span>
+                                        <span class="toctext">Team functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-32">
+                                    <a href="#Text_functions">
+                                        <span class="tocnumber">32</span>
+                                        <span class="toctext">Text functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-33">
+                                    <a href="#Utility_functions">
+                                        <span class="tocnumber">33</span>
+                                        <span class="toctext">Utility functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-34">
+                                    <a href="#UTF8_Library">
+                                        <span class="tocnumber">34</span>
+                                        <span class="toctext">UTF8 Library</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-35">
+                                    <a href="#Vehicle_functions">
+                                        <span class="tocnumber">35</span>
+                                        <span class="toctext">Vehicle functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-36">
+                                    <a href="#Water_functions">
+                                        <span class="tocnumber">36</span>
+                                        <span class="toctext">Water functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-37">
+                                    <a href="#Weapon_functions">
+                                        <span class="tocnumber">37</span>
+                                        <span class="toctext">Weapon functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-38">
+                                    <a href="#World_functions">
+                                        <span class="tocnumber">38</span>
+                                        <span class="toctext">World functions</span>
+                                    </a>
+                                </li>
+                                <li class="toclevel-1 tocsection-39">
+                                    <a href="#XML_functions">
+                                        <span class="tocnumber">39</span>
+                                        <span class="toctext">XML functions</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h2>
+                            <span class="mw-headline" id="Account_functions">Account functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddAccount" title="AddAccount">addAccount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CopyAccountData" title="CopyAccountData">copyAccountData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccountData" title="GetAccountData">getAccountData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccountName" title="GetAccountName">getAccountName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccountPlayer" title="GetAccountPlayer">getAccountPlayer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccountsBySerial" title="GetAccountsBySerial">getAccountsBySerial</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccountSerial" title="GetAccountSerial">getAccountSerial</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccounts" title="GetAccounts">getAccounts</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAccount" title="GetAccount">getAccount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAllAccountData" title="GetAllAccountData">getAllAccountData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerAccount" title="GetPlayerAccount">getPlayerAccount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsGuestAccount" title="IsGuestAccount">isGuestAccount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/LogIn" title="LogIn">logIn</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/LogOut" title="LogOut">logOut</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveAccount" title="RemoveAccount">removeAccount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetAccountData" title="SetAccountData">setAccountData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetAccountPassword" title="SetAccountPassword">setAccountPassword</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="ACL_functions">ACL functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AclReload" title="AclReload">aclReload</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclSave" title="AclSave">aclSave</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclList" title="AclList">aclList</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AclGet" title="AclGet">aclGet</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclCreate" title="AclCreate">aclCreate</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclDestroy" title="AclDestroy">aclDestroy</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGetName" title="AclGetName">aclGetName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGetRight" title="AclGetRight">aclGetRight</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclSetRight" title="AclSetRight">aclSetRight</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclListRights" title="AclListRights">aclListRights</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclRemoveRight" title="AclRemoveRight">aclRemoveRight</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AclGetGroup" title="AclGetGroup">aclGetGroup</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclCreateGroup" title="AclCreateGroup">aclCreateGroup</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclDestroyGroup" title="AclDestroyGroup">aclDestroyGroup</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupList" title="AclGroupList">aclGroupList</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupAddACL" title="AclGroupAddACL">aclGroupAddACL</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupAddObject" title="AclGroupAddObject">aclGroupAddObject</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupGetName" title="AclGroupGetName">aclGroupGetName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupListACL" title="AclGroupListACL">aclGroupListACL</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupListObjects" title="AclGroupListObjects">aclGroupListObjects</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupRemoveACL" title="AclGroupRemoveACL">aclGroupRemoveACL</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AclGroupRemoveObject" title="AclGroupRemoveObject">aclGroupRemoveObject</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/HasObjectPermissionTo" title="HasObjectPermissionTo">hasObjectPermissionTo</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/IsObjectInACLGroup" title="IsObjectInACLGroup">isObjectInACLGroup</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Admin_functions">Admin functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddBan" title="AddBan">addBan</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BanPlayer" title="BanPlayer">banPlayer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanAdmin" title="GetBanAdmin">getBanAdmin</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanIP" title="GetBanIP">getBanIP</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanNick" title="GetBanNick">getBanNick</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanReason" title="GetBanReason">getBanReason</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBans" title="GetBans">getBans</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanSerial" title="GetBanSerial">getBanSerial</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanTime" title="GetBanTime">getBanTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBanUsername" title="GetBanUsername">getBanUsername</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetUnbanTime" title="GetUnbanTime">getUnbanTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsBan" title="IsBan">isBan</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/KickPlayer" title="KickPlayer">kickPlayer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBanAdmin" title="SetBanAdmin">setBanAdmin</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBanNick" title="SetBanNick">setBanNick</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBanReason" title="SetBanReason">setBanReason</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetUnbanTime" title="SetUnbanTime">setUnbanTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveBan" title="RemoveBan">removeBan</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ReloadBans" title="ReloadBans">reloadBans</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Audio_functions">Audio functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/PlaySoundFrontEnd" title="PlaySoundFrontEnd">playSoundFrontEnd</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Announcement_functions">Announcement functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetGameType" title="GetGameType">getGameType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMapName" title="GetMapName">getMapName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRuleValue" title="GetRuleValue">getRuleValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveRuleValue" title="RemoveRuleValue">removeRuleValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetGameType" title="SetGameType">setGameType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMapName" title="SetMapName">setMapName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetRuleValue" title="SetRuleValue">setRuleValue</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Blip_functions">Blip functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateBlip" title="CreateBlip">createBlip</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateBlipAttachedTo" title="CreateBlipAttachedTo">createBlipAttachedTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBlipColor" title="GetBlipColor">getBlipColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBlipIcon" title="GetBlipIcon">getBlipIcon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBlipSize" title="GetBlipSize">getBlipSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBlipColor" title="SetBlipColor">setBlipColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBlipIcon" title="SetBlipIcon">setBlipIcon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBlipSize" title="SetBlipSize">setBlipSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetBlipOrdering" title="GetBlipOrdering">getBlipOrdering</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBlipOrdering" title="SetBlipOrdering">setBlipOrdering</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetBlipVisibleDistance" title="GetBlipVisibleDistance">getBlipVisibleDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetBlipVisibleDistance" title="SetBlipVisibleDistance">setBlipVisibleDistance</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Camera_functions">Camera functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/FadeCamera" title="FadeCamera">fadeCamera</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetCameraInterior" title="GetCameraInterior">getCameraInterior</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetCameraMatrix" title="GetCameraMatrix">getCameraMatrix</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetCameraTarget" title="GetCameraTarget">getCameraTarget</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetCameraInterior" title="SetCameraInterior">setCameraInterior</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetCameraMatrix" title="SetCameraMatrix">setCameraMatrix</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetCameraTarget" title="SetCameraTarget">setCameraTarget</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Clothes_and_body_functions">Clothes and body functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetBodyPartName" title="GetBodyPartName">getBodyPartName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetClothesByTypeIndex" title="GetClothesByTypeIndex">getClothesByTypeIndex</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetClothesTypeName" title="GetClothesTypeName">getClothesTypeName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTypeIndexFromClothes" title="GetTypeIndexFromClothes">getTypeIndexFromClothes</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Collision_shape_functions">Collision shape functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateColCircle" title="CreateColCircle">createColCircle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateColCuboid" title="CreateColCuboid">createColCuboid</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateColRectangle" title="CreateColRectangle">createColRectangle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateColSphere" title="CreateColSphere">createColSphere</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateColTube" title="CreateColTube">createColTube</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateColPolygon" title="CreateColPolygon">createColPolygon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementWithinColShape" title="IsElementWithinColShape">isElementWithinColShape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementsWithinColShape" title="GetElementsWithinColShape">getElementsWithinColShape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementColShape" title="GetElementColShape">getElementColShape</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Cursor_functions">Cursor functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/IsCursorShowing" title="IsCursorShowing">isCursorShowing</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ShowCursor" title="ShowCursor">showCursor</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Element_functions">Element functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ClearElementVisibleTo" title="ClearElementVisibleTo">clearElementVisibleTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CloneElement" title="CloneElement">cloneElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateElement" title="CreateElement">createElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DestroyElement" title="DestroyElement">destroyElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAllElementData" title="GetAllElementData">getAllElementData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAttachedElements" title="GetAttachedElements">getAttachedElements</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementAlpha" title="GetElementAlpha">getElementAlpha</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementAttachedOffsets" title="GetElementAttachedOffsets">getElementAttachedOffsets</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementCollisionsEnabled" title="GetElementCollisionsEnabled">getElementCollisionsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementAttachedTo" title="GetElementAttachedTo">getElementAttachedTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementByID" title="GetElementByID">getElementByID</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementByIndex" title="GetElementByIndex">getElementByIndex</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementChild" title="GetElementChild">getElementChild</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementChildren" title="GetElementChildren">getElementChildren</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementChildrenCount" title="GetElementChildrenCount">getElementChildrenCount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementColShape" title="GetElementColShape">getElementColShape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementData" title="GetElementData">getElementData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementDimension" title="GetElementDimension">getElementDimension</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementHealth" title="GetElementHealth">getElementHealth</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementID" title="GetElementID">getElementID</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementInterior" title="GetElementInterior">getElementInterior</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementMatrix" title="GetElementMatrix">getElementMatrix</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementParent" title="GetElementParent">getElementParent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementPosition" title="GetElementPosition">getElementPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementRotation" title="GetElementRotation">getElementRotation</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementsByType" title="GetElementsByType">getElementsByType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementsWithinColShape" title="GetElementsWithinColShape">getElementsWithinColShape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementType" title="GetElementType">getElementType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementVelocity" title="GetElementVelocity">getElementVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementZoneName" title="GetElementZoneName">getElementZoneName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRootElement" title="GetRootElement">getRootElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElement" title="IsElement">isElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementAttached" title="IsElementAttached">isElementAttached</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementCallPropagationEnabled" title="IsElementCallPropagationEnabled">isElementCallPropagationEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementDoubleSided" title="IsElementDoubleSided">isElementDoubleSided</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementFrozen" title="IsElementFrozen">isElementFrozen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementVisibleTo" title="IsElementVisibleTo">isElementVisibleTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementWithinColShape" title="IsElementWithinColShape">isElementWithinColShape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveElementData" title="RemoveElementData">removeElementData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementAlpha" title="SetElementAlpha">setElementAlpha</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementCallPropagationEnabled" title="SetElementCallPropagationEnabled">setElementCallPropagationEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementCollisionsEnabled" title="SetElementCollisionsEnabled">setElementCollisionsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementData" title="SetElementData">setElementData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementDoubleSided" title="SetElementDoubleSided">setElementDoubleSided</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementDimension" title="SetElementDimension">setElementDimension</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementFrozen" title="SetElementFrozen">setElementFrozen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementHealth" title="SetElementHealth">setElementHealth</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementID" title="SetElementID">setElementID</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementInterior" title="SetElementInterior">setElementInterior</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementParent" title="SetElementParent">setElementParent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementPosition" title="SetElementPosition">setElementPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementSyncer" title="SetElementSyncer">setElementSyncer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementRotation" title="SetElementRotation">setElementRotation</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementVelocity" title="SetElementVelocity">setElementVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementVisibleTo" title="SetElementVisibleTo">setElementVisibleTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AttachElements" title="AttachElements">attachElements</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DetachElements" title="DetachElements">detachElements</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementModel" title="GetElementModel">getElementModel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetElementSyncer" title="GetElementSyncer">getElementSyncer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementInWater" title="IsElementInWater">isElementInWater</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementAttachedOffsets" title="SetElementAttachedOffsets">setElementAttachedOffsets</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetElementModel" title="SetElementModel">setElementModel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetLowLODElement" title="SetLowLODElement">setLowLODElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetLowLODElement" title="GetLowLODElement">getLowLODElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementLowLOD" title="IsElementLowLOD">isElementLowLOD</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Event_functions">Event functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddEvent" title="AddEvent">addEvent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AddEventHandler" title="AddEventHandler">addEventHandler</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetEventHandlers" title="GetEventHandlers">getEventHandlers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CancelEvent" title="CancelEvent">cancelEvent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetCancelReason" title="GetCancelReason">getCancelReason</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveEventHandler" title="RemoveEventHandler">removeEventHandler</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TriggerClientEvent" title="TriggerClientEvent">triggerClientEvent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TriggerEvent" title="TriggerEvent">triggerEvent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/WasEventCancelled" title="WasEventCancelled">wasEventCancelled</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/TriggerLatentClientEvent" title="TriggerLatentClientEvent">triggerLatentClientEvent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetLatentEventHandles" title="GetLatentEventHandles">getLatentEventHandles</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetLatentEventStatus" title="GetLatentEventStatus">getLatentEventStatus</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CancelLatentEvent" title="CancelLatentEvent">cancelLatentEvent</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Explosion_functions">Explosion functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateExplosion" title="CreateExplosion">createExplosion</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="File_functions">File functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/FileClose" title="FileClose">fileClose</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileCopy" title="FileCopy">fileCopy</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileCreate" title="FileCreate">fileCreate</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileDelete" title="FileDelete">fileDelete</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileExists" title="FileExists">fileExists</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileFlush" title="FileFlush">fileFlush</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/FileGetPath" title="FileGetPath">fileGetPath</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileGetPos" title="FileGetPos">fileGetPos</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileGetSize" title="FileGetSize">fileGetSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileIsEOF" title="FileIsEOF">fileIsEOF</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileOpen" title="FileOpen">fileOpen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileRead" title="FileRead">fileRead</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileRename" title="FileRename">fileRename</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileSetPos" title="FileSetPos">fileSetPos</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FileWrite" title="FileWrite">fileWrite</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="HTTP_functions">HTTP functions</span>
+                        </h2>
+                        <p>
+                            <i>These functions can only be used from within lua blocks in HTML pages hosted by the server</i>
+                        </p>
+                        <ul>
+                            <li>
+                                <a href="/wiki/HttpClear" title="HttpClear">httpClear</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/HttpRequestLogin" title="HttpRequestLogin">httpRequestLogin</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/HttpSetResponseCode" title="HttpSetResponseCode">httpSetResponseCode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/HttpSetResponseCookie" title="HttpSetResponseCookie">httpSetResponseCookie</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/HttpSetResponseHeader" title="HttpSetResponseHeader">httpSetResponseHeader</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/HttpWrite" title="HttpWrite">httpWrite</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Input_functions">Input functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/BindKey" title="BindKey">bindKey</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetControlState" title="GetControlState">getControlState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetFunctionsBoundToKey" title="GetFunctionsBoundToKey">getFunctionsBoundToKey</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetKeyBoundToFunction" title="GetKeyBoundToFunction">getKeyBoundToFunction</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsControlEnabled" title="IsControlEnabled">isControlEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsKeyBound" title="IsKeyBound">isKeyBound</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetControlState" title="SetControlState">setControlState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ToggleAllControls" title="ToggleAllControls">toggleAllControls</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ToggleControl" title="ToggleControl">toggleControl</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UnbindKey" title="UnbindKey">unbindKey</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Map_functions">Map functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/LoadMapData" title="LoadMapData">loadMapData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetMapInfo" title="ResetMapInfo">resetMapInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SaveMapData" title="SaveMapData">saveMapData</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Marker_functions">Marker functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateMarker" title="CreateMarker">createMarker</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerColor" title="GetMarkerColor">getMarkerColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerCount" title="GetMarkerCount">getMarkerCount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerIcon" title="GetMarkerIcon">getMarkerIcon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerSize" title="GetMarkerSize">getMarkerSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerTarget" title="GetMarkerTarget">getMarkerTarget</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMarkerType" title="GetMarkerType">getMarkerType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsElementWithinMarker" title="IsElementWithinMarker">isElementWithinMarker</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMarkerColor" title="SetMarkerColor">setMarkerColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMarkerIcon" title="SetMarkerIcon">setMarkerIcon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMarkerSize" title="SetMarkerSize">setMarkerSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMarkerTarget" title="SetMarkerTarget">setMarkerTarget</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMarkerType" title="SetMarkerType">setMarkerType</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Matrix_functions">Matrix functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/Matrix" title="Matrix">Matrix</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Vector/Vector2" title="Vector/Vector2">Vector/Vector2</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Vector/Vector3" title="Vector/Vector3">Vector/Vector3</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Vector/Vector4" title="Vector/Vector4">Vector/Vector4</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Module_functions">Module functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetLoadedModules" title="GetLoadedModules">getLoadedModules</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetModuleInfo" title="GetModuleInfo">getModuleInfo</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Object_functions">Object functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateObject" title="CreateObject">createObject</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/MoveObject" title="MoveObject">moveObject</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/StopObject" title="StopObject">stopObject</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetObjectScale" title="GetObjectScale">getObjectScale</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetObjectScale" title="SetObjectScale">setObjectScale</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Ped_functions">Ped functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddPedClothes" title="AddPedClothes">addPedClothes</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreatePed" title="CreatePed">createPed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DoesPedHaveJetPack" title="DoesPedHaveJetPack">doesPedHaveJetPack</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedAmmoInClip" title="GetPedAmmoInClip">getPedAmmoInClip</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedArmor" title="GetPedArmor">getPedArmor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedClothes" title="GetPedClothes">getPedClothes</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedContactElement" title="GetPedContactElement">getPedContactElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedFightingStyle" title="GetPedFightingStyle">getPedFightingStyle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedGravity" title="GetPedGravity">getPedGravity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedOccupiedVehicle" title="GetPedOccupiedVehicle">getPedOccupiedVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedOccupiedVehicleSeat" title="GetPedOccupiedVehicleSeat">getPedOccupiedVehicleSeat</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedStat" title="GetPedStat">getPedStat</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedTarget" title="GetPedTarget">getPedTarget</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedTotalAmmo" title="GetPedTotalAmmo">getPedTotalAmmo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedWalkingStyle" title="GetPedWalkingStyle">getPedWalkingStyle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedWeapon" title="GetPedWeapon">getPedWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPedWeaponSlot" title="GetPedWeaponSlot">getPedWeaponSlot</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetValidPedModels" title="GetValidPedModels">getValidPedModels</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GivePedJetPack" title="GivePedJetPack">givePedJetPack</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedChoking" title="IsPedChoking">isPedChoking</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedDead" title="IsPedDead">isPedDead</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedDoingGangDriveby" title="IsPedDoingGangDriveby">isPedDoingGangDriveby</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedDucked" title="IsPedDucked">isPedDucked</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedFrozen" title="IsPedFrozen">isPedFrozen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedHeadless" title="IsPedHeadless">isPedHeadless</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedInVehicle" title="IsPedInVehicle">isPedInVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedInWater" title="IsPedInWater">isPedInWater</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedOnFire" title="IsPedOnFire">isPedOnFire</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPedOnGround" title="IsPedOnGround">isPedOnGround</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/KillPed" title="KillPed">killPed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ReloadPedWeapon" title="ReloadPedWeapon">reloadPedWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemovePedClothes" title="RemovePedClothes">removePedClothes</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemovePedFromVehicle" title="RemovePedFromVehicle">removePedFromVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemovePedJetPack" title="RemovePedJetPack">removePedJetPack</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedAnimation" title="SetPedAnimation">setPedAnimation</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedAnimationProgress" title="SetPedAnimationProgress">setPedAnimationProgress</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedAnalogControlState" title="SetPedAnalogControlState">setPedAnalogControlState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedArmor" title="SetPedArmor">setPedArmor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedChoking" title="SetPedChoking">setPedChoking</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedDoingGangDriveby" title="SetPedDoingGangDriveby">setPedDoingGangDriveby</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedFightingStyle" title="SetPedFightingStyle">setPedFightingStyle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedFrozen" title="SetPedFrozen">setPedFrozen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedGravity" title="SetPedGravity">setPedGravity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedHeadless" title="SetPedHeadless">setPedHeadless</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedOnFire" title="SetPedOnFire">setPedOnFire</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedStat" title="SetPedStat">setPedStat</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPedWeaponSlot" title="SetPedWeaponSlot">setPedWeaponSlot</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/SetPedWalkingStyle" title="SetPedWalkingStyle">setPedWalkingStyle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/WarpPedIntoVehicle" title="WarpPedIntoVehicle">warpPedIntoVehicle</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Pickup_functions">Pickup functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreatePickup" title="CreatePickup">createPickup</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPickupAmmo" title="GetPickupAmmo">getPickupAmmo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPickupAmount" title="GetPickupAmount">getPickupAmount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPickupType" title="GetPickupType">getPickupType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPickupWeapon" title="GetPickupWeapon">getPickupWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPickupType" title="SetPickupType">setPickupType</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetPickupRespawnInterval" title="GetPickupRespawnInterval">getPickupRespawnInterval</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPickupSpawned" title="IsPickupSpawned">isPickupSpawned</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPickupRespawnInterval" title="SetPickupRespawnInterval">setPickupRespawnInterval</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UsePickup" title="UsePickup">usePickup</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Player_functions">Player functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ForcePlayerMap" title="ForcePlayerMap">forcePlayerMap</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAlivePlayers" title="GetAlivePlayers">getAlivePlayers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetDeadPlayers" title="GetDeadPlayers">getDeadPlayers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerACInfo" title="GetPlayerACInfo">getPlayerACInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerAnnounceValue" title="GetPlayerAnnounceValue">getPlayerAnnounceValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerBlurLevel" title="GetPlayerBlurLevel">getPlayerBlurLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerCount" title="GetPlayerCount">getPlayerCount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerFromName" title="GetPlayerFromName">getPlayerFromName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerIdleTime" title="GetPlayerIdleTime">getPlayerIdleTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerIP" title="GetPlayerIP">getPlayerIP</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerMoney" title="GetPlayerMoney">getPlayerMoney</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerName" title="GetPlayerName">getPlayerName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerNametagColor" title="GetPlayerNametagColor">getPlayerNametagColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerNametagText" title="GetPlayerNametagText">getPlayerNametagText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerPing" title="GetPlayerPing">getPlayerPing</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerSerial" title="GetPlayerSerial">getPlayerSerial</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerTeam" title="GetPlayerTeam">getPlayerTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerVersion" title="GetPlayerVersion">getPlayerVersion</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerWantedLevel" title="GetPlayerWantedLevel">getPlayerWantedLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRandomPlayer" title="GetRandomPlayer">getRandomPlayer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GivePlayerMoney" title="GivePlayerMoney">givePlayerMoney</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPlayerMapForced" title="IsPlayerMapForced">isPlayerMapForced</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPlayerMuted" title="IsPlayerMuted">isPlayerMuted</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsPlayerNametagShowing" title="IsPlayerNametagShowing">isPlayerNametagShowing</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVoiceEnabled" title="IsVoiceEnabled">isVoiceEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RedirectPlayer" title="RedirectPlayer">redirectPlayer</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ResendPlayerACInfo" title="ResendPlayerACInfo">resendPlayerACInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResendPlayerModInfo" title="ResendPlayerModInfo">resendPlayerModInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerAnnounceValue" title="SetPlayerAnnounceValue">setPlayerAnnounceValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerBlurLevel" title="SetPlayerBlurLevel">setPlayerBlurLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerHudComponentVisible" title="SetPlayerHudComponentVisible">setPlayerHudComponentVisible</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerMoney" title="SetPlayerMoney">setPlayerMoney</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerMuted" title="SetPlayerMuted">setPlayerMuted</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerName" title="SetPlayerName">setPlayerName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerNametagColor" title="SetPlayerNametagColor">setPlayerNametagColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerNametagShowing" title="SetPlayerNametagShowing">setPlayerNametagShowing</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerNametagText" title="SetPlayerNametagText">setPlayerNametagText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerTeam" title="SetPlayerTeam">setPlayerTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerVoiceBroadcastTo" title="SetPlayerVoiceBroadcastTo">setPlayerVoiceBroadcastTo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerVoiceIgnoreFrom" title="SetPlayerVoiceIgnoreFrom">setPlayerVoiceIgnoreFrom</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerWantedLevel" title="SetPlayerWantedLevel">setPlayerWantedLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ShowPlayerHudComponent" title="ShowPlayerHudComponent">showPlayerHudComponent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SpawnPlayer" title="SpawnPlayer">spawnPlayer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TakePlayerMoney" title="TakePlayerMoney">takePlayerMoney</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TakePlayerScreenShot" title="TakePlayerScreenShot">takePlayerScreenShot</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Projectile_functions">Projectile functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/DetonateSatchels" title="DetonateSatchels">detonateSatchels</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Radar_area_functions">Radar area functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateRadarArea" title="CreateRadarArea">createRadarArea</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRadarAreaColor" title="GetRadarAreaColor">getRadarAreaColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRadarAreaSize" title="GetRadarAreaSize">getRadarAreaSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsInsideRadarArea" title="IsInsideRadarArea">isInsideRadarArea</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsRadarAreaFlashing" title="IsRadarAreaFlashing">isRadarAreaFlashing</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetRadarAreaColor" title="SetRadarAreaColor">setRadarAreaColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetRadarAreaFlashing" title="SetRadarAreaFlashing">setRadarAreaFlashing</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetRadarAreaSize" title="SetRadarAreaSize">setRadarAreaSize</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Resource_functions">Resource functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddResourceConfig" title="AddResourceConfig">addResourceConfig</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AddResourceMap" title="AddResourceMap">addResourceMap</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Call" title="Call">call</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CallRemote" title="CallRemote">callRemote</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CopyResource" title="CopyResource">copyResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateResource" title="CreateResource">createResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DeleteResource" title="DeleteResource">deleteResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FetchRemote" title="FetchRemote">fetchRemote</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceACLRequests" title="GetResourceACLRequests">getResourceACLRequests</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceConfig" title="GetResourceConfig">getResourceConfig</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceDynamicElementRoot" title="GetResourceDynamicElementRoot">getResourceDynamicElementRoot</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceExportedFunctions" title="GetResourceExportedFunctions">getResourceExportedFunctions</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceFromName" title="GetResourceFromName">getResourceFromName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceInfo" title="GetResourceInfo">getResourceInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceLastStartTime" title="GetResourceLastStartTime">getResourceLastStartTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceLoadFailureReason" title="GetResourceLoadFailureReason">getResourceLoadFailureReason</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceLoadTime" title="GetResourceLoadTime">getResourceLoadTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceMapRootElement" title="GetResourceMapRootElement">getResourceMapRootElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceName" title="GetResourceName">getResourceName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceOrganizationalPath" title="GetResourceOrganizationalPath">getResourceOrganizationalPath</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceRootElement" title="GetResourceRootElement">getResourceRootElement</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResourceState" title="GetResourceState">getResourceState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetResources" title="GetResources">getResources</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetThisResource" title="GetThisResource">getThisResource</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/IsResourceArchived" title="IsResourceArchived">isResourceArchived</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RefreshResources" title="RefreshResources">refreshResources</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveResourceFile" title="RemoveResourceFile">removeResourceFile</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RenameResource" title="RenameResource">renameResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RestartResource" title="RestartResource">restartResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetResourceInfo" title="SetResourceInfo">setResourceInfo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/StartResource" title="StartResource">startResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/StopResource" title="StopResource">stopResource</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UpdateResourceACLRequest" title="UpdateResourceACLRequest">updateResourceACLRequest</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Server_functions">Server functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddCommandHandler" title="AddCommandHandler">addCommandHandler</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ExecuteCommandHandler" title="ExecuteCommandHandler">executeCommandHandler</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FromJSON" title="FromJSON">fromJSON</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetFPSLimit" title="GetFPSLimit">getFPSLimit</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMaxPlayers" title="GetMaxPlayers">getMaxPlayers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetServerHttpPort" title="GetServerHttpPort">getServerHttpPort</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetServerName" title="GetServerName">getServerName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetServerPassword" title="GetServerPassword">getServerPassword</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetServerPort" title="GetServerPort">getServerPort</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVersion" title="GetVersion">getVersion</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetCommandHandlers" title="GetCommandHandlers">getCommandHandlers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsGlitchEnabled" title="IsGlitchEnabled">isGlitchEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/OutputChatBox" title="OutputChatBox">outputChatBox</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/OutputConsole" title="OutputConsole">outputConsole</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/OutputDebugString" title="OutputDebugString">outputDebugString</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/OutputServerLog" title="OutputServerLog">outputServerLog</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveCommandHandler" title="RemoveCommandHandler">removeCommandHandler</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetFPSLimit" title="SetFPSLimit">setFPSLimit</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetGlitchEnabled" title="SetGlitchEnabled">setGlitchEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMaxPlayers" title="SetMaxPlayers">setMaxPlayers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetServerPassword" title="SetServerPassword">setServerPassword</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ShowChat" title="ShowChat">showChat</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Shutdown" title="Shutdown">shutdown</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ToJSON" title="ToJSON">toJSON</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Settings_registry_functions">Settings registry functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/Get" title="Get">get</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Set" title="Set">set</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="SQL_functions">SQL functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ExecuteSQLQuery" title="ExecuteSQLQuery">executeSQLQuery</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/DbConnect" title="DbConnect">dbConnect</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DbExec" title="DbExec">dbExec</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DbQuery" title="DbQuery">dbQuery</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DbPoll" title="DbPoll">dbPoll</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DbFree" title="DbFree">dbFree</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/DbPrepareString" title="DbPrepareString">dbPrepareString</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Team_functions">Team functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CountPlayersInTeam" title="CountPlayersInTeam">countPlayersInTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/CreateTeam" title="CreateTeam">createTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayersInTeam" title="GetPlayersInTeam">getPlayersInTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPlayerTeam" title="GetPlayerTeam">getPlayerTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTeamColor" title="GetTeamColor">getTeamColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTeamFriendlyFire" title="GetTeamFriendlyFire">getTeamFriendlyFire</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTeamFromName" title="GetTeamFromName">getTeamFromName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTeamName" title="GetTeamName">getTeamName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetPlayerTeam" title="SetPlayerTeam">setPlayerTeam</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTeamColor" title="SetTeamColor">setTeamColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTeamFriendlyFire" title="SetTeamFriendlyFire">setTeamFriendlyFire</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTeamName" title="SetTeamName">setTeamName</a>
+                            </li>
+                        </ul>
+                        <h2>
+                            <span class="mw-headline" id="Text_functions">Text functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/TextCreateTextItem" title="TextCreateTextItem">textCreateTextItem</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDestroyTextItem" title="TextDestroyTextItem">textDestroyTextItem</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemGetColor" title="TextItemGetColor">textItemGetColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemGetPosition" title="TextItemGetPosition">textItemGetPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemGetPriority" title="TextItemGetPriority">textItemGetPriority</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemGetScale" title="TextItemGetScale">textItemGetScale</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemGetText" title="TextItemGetText">textItemGetText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemSetColor" title="TextItemSetColor">textItemSetColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemSetPosition" title="TextItemSetPosition">textItemSetPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemSetPriority" title="TextItemSetPriority">textItemSetPriority</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemSetScale" title="TextItemSetScale">textItemSetScale</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextItemSetText" title="TextItemSetText">textItemSetText</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/TextCreateDisplay" title="TextCreateDisplay">textCreateDisplay</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDestroyDisplay" title="TextDestroyDisplay">textDestroyDisplay</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDisplayAddObserver" title="TextDisplayAddObserver">textDisplayAddObserver</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDisplayAddText" title="TextDisplayAddText">textDisplayAddText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDisplayRemoveObserver" title="TextDisplayRemoveObserver">textDisplayRemoveObserver</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDisplayRemoveText" title="TextDisplayRemoveText">textDisplayRemoveText</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/TextDisplayGetObservers" title="TextDisplayGetObservers">textDisplayGetObservers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TextDisplayIsObserver" title="TextDisplayIsObserver">textDisplayIsObserver</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Utility_functions">Utility functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/Iprint" title="Iprint">iprint</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Inspect" title="Inspect">inspect</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetColorFromString" title="GetColorFromString">getColorFromString</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetDistanceBetweenPoints2D" title="GetDistanceBetweenPoints2D">getDistanceBetweenPoints2D</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetDistanceBetweenPoints3D" title="GetDistanceBetweenPoints3D">getDistanceBetweenPoints3D</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetEasingValue" title="GetEasingValue">getEasingValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/InterpolateBetween" title="InterpolateBetween">interpolateBetween</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetPerformanceStats" title="GetPerformanceStats">getPerformanceStats</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetNetworkStats" title="GetNetworkStats">getNetworkStats</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetNetworkUsageData" title="GetNetworkUsageData">getNetworkUsageData</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetServerConfigSetting" title="GetServerConfigSetting">getServerConfigSetting</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetServerConfigSetting" title="SetServerConfigSetting">setServerConfigSetting</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRealTime" title="GetRealTime">getRealTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTickCount" title="GetTickCount">getTickCount</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTimerDetails" title="GetTimerDetails">getTimerDetails</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTimers" title="GetTimers">getTimers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Gettok" title="Gettok">gettok</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetUserdataType" title="GetUserdataType">getUserdataType</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/Hash" title="Hash">hash</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/KillTimer" title="KillTimer">killTimer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetTimer" title="ResetTimer">resetTimer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTimer" title="SetTimer">setTimer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Split" title="Split">split</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/IsOOPEnabled" title="IsOOPEnabled">isOOPEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsTimer" title="IsTimer">isTimer</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Md5" title="Md5">md5</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Sha256" title="Sha256">sha256</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TeaEncode" title="TeaEncode">teaEncode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TeaDecode" title="TeaDecode">teaDecode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Base64Encode" title="Base64Encode">base64Encode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Base64Decode" title="Base64Decode">base64Decode</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/UtfChar" title="UtfChar">utfChar</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UtfCode" title="UtfCode">utfCode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UtfLen" title="UtfLen">utfLen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UtfSeek" title="UtfSeek">utfSeek</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/UtfSub" title="UtfSub">utfSub</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/PasswordHash" title="PasswordHash">passwordHash</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/PasswordVerify" title="PasswordVerify">passwordVerify</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/PregFind" title="PregFind">pregFind</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/PregReplace" title="PregReplace">pregReplace</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/PregMatch" title="PregMatch">pregMatch</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/BitAnd" title="BitAnd">bitAnd</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitNot" title="BitNot">bitNot</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitOr" title="BitOr">bitOr</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitXor" title="BitXor">bitXor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitTest" title="BitTest">bitTest</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitLRotate" title="BitLRotate">bitLRotate</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitRRotate" title="BitRRotate">bitRRotate</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitLShift" title="BitLShift">bitLShift</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitRShift" title="BitRShift">bitRShift</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitArShift" title="BitArShift">bitArShift</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitExtract" title="BitExtract">bitExtract</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BitReplace" title="BitReplace">bitReplace</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AddDebugHook" title="AddDebugHook">addDebugHook</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveDebugHook" title="RemoveDebugHook">removeDebugHook</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="UTF8_Library">UTF8 Library</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/Utf8.byte" title="Utf8.byte">utf8.byte</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.char" title="Utf8.char">utf8.char</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.charpos" title="Utf8.charpos">utf8.charpos</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.escape" title="Utf8.escape">utf8.escape</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.find" title="Utf8.find">utf8.find</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.fold" title="Utf8.fold">utf8.fold</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.gmatch" title="Utf8.gmatch">utf8.gmatch</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.gsub" title="Utf8.gsub">utf8.gsub</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.insert" title="Utf8.insert">utf8.insert</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.len" title="Utf8.len">utf8.len</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.lower" title="Utf8.lower" class="mw-redirect">utf8.lower</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.match" title="Utf8.match">utf8.match</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.ncasecmp" title="Utf8.ncasecmp">utf8.ncasecmp</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.next" title="Utf8.next">utf8.next</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.remove" title="Utf8.remove">utf8.remove</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.reverse" title="Utf8.reverse">utf8.reverse</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.sub" title="Utf8.sub">utf8.sub</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.title" title="Utf8.title">utf8.title</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.upper" title="Utf8.upper" class="mw-redirect">utf8.upper</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.width" title="Utf8.width">utf8.width</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/Utf8.widthindex" title="Utf8.widthindex">utf8.widthindex</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Vehicle_functions">Vehicle functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateVehicle" title="CreateVehicle">createVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AddVehicleSirens" title="AddVehicleSirens">addVehicleSirens</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveVehicleSirens" title="RemoveVehicleSirens">removeVehicleSirens</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveVehicleUpgrade" title="RemoveVehicleUpgrade">removeVehicleUpgrade</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AddVehicleUpgrade" title="AddVehicleUpgrade">addVehicleUpgrade</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/AttachTrailerToVehicle" title="AttachTrailerToVehicle">attachTrailerToVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/BlowVehicle" title="BlowVehicle">blowVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/DetachTrailerFromVehicle" title="DetachTrailerFromVehicle">detachTrailerFromVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/FixVehicle" title="FixVehicle">fixVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetVehicleExplosionTime" title="ResetVehicleExplosionTime">resetVehicleExplosionTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetVehicleIdleTime" title="ResetVehicleIdleTime">resetVehicleIdleTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RespawnVehicle" title="RespawnVehicle">respawnVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SpawnVehicle" title="SpawnVehicle">spawnVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ToggleVehicleRespawn" title="ToggleVehicleRespawn">toggleVehicleRespawn</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/IsTrainChainEngine" title="IsTrainChainEngine">isTrainChainEngine</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsTrainDerailable" title="IsTrainDerailable">isTrainDerailable</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsTrainDerailed" title="IsTrainDerailed">isTrainDerailed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleBlown" title="IsVehicleBlown">isVehicleBlown</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleTaxiLightOn" title="IsVehicleTaxiLightOn">isVehicleTaxiLightOn</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleDamageProof" title="IsVehicleDamageProof">isVehicleDamageProof</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleFuelTankExplodable" title="IsVehicleFuelTankExplodable">isVehicleFuelTankExplodable</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleLocked" title="IsVehicleLocked">isVehicleLocked</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsVehicleOnGround" title="IsVehicleOnGround">isVehicleOnGround</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetTrainDirection" title="GetTrainDirection">getTrainDirection</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTrainSpeed" title="GetTrainSpeed">getTrainSpeed</a>
+                            </li>
+                        </ul>
+                        <div style="font-weight: bold;background:black;color:white;padding:2px; padding-left:8px;">FROM VERSION 1.6
+                            <a rel="nofollow" class="external text" href="https://buildinfo.mtasa.com/?Author=&amp;Branch=&amp;Revision=7485">
+                                <span style="color: #FFFFFF;">r7485</span>
+                            </a> ONWARDS</div>
+                        <div style="border: 2px solid black;padding: 3px;">
+                            <ul>
+                                <li>
+                                    <a href="/wiki/GetTrainTrack" title="GetTrainTrack">getTrainTrack</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetTrainPosition" title="GetTrainPosition">getTrainPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleColor" title="GetVehicleColor">getVehicleColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleCompatibleUpgrades" title="GetVehicleCompatibleUpgrades">getVehicleCompatibleUpgrades</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleController" title="GetVehicleController">getVehicleController</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleDoorState" title="GetVehicleDoorState">getVehicleDoorState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleEngineState" title="GetVehicleEngineState">getVehicleEngineState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleLandingGearDown" title="GetVehicleLandingGearDown">getVehicleLandingGearDown</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleLightState" title="GetVehicleLightState">getVehicleLightState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleMaxPassengers" title="GetVehicleMaxPassengers">getVehicleMaxPassengers</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleName" title="GetVehicleName">getVehicleName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleOccupant" title="GetVehicleOccupant">getVehicleOccupant</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleOccupants" title="GetVehicleOccupants">getVehicleOccupants</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleOverrideLights" title="GetVehicleOverrideLights">getVehicleOverrideLights</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehiclePaintjob" title="GetVehiclePaintjob">getVehiclePaintjob</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehiclePanelState" title="GetVehiclePanelState">getVehiclePanelState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehiclePlateText" title="GetVehiclePlateText">getVehiclePlateText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleSirensOn" title="GetVehicleSirensOn">getVehicleSirensOn</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehiclesOfType" title="GetVehiclesOfType">getVehiclesOfType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleTowedByVehicle" title="GetVehicleTowedByVehicle">getVehicleTowedByVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleTowingVehicle" title="GetVehicleTowingVehicle">getVehicleTowingVehicle</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleTurnVelocity" title="GetVehicleTurnVelocity">getVehicleTurnVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleTurretPosition" title="GetVehicleTurretPosition">getVehicleTurretPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleType" title="GetVehicleType">getVehicleType</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleUpgradeOnSlot" title="GetVehicleUpgradeOnSlot">getVehicleUpgradeOnSlot</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleUpgrades" title="GetVehicleUpgrades">getVehicleUpgrades</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleUpgradeSlotName" title="GetVehicleUpgradeSlotName">getVehicleUpgradeSlotName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleWheelStates" title="GetVehicleWheelStates">getVehicleWheelStates</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleDoorOpenRatio" title="GetVehicleDoorOpenRatio">getVehicleDoorOpenRatio</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleHandling" title="GetVehicleHandling">getVehicleHandling</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetModelHandling" title="GetModelHandling">getModelHandling</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetOriginalHandling" title="GetOriginalHandling">getOriginalHandling</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleHeadLightColor" title="GetVehicleHeadLightColor">getVehicleHeadLightColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleModelFromName" title="GetVehicleModelFromName">getVehicleModelFromName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleNameFromModel" title="GetVehicleNameFromModel">getVehicleNameFromModel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleVariant" title="GetVehicleVariant">getVehicleVariant</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleSirenParams" title="GetVehicleSirenParams">getVehicleSirenParams</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehicleSirens" title="GetVehicleSirens">getVehicleSirens</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/SetModelHandling" title="SetModelHandling">setModelHandling</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrainDerailable" title="SetTrainDerailable">setTrainDerailable</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrainDerailed" title="SetTrainDerailed">setTrainDerailed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrainDirection" title="SetTrainDirection">setTrainDirection</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrainSpeed" title="SetTrainSpeed">setTrainSpeed</a>
+                            </li>
+                        </ul>
+                        <div style="font-weight: bold;background:black;color:white;padding:2px; padding-left:8px;">FROM VERSION 1.6
+                            <a rel="nofollow" class="external text" href="https://buildinfo.mtasa.com/?Author=&amp;Branch=&amp;Revision=7485">
+                                <span style="color: #FFFFFF;">r7485</span>
+                            </a> ONWARDS</div>
+                        <div style="border: 2px solid black;padding: 3px;">
+                            <ul>
+                                <li>
+                                    <a href="/wiki/SetTrainTrack" title="SetTrainTrack">setTrainTrack</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="/wiki/SetTrainPosition" title="SetTrainPosition">setTrainPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleColor" title="SetVehicleColor">setVehicleColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleDamageProof" title="SetVehicleDamageProof">setVehicleDamageProof</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleDoorState" title="SetVehicleDoorState">setVehicleDoorState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleDoorsUndamageable" title="SetVehicleDoorsUndamageable">setVehicleDoorsUndamageable</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleEngineState" title="SetVehicleEngineState">setVehicleEngineState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleFuelTankExplodable" title="SetVehicleFuelTankExplodable">setVehicleFuelTankExplodable</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleIdleRespawnDelay" title="SetVehicleIdleRespawnDelay">setVehicleIdleRespawnDelay</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleLandingGearDown" title="SetVehicleLandingGearDown">setVehicleLandingGearDown</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleLightState" title="SetVehicleLightState">setVehicleLightState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleLocked" title="SetVehicleLocked">setVehicleLocked</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleOverrideLights" title="SetVehicleOverrideLights">setVehicleOverrideLights</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehiclePaintjob" title="SetVehiclePaintjob">setVehiclePaintjob</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehiclePanelState" title="SetVehiclePanelState">setVehiclePanelState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehiclePlateText" title="SetVehiclePlateText">setVehiclePlateText</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleRespawnDelay" title="SetVehicleRespawnDelay">setVehicleRespawnDelay</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleRespawnPosition" title="SetVehicleRespawnPosition">setVehicleRespawnPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleSirensOn" title="SetVehicleSirensOn">setVehicleSirensOn</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleTurretPosition" title="SetVehicleTurretPosition">setVehicleTurretPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleDoorOpenRatio" title="SetVehicleDoorOpenRatio">setVehicleDoorOpenRatio</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleHandling" title="SetVehicleHandling">setVehicleHandling</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleTurnVelocity" title="SetVehicleTurnVelocity">setVehicleTurnVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleWheelStates" title="SetVehicleWheelStates">setVehicleWheelStates</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleHeadLightColor" title="SetVehicleHeadLightColor">setVehicleHeadLightColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleTaxiLightOn" title="SetVehicleTaxiLightOn">setVehicleTaxiLightOn</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleVariant" title="SetVehicleVariant">setVehicleVariant</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehicleSirens" title="SetVehicleSirens">setVehicleSirens</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Water_functions">Water functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/CreateWater" title="CreateWater">createWater</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetWaterColor" title="GetWaterColor">getWaterColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWaterVertexPosition" title="GetWaterVertexPosition">getWaterVertexPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWaveHeight" title="GetWaveHeight">getWaveHeight</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ResetWaterColor" title="ResetWaterColor">resetWaterColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWaterColor" title="SetWaterColor">setWaterColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWaterLevel" title="SetWaterLevel">setWaterLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWaterVertexPosition" title="SetWaterVertexPosition">setWaterVertexPosition</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWaveHeight" title="SetWaveHeight">setWaveHeight</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/ResetWaterLevel" title="ResetWaterLevel">resetWaterLevel</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="Weapon_functions">Weapon functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/GetSlotFromWeapon" title="GetSlotFromWeapon">getSlotFromWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWeaponIDFromName" title="GetWeaponIDFromName">getWeaponIDFromName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWeaponNameFromID" title="GetWeaponNameFromID">getWeaponNameFromID</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GiveWeapon" title="GiveWeapon">giveWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWeaponAmmo" title="SetWeaponAmmo">setWeaponAmmo</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TakeAllWeapons" title="TakeAllWeapons">takeAllWeapons</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/TakeWeapon" title="TakeWeapon">takeWeapon</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetOriginalWeaponProperty" title="GetOriginalWeaponProperty">getOriginalWeaponProperty</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWeaponProperty" title="GetWeaponProperty">getWeaponProperty</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWeaponProperty" title="SetWeaponProperty">setWeaponProperty</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="World_functions">World functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/AreTrafficLightsLocked" title="AreTrafficLightsLocked">areTrafficLightsLocked</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetCloudsEnabled" title="GetCloudsEnabled">getCloudsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetGameSpeed" title="GetGameSpeed">getGameSpeed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetGravity" title="GetGravity">getGravity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetHeatHaze" title="GetHeatHaze">getHeatHaze</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetJetpackMaxHeight" title="GetJetpackMaxHeight">getJetpackMaxHeight</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMinuteDuration" title="GetMinuteDuration">getMinuteDuration</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetSkyGradient" title="GetSkyGradient">getSkyGradient</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTime" title="GetTime">getTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetTrafficLightState" title="GetTrafficLightState">getTrafficLightState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetVehiclesLODDistance" title="GetVehiclesLODDistance">getVehiclesLODDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWeather" title="GetWeather">getWeather</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetZoneName" title="GetZoneName">getZoneName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/IsGarageOpen" title="IsGarageOpen">isGarageOpen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetSkyGradient" title="ResetSkyGradient">resetSkyGradient</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetHeatHaze" title="ResetHeatHaze">resetHeatHaze</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetCloudsEnabled" title="SetCloudsEnabled">setCloudsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetGameSpeed" title="SetGameSpeed">setGameSpeed</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetGarageOpen" title="SetGarageOpen">setGarageOpen</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetGravity" title="SetGravity">setGravity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetHeatHaze" title="SetHeatHaze">setHeatHaze</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMinuteDuration" title="SetMinuteDuration">setMinuteDuration</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetSkyGradient" title="SetSkyGradient">setSkyGradient</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTime" title="SetTime">setTime</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrafficLightState" title="SetTrafficLightState">setTrafficLightState</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetTrafficLightsLocked" title="SetTrafficLightsLocked">setTrafficLightsLocked</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetVehiclesLODDistance" title="SetVehiclesLODDistance">setVehiclesLODDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWeather" title="SetWeather">setWeather</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWeatherBlended" title="SetWeatherBlended">setWeatherBlended</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetInteriorSoundsEnabled" title="SetInteriorSoundsEnabled">setInteriorSoundsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetInteriorSoundsEnabled" title="GetInteriorSoundsEnabled">getInteriorSoundsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetRainLevel" title="SetRainLevel">setRainLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetRainLevel" title="GetRainLevel">getRainLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetRainLevel" title="ResetRainLevel">resetRainLevel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetSunSize" title="SetSunSize">setSunSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetSunSize" title="GetSunSize">getSunSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetSunSize" title="ResetSunSize">resetSunSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetSunColor" title="SetSunColor">setSunColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetSunColor" title="GetSunColor">getSunColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetSunColor" title="ResetSunColor">resetSunColor</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetWindVelocity" title="SetWindVelocity">setWindVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetWindVelocity" title="GetWindVelocity">getWindVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetWindVelocity" title="ResetWindVelocity">resetWindVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetFarClipDistance" title="SetFarClipDistance">setFarClipDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetFarClipDistance" title="GetFarClipDistance">getFarClipDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetFarClipDistance" title="ResetFarClipDistance">resetFarClipDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetFogDistance" title="SetFogDistance">setFogDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetFogDistance" title="GetFogDistance">getFogDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetFogDistance" title="ResetFogDistance">resetFogDistance</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RemoveWorldModel" title="RemoveWorldModel">removeWorldModel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RestoreWorldModel" title="RestoreWorldModel">restoreWorldModel</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/RestoreAllWorldModels" title="RestoreAllWorldModels">restoreAllWorldModels</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetOcclusionsEnabled" title="SetOcclusionsEnabled">setOcclusionsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetOcclusionsEnabled" title="GetOcclusionsEnabled">getOcclusionsEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetJetpackWeaponEnabled" title="SetJetpackWeaponEnabled">setJetpackWeaponEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetJetpackWeaponEnabled" title="GetJetpackWeaponEnabled">getJetpackWeaponEnabled</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetAircraftMaxVelocity" title="SetAircraftMaxVelocity">setAircraftMaxVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetAircraftMaxVelocity" title="GetAircraftMaxVelocity">getAircraftMaxVelocity</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/SetMoonSize" title="SetMoonSize">setMoonSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/GetMoonSize" title="GetMoonSize">getMoonSize</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/ResetMoonSize" title="ResetMoonSize">resetMoonSize</a>
+                            </li>
+                        </ul>
+                        <p>
+                            <br />
+                        </p>
+                        <h2>
+                            <span class="mw-headline" id="XML_functions">XML functions</span>
+                        </h2>
+                        <ul>
+                            <li>
+                                <a href="/wiki/XmlCopyFile" title="XmlCopyFile">xmlCopyFile</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlCreateFile" title="XmlCreateFile">xmlCreateFile</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlDestroyNode" title="XmlDestroyNode">xmlDestroyNode</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlLoadFile" title="XmlLoadFile">xmlLoadFile</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetAttribute" title="XmlNodeGetAttribute">xmlNodeGetAttribute</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetValue" title="XmlNodeGetValue">xmlNodeGetValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeSetAttribute" title="XmlNodeSetAttribute">xmlNodeSetAttribute</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeSetValue" title="XmlNodeSetValue">xmlNodeSetValue</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlSaveFile" title="XmlSaveFile">xmlSaveFile</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlUnloadFile" title="XmlUnloadFile">xmlUnloadFile</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="/wiki/XmlCreateChild" title="XmlCreateChild">xmlCreateChild</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlFindChild" title="XmlFindChild">xmlFindChild</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetAttributes" title="XmlNodeGetAttributes">xmlNodeGetAttributes</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetChildren" title="XmlNodeGetChildren">xmlNodeGetChildren</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetName" title="XmlNodeGetName">xmlNodeGetName</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeGetParent" title="XmlNodeGetParent">xmlNodeGetParent</a>
+                            </li>
+                            <li>
+                                <a href="/wiki/XmlNodeSetName" title="XmlNodeSetName">xmlNodeSetName</a>
+                            </li>
+                        </ul>
+
+                        <!-- 
+NewPP limit report
+Cached time: 20180209071100
+Cache expiry: 86400
+Dynamic content: false
+CPU time usage: 0.301 seconds
+Real time usage: 0.372 seconds
+Preprocessor visited node count: 1292/1000000
+Preprocessor generated node count: 1698/1000000
+Post‐expand include size: 22039/2097152 bytes
+Template argument size: 1692/2097152 bytes
+Highest expansion depth: 10/40
+Expensive parser function count: 0/100
+-->
+
+                        <!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  191.134      1 - -total
+ 30.85%   58.959     34 - Template:New_items
+ 19.06%   36.433      1 - Template:Admin_functions
+ 18.73%   35.802     36 - Template:Current_Version
+  9.75%   18.631      1 - Template:Utility_functions
+  6.85%   13.084      1 - Template:Vehicle_functions
+  3.86%    7.380      1 - Template:ACL_functions
+  3.76%    7.189      1 - Template:SQL_functions
+  3.55%    6.789      1 - Template:Water_functions
+  2.83%    5.405      1 - Template:Event_functions
+-->
+
+                        <!-- Saved in parser cache with key mta_wiki-wiki_dev_:pcache:idhash:1280-0!*!0!!en!*!* and timestamp 20180209071100 and revision id 52761
+ -->
+                    </div>
+                    <div class="printfooter">
+                        Retrieved from "
+                        <a dir="ltr" href="https://wiki.multitheftauto.com/index.php?title=Server_Scripting_Functions&amp;oldid=52761">https://wiki.multitheftauto.com/index.php?title=Server_Scripting_Functions&amp;oldid=52761</a>"</div>
+                    <div id="catlinks" class="catlinks catlinks-allhidden" data-mw="interface"></div>
+                    <!-- end content -->
+                    <div class="visualClear"></div>
+                </div>
+            </div>
+        </div>
+        <div id="column-one">
+            <h2>Navigation menu</h2>
+            <div id="p-cactions" class="portlet" role="navigation">
+                <h3>Views</h3>
+
+                <div class="pBody">
+                    <ul>
+                        <li id="ca-nstab-main" class="selected">
+                            <a href="/wiki/Server_Scripting_Functions" title="View the content page [c]" accesskey="c">Page</a>
+                        </li>
+                        <li id="ca-talk">
+                            <a href="/wiki/Talk:Server_Scripting_Functions" rel="discussion" title="Discussion about the content page [t]"
+                                accesskey="t">Discussion</a>
+                        </li>
+                        <li id="ca-viewsource">
+                            <a href="/index.php?title=Server_Scripting_Functions&amp;action=edit" title="This page is protected.&#10;You can view its source [e]"
+                                accesskey="e">View source</a>
+                        </li>
+                        <li id="ca-history">
+                            <a href="/index.php?title=Server_Scripting_Functions&amp;action=history" title="Past revisions of this page [h]"
+                                accesskey="h">History</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="portlet" id="p-personal" role="navigation">
+                <h3>Personal tools</h3>
+
+                <div class="pBody">
+                    <ul>
+                        <li id="pt-createaccount">
+                            <a href="/index.php?title=Special:CreateAccount&amp;returnto=Server+Scripting+Functions" title="You are encouraged to create an account and log in; however, it is not mandatory">Create account</a>
+                        </li>
+                        <li id="pt-login">
+                            <a href="/index.php?title=Special:UserLogin&amp;returnto=Server+Scripting+Functions" title="You are encouraged to log in; however, it is not mandatory [o]"
+                                accesskey="o">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="portlet" id="p-logo" role="banner">
+                <a href="/wiki/Main_Page" class="mw-wiki-logo" title="Visit the main page"></a>
+            </div>
+            <div class="generated-sidebar portlet" id="p-navigation" role="navigation">
+                <h3>Navigation</h3>
+                <div class='pBody'>
+                    <ul>
+                        <li id="n-Home">
+                            <a href="/wiki/Main_Page">Home</a>
+                        </li>
+                        <li id="n-How-you-can-help">
+                            <a href="/wiki/How_you_can_help">How you can help</a>
+                        </li>
+                        <li id="n-recentchanges">
+                            <a href="/wiki/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a>
+                        </li>
+                        <li id="n-randompage">
+                            <a href="/wiki/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="generated-sidebar portlet" id="p-reference" role="navigation">
+                <h3>reference</h3>
+                <div class='pBody'>
+                    <ul>
+                        <li id="n-Client-Functions">
+                            <a href="/wiki/Client_Scripting_Functions">Client Functions</a>
+                        </li>
+                        <li id="n-Client-Events">
+                            <a href="/wiki/Client_Scripting_Events">Client Events</a>
+                        </li>
+                        <li id="n-Server-Functions">
+                            <a href="/wiki/Server_Scripting_Functions">Server Functions</a>
+                        </li>
+                        <li id="n-Server-Events">
+                            <a href="/wiki/Server_Scripting_Events">Server Events</a>
+                        </li>
+                        <li id="n-Useful-Functions">
+                            <a href="/wiki/Useful_Functions">Useful Functions</a>
+                        </li>
+                        <li id="n-MTA-Classes">
+                            <a href="/wiki/MTA_Classes">MTA Classes</a>
+                        </li>
+                        <li id="n-MTA-Elements">
+                            <a href="/wiki/Element">MTA Elements</a>
+                        </li>
+                        <li id="n-Element-Tree">
+                            <a href="/wiki/Element_tree">Element Tree</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="p-search" class="portlet" role="search">
+                <h3>
+                    <label for="searchInput">Search</label>
+                </h3>
+
+                <div id="searchBody" class="pBody">
+                    <form action="/index.php" id="searchform">
+                        <input type='hidden' name="title" value="Special:Search" />
+                        <input type="search" name="search" placeholder="Search" title="Search Multi Theft Auto: Wiki [f]" accesskey="f" id="searchInput"
+                        />
+                        <input type="submit" name="go" value="Go" title="Go to a page with this exact name if it exists" id="searchGoButton" class="searchButton"
+                        />&#160;
+                        <input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton"
+                        />
+                    </form>
+
+                </div>
+            </div>
+            <div class="portlet" id="p-tb" role="navigation">
+                <h3>Tools</h3>
+
+                <div class="pBody">
+                    <ul>
+                        <li id="t-whatlinkshere">
+                            <a href="/wiki/Special:WhatLinksHere/Server_Scripting_Functions" title="A list of all wiki pages that link here [j]"
+                                accesskey="j">What links here</a>
+                        </li>
+                        <li id="t-recentchangeslinked">
+                            <a href="/wiki/Special:RecentChangesLinked/Server_Scripting_Functions" title="Recent changes in pages linked from this page [k]"
+                                accesskey="k">Related changes</a>
+                        </li>
+                        <li id="t-specialpages">
+                            <a href="/wiki/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a>
+                        </li>
+                        <li id="t-print">
+                            <a href="/index.php?title=Server_Scripting_Functions&amp;printable=yes" rel="alternate" title="Printable version of this page [p]"
+                                accesskey="p">Printable version</a>
+                        </li>
+                        <li id="t-permalink">
+                            <a href="/index.php?title=Server_Scripting_Functions&amp;oldid=52761" title="Permanent link to this revision of the page">Permanent link</a>
+                        </li>
+                        <li id="t-info">
+                            <a href="/index.php?title=Server_Scripting_Functions&amp;action=info" title="More information about this page">Page information</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div id="p-lang" class="portlet" role="navigation">
+                <h3>In other languages</h3>
+
+                <div class="pBody">
+                    <ul>
+                        <li class="interlanguage-link interwiki-ar">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=AR/Server_Scripting_Functions" title="Server Scripting Functions – العربية"
+                                lang="ar" hreflang="ar">العربية</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-de">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=DE/Server-Seitige_Scripting_Funktionen" title="Server-Seitige Scripting Funktionen – Deutsch"
+                                lang="de" hreflang="de">Deutsch</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-es">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=ES/Funciones_del_Server" title="Funciones del Server – español"
+                                lang="es" hreflang="es">Español</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-pl">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=PL/Server_Scripting_Functions" title="Server Scripting Functions – polski"
+                                lang="pl" hreflang="pl">Polski</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-pt-br">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=PT-BR/Fun%C3%A7%C3%B5es_de_Scripting_do_Servidor"
+                                title="Funções de Scripting do Servidor – português do Brasil" lang="pt-BR" hreflang="pt-BR">Português do Brasil</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-ru">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=RU/Server_Scripting_Functions" title="Server Scripting Functions – русский"
+                                lang="ru" hreflang="ru">Русский</a>
+                        </li>
+                        <li class="interlanguage-link interwiki-tr">
+                            <a href="http://wiki.multitheftauto.com/index.php?title=TR/Server_Scripting_Functions" title="Server Scripting Functions – Türkçe"
+                                lang="tr" hreflang="tr">Türkçe</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        <!-- end of the left (by default at least) column -->
+        <div class="visualClear"></div>
+        <div id="footer" role="contentinfo">
+            <div id="f-copyrightico">
+                <a href="http://www.gnu.org/copyleft/fdl.html">
+                    <img src="/resources/assets/licenses/gnu-fdl.png" alt="GNU Free Documentation License 1.2" width="88" height="31"
+                    />
+                </a>
+            </div>
+            <div id="f-poweredbyico">
+                <a href="//www.mediawiki.org/">
+                    <img src="/resources/assets/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x"
+                        width="88" height="31" />
+                </a>
+            </div>
+            <ul id="f-list">
+                <li id="lastmod"> This page was last modified on 4 November 2017, at 08:37.</li>
+                <li id="copyright">Content is available under
+                    <a class="external" rel="nofollow" href="http://www.gnu.org/copyleft/fdl.html">GNU Free Documentation License 1.2</a> unless otherwise noted.</li>
+                <li id="privacy">
+                    <a href="/wiki/Multi_Theft_Auto:_Wiki:Privacy_policy" title="Multi Theft Auto: Wiki:Privacy policy">Privacy policy</a>
+                </li>
+                <li id="about">
+                    <a href="/wiki/Multi_Theft_Auto:_Wiki:About" title="Multi Theft Auto: Wiki:About">About Multi Theft Auto: Wiki</a>
+                </li>
+                <li id="disclaimer">
+                    <a href="/wiki/Multi_Theft_Auto:_Wiki:General_disclaimer" title="Multi Theft Auto: Wiki:General disclaimer">Disclaimers</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>(window.RLQ = window.RLQ || []).push(function () { mw.loader.state({ "user": "ready", "user.groups": "ready" }); mw.loader.load(["mediawiki.toc", "mediawiki.action.view.postEdit", "site", "mediawiki.user", "mediawiki.hidpi", "mediawiki.page.ready", "mediawiki.searchSuggest", "ext.GoogleCodePrettify"]); });</script>
+    <script src="/extensions/_MTAThemeExtensions/main.js?303"></script>
+    <script src="/extensions/_MTAThemeExtensions/topmenu.js?303"></script>
+    <script>(window.RLQ = window.RLQ || []).push(function () { mw.config.set({ "wgBackendResponseTime": 37 }); });</script>
+</body>
+
+</html>
