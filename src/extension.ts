@@ -1057,7 +1057,7 @@ export function activate(context: vscode.ExtensionContext) {
 				new MTAFunction(2, "getPedClothes", "This example prints the model and texture of the current clothing on the player who enters the \"clothes\" command. For example: \"clothes 3\" for the shoes.", "string string", [" ped thePed", "int clothesType "], {}).toCompletionItem(),
 				new MTAFunction(2, "setElementDoubleSided", "This example shows how to set the double-sidedness of an object in a map file.", "bool", [" element theElement", "bool enable "], {}).toCompletionItem(),
 				new MTAFunction(2, "utf8.reverse", "This example shows how to reverse a UTF-8 string.", "string", [" string input "], {}).toCompletionItem(),
-				new MTAFunction(2, "getJetpackMaxHeight", "This function gets the maximum height at which your jetpack can fly without failing to go higher.This example returns the max jetpack height to a player if they use the command 'jetpackmaxheight'.", "float", [" "], {}).toCompletionItem(),
+				new MTAFunction(2, "getJetpackMaxHeight", "This function gets the maximum height at which your jetpack can fly without failing to go higher.This example returns the max jetpack height to a player if they use the command 'jetpackmaxheight'.", "float", [], {}).toCompletionItem(),
 				new MTAFunction(2, "utf8.title", "This example shows how to convert a string to uppercase.", "string utf8.upper ( string|int input )string", [" string|int input "], {}).toCompletionItem(),
 				new MTAFunction(2, "attachTrailerToVehicle", "This function attaches a trailer type vehicle to a trailer-towing-type vehicle.", "bool", [" vehicle theVehicle", "vehicle theTrailer "], {}).toCompletionItem(),
 				new MTAFunction(2, "setPedWeaponSlot", "This function changes the selected weapon slot of a ped.This example allows the player to type the command 'giveweapons', which gives the player a weapon for every slot. Instead of equipping the last given weapon, the script randomly decides which weapon to equip after all the weapons are given.", "bool", [" ped thePed", "int weaponSlot "], {}).toCompletionItem(),
@@ -1071,7 +1071,7 @@ export function activate(context: vscode.ExtensionContext) {
 				new MTAFunction(2, "getSkyGradient", "This function will return the current sky color.", "int, int, int, int, int, int", [" "], {}).toCompletionItem(),
 				new MTAFunction(2, "setWeaponProperty", "This function sets the weapon property of the specified weapons specified weapon type. See lower down the page for documentation related to weapon creation.", "bool", [" int weaponID/string weaponName", "string weaponSkill", "string property", "int/float theValue "], {}).toCompletionItem(),
 				new MTAFunction(2, "getRootElement", "Example 1: This example displays a chat message to all users.", "", [], {}).toCompletionItem(),
-			];
+			]
 		}
 	});
 }
