@@ -3,6 +3,19 @@
     "name": "Dark MTA Edit (Visual Studio)",
     "include": "./dark_vs.json",
     "tokenColors":[
+		{
+			"scope": "constant.language",
+			"settings": {
+				"foreground": "#566dd6"
+			}
+		},
+		{
+            "name": "Keyword",
+			"scope": "keyword.operator",
+			"settings": {
+				"foreground": "#4887bb"
+			}
+		},
         {
             "name": "Function Name",
             "scope": "entity.name.function",
