@@ -1,10 +1,10 @@
 'use strict';
 
-import {LuaFunction, ScriptSide} from "./defs";
+import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var ClientDefinitions = new Array<LuaFunction>();
 
-var tmpDef = new LuaFunction;
+var tmpDef = new MTAFunction;
 tmpDef.label = "getSoundEffects";
 tmpDef.description = "Returns the states of all effects of a sound.";
 tmpDef.returnType = "table";
@@ -13,7 +13,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getRadioChannel";
 tmpDef.description = "This function retrieves the ID of the currently active radio channel.";
 tmpDef.returnType = "int";
@@ -22,7 +22,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundLevelData";
 tmpDef.description = "This function gets the left/right level from a sound element.If the element is a player, this function will use the players voice.";
 tmpDef.returnType = "int, int";
@@ -31,7 +31,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isPlayerMapVisible";
 tmpDef.description = "This function checks if the local player has their map showing";
 tmpDef.returnType = "bool";
@@ -40,7 +40,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundMetaTags";
 tmpDef.description = "Used to get the meta tags attached to a sound. These provide information about the sound, for instance the title or the artist.";
 tmpDef.returnType = "table";
@@ -49,7 +49,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createProjectile";
 tmpDef.description = "This function creates a projectile of the specified type on the specified coordinates.";
 tmpDef.returnType = "projectile";
@@ -58,7 +58,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundFFTData";
 tmpDef.description = "This function gets the fast fourier transform data for an audio stream which is a table of floats representing the current audio frame.This allows things like visualisations.";
 tmpDef.returnType = "table";
@@ -67,7 +67,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundBPM";
 tmpDef.description = "This function gets the beats per minute of a specific sound element.";
 tmpDef.returnType = "int";
@@ -76,7 +76,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundMaxDistance";
 tmpDef.description = "Gets a custom sound max distance at which the sound stops.";
 tmpDef.returnType = "int";
@@ -85,7 +85,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getCursorPosition";
 tmpDef.description = "This function gets the current position of the mouse cursor. Note that for performance reasons, the world position returned is always 300 units away. If you want the exact world point (similar to onClientClick), use processLineOfSight between the camera position and the worldX/Y/Z result of this function. (See example below)";
 tmpDef.returnType = "float float float float float";
@@ -94,7 +94,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiMoveToBack";
 tmpDef.description = "This function moves a GUI element to the very back of all other GUI elements.";
 tmpDef.returnType = "bool";
@@ -103,7 +103,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundLength";
 tmpDef.description = "This function is used to return the playback length of the specified sound element.If the element is a player, this function will use the players voice.";
 tmpDef.returnType = "float";
@@ -112,7 +112,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetAlpha";
 tmpDef.description = "This changes the alpha level (the visibleness/transparency) of a GUI element";
 tmpDef.returnType = "bool";
@@ -121,7 +121,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSFXStatus";
 tmpDef.description = "This function checks if a big sound container is available to use or not.";
 tmpDef.returnType = "bool";
@@ -130,7 +130,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getRadioChannelName";
 tmpDef.description = "This function gets the given radio channel name.";
 tmpDef.returnType = "string";
@@ -139,7 +139,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundWaveData";
 tmpDef.description = "This function gets the wave form data for an audio stream which is a table of floats representing the current audio frame as a wave.This allows things like visualisations.";
 tmpDef.returnType = "table";
@@ -148,7 +148,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundSpeed";
 tmpDef.description = "This function is used to return the playback speed of the specified sound element.";
 tmpDef.returnType = "float";
@@ -157,7 +157,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isSoundPaused";
 tmpDef.description = "This function is used to return the current pause state of the specified sound element.";
 tmpDef.returnType = "bool";
@@ -166,7 +166,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundVolume";
 tmpDef.description = "This function is used to return the volume level of the specified sound element.If the element is a player, this function will use the players voice.";
 tmpDef.returnType = "float";
@@ -175,7 +175,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "playSound";
 tmpDef.description = "Creates a sound element and plays it immediately after creation for the local player. Note: The only supported audio formats are MP3, WAV, OGG, RIFF, MOD, XM, IT, S3M and PLS(e.g. Webstream).";
 tmpDef.returnType = "element";
@@ -184,7 +184,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundPan";
 tmpDef.description = "This function is used to get the pan level of the specified sound element.";
 tmpDef.returnType = "float";
@@ -193,7 +193,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "executeBrowserJavascript";
 tmpDef.description = "This function executes a Javascript string to the specified browser. Works only with local browsers.";
 tmpDef.returnType = "bool";
@@ -202,7 +202,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundProperties";
 tmpDef.description = "This function gets the properties of a specific sound.";
 tmpDef.returnType = "float, float, float, bool";
@@ -211,7 +211,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "focusBrowser";
 tmpDef.description = "This function will attempt to focus the browser or unfocus all browsers. The browser that is focused will retrieve keyboard input.This example creates browser and focus it";
 tmpDef.returnType = "bool";
@@ -220,7 +220,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getCamera";
 tmpDef.description = "This function returns an element that corresponds to the game camera";
 tmpDef.returnType = "element";
@@ -229,7 +229,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getElementDistanceFromCentreOfMassToBaseOfModel";
 tmpDef.description = "This function is used to retrieve the distance between a element's centre of mass to the base of the model. This can be used to calculate the position the element has to be set to, to have it on ground level.";
 tmpDef.returnType = "float";
@@ -238,7 +238,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isPedTargetingMarkerEnabled";
 tmpDef.description = "This example will toggle the targeting markers with the command /togtargetmarkers.";
 tmpDef.returnType = "bool";
@@ -247,7 +247,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundSpeed";
 tmpDef.description = "This function can be used to change the playback speed of the specified sound element.";
 tmpDef.returnType = "bool";
@@ -256,7 +256,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "playSound3D";
 tmpDef.description = "Creates a sound element in the GTA world and plays it immediately after creation for the local player. setElementPosition can be used to move the sound element around after it has been created. Remember to use setElementDimension after creating the sound to play it outside of dimension 0.";
 tmpDef.returnType = "element";
@@ -265,7 +265,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isSoundPanningEnabled";
 tmpDef.description = "This function checks whether panning is enabled in a sound element or not.";
 tmpDef.returnType = "bool";
@@ -274,7 +274,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundMaxDistance";
 tmpDef.description = "Sets a custom sound max distance at which the sound stops.";
 tmpDef.returnType = "bool";
@@ -283,7 +283,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundMinDistance";
 tmpDef.description = "Gets a custom sound Minimum distance at which the sound stops getting louder.";
 tmpDef.returnType = "int";
@@ -292,7 +292,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "playSFX";
 tmpDef.description = "This function plays a sound from GTA's big sound containers.";
 tmpDef.returnType = "element";
@@ -301,7 +301,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundPosition";
 tmpDef.description = "This function is used to return the current seek position of the specified sound element.If the element is a player, this function will use the players voice.";
 tmpDef.returnType = "float";
@@ -310,7 +310,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "playSFX3D";
 tmpDef.description = "This function plays a sound in the GTA world from GTA's big sound containers.";
 tmpDef.returnType = "element";
@@ -319,7 +319,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundPanningEnabled";
 tmpDef.description = "This function toggles the panning of a sound (hearing it closer to the left or right side of the speakers due to the camera position). By default a sound has its panning enabled.";
 tmpDef.returnType = "bool";
@@ -328,7 +328,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundPosition";
 tmpDef.description = "This function is used to change the seek position of the specified sound element.Use a player element to control a players voice with this function.";
 tmpDef.returnType = "bool";
@@ -337,7 +337,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundPaused";
 tmpDef.description = "This function is used to either pause or unpause the playback of the specified sound element.";
 tmpDef.returnType = "bool";
@@ -346,7 +346,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "stopSound";
 tmpDef.description = "Stops the sound playback for specified sound element. The sound element is also destroyed.";
 tmpDef.returnType = "bool";
@@ -355,7 +355,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxCreateFont";
 tmpDef.description = "This function creates a DX font element that can be used in dxDrawText. Successful font creation is not guaranteed, and may fail due to hardware or memory limitations.";
 tmpDef.returnType = "element";
@@ -364,7 +364,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedAimTarget";
 tmpDef.description = "This function allows you to set a ped's aim target to a specific point. If a ped is within a certain range defined by getPedTargetStart and getPedTargetEnd he will be targeted and shot.";
 tmpDef.returnType = "bool";
@@ -373,7 +373,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedCameraRotation";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -382,7 +382,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiCreateFont";
 tmpDef.description = "This function creates a GUI font element that can be used in guiSetFont. Successful font creation is not guaranteed, and may fail due to hardware or memory limitations.";
 tmpDef.returnType = "element";
@@ -391,7 +391,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isPedDoingTask";
 tmpDef.description = "This function checks if the specified ped is carrying out a certain task.";
 tmpDef.returnType = "bool";
@@ -400,7 +400,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundMinDistance";
 tmpDef.description = "Sets a custom sound Minimum distance at which the sound stops getting louder.";
 tmpDef.returnType = "bool";
@@ -409,7 +409,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundPan";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -418,7 +418,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBulletImpact";
 tmpDef.description = "This example will create a Bullet Impact Effect on the position of the bullet impact.";
 tmpDef.returnType = "bool";
@@ -427,7 +427,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundEffectEnabled";
 tmpDef.description = "Used to enable or disable specific sound effects.Use a player element to control a players voice with this function.";
 tmpDef.returnType = "bool";
@@ -436,7 +436,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddDebris";
 tmpDef.description = "This example will create a Debris Effect next to you when typing /debris in the Chatbox.";
 tmpDef.returnType = "bool";
@@ -445,7 +445,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundVolume";
 tmpDef.description = "This function is used to change the volume level of the specified sound element.Use a player element to control a players voice with this function.";
 tmpDef.returnType = "bool";
@@ -454,7 +454,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddTankFire";
 tmpDef.description = "This example will create a Tank Fire Effect at your weapon's muzzle position";
 tmpDef.returnType = "bool";
@@ -463,7 +463,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddFootSplash";
 tmpDef.description = "This example will create a Foot Splash at the position of the bullet impact whenever you shoot.";
 tmpDef.returnType = "bool";
@@ -472,7 +472,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBulletSplash";
 tmpDef.description = "This example will add a Bullet Splash Effect next to your player when typing /bsplash in the Chatbox.";
 tmpDef.returnType = "bool";
@@ -481,7 +481,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "Vector3";
 tmpDef.description = "";
 tmpDef.returnType = "vector3";
@@ -490,7 +490,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSoundProperties";
 tmpDef.description = "This function edit's the properties of a specific sound.";
 tmpDef.returnType = "bool";
@@ -499,7 +499,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddSparks";
 tmpDef.description = "This example will add Fire Bins to all locations added in the table.";
 tmpDef.returnType = "bool";
@@ -508,7 +508,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setRadioChannel";
 tmpDef.description = "This function sets the heard radio channel, even while not in a vehicle.";
 tmpDef.returnType = "bool";
@@ -517,7 +517,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedVoice";
 tmpDef.description = "Gets the current voice of a ped.";
 tmpDef.returnType = "string string";
@@ -526,7 +526,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedWeaponMuzzlePosition";
 tmpDef.description = "This Example draws a red 3D-Line when a Player shoots,between the Players WeaponMuzzlePosition and the Point where the Bullet hits.[Tested]";
 tmpDef.returnType = "float, float, float";
@@ -535,7 +535,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPlayerMapBoundingBox";
 tmpDef.description = "This function gets the GUI bounding box of the radar map texture.";
 tmpDef.returnType = "int, int, int, int";
@@ -544,7 +544,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "canPedBeKnockedOffBike";
 tmpDef.description = "This function checks if the given ped can fall off bikes.";
 tmpDef.returnType = "bool";
@@ -553,7 +553,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetPixelColor";
 tmpDef.description = "This function gets the color of a single pixel from pixels contained in a string. It only works with 'plain' format pixels.";
 tmpDef.returnType = "int r,g,b,a";
@@ -562,7 +562,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementLocal";
 tmpDef.description = "This function checks whether a clientside element is local to the client (doesn't exist in the server) or not.";
 tmpDef.returnType = "bool";
@@ -571,7 +571,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "givePedWeapon";
 tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
 tmpDef.returnType = "bool";
@@ -580,7 +580,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineReplaceModel";
 tmpDef.description = "Client-side example for replacing vehicle model and texture with custom ones.Server-side example function for triggering the replace.Client-side example for replacing weapons with custom mods.Client-Side example for replacing object collision, texture and model with custom ones.Server-side example function for triggering the replace.";
 tmpDef.returnType = "bool";
@@ -589,7 +589,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementSyncer";
 tmpDef.description = "This function checks whether an element is synced by the local player or not. Accepted elements are peds and vehicles.This example draws a string above peds synced by local player in 50m proximity";
 tmpDef.returnType = "bool";
@@ -598,7 +598,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawText";
 tmpDef.description = "Draws a string of text on the screen for one frame. In order for the text to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
 tmpDef.returnType = "bool";
@@ -607,7 +607,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "tocolor";
 tmpDef.description = "Draws an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).Image files should ideally have dimensions that are a power of two, to prevent possible blurring.Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...";
 tmpDef.returnType = "bool dxDrawImage ( float posX, float posY, float width, float height, mixed image, [ float rotation = 0, float rotationCenterOffsetX = 0, float rotationCenterOffsetY = 0, int color =";
@@ -616,7 +616,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawImageSection";
 tmpDef.description = "Differing from dxDrawImage, this function only draws a part of an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
 tmpDef.returnType = "bool";
@@ -625,7 +625,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetPixelsSize";
 tmpDef.description = "This function gets the dimensions of pixels contained in a string. It works with all pixel formats.";
 tmpDef.returnType = "int int";
@@ -634,7 +634,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddTyreBurst";
 tmpDef.description = "This example will create a Tyre Burst Effect next to you when typing /tyreburst in the Chatbox.";
 tmpDef.returnType = "bool";
@@ -643,7 +643,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetShaderTessellation";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -652,7 +652,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setCursorPosition";
 tmpDef.description = "This function sets the current position of the mouse cursor.";
 tmpDef.returnType = "bool";
@@ -661,7 +661,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxCreateScreenSource";
 tmpDef.description = "This function creates a screen source, which is a special type of texture that contains the screen as rendered by GTA";
 tmpDef.returnType = "element";
@@ -670,7 +670,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxCreateTexture";
 tmpDef.description = "This function creates a texture element that can be used in the dxDraw functions.";
 tmpDef.returnType = "element";
@@ -679,7 +679,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawLine3D";
 tmpDef.description = "This function draws a 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
 tmpDef.returnType = "bool";
@@ -688,7 +688,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawLine";
 tmpDef.description = "This function draws a 2D line across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
 tmpDef.returnType = "bool";
@@ -697,7 +697,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxCreateShader";
 tmpDef.description = "This function creates a shader element that can be used in the dxDraw functions. Successful shader creation is not guaranteed unless the Effect File contains a fallback technique which will work on every PC in the universe.";
 tmpDef.returnType = "element, string";
@@ -706,7 +706,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetMaterialSize";
 tmpDef.description = "This gets the dimensions of the supplied material element.";
 tmpDef.returnType = "int, int [, int]";
@@ -715,7 +715,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetStatus";
 tmpDef.description = "This function gets information about various internal datum";
 tmpDef.returnType = "table";
@@ -724,7 +724,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetTexturePixels";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -733,7 +733,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawRectangle";
 tmpDef.description = "This function draws a 2D rectangle across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously. Example of MOTD (message of the day), made using DxDrawText, -Line and -Rectangle.";
 tmpDef.returnType = "bool";
@@ -742,7 +742,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetShaderTransform";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -751,7 +751,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetTestMode";
 tmpDef.description = "This function is used for testing scripts written using guiCreateFont, dxCreateFont, dxCreateShader and dxCreateRenderTarget.";
 tmpDef.returnType = "bool";
@@ -760,7 +760,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWaterHydrant";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -769,7 +769,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getEffectDensity";
 tmpDef.description = "This function gets the density of certain effect.";
 tmpDef.returnType = "float";
@@ -778,7 +778,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddGlass";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -787,7 +787,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetBlendMode";
 tmpDef.description = "";
 tmpDef.returnType = "string";
@@ -796,7 +796,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getElementBoundingBox";
 tmpDef.description = "This function returns the minimum and maximum coordinates of an element's bounding box.";
 tmpDef.returnType = "float float float float float float";
@@ -805,7 +805,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createBrowser";
 tmpDef.description = "This function creates a new web browser element.";
 tmpDef.returnType = "element";
@@ -814,7 +814,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWood";
 tmpDef.description = "This example will create a Wood Effect next to you when typing /woodfx in the Chatbox.";
 tmpDef.returnType = "bool";
@@ -823,7 +823,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxUpdateScreenSource";
 tmpDef.description = "This function updates the contents of a screen source texture with the screen output from GTA";
 tmpDef.returnType = "bool";
@@ -832,7 +832,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetShaderValue";
 tmpDef.description = "This sets a named parameter for a shader element";
 tmpDef.returnType = "bool";
@@ -841,7 +841,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawMaterialLine3D";
 tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.Draws an Image ( \"test.png\" Download : test.png ) from the Position 0,0,3 to 0,0,15";
 tmpDef.returnType = "bool";
@@ -850,7 +850,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxCreateRenderTarget";
 tmpDef.description = "This function creates a render target element, which is a special type of texture that can be drawn on with the dx functions. Successful render target creation is not guaranteed, and may fail due to hardware or memory limitations.";
 tmpDef.returnType = "element";
@@ -859,7 +859,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddGunshot";
 tmpDef.description = "This example adds a gunshot with sparks in front of your face.";
 tmpDef.returnType = "bool";
@@ -868,7 +868,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetTextWidth";
 tmpDef.description = "This function retrieves the theoretical width of a certain piece of text, if it were to be drawn using dxDrawText.This will show you the width of a message in a normal chatbox sent by a player";
 tmpDef.returnType = "float";
@@ -877,7 +877,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBlood";
 tmpDef.description = "This example creates blood effects when a player gets shot.";
 tmpDef.returnType = "bool";
@@ -886,7 +886,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWaterSplash";
 tmpDef.description = "This example will create a Water Splash at the position of the bullet impact whenever you shoot.";
 tmpDef.returnType = "bool";
@@ -895,7 +895,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetPixelsFormat";
 tmpDef.description = "This function returns the format of pixels contained in a string.";
 tmpDef.returnType = "string";
@@ -904,7 +904,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetEnabled";
 tmpDef.description = "This function determines if a GUI element is enabled.";
 tmpDef.returnType = "bool";
@@ -913,7 +913,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedTargetCollision";
 tmpDef.description = "This function allows retrieval of where a ped's target is blocked. It will only be blocked if there is an obstacle within a ped's target range.";
 tmpDef.returnType = "float float float";
@@ -922,7 +922,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createFire";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -931,7 +931,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetInputEnabled";
 tmpDef.description = "This function checks whether user input is focused on the GUI or the game.";
 tmpDef.returnType = "bool";
@@ -940,7 +940,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetFont";
 tmpDef.description = "This function is used to get the current font that is used to draw text in GUI elements.";
 tmpDef.returnType = "string, element";
@@ -949,7 +949,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "fxAddPunchImpact";
 tmpDef.description = "This example will create a Punch Impact Effect next to you when typing /pimpact in the Chatbox.";
 tmpDef.returnType = "bool";
@@ -958,7 +958,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetBlendMode";
 tmpDef.description = "This function sets the current blend mode for the dxDraw functions. Changing the blend mode can increase the quality when drawing text or certain other images to a render target. As a general guide use modulate_add when drawing text to a render target, and add when drawing the render target to the screen. Don't forget to restore the default blend at the end - See the example below.";
 tmpDef.returnType = "bool";
@@ -967,7 +967,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetTexturePixels";
 tmpDef.description = "This function fetches the pixels from a texture element. It can be used with a standard texture, render target or screen source.";
 tmpDef.returnType = "string";
@@ -976,7 +976,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxConvertPixels";
 tmpDef.description = "This function converts pixels from one format to another.";
 tmpDef.returnType = "string";
@@ -985,7 +985,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setEffectSpeed";
 tmpDef.description = "This function sets the speed of a specified effect.";
 tmpDef.returnType = "bool";
@@ -994,7 +994,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawMaterialSectionLine3D";
 tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.";
 tmpDef.returnType = "bool";
@@ -1003,7 +1003,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createEffect";
 tmpDef.description = "Creates an effect on specified position.";
 tmpDef.returnType = "effect";
@@ -1012,7 +1012,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetAspectRatioAdjustmentEnabled";
 tmpDef.description = "This function allows for the positioning of dxDraw calls to be automatically adjusted according to the client's aspect ratio setting. This lasts for a single execution of an event handler for one of the following events: onClientRender, onClientPreRender and onClientHUDRender. So the function has to be called every frame, just like dxDraws.";
 tmpDef.returnType = "bool";
@@ -1021,7 +1021,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetPixelColor";
 tmpDef.description = "This example creates a 64x64 texture with random pixel colors, and draw it on the screen.";
 tmpDef.returnType = "bool";
@@ -1030,7 +1030,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxSetRenderTarget";
 tmpDef.description = "This function changes the drawing destination for the dx functions. It can be used to select a previously created render target, or if called with no arguments, restore drawing directly to the screen.";
 tmpDef.returnType = "bool";
@@ -1039,7 +1039,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "dxGetFontHeight";
 tmpDef.description = "This function retrieves the theoretical height of a certain piece of text, if it were to be drawn using dxDrawText.";
 tmpDef.returnType = "int";
@@ -1048,7 +1048,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedTask";
 tmpDef.description = "This function is used to get any simple or complex task of a certain type for a ped.";
 tmpDef.returnType = "string, string, string, string";
@@ -1057,7 +1057,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getObjectMass";
 tmpDef.description = "This function returns the mass of a specified object.";
 tmpDef.returnType = "float";
@@ -1066,7 +1066,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedOxygenLevel";
 tmpDef.description = "This function allows you to set the oxygen level of a ped.";
 tmpDef.returnType = "bool";
@@ -1075,7 +1075,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getGroundPosition";
 tmpDef.description = "This function gets the Z level of the highest ground below a point.";
 tmpDef.returnType = "float";
@@ -1084,7 +1084,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setProjectileCounter";
 tmpDef.description = "Will change the projectile counter timer which depending on the projectile type will do different things:With this example you can use /setbombtime to set a delay duration of a projectile explosion.";
 tmpDef.returnType = "bool";
@@ -1093,7 +1093,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getGarageBoundingBox";
 tmpDef.description = "This function outputs the bounding box of a garage. Checks if the player is inside the bounding box of the garage and outputs the result to the chat";
 tmpDef.returnType = "float, float, float, float";
@@ -1102,7 +1102,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "givePedWeapon";
 tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
 tmpDef.returnType = "bool";
@@ -1111,7 +1111,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setElementCollidableWith";
 tmpDef.description = "This function can be used to set an element to collide with another element. An element with collisions disabled does not interact physically with the other element.Note: You can only use this function with the element types listed below.";
 tmpDef.returnType = "bool";
@@ -1120,7 +1120,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedAnimation";
 tmpDef.description = "Gets the animation of a player or ped that was set using setPedAnimation.";
 tmpDef.returnType = "string string";
@@ -1129,7 +1129,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getElementRadius";
 tmpDef.description = "This function gets the radius of an element. Normally, sphere or circle-shaped elements tend to return a more accurate and expected radius than others with another shapes.";
 tmpDef.returnType = "float";
@@ -1138,7 +1138,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedFootBloodEnabled";
 tmpDef.description = "This function makes a players foot prints bloody.";
 tmpDef.returnType = "bool";
@@ -1147,7 +1147,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementStreamedIn";
 tmpDef.description = "This function checks whether an element is currently streamed in (not virtualized) and are actual GTA objects in the world. You can force an element to be streamed in using setElementStreamable.";
 tmpDef.returnType = "bool";
@@ -1156,7 +1156,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetInputMode";
 tmpDef.description = "This function returns the current input mode as set by guiSetInputMode.Default mode is \"allow_binds\".";
 tmpDef.returnType = "string";
@@ -1165,7 +1165,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setEffectDensity";
 tmpDef.description = "This function sets the density of a specified effect.";
 tmpDef.returnType = "bool";
@@ -1174,7 +1174,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getEffectSpeed";
 tmpDef.description = "This function gets the speed of a specified effect.";
 tmpDef.returnType = "float";
@@ -1183,7 +1183,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementWaitingForGroundToLoad";
 tmpDef.description = "The next code snippet outputs a message when a vehicle respawns far away from players, above an object.";
 tmpDef.returnType = "bool";
@@ -1192,7 +1192,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "triggerServerEvent";
 tmpDef.description = "This function triggers an event previously registered on the server. This is the primary means of passing information between the client and the server. Servers have a similar triggerClientEvent function that can do the reverse. You can treat this function as if it was an asynchronous function call, using triggerClientEvent to pass back any returned information if necessary.";
 tmpDef.returnType = "bool";
@@ -1201,7 +1201,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetVisible";
 tmpDef.description = "This function determines if a GUI element is visible.";
 tmpDef.returnType = "bool";
@@ -1210,7 +1210,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetScreenSize";
 tmpDef.description = "This function retrieves the local screen size according to the resolution they are using.";
 tmpDef.returnType = "float float";
@@ -1219,7 +1219,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setLightRadius";
 tmpDef.description = "This function sets the radius for a light element.";
 tmpDef.returnType = "bool";
@@ -1228,7 +1228,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetCursorType";
 tmpDef.description = "This function is used to get the type of the current cursor image.";
 tmpDef.returnType = "string";
@@ -1237,7 +1237,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetPosition";
 tmpDef.description = "This function allows retrieval of a GUI element's current position, relative to its parent.";
 tmpDef.returnType = "float, float";
@@ -1246,7 +1246,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineGetVisibleTextureNames";
 tmpDef.description = "This function returns a list of the world textures which are being used to draw the current scene.";
 tmpDef.returnType = "table";
@@ -1255,7 +1255,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementStreamable";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -1264,7 +1264,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedTargetingMarkerEnabled";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -1273,7 +1273,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getLocalPlayer";
 tmpDef.description = "This function gets the player element of the client running the current script.";
 tmpDef.returnType = "player";
@@ -1282,7 +1282,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedControlState";
 tmpDef.description = "This function makes a ped press or release a certain control. It doesn't work with the local player, so use setControlState instead.";
 tmpDef.returnType = "bool";
@@ -1291,7 +1291,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementCollidableWith";
 tmpDef.description = "This function can be used to check whether specified element is collidable with another element.Note: You can only use this function with the element types listed below.";
 tmpDef.returnType = "bool";
@@ -1300,7 +1300,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetProperties";
 tmpDef.description = "This function gets a list of the CEGUI property names and values of a GUI element. To find out what the different properties mean, check out the CEGUI properties page.";
 tmpDef.returnType = "table";
@@ -1309,7 +1309,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightEndPosition";
 tmpDef.description = "";
 tmpDef.returnType = "float float float";
@@ -1318,7 +1318,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setAnalogControlState";
 tmpDef.description = "This sets the analog control state of a control for the local player.";
 tmpDef.returnType = "bool";
@@ -1327,7 +1327,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightEndRadius";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -1336,7 +1336,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileTarget";
 tmpDef.description = "This function returns the target of the specified projectile.";
 tmpDef.returnType = "element";
@@ -1345,7 +1345,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedTargetStart";
 tmpDef.description = "This function allows retrieval of the position a ped's target range begins, when he is aiming with a weapon.";
 tmpDef.returnType = "float float float";
@@ -1354,7 +1354,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "toggleObjectRespawn";
 tmpDef.description = "This function is used to toggle if an object should respawn after it got destroyed";
 tmpDef.returnType = "bool";
@@ -1363,7 +1363,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedControlState";
 tmpDef.description = "Checks whether a ped has a certain control pressed.";
 tmpDef.returnType = "bool";
@@ -1372,7 +1372,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "triggerLatentServerEvent";
 tmpDef.description = "This function is the same as triggerServerEvent except the transmission rate of the data contained in the arguments can be limited and other network traffic is not blocked while the data is being transferred.";
 tmpDef.returnType = "bool";
@@ -1381,7 +1381,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetProperty";
 tmpDef.description = "This function gets the value of a specific CEGUI property of a GUI element. For a list of properties and their meaning, see the CEGUI properties page.";
 tmpDef.returnType = "string";
@@ -1390,7 +1390,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetText";
 tmpDef.description = "This function is used to get the text of GUI elements like edit boxes, labels, buttons etc.";
 tmpDef.returnType = "string";
@@ -1399,7 +1399,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiBringToFront";
 tmpDef.description = "This function brings a GUI element on top of others.";
 tmpDef.returnType = "bool";
@@ -1408,7 +1408,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedTargetEnd";
 tmpDef.description = "This function allows retrieval of the position where a ped's target range ends, when he is aiming with a weapon.";
 tmpDef.returnType = "float float float";
@@ -1417,7 +1417,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setElementStreamable";
 tmpDef.description = "This function can be used to disable streaming for an element. This will make sure the element is not virtualized (streamed out from GTA) when the player moves far away from it. This function only works in elements with a physical representation in the world (entities), such as players, peds, vehicles and objects.";
 tmpDef.returnType = "bool";
@@ -1426,7 +1426,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadCOL";
 tmpDef.description = "";
 tmpDef.returnType = "col";
@@ -1435,7 +1435,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setObjectMass";
 tmpDef.description = "This function sets the mass of a specified object. Changing the mass leads to a different movement behavior for especially dynamic objects.";
 tmpDef.returnType = "bool";
@@ -1444,7 +1444,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedVoice";
 tmpDef.description = "Changes the voice of a ped.";
 tmpDef.returnType = "bool";
@@ -1453,7 +1453,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setElementMatrix";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -1462,7 +1462,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineRemoveShaderFromWorldTexture";
 tmpDef.description = "This function removes a shader from one or more world textures.";
 tmpDef.returnType = "bool";
@@ -1471,7 +1471,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isElementOnScreen";
 tmpDef.description = "This function will check if an element is on the screen. Elements behind objects but still in the camera view count as being on screen.";
 tmpDef.returnType = "bool";
@@ -1480,7 +1480,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineImportTXD";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -1489,7 +1489,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineGetModelTextureNames";
 tmpDef.description = "This function returns a table of the world textures which are applied to the specified model.";
 tmpDef.returnType = "table";
@@ -1498,7 +1498,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getHelicopterRotorSpeed";
 tmpDef.description = "Retrieves the speed at which the rotor of a helicopter rotates.";
 tmpDef.returnType = "float";
@@ -1507,7 +1507,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightStartPosition";
 tmpDef.description = "This function sets the start position of a searchlight element.";
 tmpDef.returnType = "searchlight";
@@ -1516,7 +1516,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileType";
 tmpDef.description = "This function returns the type of the specified projectile.";
 tmpDef.returnType = "int";
@@ -1525,7 +1525,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isPlayerHudComponentVisible";
 tmpDef.description = "This function can be used to check whether an hud component is visable or not.";
 tmpDef.returnType = "bool";
@@ -1534,7 +1534,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getInteriorFurnitureEnabled";
 tmpDef.description = "This function will tell you if interior furniture are enabled or disabled in a specified room ID.";
 tmpDef.returnType = "bool";
@@ -1543,7 +1543,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setLightDirection";
 tmpDef.description = "This function sets the direction for a light element.";
 tmpDef.returnType = "bool";
@@ -1552,7 +1552,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedAnalogControlState";
 tmpDef.description = "";
 tmpDef.returnType = "float";
@@ -1561,7 +1561,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getBirdsEnabled";
 tmpDef.description = "This function will tell you if the birds are enabled or disabled.";
 tmpDef.returnType = "bool";
@@ -1570,7 +1570,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getHeliBladeCollisionsEnabled";
 tmpDef.description = "This function gets the state of the helicopter blades collisions on the specified vehicle.This example shows the blade collisions state";
 tmpDef.returnType = "bool";
@@ -1579,7 +1579,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getInteriorSoundsEnabled";
 tmpDef.description = "This function checks to see if the music played by default in clubs is disabled or not.";
 tmpDef.returnType = "bool";
@@ -1588,7 +1588,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getGaragePosition";
 tmpDef.description = "This function outputs X, Y and Z position of given garage.This element has to create a blip at the nearest garage and removes it in 10 seconds.";
 tmpDef.returnType = "float, float, float";
@@ -1597,7 +1597,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineGetModelLODDistance";
 tmpDef.description = "This function gets the LOD distance for any object / model ID.";
 tmpDef.returnType = "float";
@@ -1606,7 +1606,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineSetAsynchronousLoading";
 tmpDef.description = "This function enables or disables asynchronous model loading. Enabling asynchronous model loading may reduce the small pauses that occur when a new model is displayed for the first time. However, it can cause the new models to appear slightly later than they might have otherwise.";
 tmpDef.returnType = "bool";
@@ -1615,7 +1615,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineRestoreCOL";
 tmpDef.description = "This function restores the original collision model of the given model ID. Reverses the effect of engineReplaceCOL.Client-Side example for restoring object collision with default one.Server-side example function for triggering the restore.";
 tmpDef.returnType = "bool";
@@ -1624,7 +1624,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadTXD";
 tmpDef.description = "";
 tmpDef.returnType = "txd";
@@ -1633,7 +1633,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineReplaceCOL";
 tmpDef.description = "Client-Side example for replacing object collision with custom one.Server-side example function for triggering the replace.";
 tmpDef.returnType = "bool";
@@ -1642,7 +1642,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetInputMode";
 tmpDef.description = "This function controls the input mode to define whether or not (and when) keybinds or MTA binds are overridden (disabled) so that text can be input into an editbox, for example.The binds can be either:";
 tmpDef.returnType = "bool";
@@ -1651,7 +1651,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadDFF";
 tmpDef.description = "";
 tmpDef.returnType = "dff";
@@ -1660,7 +1660,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedMoveState";
 tmpDef.description = "Example 1: This example shows how you can output a players current movestate.";
 tmpDef.returnType = "string";
@@ -1669,7 +1669,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineGetModelNameFromID";
 tmpDef.description = "This function gets the model name of an object model from model ID.";
 tmpDef.returnType = "string";
@@ -1678,7 +1678,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetAlpha";
 tmpDef.description = "Alpha represents the transparency of a gui element. This function allows retrieval of a gui element's current alpha.";
 tmpDef.returnType = "float";
@@ -1687,7 +1687,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineRestoreModel";
 tmpDef.description = "This function restores the visual DFF model of the given model ID. This restores the result of engineReplaceModel.Client-Side example for restoring model / vehicle.Server-Side example for triggering model / vehicle restore function with \"restore\" command.";
 tmpDef.returnType = "bool";
@@ -1696,7 +1696,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineApplyShaderToWorldTexture";
 tmpDef.description = "This function applies a shader to one or more world textures.";
 tmpDef.returnType = "bool";
@@ -1705,7 +1705,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getChatboxLayout";
 tmpDef.description = "Returns information about how the chatbox looks.";
 tmpDef.returnType = "bool/int/table";
@@ -1714,7 +1714,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineGetModelIDFromName";
 tmpDef.description = "This function gets the model ID of an object model from object name. This function is the inverse of engineGetModelNameFromID";
 tmpDef.returnType = "int";
@@ -1723,7 +1723,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "engineSetModelLODDistance";
 tmpDef.description = "This function sets a custom LOD distance for any object / model ID. This is the distance at which objects of that model ID are switched to their LOD model, or (if there is no LOD model) become invisible.";
 tmpDef.returnType = "bool";
@@ -1732,7 +1732,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetVisible";
 tmpDef.description = "This function changes the visibility state of a GUI element.";
 tmpDef.returnType = "bool";
@@ -1741,7 +1741,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetSize";
 tmpDef.description = "This function sets the dimensions (size) of a GUI element. It refers to the bounding box size for GUI elements. It does not make GUI elements smaller or larger in appearance.";
 tmpDef.returnType = "bool";
@@ -1750,7 +1750,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createSWATRope";
 tmpDef.description = "Creates a SWAT rope like that of the rope in single player used by SWAT Teams abseiling from the Police Maverick.";
 tmpDef.returnType = "bool";
@@ -1759,7 +1759,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getGarageSize";
 tmpDef.description = "This function outputs the size of garage.This example adds the command /garagesize <garage ID>";
 tmpDef.returnType = "float, float, float";
@@ -1768,7 +1768,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getBoundKeys";
 tmpDef.description = "Returns a list of key names that are bound to the specified game control or console command.";
 tmpDef.returnType = "table";
@@ -1777,7 +1777,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getKeyState";
 tmpDef.description = "This function determines if a certain key is pressed or not.";
 tmpDef.returnType = "bool";
@@ -1786,7 +1786,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setLightColor";
 tmpDef.description = "This function sets the color for a light element.";
 tmpDef.returnType = "bool";
@@ -1795,7 +1795,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createLight";
 tmpDef.description = "This function creates a 3D light in the world.";
 tmpDef.returnType = "light";
@@ -1804,7 +1804,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isChatBoxInputActive";
 tmpDef.description = "This function returns whether the ingame chatbox is being used (accepting chatbox input) or not.";
 tmpDef.returnType = "bool";
@@ -1813,7 +1813,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileCreator";
 tmpDef.description = "This function returns the creator of the specified projectile.This example will output a message in the chatbox saying who createdthe projectile.";
 tmpDef.returnType = "element";
@@ -1822,7 +1822,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setDebugViewActive";
 tmpDef.description = "This function enables or disables the debug window.";
 tmpDef.returnType = "bool";
@@ -1831,7 +1831,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getLightType";
 tmpDef.description = "This function returns the type for a light element.";
 tmpDef.returnType = "int";
@@ -1840,7 +1840,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getLightDirection";
 tmpDef.description = "This function returns the direction for a light element.";
 tmpDef.returnType = "float, float, float";
@@ -1849,7 +1849,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getLightRadius";
 tmpDef.description = "This function returns the radius for a light element.";
 tmpDef.returnType = "float";
@@ -1858,7 +1858,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetFont";
 tmpDef.description = "This function sets the font of a GUI element to be used when drawing text.";
 tmpDef.returnType = "bool";
@@ -1867,7 +1867,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getLightColor";
 tmpDef.description = "This function returns the color for a light element.";
 tmpDef.returnType = "int, int, int";
@@ -1876,7 +1876,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isMTAWindowActive";
 tmpDef.description = "This function returns whether any system windows that take focus are active. This includes:";
 tmpDef.returnType = "bool";
@@ -1885,7 +1885,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiGetSize";
 tmpDef.description = "This function gets the size of a GUI element.";
 tmpDef.returnType = "float float";
@@ -1894,7 +1894,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedOxygenLevel";
 tmpDef.description = "This function returns the current oxygen level of the specified ped.This example defines a \"showoxygen\" console command that shows the player that executes it which oxygen level he has.";
 tmpDef.returnType = "float";
@@ -1903,7 +1903,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetEnabled";
 tmpDef.description = "This function enables/disables a GUI element. A disabled GUI element can't be used, gets a gray aspect and doesn't receive any events.";
 tmpDef.returnType = "bool";
@@ -1912,7 +1912,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetProperty";
 tmpDef.description = "This function sets the value of a specific CEGUI property of a GUI element. For a list of properties and their meaning, see the CEGUI properties page.";
 tmpDef.returnType = "bool";
@@ -1921,7 +1921,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightEndPosition";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -1930,7 +1930,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightStartRadius";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -1939,7 +1939,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightStartRadius";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -1948,7 +1948,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isConsoleActive";
 tmpDef.description = "This function returns whether the ingame console window is visible or not.";
 tmpDef.returnType = "bool";
@@ -1957,7 +1957,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isMainMenuActive";
 tmpDef.description = "This function returns whether the user is in the mainmenu or not.";
 tmpDef.returnType = "bool";
@@ -1966,7 +1966,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetInputEnabled";
 tmpDef.description = "This function enables or disables input focus for the GUI. This means that any keybinds or MTA binds are overidden so that text can be input into an editbox, for example. In other words, keys such as t and y which activate the chatbox are disabled.";
 tmpDef.returnType = "bool";
@@ -1975,7 +1975,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "createSearchLight";
 tmpDef.description = "This function creates a searchlight. A searchlight is a spotlight which looks like the one available in the Police Maverick.";
 tmpDef.returnType = "searchlight";
@@ -1984,7 +1984,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isDebugViewActive";
 tmpDef.description = "This function returns whether the ingame debug window is visible or not. This is the debugwindow visible using the \"debugscript <level>\" command.";
 tmpDef.returnType = "bool";
@@ -1993,7 +1993,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightEndRadius";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -2002,7 +2002,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileCounter";
 tmpDef.description = "Get the time left before a projectile detonates.With this example you can find out how long does it take for a projectile to explode/end";
 tmpDef.returnType = "int";
@@ -2011,7 +2011,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetText";
 tmpDef.description = "This function sets the text of a GUI element.";
 tmpDef.returnType = "bool";
@@ -2020,7 +2020,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileForce";
 tmpDef.description = "This function returns the force of the specified projectile.";
 tmpDef.returnType = "float";
@@ -2029,7 +2029,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightStartPosition";
 tmpDef.description = "";
 tmpDef.returnType = "searchlight";
@@ -2038,7 +2038,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedCanBeKnockedOffBike";
 tmpDef.description = "This function controls if a ped can fall of his bike by accident - namely by banging into a wall.";
 tmpDef.returnType = "bool";
@@ -2047,7 +2047,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "guiSetPosition";
 tmpDef.description = "This function sets the position of a GUI element.";
 tmpDef.returnType = "bool";
@@ -2056,7 +2056,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "Vector2";
 tmpDef.description = "The Vector2 class is a class introduced in 1.4";
 tmpDef.returnType = "vector2";
@@ -2065,7 +2065,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "Matrix";
 tmpDef.description = "Matrices are one of the most powerful features of MTA OOP. We did have a presence of Matrices before with getElementMatrix, but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.";
 tmpDef.returnType = "matrix";
@@ -2074,7 +2074,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedAnalogControlState";
 tmpDef.description = "Sets an analog state of a specified ped's control, as if they pressed or released it.";
 tmpDef.returnType = "bool";
@@ -2083,7 +2083,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setPedLookAt";
 tmpDef.description = "";
 tmpDef.returnType = "bool";
@@ -2092,7 +2092,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isTransferBoxActive";
 tmpDef.description = "This function returns whether the file downloading dialog box is active or not. This appears when a resource is started and the client doesn't have all the files that resource requires the client to have.";
 tmpDef.returnType = "bool";
@@ -2101,7 +2101,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedBonePosition";
 tmpDef.description = "Returns the 3D world coordinates of a specific bone of a given ped.";
 tmpDef.returnType = "float float float";
@@ -2110,7 +2110,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setObjectBreakable";
 tmpDef.description = "This function sets an object to be breakable/unbreakable.";
 tmpDef.returnType = "bool";
@@ -2119,7 +2119,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "breakObject";
 tmpDef.description = "This function breaks a specific object.";
 tmpDef.returnType = "bool";
@@ -2128,7 +2128,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "Vector4";
 tmpDef.description = "The Vector4 class is a class introduced in 1.4";
 tmpDef.returnType = "vector4";
@@ -2137,7 +2137,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedCameraRotation";
 tmpDef.description = "";
 tmpDef.returnType = "float";
@@ -2146,7 +2146,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isObjectBreakable";
 tmpDef.description = "This function checks if an object is breakable.";
 tmpDef.returnType = "bool";
@@ -2155,7 +2155,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "respawnObject";
 tmpDef.description = "This function respawns a specific object.";
 tmpDef.returnType = "bool";
@@ -2164,7 +2164,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new LuaFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getPedSimplestTask";
 tmpDef.description = "This function is used to get the name of a specified ped's current simplest task.";
 tmpDef.returnType = "string";

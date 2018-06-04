@@ -1,11 +1,12 @@
 'use strict';
 import * as vscode from 'vscode';
 
-import { LuaFunction, ScriptSide } from '../defs/defs';
+import { LuaFunction, ScriptSide, LuaConst } from '../defs/defs';
 
 import { SharedDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
+import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
 
 export class functionProvider {
     functions: { [key: string]: vscode.CompletionItem[] };
@@ -14,7 +15,8 @@ export class functionProvider {
     constructor(extensionPath: string) {
         this.functions = {};
         this.globalTypes = new Array<vscode.CompletionItem>();
-        //this.functions = new Array<vscode.CompletionItem>();
+        
+        this.addLuaLibs();
 
         // Shared definitions
         for (let i in SharedDefinitions) {
@@ -37,6 +39,64 @@ export class functionProvider {
             let idef: LuaFunction = ClientDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
             def.documentation = idef.toMarkdown();
+            this.globalTypes.push(def);
+        }
+    }
+
+    addLuaLibs()
+    {
+        // Built-in lua functions (print etc.)
+        for(let i in luaFunctions)
+        {
+            let itype = luaFunctions[i];
+
+            let def = new vscode.CompletionItem(itype.label, vscode.CompletionItemKind.Function);
+            def.documentation = itype.toMarkdown();
+
+            this.globalTypes.push(def);
+        }
+
+        // Built-in lua "modules" (table.concat)
+        for(let i in luaClasses)
+        {
+            let itype = luaClasses[i];
+
+            let def = new vscode.CompletionItem(itype.label, vscode.CompletionItemKind.Class);
+            def.documentation = new vscode.MarkdownString();
+            def.documentation.appendMarkdown(itype.description);
+            this.globalTypes.push(def);
+
+            this.functions[itype.label] = new Array<vscode.CompletionItem>();
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+
+                let def = new vscode.CompletionItem(jmethod.label, vscode.CompletionItemKind.Method);
+                def.documentation = jmethod.toMarkdown();
+
+                this.functions[itype.label].push(def);
+            }
+            
+            for(let j in itype.fields)
+            {
+                let jfield = itype.fields[j];
+                let jkind = vscode.CompletionItemKind.Field;
+                if(jfield instanceof LuaConst)
+                    jkind = vscode.CompletionItemKind.Constant;
+
+                let def = new vscode.CompletionItem(jfield.label, jkind);
+                def.documentation = jfield.toMarkdown();
+
+                this.functions[itype.label].push(def);
+            }
+        }
+
+        for(let i in luaConsts)
+        {
+            let iconst = luaConsts[i];
+
+            let def = new vscode.CompletionItem(iconst.label, vscode.CompletionItemKind.Constant);
+            def.documentation = iconst.toMarkdown();
             this.globalTypes.push(def);
         }
     }

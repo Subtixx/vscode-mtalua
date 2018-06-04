@@ -19,17 +19,17 @@ export class LuaFunction {
      * The function name
      */
     label: string;
-    
+
     /**
      * Description of the function
      */
-	description: string;
-    
+    description: string;
+
     /**
      * An array containing and types names for arguments
      */
     args: string[];
-    
+
     /**
      * Return type of the function
      */
@@ -40,20 +40,16 @@ export class LuaFunction {
      */
     argDescs: { [key: string]: string };
 
-    scriptSide: ScriptSide;
-    
-	constructor() {
-		this.label = "";
-		this.description = "";
+    constructor() {
+        this.label = "";
+        this.description = "";
         this.returnType = "";
         this.module = "";
-		this.args = [];
+        this.args = [];
         this.argDescs = {};
-        this.scriptSide = ScriptSide.Shared;
     }
-    
-    toMarkdown() : vscode.MarkdownString
-    {
+
+    toMarkdown(): vscode.MarkdownString {
         let result = new vscode.MarkdownString();
         result.appendCodeblock(this.label + " ( " + this.args.join(", ") + " )", "mtalua");
         result.appendMarkdown(this.description + "\n\n");
@@ -65,5 +61,71 @@ export class LuaFunction {
             }
         }
         return result;
+    }
+}
+
+export class MTAFunction extends LuaFunction {
+    scriptSide: ScriptSide;
+
+    constructor() {
+        super();
+        this.scriptSide = ScriptSide.Shared;
+    }
+}
+
+export class LuaMethod extends LuaFunction {
+    constructor(label: string, description: string = "", args: string[] = [], argDescs: { [key: string]: string } = {}, returnType: string = "") {
+        super();
+        this.label = label;
+        this.description = description;
+
+        this.args = args;
+        this.argDescs = argDescs;
+
+        this.returnType = returnType;
+    }
+}
+
+export class LuaClass {
+    label: string;
+    description: string;
+    methods: LuaMethod[];
+    fields: LuaField[];
+
+    constructor(label: string, description: string = "") {
+        this.label = label;
+        this.description = description;
+        this.methods = new Array<LuaMethod>();
+        this.fields = new Array<LuaField>();
+    }
+
+    toMarkdown(): vscode.MarkdownString {
+        let result = new vscode.MarkdownString();
+        result.appendCodeblock(this.label, "mtalua");
+        result.appendMarkdown(this.description + "\n\n");
+        return result;
+    }
+}
+
+export class LuaField {
+    label: string;
+    description: string;
+
+    constructor(label: string, description: string = "") {
+        this.label = label;
+        this.description = description;
+    }
+
+    toMarkdown(): vscode.MarkdownString {
+        let result = new vscode.MarkdownString();
+        result.appendCodeblock(this.label, "mtalua");
+        result.appendMarkdown(this.description + "\n\n");
+        return result;
+    }
+}
+
+export class LuaConst extends LuaField {
+    constructor(label: string, desc: string = "") {
+        super(label, desc);
     }
 }

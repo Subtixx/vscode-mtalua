@@ -7,12 +7,15 @@ import { LuaFunction } from '../defs/defs';
 import { SharedDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
+import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
 
 export class signatureProvider implements vscode.SignatureHelpProvider {
     functions: { [key: string]: LuaFunction };
 
     constructor(extensionPath: string) {
         this.functions = {};
+
+        this.addLuaLibs();
 
         // Shared definitions
         for(let i in SharedDefinitions)
@@ -34,6 +37,11 @@ export class signatureProvider implements vscode.SignatureHelpProvider {
             let idef:LuaFunction = ClientDefinitions[i];
             this.functions[idef.label] = idef;
         }
+    }
+
+    addLuaLibs()
+    {
+        // TODO
     }
 
     provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.SignatureHelp | Thenable<vscode.SignatureHelp> {
