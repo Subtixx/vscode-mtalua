@@ -6,7 +6,7 @@
 		{
 			"scope": "constant.language",
 			"settings": {
-				"foreground": "#566dd6"
+				"foreground": "#4887bb"
 			}
 		},
 		{
@@ -20,14 +20,35 @@
             "name": "Function Name",
             "scope": "entity.name.function",
             "settings": {
-                "foreground": "#c2ffaf"
+                "foreground": "#DCDCAA"
             }
         },
         {
             "name": "Library function",
             "scope": "support.function",
             "settings": {
-                "foreground": "#b7afff"
+                "foreground": "#4EC9B0"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "support.function.any-method",
+            "settings": {
+                "foreground": "#DCDCAA"
+            }
+        },
+        {
+            "name": "Library function",
+            "scope": "variable.other",
+            "settings": {
+                "foreground": "#9cdcfe"
+            }
+        },
+        {
+            "name": "Module",
+            "scope": "constant.other.module",
+            "settings": {
+                "foreground": "#4EC9B0"
             }
         },
         {
