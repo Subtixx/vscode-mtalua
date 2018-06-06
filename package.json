@@ -1,8 +1,8 @@
 {
     "name": "mtasa-lua",
-    "displayName": "MTA:SA Lua",
+    "displayName": "MTA:SA Lua BETA",
     "description": "MTA:SA Lua Syntax Highlighting + Snippets",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "publisher": "subtixx",
     "license": "GPL v3.0",
     "icon": "images/logo.png",
@@ -37,7 +37,7 @@
         "@types/node": "^6.0.40"
     },
     "categories": [
-        "Languages",
+        "Programming Languages",
         "Themes",
         "Snippets"
     ],
