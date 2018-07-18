@@ -4,11 +4,110 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var SharedDefinitions = new Array<LuaFunction>();
 
+// tmpDef = new MTAFunction;
+// tmpDef.label = "";
+// tmpDef.description = "";
+// tmpDef.returnType = "";
+// tmpDef.args = [""];
+// tmpDef.argDescs = {};
+// tmpDef.scriptSide = ScriptSide.Client;
+// SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getUserdataType";
+tmpDef.description = "This function gets the type of a userdata value, which is not always a element in the element tree.";
+tmpDef.returnType = "string";
+tmpDef.args = ["userdata value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "passwordHash";
+tmpDef.description = "This function creates a new password hash using a specified hashing algorithm.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string password", "string algorithm", "table options = {}", "[function callback]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "passwordVerify";
+tmpDef.description = "This function verifies whether a password matches a password hash.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string password", "string hash", "[function callback]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "Vector2";
+tmpDef.description = "This is default constructor for the Vector2 class and returns a Vector2 object.";
+tmpDef.returnType = "vector2";
+tmpDef.args = ["[ float x = 0", "float y = 0]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "Vector3";
+tmpDef.description = "This is default constructor for the Vector3 class and returns a Vector3 object. ";
+tmpDef.returnType = "vector3";
+tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "Vector4";
+tmpDef.description = "This is default constructor for the Vector4 class and returns a Vector4 object. ";
+tmpDef.returnType = "vector4";
+tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0", "float w = 0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "Matrix";
+tmpDef.description = "Matrices are one of the most powerful features of MTA OOP. We did have a presence of Matrices before with getElementMatrix, but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.";
+tmpDef.returnType = "matrix";
+tmpDef.args = ["Vector3 position[", "Vector3 rotation]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "debugSleep";
+tmpDef.description = "WARNING: ONLY USE THIS FUNCTION IF YOU KNOW WHAT YOU ARE DOING! debugSleep freezes the client/server for the specified time. This means that all synchronization, rendering and script execution will stop except HTTP processing invoked by fetchRemote.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int miliseconds"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+SharedDefinitions.push(tmpDef);
+
+var tmpDef = new MTAFunction;
+tmpDef.label = "getDevelopmentMode";
+tmpDef.description = "This function is used to get the development mode of the client. For more information see setDevelopmentMode.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+var tmpDef = new MTAFunction;
+tmpDef.label = "setDevelopmentMode";
+tmpDef.description = "This function is used to set the development mode. Setting development mode allows access to special commands which can assist with script debugging.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool enable", "[bool enableWeb = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
 var tmpDef = new MTAFunction;
 tmpDef.label = "xmlLoadFile";
 tmpDef.description = "This function provides an alternative way to load XML files to getResourceConfig.This function loads an XML file and returns the node by specifying a specific file path, while getResourceConfig allows for loading an XML file from a resource.Print error if something wrong with xml.";
 tmpDef.returnType = "xmlnode";
-tmpDef.args = [" string filePath "];
+tmpDef.args = [" string filePath", "[bool readOnly] "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -573,7 +672,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getLatentEventHandles";
-tmpDef.description = "";
+tmpDef.description = "Gets the currently queued latent events. The last one in the table is always the latest event queued. Each returned handle can be used with getLatentEventStatus or cancelLatentEvent.";
 tmpDef.returnType = "table";
 tmpDef.args = [" player thePlayer "];
 tmpDef.argDescs = {};
@@ -851,6 +950,78 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "fileWrite";
+tmpDef.description = "Writes one or more strings to a given file, starting at the current read/write position. Advances the position over the number of bytes that were written.";
+tmpDef.returnType = "int";
+tmpDef.args = ["file theFile", "string string1", "[string string2", "string string3 ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileSetPos";
+tmpDef.description = "Sets the current read/write position in the file.";
+tmpDef.returnType = "int";
+tmpDef.args = ["file theFile", "int offset"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileGetPath";
+tmpDef.description = "This function retrieves the path of the given file.";
+tmpDef.returnType = "string";
+tmpDef.args = ["file theFile"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileGetSize";
+tmpDef.description = "Returns the total size in bytes of the given file.";
+tmpDef.returnType = "int";
+tmpDef.args = ["file theFile"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileIsEOF";
+tmpDef.description = "Checks if the file position is at the end of the file.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["file theFile"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileOpen";
+tmpDef.description = "Opens an existing file for reading and writing.";
+tmpDef.returnType = "file";
+tmpDef.args = [" string filePath", "[bool readOnly = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileRead";
+tmpDef.description = "Reads the specified number of bytes from the given file starting at its current read/write position, and returns them as a string.";
+tmpDef.returnType = "string";
+tmpDef.args = ["file theFile", "int count"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileRename";
+tmpDef.description = "Renames the specified file.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string filePath", "string newFilePath"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "getMarkerCount";
 tmpDef.description = "Returns the number of markers that currently exist in the world.";
 tmpDef.returnType = "int";
@@ -870,7 +1041,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setMarkerIcon";
-tmpDef.description = "";
+tmpDef.description = "This function allows changing the icon of a checkpoint marker. ";
 tmpDef.returnType = "bool";
 tmpDef.args = [" marker theMarker", "string icon "];
 tmpDef.argDescs = {};
@@ -906,7 +1077,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getElementMatrix";
-tmpDef.description = "-- create a Ped (0, 0, 5, 0) and put the player to 10 m of distance, front to front";
+tmpDef.description = "This function gets an element's transform matrix. This contains 16 float values that multiplied to a point will give you the point transformed. It is most useful for matrix calculations such as calculating offsets.";
 tmpDef.returnType = "table";
 tmpDef.args = [" element theElement [", "bool legacy = true ] "];
 tmpDef.argDescs = {};
@@ -1293,7 +1464,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedStat";
-tmpDef.description = "";
+tmpDef.description = "This function allows you to set the value of a specific statistic for a ped. When this function is used client side, it can only be used on client side created peds.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" ped thePed", "int stat", "float value "];
 tmpDef.argDescs = {};
@@ -1337,15 +1508,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedSkin";
-tmpDef.description = "";
-tmpDef.returnType = "int";
-tmpDef.args = [" ped thePed "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "addVehicleUpgrade";
 tmpDef.description = "This function adds an upgrade to an existing vehicle, eg: nos, hyrdraulics.This serverside function allows the user to get an upgrade by typing a command:This client-side script gives vehicles a nitro upgrade whenever they pass through a certain collision shape:";
 tmpDef.returnType = "bool";
@@ -1383,7 +1545,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setMarkerColor";
-tmpDef.description = "";
+tmpDef.description = "This function sets the color of the specified marker by modifying the values for red, green and blue.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" marker theMarker", "int r", "int g", "int b", "int a "];
 tmpDef.argDescs = {};
@@ -1491,7 +1653,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isElementCallPropagationEnabled";
-tmpDef.description = "";
+tmpDef.description = "This functions checks if certain element has call propagation enabled.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement "];
 tmpDef.argDescs = {};
@@ -1644,7 +1806,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isElementLowLOD";
-tmpDef.description = "";
+tmpDef.description = "This function reveals if an element is low LOD.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement "];
 tmpDef.argDescs = {};
@@ -2705,24 +2867,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "fileClose";
-tmpDef.description = "Closes a file handle obtained by fileCreate or fileOpen.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" file theFile "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "isElementLowLOD";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" element theElement "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "addEventHandler";
 tmpDef.description = "This serverside example sends a message to everyone in the server when a player spawns.";
 tmpDef.returnType = "bool";
@@ -2880,33 +3024,6 @@ tmpDef.label = "getBlipOrdering";
 tmpDef.description = "This function gets the Z ordering value of a blip. The Z ordering determines if a blip appears on top of or below other blips. Blips with a higher Z ordering value appear on top of blips with a lower value. The default value for all blips is 0.";
 tmpDef.returnType = "int";
 tmpDef.args = [" blip theBlip "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "fileDelete";
-tmpDef.description = "Deletes the specified file.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" string filePath "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "fileExists";
-tmpDef.description = "This functions checks whether a specified file exists inside a resource.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" string filePath "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "fileCopy";
-tmpDef.description = "This example copies a file called 'test.txt' and called it 'test1.txt'.This example copies a file called 'test.txt' and called it 'test1.txt'.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" string filePath", "string copyToFilePath [", "bool overwrite = false ] "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -3434,15 +3551,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedFrozen";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" ped thePed", "bool frozen "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getMarkerTarget";
 tmpDef.description = "This function returns the position of the specified marker's target, the position it points to. This only works for checkpoint markers and ring markers. For checkpoints it returns the position the arrow is pointing to, for ring markers it returns the position the ring is facing. You can set this target with setMarkerTarget.";
 tmpDef.returnType = "float float float";
@@ -3471,7 +3579,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getDistanceBetweenPoints3D";
-tmpDef.description = "";
+tmpDef.description = "This function returns the distance between two 3 dimensional points using the pythagorean theorem.";
 tmpDef.returnType = "float";
 tmpDef.args = [" float x1", "float y1", "float z1", "float x2", "float y2", "float z2 "];
 tmpDef.argDescs = {};
@@ -3483,15 +3591,6 @@ tmpDef.label = "getColorFromString";
 tmpDef.description = "This example will set the blip attached to a player to a color they specify by typing set_my_color [color] in the console.";
 tmpDef.returnType = "int int int int";
 tmpDef.args = [" string theColor "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "fileFlush";
-tmpDef.description = "Forces pending disk writes to be executed. fileWrite doesn't directly write to the hard disk but places the data in a temporary buffer; only when there is enough data in the buffer it is actually written to disk. Call this function if you need the data written right now without closing the file. This is useful for log files that might want to be read while the resource is still executing. fileFlush can be called after each log entry is written. Without this, the file may appear empty or outdated to the user.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" file theFile "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -3609,15 +3708,6 @@ tmpDef.label = "getMarkerColor";
 tmpDef.description = "This function returns the color and transparency for a marker element. Not all marker types support transparency.This example script fully heals players who hit a white marker, and kills players who hit a red one.";
 tmpDef.returnType = "int, int, int, int";
 tmpDef.args = [" marker theMarker "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setMarkerIcon";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" marker theMarker", "string icon "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -3780,15 +3870,6 @@ tmpDef.label = "isElementWithinMarker";
 tmpDef.description = "This function is used to determine if an element is within a marker.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement", "marker theMarker "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "fileCreate";
-tmpDef.description = "Creates a new file in a directory of a resource. If there already exists a file with the specified name, it is overwritten with an empty file.";
-tmpDef.returnType = "file";
-tmpDef.args = [" string filePath "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -3974,15 +4055,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getElementMatrix";
-tmpDef.description = "-- create a Ped (0, 0, 5, 0) and put the player to 10 m of distance, front to front";
-tmpDef.returnType = "table";
-tmpDef.args = [" element theElement [", "bool legacy = true ] "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getSunSize";
 tmpDef.description = "This function is used to get the size of the sun.";
 tmpDef.returnType = "float";
@@ -4050,15 +4122,6 @@ tmpDef.label = "utf8.remove";
 tmpDef.description = "This example shows how to remove substrings from strings.";
 tmpDef.returnType = "string";
 tmpDef.args = [" string input", "int start = 1 [", "int stop = -1 ] "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setMarkerColor";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" marker theMarker", "int r", "int g", "int b", "int a "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -4622,24 +4685,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedStat";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" ped thePed", "int stat", "float value "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "isElementCallPropagationEnabled";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" element theElement "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "xmlNodeGetValue";
 tmpDef.description = "In this example a sample value is returned from a XML file. This shows an example of a clientside XML file. You can use this to store user preferences and load them the next time the script loads. Almost always, you should have an options GUI for clients to interact with to set these values. Since the XML will change, it should NOT be included in the resource's meta.xml file. MTA will think that file is corrupted and will download it again from the server. Instead, you should create the XML within the script, and then load it within the script on future script runs if it exists.";
 tmpDef.returnType = "string";
@@ -4722,7 +4767,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "addCommandHandler";
-tmpDef.description = "Example 1: This example defines a command handler for the command createmarker. This will create a red marker at the position of the player player who uses it.Example 2: This example makes use of Lua's vararg expression to implement a check_parameters command to count the number of parameters passed, merge them all into a single string and output it. This is also shows you how you can use table.concat to merge all the passed arguments. This is particularly useful when you want to read in a sentence of text passed from the user. Example 3: This example shows using a single function to handle multiple command handlers. This isn't advised for general usage, as it makes code harder to understand, but where multiple command handlers share some logic, it can be a useful way of reducing duplicated code. Generally, it would be preferable to put this shared logic in a separate function instead, as this gives you more control over the flow.Example 1: This example warps the local player to a random nearby location (useful for when a player gets stuck somewhere).";
+tmpDef.description = "This function will attach a scripting function (handler) to a console command, so that whenever a player or administrator uses the command the function is called.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" string commandName", "function handlerFunction", "[bool restricted = false", "bool caseSensitive = true] "];
 tmpDef.argDescs = {};
@@ -4968,15 +5013,6 @@ tmpDef.label = "getWeaponIDFromName";
 tmpDef.description = "This function will obtain the ID of a particular weapon from its name.This example will give the player the weapon they specify 20 ammo whenever they type \"weapon name\" into the console.";
 tmpDef.returnType = "int";
 tmpDef.args = [" string name "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "isPedFrozen";
-tmpDef.description = "";
-tmpDef.returnType = "bool";
-tmpDef.args = [" ped thePed "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
