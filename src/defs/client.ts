@@ -4,16 +4,7 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var ClientDefinitions = new Array<LuaFunction>();
 
-// tmpDef = new MTAFunction;
-// tmpDef.label = "";
-// tmpDef.description = "";
-// tmpDef.returnType = "";
-// tmpDef.args = [""];
-// tmpDef.argDescs = {};
-// tmpDef.scriptSide = ScriptSide.Client;
-// ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
+let tmpDef = new MTAFunction;
 tmpDef.label = "setWindowFlashing";
 tmpDef.description = "This function allows the window to flash in the Windows taskbar.";
 tmpDef.returnType = "bool";
@@ -166,7 +157,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundEffects";
 tmpDef.description = "Returns the states of all effects of a sound.";
 tmpDef.returnType = "table";
