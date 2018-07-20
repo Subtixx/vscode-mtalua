@@ -701,6 +701,8 @@ setNearClipDistance()
 setWorldSoundEnabled()
 setWorldSpecialPropertyEnabled()
 testLineAgainstWater()
+guiCreateBrowser()
+guiGetBrowser()
 
 -- Shared
 playSoundFrontEnd()

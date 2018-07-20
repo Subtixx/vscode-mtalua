@@ -2,7 +2,7 @@
 
 import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
-export var ServerDefinitions = new Array<LuaFunction>();
+export var ServerDefinitions = new Array<MTAFunction>();
 
 let tmpDef = new MTAFunction;
 tmpDef.label = "dbPrepareString";
@@ -356,15 +356,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getVehiclesLODDistance";
-tmpDef.description = "Returns the distance of vehicles LOD.";
-tmpDef.returnType = "float, float";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isBan";
 tmpDef.description = "This function checks whether the passed value is valid ban or not.This example chechks if the passed argument is a ban or not.";
 tmpDef.returnType = "bool";
@@ -423,15 +414,6 @@ tmpDef.label = "setUnbanTime";
 tmpDef.description = "This function sets a new unban time of a given ban using unix timestamp (seconds since Jan 01 1970).";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ban theBan", "int theTime"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedAnalogControlState";
-tmpDef.description = "Sets an analog state of a specified ped's control, as if they pressed or released it.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string control", "float state"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -522,15 +504,6 @@ tmpDef.label = "setMapName";
 tmpDef.description = "This function is used to set a map name that will be visible in the server browser. In practice you should generally rely on the mapmanager to do this for you.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string mapName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getInteriorSoundsEnabled";
-tmpDef.description = "This function checks to see if the music played by default in clubs is disabled or not.";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -868,14 +841,15 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
-tmpDef = new MTAFunction;
+// TODO: ?????
+/*tmpDef = new MTAFunction;
 tmpDef.label = "getRootElement";
 tmpDef.description = "This function is used to reset the state of a player. It is intended to restore a player to his default state as if he had just joined the server, without any scripts affecting him.";
 tmpDef.returnType = "bool resetMapInfo ( [player thePlayer =";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
+ServerDefinitions.push(tmpDef);*/
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getElementZoneName";
@@ -1139,15 +1113,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setVehiclesLODDistance";
-tmpDef.description = "Sets the distance of vehicles LOD.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float vehiclesDistance", "float trainsAndPlanesDistance = vehiclesDistance * 2.14"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setJetpackWeaponEnabled";
 tmpDef.description = "This function sets a weapon usable while using the Jetpack.";
 tmpDef.returnType = "bool";
@@ -1287,6 +1252,15 @@ tmpDef.label = "redirectPlayer";
 tmpDef.description = "This function redirects the player to a specified server.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "string serverIP", "int serverPort", "[ string serverPassword ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);

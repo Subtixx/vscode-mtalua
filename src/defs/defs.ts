@@ -54,8 +54,12 @@ export class LuaFunction {
         result.appendCodeblock(this.label + " ( " + this.args.join(", ") + " )", "mtaluatypes");
         result.appendMarkdown(this.description + "\n\n");
         //result.appendMarkdown("- Returns: " + this.returnType + "\n");
-        result.appendMarkdown("- Returns:");
-        result.appendCodeblock("\t"+this.returnType, "mtaluatypes");
+        if(this.returnType != "")
+        {
+            result.appendMarkdown("- Returns:");
+            result.appendCodeblock(this.returnType, "mtaluatypes");
+        }
+            
         for (const key in this.argDescs) {
             if (this.argDescs.hasOwnProperty(key)) {
                 const element = this.argDescs[key];

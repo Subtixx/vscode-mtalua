@@ -2,7 +2,7 @@
 
 import { LuaFunction, MTAFunction, ScriptSide } from "./defs";
 
-export var DeprecatedDefinitions = new Array<LuaFunction>();
+export var DeprecatedDefinitions = new Array<MTAFunction>();
 
 let deprecatedText = "**This function is deprecated. This means that its use is discouraged and that it might not exist in future versions.**\n\n";
 

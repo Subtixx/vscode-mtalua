@@ -2,9 +2,19 @@
 
 import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
-export var ClientDefinitions = new Array<LuaFunction>();
+import { GuiFunctionDefinitions } from "./client/gui";
+import { DxFunctionDefinitions } from "./client/dx";
 
-let tmpDef = new MTAFunction;
+export var ClientDefinitions = new Array<MTAFunction>();
+
+for(let i in GuiFunctionDefinitions)
+    ClientDefinitions.push(GuiFunctionDefinitions[i]);
+for(let i in DxFunctionDefinitions)
+    ClientDefinitions.push(DxFunctionDefinitions[i]);
+
+let tmpDef : MTAFunction;
+
+tmpDef = new MTAFunction;
 tmpDef.label = "setWindowFlashing";
 tmpDef.description = "This function allows the window to flash in the Windows taskbar.";
 tmpDef.returnType = "bool";
@@ -248,28 +258,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiMoveToBack";
-tmpDef.description = "This function moves a GUI element to the very back of all other GUI elements.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getSoundLength";
 tmpDef.description = "This function is used to return the playback length of the specified sound element.If the element is a player, this function will use the players voice.";
 tmpDef.returnType = "float";
 tmpDef.args = ["element theSound"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetAlpha";
-tmpDef.description = "This changes the alpha level (the visibleness/transparency) of a GUI element";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guielement", "float alpha"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -509,15 +501,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxCreateFont";
-tmpDef.description = "This function creates a DX font element that can be used in dxDrawText. Successful font creation is not guaranteed, and may fail due to hardware or memory limitations.";
-tmpDef.returnType = "element";
-tmpDef.args = ["string filepath[", "int size=9", "bool bold=false", "string quality=\"proof\" ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setPedAimTarget";
 tmpDef.description = "This function allows you to set a ped's aim target to a specific point. If a ped is within a certain range defined by getPedTargetStart and getPedTargetEnd he will be targeted and shot.";
 tmpDef.returnType = "bool";
@@ -531,15 +514,6 @@ tmpDef.label = "setPedCameraRotation";
 tmpDef.description = "This function sets the camera rotation of a ped, e.g. where its camera will look at. Don't confuse this with setCameraMatrix, because that function is designed for fixed (scripted) camera moves. ";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "float cameraRotation"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiCreateFont";
-tmpDef.description = "This function creates a GUI font element that can be used in guiSetFont. Successful font creation is not guaranteed, and may fail due to hardware or memory limitations.";
-tmpDef.returnType = "element";
-tmpDef.args = ["string filepath[", "int size=9 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -698,15 +672,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxGetPixelColor";
-tmpDef.description = "This function gets the color of a single pixel from pixels contained in a string. It only works with 'plain' format pixels.";
-tmpDef.returnType = "int r,g,b,a";
-tmpDef.args = ["string pixels", "int x", "int y"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isElementLocal";
 tmpDef.description = "This function checks whether a clientside element is local to the client (doesn't exist in the server) or not.";
 tmpDef.returnType = "bool";
@@ -742,38 +707,12 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawText";
-tmpDef.description = "Draws a string of text on the screen for one frame. In order for the text to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string text", "float left", "float top [", "float right=left", "float bottom=top", "int color=white", "float scale=1", "mixed font=\"default\"", "string alignX=\"left\"", "string alignY=\"top\"", "bool clip=false", "bool wordBreak=false", "bool postGUI=false", "bool colorCoded=false", "bool subPixelPositioning=false", "float fRotation=0", "float fRotationCenterX=0", "float fRotationCenterY=0 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
+// TODO: Issue
 tmpDef = new MTAFunction;
 tmpDef.label = "tocolor";
 tmpDef.description = "Draws an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).Image files should ideally have dimensions that are a power of two, to prevent possible blurring.Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...";
 tmpDef.returnType = "bool dxDrawImage ( float posX, float posY, float width, float height, mixed image, [ float rotation = 0, float rotationCenterOffsetX = 0, float rotationCenterOffsetY = 0, int color =";
 tmpDef.args = ["255,255,255,255"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawImageSection";
-tmpDef.description = "Differing from dxDrawImage, this function only draws a part of an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float posX", "float posY", "float width", "float height", "float u", "float v", "float usize", "float vsize", "mixed image", "[ float rotation = 0", "float rotationCenterOffsetX = 0", "float rotationCenterOffsetY = 0", "int color = white", "bool postGUI = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetPixelsSize";
-tmpDef.description = "This function gets the dimensions of pixels contained in a string. It works with all pixel formats.";
-tmpDef.returnType = "int int";
-tmpDef.args = ["string pixels"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -788,118 +727,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxSetShaderTessellation";
-tmpDef.description = "This function sets the amount of geometric sub-division to use when drawing a shader element with dxDrawImage.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element theShader", "int tessellationX", "int tessellationY"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setCursorPosition";
 tmpDef.description = "This function sets the current position of the mouse cursor.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int cursorX", "int cursorY"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxCreateScreenSource";
-tmpDef.description = "This function creates a screen source, which is a special type of texture that contains the screen as rendered by GTA";
-tmpDef.returnType = "element";
-tmpDef.args = ["int width", "int height"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxCreateTexture";
-tmpDef.description = "This function creates a texture element that can be used in the dxDraw functions.";
-tmpDef.returnType = "element";
-tmpDef.args = ["string filepath [", "string textureFormat = \"argb\"", "bool mipmaps = true", "string textureEdge = \"wrap\" ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawLine3D";
-tmpDef.description = "This function draws a 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", "float startY", "float startZ", "float endX", "float endY", "float endZ[", "int color = white", "int width = 1", "bool postGUI = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawLine";
-tmpDef.description = "This function draws a 2D line across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int startX", "int startY", "int endX", "int endY", "int color", "[float width=1", "bool postGUI=false]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxCreateShader";
-tmpDef.description = "This function creates a shader element that can be used in the dxDraw functions. Successful shader creation is not guaranteed unless the Effect File contains a fallback technique which will work on every PC in the universe.";
-tmpDef.returnType = "element, string";
-tmpDef.args = ["string filepath [", "float priority = 0", "float maxDistance = 0", "bool layered = false", "string elementTypes = \"world,vehicle,object,other\" ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetMaterialSize";
-tmpDef.description = "This gets the dimensions of the supplied material element.";
-tmpDef.returnType = "int, int [, int]";
-tmpDef.args = ["element material"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetStatus";
-tmpDef.description = "This function gets information about various internal datum";
-tmpDef.returnType = "table";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetTexturePixels";
-tmpDef.description = "This function sets the pixels of a texture element. It can be used with a standard texture, render target or screen source. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["[ int surfaceIndex = 0", "] element texture", "string pixels [", "int x = 0", "int y = 0", "int width = 0", "int height = 0 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawRectangle";
-tmpDef.description = "This function draws a 2D rectangle across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", "float startY", "float width", "float height [", "int color = white", "bool postGUI = false", "bool subPixelPositioning = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetShaderTransform";
-tmpDef.description = " This function applies a 3D transformation to a shader element when it is drawn with dxDrawImage.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element theShader", "float rotationX", "float rotationY", "float rotationZ", "[ float rotationCenterOffsetX = 0", "float rotationCenterOffsetY = 0", "float rotationCenterOffsetZ = 0", "bool bRotationCenterOffsetOriginIsScreen = false", "float perspectiveCenterOffsetX = 0", "float perspectiveCenterOffsetY = 0", "bool bPerspectiveCenterOffsetOriginIsScreen = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetTestMode";
-tmpDef.description = "This function is used for testing scripts written using guiCreateFont, dxCreateFont, dxCreateShader and dxCreateRenderTarget.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string testMode"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -932,15 +763,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxGetBlendMode";
-tmpDef.description = "This function returns the current blend mode for the dxDraw functions set with dxSetBlendMode.";
-tmpDef.returnType = "string";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getElementBoundingBox";
 tmpDef.description = "This function returns the minimum and maximum coordinates of an element's bounding box.";
 tmpDef.returnType = "float float float float float float";
@@ -968,55 +790,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxUpdateScreenSource";
-tmpDef.description = "This function updates the contents of a screen source texture with the screen output from GTA";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element screenSource [", "bool resampleNow = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetShaderValue";
-tmpDef.description = "This sets a named parameter for a shader element";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element theShader", "string parameterName", "mixed value"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawMaterialLine3D";
-tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.Draws an Image ( \"test.png\" Download : test.png ) from the Position 0,0,3 to 0,0,15";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", "float startY", "float startZ", "float endX", "float endY", "float endZ", "element material", "float width", "[ int color = white", "float faceTowardX", "float faceTowardY", "float faceTowardZ ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxCreateRenderTarget";
-tmpDef.description = "This function creates a render target element, which is a special type of texture that can be drawn on with the dx functions. Successful render target creation is not guaranteed, and may fail due to hardware or memory limitations.";
-tmpDef.returnType = "element";
-tmpDef.args = ["int width", "int height [", "bool withAlpha = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "fxAddGunshot";
 tmpDef.description = "This function creates a gunshot particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[bool includeSparks=true]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetTextWidth";
-tmpDef.description = "This function retrieves the theoretical width of a certain piece of text, if it were to be drawn using dxDrawText.This will show you the width of a message in a normal chatbox sent by a player";
-tmpDef.returnType = "float";
-tmpDef.args = ["string text", "[float scale=1", "mixed font=\"default\"", "bool bColorCoded=false]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1040,24 +817,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxGetPixelsFormat";
-tmpDef.description = "This function returns the format of pixels contained in a string.";
-tmpDef.returnType = "string";
-tmpDef.args = ["string pixels"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetEnabled";
-tmpDef.description = "This function determines if a GUI element is enabled.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPedTargetCollision";
 tmpDef.description = "This function allows retrieval of where a ped's target is blocked. It will only be blocked if there is an obstacle within a ped's target range.";
 tmpDef.returnType = "float float float";
@@ -1076,55 +835,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiGetInputEnabled";
-tmpDef.description = "This function checks whether user input is focused on the GUI or the game.";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetFont";
-tmpDef.description = "This function is used to get the current font that is used to draw text in GUI elements.";
-tmpDef.returnType = "string, element";
-tmpDef.args = ["element guiElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "fxAddPunchImpact";
 tmpDef.description = "Creates a punch impact particle effect (a small dust cloud).";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetBlendMode";
-tmpDef.description = "This function sets the current blend mode for the dxDraw functions. Changing the blend mode can increase the quality when drawing text or certain other images to a render target. As a general guide use modulate_add when drawing text to a render target, and add when drawing the render target to the screen. Don't forget to restore the default blend at the end.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string blendMode"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetTexturePixels";
-tmpDef.description = "This function fetches the pixels from a texture element. It can be used with a standard texture, render target or screen source.";
-tmpDef.returnType = "string";
-tmpDef.args = ["[ int surfaceIndex = 0", "] element texture [", "int x = 0", "int y = 0", "int width = 0", "int height = 0 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxConvertPixels";
-tmpDef.description = "This function converts pixels from one format to another.";
-tmpDef.returnType = "string";
-tmpDef.args = ["string pixels", "string newFormat [", "int quality = 80 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1139,55 +853,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawMaterialSectionLine3D";
-tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", "float startY", "float startZ", "float endX", "float endY", "float endZ", "float u", "float v", "float usize", "float vsize", "element material", "int width", "[ int color = white", "float faceTowardX", "float faceTowardY", "float faceTowardZ ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "createEffect";
 tmpDef.description = "Creates an effect on specified position.";
 tmpDef.returnType = "effect";
 tmpDef.args = ["string name", "float x", "float y", "float z [", "float rX", "float rY", "float rZ", "float drawDistance = 0", "soundEnabled = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetAspectRatioAdjustmentEnabled";
-tmpDef.description = "This function allows for the positioning of dxDraw calls to be automatically adjusted according to the client's aspect ratio setting. This lasts for a single execution of an event handler for one of the following events: onClientRender, onClientPreRender and onClientHUDRender. So the function has to be called every frame, just like dxDraws.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["bool bEnabled [", "float sourceRatio = 4/3 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetPixelColor";
-tmpDef.description = "This function sets the color of a single pixel for pixels contained in a string. It only works with 'plain' format pixels.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string pixels", "int x", "int y", "int r", "int g", "int b [", "int a = 255 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxSetRenderTarget";
-tmpDef.description = "This function changes the drawing destination for the dx functions. It can be used to select a previously created render target, or if called with no arguments, restore drawing directly to the screen.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["[ element renderTarget", "bool clear = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetFontHeight";
-tmpDef.description = "This function retrieves the theoretical height of a certain piece of text, if it were to be drawn using dxDrawText.";
-tmpDef.returnType = "int";
-tmpDef.args = ["[float scale=1", "mixed font=\"default\"]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1301,15 +970,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiGetInputMode";
-tmpDef.description = "This function returns the current input mode as set by guiSetInputMode.Default mode is \"allow_binds\".";
-tmpDef.returnType = "string";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setEffectDensity";
 tmpDef.description = "This function sets the density of a specified effect.";
 tmpDef.returnType = "bool";
@@ -1346,46 +1006,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiGetVisible";
-tmpDef.description = "This function determines if a GUI element is visible.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetScreenSize";
-tmpDef.description = "This function retrieves the local screen size according to the resolution they are using.";
-tmpDef.returnType = "float float";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setLightRadius";
 tmpDef.description = "This function sets the radius for a light element.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["Light theLight", "float radius"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetCursorType";
-tmpDef.description = "This function is used to get the type of the current cursor image.";
-tmpDef.returnType = "string";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetPosition";
-tmpDef.description = "This function allows retrieval of a GUI element's current position, relative to its parent.";
-tmpDef.returnType = "float, float";
-tmpDef.args = ["element guiElement", "bool relative"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1440,15 +1064,6 @@ tmpDef.label = "isElementCollidableWith";
 tmpDef.description = "This function can be used to check whether specified element is collidable with another element.Note: You can only use this function with the element types listed below.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "element withElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetProperties";
-tmpDef.description = "This function gets a list of the CEGUI property names and values of a GUI element. To find out what the different properties mean, check out the CEGUI properties page.";
-tmpDef.returnType = "table";
-tmpDef.args = ["element guiElement"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1521,33 +1136,6 @@ tmpDef.label = "triggerLatentServerEvent";
 tmpDef.description = "This function is the same as triggerServerEvent except the transmission rate of the data contained in the arguments can be limited and other network traffic is not blocked while the data is being transferred.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string event", "[int bandwidth=5000", "bool persist=false,] element theElement", "[arguments...]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetProperty";
-tmpDef.description = "This function gets the value of a specific CEGUI property of a GUI element. For a list of properties and their meaning, see the CEGUI properties page.";
-tmpDef.returnType = "string";
-tmpDef.args = ["element guiElement", "string property"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetText";
-tmpDef.description = "This function is used to get the text of GUI elements like edit boxes, labels, buttons etc.";
-tmpDef.returnType = "string";
-tmpDef.args = ["element guiElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiBringToFront";
-tmpDef.description = "This function brings a GUI element on top of others.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1787,15 +1375,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiSetInputMode";
-tmpDef.description = "This function controls the input mode to define whether or not (and when) keybinds or MTA binds are overridden (disabled) so that text can be input into an editbox.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string mode"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadDFF";
 tmpDef.description = "This function loads a RenderWare Model (DFF) file into GTA.";
 tmpDef.returnType = "dff";
@@ -1818,15 +1397,6 @@ tmpDef.label = "engineGetModelNameFromID";
 tmpDef.description = "This function gets the model name of an object model from model ID.";
 tmpDef.returnType = "string";
 tmpDef.args = ["int modelID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiGetAlpha";
-tmpDef.description = "Alpha represents the transparency of a gui element. This function allows retrieval of a gui element's current alpha.";
-tmpDef.returnType = "float";
-tmpDef.args = ["element guiElement"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1872,24 +1442,6 @@ tmpDef.label = "engineSetModelLODDistance";
 tmpDef.description = "This function sets a custom LOD distance for any object / model ID. This is the distance at which objects of that model ID are switched to their LOD model, or (if there is no LOD model) become invisible.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int model", "float distance"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetVisible";
-tmpDef.description = "This function changes the visibility state of a GUI element.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "bool state"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetSize";
-tmpDef.description = "This function sets the dimensions (size) of a GUI element. It refers to the bounding box size for GUI elements. It does not make GUI elements smaller or larger in appearance.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "float width", "float height", "bool relative"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2003,15 +1555,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiSetFont";
-tmpDef.description = "This function sets the font of a GUI element to be used when drawing text.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "mixed font"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getLightColor";
 tmpDef.description = "This function returns the color for a light element.";
 tmpDef.returnType = "int, int, int";
@@ -2030,37 +1573,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiGetSize";
-tmpDef.description = "This function gets the size of a GUI element.";
-tmpDef.returnType = "float float";
-tmpDef.args = ["element theElement", "bool relative"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPedOxygenLevel";
 tmpDef.description = "This function returns the current oxygen level of the specified ped.";
 tmpDef.returnType = "float";
 tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetEnabled";
-tmpDef.description = "This function enables/disables a GUI element. A disabled GUI element can't be used, gets a gray aspect and doesn't receive any events.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "bool enabled"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetProperty";
-tmpDef.description = "This function sets the value of a specific CEGUI property of a GUI element. For a list of properties and their meaning, see the CEGUI properties page.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "string property", "string value"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2111,15 +1627,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiSetInputEnabled";
-tmpDef.description = "This function enables or disables input focus for the GUI. This means that any keybinds or MTA binds are overidden so that text can be input into an editbox, for example. In other words, keys such as t and y which activate the chatbox are disabled.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["bool enabled"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "createSearchLight";
 tmpDef.description = "This function creates a searchlight. A searchlight is a spotlight which looks like the one available in the Police Maverick.";
 tmpDef.returnType = "searchlight";
@@ -2156,15 +1663,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "guiSetText";
-tmpDef.description = "This function sets the text of a GUI element.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element guiElement", "string text"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileForce";
 tmpDef.description = "This function returns the force of the specified projectile.";
 tmpDef.returnType = "float";
@@ -2187,15 +1685,6 @@ tmpDef.label = "setPedCanBeKnockedOffBike";
 tmpDef.description = "This function controls if a ped can fall of his bike by accident - namely by banging into a wall.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "bool canBeKnockedOffBike"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiSetPosition";
-tmpDef.description = "This function sets the position of a GUI element.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element theElement", "float x", "float y", "bool relative"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2290,6 +1779,15 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string component", "bool show"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
 /*
 - isBrowserDomainBlocked => Missing
 - isBrowserFocused => Missing
@@ -2311,8 +1809,6 @@ ClientDefinitions.push(tmpDef);
 - setBrowserAjaxHandler => Missing
 - getBrowserSource => Missing
 - toggleBrowserDevTools => Missing
-- guiCreateBrowser => Missing
-- guiGetBrowser => Missing
 - getCameraClip => Missing
 - getCameraGoggleEffect => Missing
 - getCameraViewMode => Missing
@@ -2325,94 +1821,6 @@ ClientDefinitions.push(tmpDef);
 - setCameraShakeLevel => Missing
 - setCursorAlpha => Missing
 - getCursorAlpha => Missing
-- dxDrawImage => Missing
-- dxSetTextureEdge => Missing
-- guiCreateButton => Missing
-- guiCheckBoxGetSelected => Missing
-- guiCheckBoxSetSelected => Missing
-- guiCreateCheckBox => Missing
-- guiCreateComboBox => Missing
-- guiComboBoxAddItem => Missing
-- guiComboBoxClear => Missing
-- guiComboBoxGetItemText => Missing
-- guiComboBoxSetItemText => Missing
-- guiComboBoxRemoveItem => Missing
-- guiComboBoxGetSelected => Missing
-- guiComboBoxSetSelected => Missing
-- guiCreateEdit => Missing
-- guiEditSetMasked => Missing
-- guiEditSetMaxLength => Missing
-- guiEditSetReadOnly => Missing
-- guiEditSetCaretIndex => Missing
-- guiEditGetCaretIndex => Missing
-- guiCreateGridList => Missing
-- guiGridListAddColumn => Missing
-- guiGridListAddRow => Missing
-- guiGridListAutoSizeColumn => Missing
-- guiGridListClear => Missing
-- guiGridListGetItemData => Missing
-- guiGridListGetItemText => Missing
-- guiGridListGetRowCount => Missing
-- guiGridListGetSelectedItem => Missing
-- guiGridListInsertRowAfter => Missing
-- guiGridListRemoveColumn => Missing
-- guiGridListRemoveRow => Missing
-- guiGridListSetItemData => Missing
-- guiGridListSetItemText => Missing
-- guiGridListSetScrollBars => Missing
-- guiGridListSetSelectedItem => Missing
-- guiGridListSetSelectionMode => Missing
-- guiGridListSetSortingEnabled => Missing
-- guiGridListGetSelectedCount => Missing
-- guiGridListGetSelectedItems => Missing
-- guiGridListSetColumnWidth => Missing
-- guiGridListGetColumnCount => Missing
-- guiGridListGetItemColor => Missing
-- guiGridListSetItemColor => Missing
-- guiGridListGetColumnTitle => Missing
-- guiGridListSetColumnTitle => Missing
-- guiGridListGetHorizontalScrollPosition => Missing
-- guiGridListSetHorizontalScrollPosition => Missing
-- guiGridListGetVerticalScrollPosition => Missing
-- guiGridListSetVerticalScrollPosition => Missing
-- guiGridListGetColumnWidth => Missing
-- guiCreateMemo => Missing
-- guiMemoSetReadOnly => Missing
-- guiMemoSetCaretIndex => Missing
-- guiMemoGetCaretIndex => Missing
-- guiCreateProgressBar => Missing
-- guiProgressBarGetProgress => Missing
-- guiProgressBarSetProgress => Missing
-- guiCreateRadioButton => Missing
-- guiRadioButtonGetSelected => Missing
-- guiRadioButtonSetSelected => Missing
-- guiCreateScrollBar => Missing
-- guiScrollBarGetScrollPosition => Missing
-- guiScrollBarSetScrollPosition => Missing
-- guiCreateScrollPane => Missing
-- guiScrollPaneGetHorizontalScrollPosition => Missing
-- guiScrollPaneGetVerticalScrollPosition => Missing
-- guiScrollPaneSetHorizontalScrollPosition => Missing
-- guiScrollPaneSetScrollBars => Missing
-- guiScrollPaneSetVerticalScrollPosition => Missing
-- guiCreateStaticImage => Missing
-- guiStaticImageGetNativeSize => Missing
-- guiStaticImageLoadImage => Missing
-- guiCreateTabPanel => Missing
-- guiGetSelectedTab => Missing
-- guiSetSelectedTab => Missing
-- guiCreateTab => Missing
-- guiDeleteTab => Missing
-- guiCreateLabel => Missing
-- guiLabelGetFontHeight => Missing
-- guiLabelGetTextExtent => Missing
-- guiLabelSetColor => Missing
-- guiLabelSetHorizontalAlign => Missing
-- guiLabelSetVerticalAlign => Missing
-- guiLabelGetColor => Missing
-- guiCreateWindow => Missing
-- guiWindowSetMovable => Missing
-- guiWindowSetSizable => Missing
 - getCommandsBoundToKey => Missing
 - getKeyBoundToCommand => Missing
 - getAnalogControlState => Missing

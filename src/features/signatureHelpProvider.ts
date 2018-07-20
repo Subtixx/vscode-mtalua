@@ -132,6 +132,7 @@ export class signatureProvider implements vscode.SignatureHelpProvider {
             ret.activeSignature = 0;
             ret.signatures = new Array<vscode.SignatureInformation>();
 
+            // TODO: Handle having 2 functions with different parameters
             //def.documentation.appendCodeblock(def.label + " ( " + idef.args.join(", ") + " )", "starboundlua");
             var signature = new vscode.SignatureInformation(funct.label + " ( " + funct.args.join(", ") + " )", new vscode.MarkdownString(funct.description));
             for(var i in funct.args)

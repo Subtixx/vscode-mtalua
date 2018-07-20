@@ -2,7 +2,7 @@
 
 import {LuaFunction, MTAFunction, ScriptSide, LuaClass, LuaMethod} from "./defs";
 
-export var SharedDefinitions = new Array<LuaFunction>();
+export var SharedDefinitions = new Array<MTAFunction>();
 export var SharedModuleDefinitions = new Array<LuaClass>();
 
 let tmpDef = new MTAFunction;
@@ -4804,7 +4804,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getRootElement";
-tmpDef.description = "Example 1: This example displays a chat message to all users.";
+tmpDef.description = "This function returns the root node of the element tree, called root. This node contains every other element: all resource root elements, players and remote clients. It is never destroyed and cannot be destroyed using destroyElement.";
 tmpDef.returnType = "";
 tmpDef.args = [];
 tmpDef.argDescs = {};

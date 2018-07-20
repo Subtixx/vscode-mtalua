@@ -1,7 +1,7 @@
 'use strict';
 import * as vscode from 'vscode';
 
-import { LuaFunction, ScriptSide, LuaConst } from '../defs/defs';
+import { LuaFunction, ScriptSide, LuaConst, MTAFunction } from '../defs/defs';
 
 import { SharedDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
@@ -16,7 +16,7 @@ export class functionProvider {
     constructor(extensionPath: string) {
         this.functions = {};
         this.globalTypes = new Array<vscode.CompletionItem>();
-        
+
         this.addLuaLibs();
 
         // Shared definitions
@@ -50,13 +50,18 @@ export class functionProvider {
             def.documentation = idef.toMarkdown();
             this.globalTypes.push(def);
         }
+
+        /*this.globalTypes.sort(function (a, b) {
+            if (a.label < b.label) return -1;
+            if (a.label > b.label) return 1;
+            return 0;
+        });
+        this.checkDefinitions();*/
     }
 
-    addLuaLibs()
-    {
+    addLuaLibs() {
         // Built-in lua functions (print etc.)
-        for(let i in luaFunctions)
-        {
+        for (let i in luaFunctions) {
             let itype = luaFunctions[i];
 
             let def = new vscode.CompletionItem(itype.label, vscode.CompletionItemKind.Function);
@@ -66,8 +71,7 @@ export class functionProvider {
         }
 
         // Built-in lua "modules" (table.concat)
-        for(let i in luaClasses)
-        {
+        for (let i in luaClasses) {
             let itype = luaClasses[i];
 
             let def = new vscode.CompletionItem(itype.label, vscode.CompletionItemKind.Class);
@@ -76,8 +80,7 @@ export class functionProvider {
             this.globalTypes.push(def);
 
             this.functions[itype.label] = new Array<vscode.CompletionItem>();
-            for(let j in itype.methods)
-            {
+            for (let j in itype.methods) {
                 let jmethod = itype.methods[j];
 
                 let def = new vscode.CompletionItem(jmethod.label, vscode.CompletionItemKind.Method);
@@ -85,12 +88,11 @@ export class functionProvider {
 
                 this.functions[itype.label].push(def);
             }
-            
-            for(let j in itype.fields)
-            {
+
+            for (let j in itype.fields) {
                 let jfield = itype.fields[j];
                 let jkind = vscode.CompletionItemKind.Field;
-                if(jfield instanceof LuaConst)
+                if (jfield instanceof LuaConst)
                     jkind = vscode.CompletionItemKind.Constant;
 
                 let def = new vscode.CompletionItem(jfield.label, jkind);
@@ -100,8 +102,7 @@ export class functionProvider {
             }
         }
 
-        for(let i in luaConsts)
-        {
+        for (let i in luaConsts) {
             let iconst = luaConsts[i];
 
             let def = new vscode.CompletionItem(iconst.label, vscode.CompletionItemKind.Constant);
@@ -126,6 +127,30 @@ export class functionProvider {
             }
 
             resolve([]);
+        });
+    }
+
+    checkDefinitions() {
+        console.log("Checking definition files..");
+
+        let check = new Array<MTAFunction>();
+        SharedDefinitions.forEach(element => {
+            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            } else
+                check[element.label] = element;
+        });
+        ServerDefinitions.forEach(element => {
+            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            } else
+                check[element.label] = element;
+        });
+        ClientDefinitions.forEach(element => {
+            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            } else
+                check[element.label] = element;
         });
     }
 }
