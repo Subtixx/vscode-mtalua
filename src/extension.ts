@@ -12,7 +12,7 @@ export function activate(context: vscode.ExtensionContext) {
 	vscode.languages.registerCompletionItemProvider({ scheme: "file", language: "mtalua" }, new functionProvider(context.extensionPath), ".");
 	vscode.languages.registerHoverProvider({scheme: "file", language: "mtalua"}, new hoverProvider(context.extensionPath));
 	
-	if (!vscode.workspace.getConfiguration("starbound-sense").get("activate_signature_help_parentheses", true))
+	if (!vscode.workspace.getConfiguration("mtalua-sense").get("activate_signature_help_parentheses", true))
 		vscode.languages.registerSignatureHelpProvider({ scheme: "file", language: "mtalua" }, new signatureProvider(context.extensionPath), "");
 	else
 		vscode.languages.registerSignatureHelpProvider({ scheme: "file", language: "mtalua" }, new signatureProvider(context.extensionPath), "(");

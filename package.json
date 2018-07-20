@@ -53,6 +53,12 @@
                     ".lua"
                 ],
                 "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "mtaluatypes",
+                "aliases": [],
+                "extensions": [".luarioeughiuer"],
+                "configuration": "./language-configuration.json"
             }
         ],
         "grammars": [
@@ -60,6 +66,11 @@
                 "language": "mtalua",
                 "scopeName": "source.lua",
                 "path": "./syntaxes/mtalua.tmLanguage.json"
+            },
+            {
+                "language": "mtaluatypes",
+                "scopeName": "source.luatypes",
+                "path": "./syntaxes/mtaluatypes.tmLanguage.json"
             }
         ],
         "themes": [

@@ -1,0 +1,297 @@
+{
+	"comment": "Lua Syntax: version 0.8",
+	"fileTypes": [],
+	"firstLineMatch": "\\A#!.*?\\blua(\\d+(\\.\\d+)?)?\\b|\\A--\\s+-\\*-\\s*lua\\s*-\\*-",
+	"keyEquivalent": "^~L",
+	"name": "Lua + Types (MTA:SA)",
+	"patterns": [
+		{
+			"begin": "\\b((local\\b)\\s+)?(function)\\s*(\\s+[a-zA-Z_][a-zA-Z0-9_]*(\\.[a-zA-Z_][a-zA-Z0-9_]*)*(:[a-zA-Z_][a-zA-Z0-9_]*)?\\s*)?(\\()",
+			"beginCaptures": {
+				"1": {
+					"name": "storage.modifier.local.luatypes"
+				},
+				"3": {
+					"name": "keyword.control.luatypes"
+				},
+				"4": {
+					"name": "entity.name.function.luatypes"
+				},
+				"5": {
+					"name": "punctuation.definition.parameters.begin.luatypes"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.parameters.end.luatypes"
+				}
+			},
+			"name": "meta.function.luatypes",
+			"patterns": [
+				{
+					"match": "[a-zA-Z_][a-zA-Z0-9_]*",
+					"name": "variable.parameter.function.luatypes"
+				}
+			]
+		},
+		{
+			"match": "(?<![\\w\\d.])0[xX][0-9A-Fa-f]+(?![pPeE.0-9])",
+			"name": "constant.numeric.integer.hexadecimal.luatypes"
+		},
+		{
+			"match": "(?<![\\w\\d.])0[xX][0-9A-Fa-f]+(\\.[0-9A-Fa-f]+)?([eE]-?\\d*)?([pP][-+]\\d+)?",
+			"name": "constant.numeric.float.hexadecimal.luatypes"
+		},
+		{
+			"match": "(?<![\\w\\d.])\\d+(?![pPeE.0-9])",
+			"name": "constant.numeric.integer.luatypes"
+		},
+		{
+			"match": "(?<![\\w\\d.])\\d+(\\.\\d+)?([eE]-?\\d*)?",
+			"name": "constant.numeric.float.luatypes"
+		},
+		{
+			"begin": "'",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.luatypes"
+				}
+			},
+			"end": "'",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.luatypes"
+				}
+			},
+			"name": "string.quoted.single.luatypes",
+			"patterns": [
+				{
+					"include": "#escaped_char"
+				}
+			]
+		},
+		{
+			"begin": "\"",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.luatypes"
+				}
+			},
+			"end": "\"",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.luatypes"
+				}
+			},
+			"name": "string.quoted.double.luatypes",
+			"patterns": [
+				{
+					"include": "#escaped_char"
+				}
+			]
+		},
+		{
+			"begin": "(?<=\\.cdef)\\s*(\\[(=*)\\[)",
+			"beginCaptures": {
+				"0": {
+					"name": "string.quoted.other.multiline.luatypes"
+				},
+				"1": {
+					"name": "punctuation.definition.string.begin.luatypes"
+				}
+			},
+			"contentName": "meta.embedded.luatypes",
+			"end": "(\\]\\2\\])",
+			"endCaptures": {
+				"0": {
+					"name": "string.quoted.other.multiline.luatypes"
+				},
+				"1": {
+					"name": "punctuation.definition.string.end.luatypes"
+				}
+			},
+			"patterns": [
+				{
+					"include": "source.c"
+				}
+			]
+		},
+		{
+			"begin": "(?<!--)\\[(=*)\\[",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.begin.luatypes"
+				}
+			},
+			"end": "\\]\\1\\]",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.string.end.luatypes"
+				}
+			},
+			"name": "string.quoted.other.multiline.luatypes"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.comment.luatypes"
+				}
+			},
+			"match": "\\A(#!).*$\\n?",
+			"name": "comment.line.shebang.luatypes"
+		},
+		{
+			"begin": "(^[ \\t]+)?(?=--)",
+			"beginCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.leading.luatypes"
+				}
+			},
+			"end": "(?!\\G)((?!^)[ \\t]+\\n)?",
+			"endCaptures": {
+				"1": {
+					"name": "punctuation.whitespace.comment.trailing.luatypes"
+				}
+			},
+			"patterns": [
+				{
+					"begin": "--\\[(=*)\\[",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.begin.luatypes"
+						}
+					},
+					"end": "\\]\\1\\]",
+					"endCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.end.luatypes"
+						}
+					},
+					"name": "comment.block.luatypes"
+				},
+				{
+					"begin": "--",
+					"beginCaptures": {
+						"0": {
+							"name": "punctuation.definition.comment.luatypes"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line.double-dash.luatypes"
+				}
+			]
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "keyword.control.goto.luatypes"
+				},
+				"2": {
+					"name": "constant.other.placeholder.luatypes"
+				}
+			},
+			"match": "\\b(goto)\\s+([a-zA-Z_][a-zA-Z0-9_]*)"
+		},
+		{
+			"captures": {
+				"1": {
+					"name": "punctuation.definition.label.begin.luatypes"
+				},
+				"2": {
+					"name": "punctuation.definition.label.end.luatypes"
+				}
+			},
+			"match": "(::)[a-zA-Z_][a-zA-Z0-9_]*(::)",
+			"name": "constant.other.placeholder.luatypes"
+		},
+		{
+			"match": "\\b(getRadioChannel|getRadioChannelName|getSFXStatus|getSoundBPM|getSoundEffects|getSoundFFTData|getSoundLength|getSoundLevelData|getSoundMaxDistance|getSoundMetaTags|getSoundMinDistance|getSoundPan|getSoundPosition|getSoundProperties|getSoundSpeed|getSoundVolume|getSoundWaveData|isSoundPanningEnabled|isSoundPaused|playSFX|playSFX3D|playSound|playSound3D|setRadioChannel|setSoundEffectEnabled|setSoundMaxDistance|setSoundMinDistance|setSoundPan|setSoundPanningEnabled|setSoundPaused|setSoundPosition|setSoundProperties|setSoundSpeed|setSoundVolume|stopSound|createBrowser|executeBrowserJavascript|focusBrowser|resizeBrowser|isBrowserDomainBlocked|isBrowserFocused|isBrowserLoading|getBrowserProperty|getBrowserSettings|getBrowserTitle|getBrowserURL|injectBrowserMouseDown|injectBrowserMouseMove|injectBrowserMouseUp|injectBrowserMouseWheel|loadBrowserURL|canBrowserNavigateBack|canBrowserNavigateForward|navigateBrowserBack|navigateBrowserForward|reloadBrowserPage|setBrowserProperty|setBrowserRenderingPaused|setBrowserVolume|requestBrowserDomains|setBrowserAjaxHandler|getBrowserSource|toggleBrowserDevTools|guiCreateBrowser|guiGetBrowser|getCamera|getCameraClip|getCameraGoggleEffect|getCameraViewMode|getCameraFieldOfView|getCameraShakeLevel|setCameraClip|setCameraGoggleEffect|setCameraViewMode|setCameraFieldOfView|setCameraShakeLevel|getCursorPosition|setCursorPosition|setCursorAlpha|getCursorAlpha|dxDrawImage|dxDrawImageSection|dxDrawLine|dxDrawLine3D|dxDrawRectangle|dxDrawText|dxGetFontHeight|dxGetTextWidth|dxCreateFont|dxCreateTexture|dxCreateShader|dxCreateRenderTarget|dxCreateScreenSource|dxGetMaterialSize|dxSetShaderValue|dxSetShaderTessellation|dxSetShaderTransform|dxSetRenderTarget|dxUpdateScreenSource|dxGetStatus|dxSetTestMode|dxGetTexturePixels|dxSetTexturePixels|dxGetPixelsSize|dxGetPixelsFormat|dxConvertPixels|dxGetPixelColor|dxSetPixelColor|dxSetBlendMode|dxGetBlendMode|dxDrawMaterialLine3D|dxDrawMaterialSectionLine3D|dxSetAspectRatioAdjustmentEnabled|dxSetTextureEdge|createEffect|fxAddBlood|fxAddBulletImpact|fxAddBulletSplash|fxAddDebris|fxAddFootSplash|fxAddGlass|fxAddGunshot|fxAddPunchImpact|fxAddSparks|fxAddTankFire|fxAddTyreBurst|fxAddWaterHydrant|fxAddWaterSplash|fxAddWood|getEffectDensity|getEffectSpeed|setEffectDensity|setEffectSpeed|getElementBoundingBox|getElementDistanceFromCentreOfMassToBaseOfModel|getElementRadius|isElementCollidableWith|isElementLocal|isElementOnScreen|isElementStreamable|isElementStreamedIn|isElementSyncer|isElementWaitingForGroundToLoad|setElementCollidableWith|setElementMatrix|setElementStreamable|engineImportTXD|engineLoadCOL|engineLoadDFF|engineLoadTXD|engineLoadIFP|engineReplaceAnimation|engineRestoreAnimation|engineReplaceCOL|engineReplaceModel|engineRestoreCOL|engineRestoreModel|engineSetAsynchronousLoading|engineSetModelLODDistance|engineGetModelLODDistance|engineApplyShaderToWorldTexture|engineRemoveShaderFromWorldTexture|engineGetModelNameFromID|engineGetModelIDFromName|engineGetVisibleTextureNames|engineGetModelTextureNames|triggerServerEvent|triggerLatentServerEvent|createFire|guiGetCursorType|getChatboxLayout|guiBringToFront|guiCreateFont|guiGetAlpha|guiGetEnabled|guiGetFont|guiGetInputEnabled|guiGetInputMode|guiGetPosition|guiGetProperties|guiGetProperty|guiGetScreenSize|guiGetSize|guiGetText|guiGetVisible|guiMoveToBack|guiSetAlpha|guiSetEnabled|guiSetFont|guiSetInputEnabled|guiSetInputMode|guiSetPosition|guiSetProperty|guiSetSize|guiSetText|guiSetVisible|isChatBoxInputActive|isConsoleActive|isDebugViewActive|isMainMenuActive|isMTAWindowActive|isTransferBoxActive|setDebugViewActive|guiCreateButton|guiCheckBoxGetSelected|guiCheckBoxSetSelected|guiCreateCheckBox|guiCreateComboBox|guiComboBoxAddItem|guiComboBoxClear|guiComboBoxGetItemText|guiComboBoxSetItemText|guiComboBoxRemoveItem|guiComboBoxGetSelected|guiComboBoxSetSelected|guiCreateEdit|guiEditSetMasked|guiEditSetMaxLength|guiEditSetReadOnly|guiEditSetCaretIndex|guiEditGetCaretIndex|guiCreateGridList|guiGridListAddColumn|guiGridListAddRow|guiGridListAutoSizeColumn|guiGridListClear|guiGridListGetItemData|guiGridListGetItemText|guiGridListGetRowCount|guiGridListGetSelectedItem|guiGridListInsertRowAfter|guiGridListRemoveColumn|guiGridListRemoveRow|guiGridListSetItemData|guiGridListSetItemText|guiGridListSetScrollBars|guiGridListSetSelectedItem|guiGridListSetSelectionMode|guiGridListSetSortingEnabled|guiGridListGetSelectedCount|guiGridListGetSelectedItems|guiGridListSetColumnWidth|guiGridListGetColumnCount|guiGridListGetItemColor|guiGridListSetItemColor|guiGridListGetColumnTitle|guiGridListSetColumnTitle|guiGridListGetHorizontalScrollPosition|guiGridListSetHorizontalScrollPosition|guiGridListGetVerticalScrollPosition|guiGridListSetVerticalScrollPosition|guiGridListGetColumnWidth|guiCreateMemo|guiMemoSetReadOnly|guiMemoSetCaretIndex|guiMemoGetCaretIndex|guiCreateProgressBar|guiProgressBarGetProgress|guiProgressBarSetProgress|guiCreateRadioButton|guiRadioButtonGetSelected|guiRadioButtonSetSelected|guiCreateScrollBar|guiScrollBarGetScrollPosition|guiScrollBarSetScrollPosition|guiCreateScrollPane|guiScrollPaneGetHorizontalScrollPosition|guiScrollPaneGetVerticalScrollPosition|guiScrollPaneSetHorizontalScrollPosition|guiScrollPaneSetScrollBars|guiScrollPaneSetVerticalScrollPosition|guiCreateStaticImage|guiStaticImageGetNativeSize|guiStaticImageLoadImage|guiCreateTabPanel|guiGetSelectedTab|guiSetSelectedTab|guiCreateTab|guiDeleteTab|guiCreateLabel|guiLabelGetFontHeight|guiLabelGetTextExtent|guiLabelSetColor|guiLabelSetHorizontalAlign|guiLabelSetVerticalAlign|guiLabelGetColor|guiCreateWindow|guiWindowSetMovable|guiWindowSetSizable|getBoundKeys|getKeyState|getCommandsBoundToKey|getKeyBoundToCommand|getAnalogControlState|createLight|getLightType|getLightRadius|getLightColor|getLightDirection|setLightRadius|setLightColor|setLightDirection|setObjectBreakable|isObjectBreakable|breakObject|respawnObject|toggleObjectRespawn|setObjectMass|getObjectMass|isChatVisible|canPedBeKnockedOffBike|getPedAnalogControlState|getPedAnimation|getPedBonePosition|getPedCameraRotation|getPedControlState|getPedMoveState|getPedOxygenLevel|getPedTargetCollision|getPedTargetEnd|getPedTargetStart|getPedSimplestTask|getPedTask|getPedVoice|getPedWeaponMuzzlePosition|givePedWeapon|isPedDoingTask|isPedTargetingMarkerEnabled|setAnalogControlState|setPedAimTarget|setPedCameraRotation|setPedCanBeKnockedOffBike|setPedControlState|setPedFootBloodEnabled|setPedLookAt|setPedOxygenLevel|setPedTargetingMarkerEnabled|setPedVoice|getLocalPlayer|localPlayer|getPlayerMapBoundingBox|isPlayerMapVisible|isPlayerHudComponentVisible|createProjectile|getProjectileCreator|getProjectileForce|getProjectileTarget|getProjectileType|getProjectileCounter|setProjectileCounter|getResourceGUIElement|createSearchLight|setSearchLightStartPosition|setSearchLightEndPosition|setSearchLightStartRadius|setSearchLightEndRadius|getSearchLightStartPosition|getSearchLightEndPosition|getSearchLightStartRadius|getSearchLightEndRadius|createTrayNotification|getLocalization|isTrayNotificationEnabled|setClipboard|setWindowFlashing|tocolor|getHeliBladeCollisionsEnabled|getHelicopterRotorSpeed|getVehicleAdjustableProperty|getVehicleComponents|getVehicleComponentPosition|getVehicleComponentRotation|getVehicleComponentVisible|getVehicleGravity|getVehicleModelExhaustFumesPosition|getVehicleNitroCount|getVehicleNitroLevel|getVehicleCurrentGear|isVehicleNitroRecharging|isVehicleNitroActivated|isVehicleWindowOpen|resetVehicleComponentPosition|resetVehicleComponentRotation|setHeliBladeCollisionsEnabled|setHelicopterRotorSpeed|setVehicleAdjustableProperty|setVehicleComponentPosition|setVehicleComponentRotation|setVehicleComponentVisible|setVehicleDirtLevel|setVehicleGravity|setVehicleModelExhaustFumesPosition|setVehicleNitroActivated|setVehicleNitroCount|setVehicleNitroLevel|setVehicleWindowOpen|getWaterLevel|isWaterDrawnLast|setWaterDrawnLast|givePedWeapon |createWeapon|fireWeapon|getWeaponState|getWeaponTarget|getWeaponOwner|getWeaponFlags|getWeaponFiringRate|getWeaponAmmo|getWeaponClipAmmo|resetWeaponFiringRate|setWeaponState|setWeaponTarget|setWeaponFlags|setWeaponFiringRate|setWeaponClipAmmo|createSWATRope|getAircraftMaxHeight|getBirdsEnabled|getGarageBoundingBox|getGaragePosition|getGarageSize|getGroundPosition|getInteriorFurnitureEnabled|getNearClipDistance|getScreenFromWorldPosition|getWorldFromScreenPosition|isAmbientSoundEnabled|isLineOfSightClear|isWorldSoundEnabled|isWorldSpecialPropertyEnabled|processLineOfSight|resetAmbientSounds|getVehiclesLODDistance|resetVehiclesLODDistance|setVehiclesLODDistance|resetWorldSounds|setAircraftMaxHeight|setAmbientSoundEnabled|setBirdsEnabled|setInteriorFurnitureEnabled|setJetpackMaxHeight|setNearClipDistance|setWorldSoundEnabled|setWorldSpecialPropertyEnabled|testLineAgainstWater)\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.class.luatypes MTAClientFunction.luatypes"
+		},
+		{
+			"match": "\\b((addAccount|copyAccountData|getAccountData|getAccountName|getAccountPlayer|getAccountsBySerial|getAccountSerial|getAccounts|getAccount|getAllAccountData|getPlayerAccount|isGuestAccount|logIn|logOut|removeAccount|setAccountData|setAccountPassword|aclReload|aclSave|aclList|aclGet|aclCreate|aclDestroy|aclGetName|aclGetRight|aclSetRight|aclListRights|aclRemoveRight|aclGetGroup|aclCreateGroup|aclDestroyGroup|aclGroupList|aclGroupAddACL|aclGroupAddObject|aclGroupGetName|aclGroupListACL|aclGroupListObjects|aclGroupRemoveACL|aclGroupRemoveObject|hasObjectPermissionTo|isObjectInACLGroup|addBan|banPlayer|getBanAdmin|getBanIP|getBanNick|getBanReason|getBans|getBanSerial|getBanTime|getUnbanTime|isBan|kickPlayer|setBanAdmin|setBanNick|setBanReason|setUnbanTime|removeBan|reloadBans|getGameType|getMapName|getRuleValue|removeRuleValue|setGameType|setMapName|setRuleValue|clearElementVisibleTo|cloneElement|getAllElementData|getElementByIndex|getElementZoneName|isElementVisibleTo|removeElementData|setElementSyncer|setElementVisibleTo|getElementSyncer|getCancelReason|triggerClientEvent|triggerLatentClientEvent|httpClear|httpRequestLogin|httpSetResponseCode|httpSetResponseCookie|httpSetResponseHeader|httpWrite|isKeyBound|loadMapData|resetMapInfo|saveMapData|getLoadedModules|getModuleInfo|getPedFightingStyle|getPedGravity|getPedWalkingStyle|givePedJetPack|reloadPedWeapon|removePedJetPack|setPedArmor|setPedChoking|setPedFightingStyle|setPedGravity|getPickupRespawnInterval|isPickupSpawned|setPickupRespawnInterval|usePickup|getAlivePlayers|getDeadPlayers|getPlayerAnnounceValue|getPlayerCount|getPlayerIdleTime|getPlayerIP|getPlayerSerial|getPlayerVersion|getRandomPlayer|isPlayerMuted|redirectPlayer|resendPlayerACInfo|resendPlayerModInfo|setPlayerAnnounceValue|setPlayerHudComponentVisible|setPlayerMuted|setPlayerName|setPlayerTeam|setPlayerVoiceBroadcastTo|setPlayerVoiceIgnoreFrom|setPlayerWantedLevel|spawnPlayer|takePlayerScreenShot|addResourceConfig|addResourceMap|callRemote|copyResource|createResource|deleteResource|getResourceACLRequests|getResourceInfo|getResourceLastStartTime|getResourceLoadFailureReason|getResourceLoadTime|getResourceMapRootElement|getResourceOrganizationalPath|getResources|isResourceArchived|refreshResources|removeResourceFile|renameResource|restartResource|setResourceInfo|startResource|stopResource|updateResourceACLRequest|getMaxPlayers|getServerHttpPort|getServerName|getServerPassword|getServerPort|getCommandHandlers|isGlitchEnabled|outputServerLog|setGlitchEnabled|setMaxPlayers|setServerPassword|shutdown|get|set|executeSQLQuery|dbConnect|dbExec|dbQuery|dbPoll|dbFree|dbPrepareString|createTeam|setTeamColor|setTeamFriendlyFire|setTeamName|textCreateTextItem|textDestroyTextItem|textItemGetColor|textItemGetPosition|textItemGetPriority|textItemGetScale|textItemGetText|textItemSetColor|textItemSetPosition|textItemSetPriority|textItemSetScale|textItemSetText|textCreateDisplay|textDestroyDisplay|textDisplayAddObserver|textDisplayAddText|textDisplayRemoveObserver|textDisplayRemoveText|textDisplayGetObservers|textDisplayIsObserver|iprint|inspect|getServerConfigSetting|setServerConfigSetting|isOOPEnabled|addVehicleSirens|removeVehicleSirens|resetVehicleExplosionTime|resetVehicleIdleTime|respawnVehicle|spawnVehicle|toggleVehicleRespawn|getVehiclesOfType|getModelHandling|setModelHandling|setVehicleIdleRespawnDelay|setVehicleRespawnDelay|setVehicleRespawnPosition|setVehicleHandling|setVehicleVariant|giveWeapon|takeAllWeapons|takeWeapon|getSkyGradient|setJetpackWeaponEnabled|getJetpackWeaponEnabled|dbPrepareString|resendPlayerACInfo|getCommandHandlers|isResourceArchived))\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.class.luatypes MTAServerFunction.luatypes"
+		},
+		{
+			"match": "\\b(playSoundFrontEnd|createBlip|createBlipAttachedTo|getBlipColor|getBlipIcon|getBlipSize|setBlipColor|setBlipIcon|setBlipSize|getBlipOrdering|setBlipOrdering|getBlipVisibleDistance|setBlipVisibleDistance|fadeCamera|getCameraInterior|getCameraMatrix|getCameraTarget|setCameraInterior|setCameraMatrix|setCameraTarget|getBodyPartName|getClothesByTypeIndex|getClothesTypeName|getTypeIndexFromClothes|createColCircle|createColCuboid|createColRectangle|createColSphere|createColTube|createColPolygon|isElementWithinColShape|getElementsWithinColShape|getElementColShape|isCursorShowing|showCursor|createElement|destroyElement|getAttachedElements|getElementAlpha|getElementAttachedOffsets|getElementCollisionsEnabled|getElementAttachedTo|getElementByID|getElementChild|getElementChildren|getElementChildrenCount|getElementData|getElementDimension|getElementHealth|getElementID|getElementInterior|getElementMatrix|getElementParent|getElementPosition|getElementRotation|getElementsByType|getElementType|getElementVelocity|getRootElement|isElement|isElementAttached|isElementCallPropagationEnabled|isElementDoubleSided|isElementFrozen|setElementAlpha|setElementCallPropagationEnabled|setElementCollisionsEnabled|setElementData|setElementDoubleSided|setElementDimension|setElementFrozen|setElementHealth|setElementID|setElementInterior|setElementParent|setElementPosition|setElementRotation|setElementVelocity|attachElements|detachElements|getElementModel|isElementInWater|setElementAttachedOffsets|setElementModel|setLowLODElement|getLowLODElement|isElementLowLOD|addEvent|addEventHandler|getEventHandlers|cancelEvent|removeEventHandler|triggerEvent|wasEventCancelled|getLatentEventHandles|getLatentEventStatus|cancelLatentEvent|createExplosion|fileClose|fileCopy|fileCreate|fileDelete|fileExists|fileFlush|fileGetPath|fileGetPos|fileGetSize|fileIsEOF|fileOpen|fileRead|fileRename|fileSetPos|fileWrite|bindKey|getControlState|getFunctionsBoundToKey|getKeyBoundToFunction|isControlEnabled|setControlState|toggleAllControls|toggleControl|unbindKey|createMarker|getMarkerColor|getMarkerCount|getMarkerIcon|getMarkerSize|getMarkerTarget|getMarkerType|isElementWithinMarker|setMarkerColor|setMarkerIcon|setMarkerSize|setMarkerTarget|setMarkerType|createObject|moveObject|stopObject|getObjectScale|setObjectScale|addPedClothes|createPed|doesPedHaveJetPack|getPedAmmoInClip|getPedArmor|getPedClothes|getPedContactElement|getPedOccupiedVehicle|getPedOccupiedVehicleSeat|getPedStat|getPedTarget|getPedTotalAmmo|getPedWeapon|getPedWeaponSlot|getValidPedModels|isPedChoking|isPedDead|isPedDoingGangDriveby|isPedDucked|isPedHeadless|isPedInVehicle|isPedOnFire|isPedOnGround|killPed|removePedClothes|removePedFromVehicle|setPedAnimation|setPedAnimationProgress|setPedAnalogControlState|setPedDoingGangDriveby|setPedHeadless|setPedOnFire|setPedStat|setPedWeaponSlot|setPedWalkingStyle|warpPedIntoVehicle|createPickup|getPickupAmmo|getPickupAmount|getPickupType|getPickupWeapon|setPickupType|forcePlayerMap|getPlayerBlurLevel|getPlayerFromName|getPlayerMoney|getPlayerName|getPlayerNametagColor|getPlayerNametagText|getPlayerPing|getPlayerTeam|getPlayerWantedLevel|givePlayerMoney|isPlayerMapForced|isPlayerNametagShowing|isVoiceEnabled|setPlayerBlurLevel|setPlayerMoney|setPlayerNametagColor|setPlayerNametagShowing|setPlayerNametagText|takePlayerMoney|detonateSatchels|createRadarArea|getRadarAreaColor|getRadarAreaSize|isInsideRadarArea|isRadarAreaFlashing|setRadarAreaColor|setRadarAreaFlashing|setRadarAreaSize|call|fetchRemote|getResourceConfig|getResourceDynamicElementRoot|getResourceExportedFunctions|getResourceFromName|getResourceName|getResourceRootElement|getResourceState|getThisResource|addCommandHandler|executeCommandHandler|fromJSON|getFPSLimit|getVersion|outputChatBox|outputConsole|outputDebugString|removeCommandHandler|setFPSLimit|showChat|toJSON|countPlayersInTeam|getPlayersInTeam|getTeamColor|getTeamFriendlyFire|getTeamFromName|getTeamName|getColorFromString|getDistanceBetweenPoints2D|getDistanceBetweenPoints3D|getEasingValue|interpolateBetween|getPerformanceStats|getNetworkStats|getNetworkUsageData|getRealTime|getTickCount|getTimerDetails|getTimers|gettok|getUserdataType|hash|killTimer|resetTimer|setTimer|split|isTimer|md5|sha256|teaEncode|teaDecode|base64Encode|base64Decode|utfChar|utfCode|utfLen|utfSeek|utfSub|passwordHash|passwordVerify|pregFind|pregReplace|pregMatch|bitAnd|bitNot|bitOr|bitXor|bitTest|bitLRotate|bitRRotate|bitLShift|bitRShift|bitArShift|bitExtract|bitReplace|addDebugHook|removeDebugHook|utf8\\.byte|utf8\\.char|utf8\\.charpos|utf8\\.escape|utf8\\.find|utf8\\.fold|utf8\\.gmatch|utf8\\.gsub|utf8\\.insert|utf8\\.len|utf8\\.lower|utf8\\.match|utf8\\.ncasecmp|utf8\\.next|utf8\\.remove|utf8\\.reverse|utf8\\.sub|utf8\\.title|utf8\\.upper|utf8\\.width|utf8\\.widthindex|createVehicle|removeVehicleUpgrade|addVehicleUpgrade|attachTrailerToVehicle|blowVehicle|detachTrailerFromVehicle|fixVehicle|isTrainChainEngine|isTrainDerailable|isTrainDerailed|isVehicleBlown|isVehicleTaxiLightOn|isVehicleDamageProof|isVehicleFuelTankExplodable|isVehicleLocked|isVehicleOnGround|getTrainDirection|getTrainSpeed|getTrainTrack|getTrainPosition|getVehicleColor|getVehicleCompatibleUpgrades|getVehicleController|getVehicleDoorState|getVehicleEngineState|getVehicleLandingGearDown|getVehicleLightState|getVehicleMaxPassengers|getVehicleName|getVehicleOccupant|getVehicleOccupants|getVehicleOverrideLights|getVehiclePaintjob|getVehiclePanelState|getVehiclePlateText|getVehicleSirensOn|getVehicleTowedByVehicle|getVehicleTowingVehicle|getVehicleTurnVelocity|getVehicleTurretPosition|getVehicleType|getVehicleUpgradeOnSlot|getVehicleUpgrades|getVehicleUpgradeSlotName|getVehicleWheelStates|getVehicleDoorOpenRatio|getVehicleHandling|getOriginalHandling|getVehicleHeadLightColor|getVehicleModelFromName|getVehicleNameFromModel|getVehicleVariant|getVehicleSirenParams|getVehicleSirens|setTrainDerailable|setTrainDerailed|setTrainDirection|setTrainSpeed|setTrainTrack|setTrainPosition|setVehicleColor|setVehicleDamageProof|setVehicleDoorState|setVehicleDoorsUndamageable|setVehicleEngineState|setVehicleFuelTankExplodable|setVehicleLandingGearDown|setVehicleLightState|setVehicleLocked|setVehicleOverrideLights|setVehiclePaintjob|setVehiclePanelState|setVehiclePlateText|setVehicleSirensOn|setVehicleTurretPosition|setVehicleDoorOpenRatio|setVehicleTurnVelocity|setVehicleWheelStates|setVehicleHeadLightColor|setVehicleTaxiLightOn|setVehicleSirens|createWater|getWaterColor|getWaterVertexPosition|getWaveHeight|resetWaterColor|setWaterColor|setWaterLevel|setWaterVertexPosition|setWaveHeight|resetWaterLevel|getSlotFromWeapon|getWeaponIDFromName|getWeaponNameFromID|setWeaponAmmo|getOriginalWeaponProperty|getWeaponProperty|setWeaponProperty|areTrafficLightsLocked|getCloudsEnabled|getGameSpeed|getGravity|getHeatHaze|getJetpackMaxHeight|getMinuteDuration|getTime|getTrafficLightState|getWeather|getZoneName|isGarageOpen|resetSkyGradient|resetHeatHaze|setCloudsEnabled|setGameSpeed|setGarageOpen|setGravity|setHeatHaze|setMinuteDuration|setSkyGradient|setTime|setTrafficLightState|setTrafficLightsLocked|setWeather|setWeatherBlended|setInteriorSoundsEnabled|getInteriorSoundsEnabled|setRainLevel|getRainLevel|resetRainLevel|setSunSize|getSunSize|resetSunSize|setSunColor|getSunColor|resetSunColor|setWindVelocity|getWindVelocity|resetWindVelocity|setFarClipDistance|getFarClipDistance|resetFarClipDistance|setFogDistance|getFogDistance|resetFogDistance|removeWorldModel|restoreWorldModel|restoreAllWorldModels|setOcclusionsEnabled|getOcclusionsEnabled|setAircraftMaxVelocity|getAircraftMaxVelocity|setMoonSize|getMoonSize|resetMoonSize|xmlCopyFile|xmlCreateFile|xmlDestroyNode|xmlLoadFile|xmlNodeGetAttribute|xmlNodeGetValue|xmlNodeSetAttribute|xmlNodeSetValue|xmlSaveFile|xmlUnloadFile|xmlCreateChild|xmlFindChild|xmlNodeGetAttributes|xmlNodeGetChildren|xmlNodeGetName|xmlNodeGetParent|xmlNodeSetName|Vector2|Vector3|Vector4|Matrix|root|resourceRoot|debugSleep|getDevelopmentMode|setDevelopmentMode)\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.class.luatypes MTASharedFunction.luatypes"
+		},
+		{
+			"match": "\\b(getPedSkin|isPedFrozen|setPedFrozen|addPlayerClothes|attachElementToElement|banSerial|canPlayerBeKnockedOffBike|canPlayerUseFunction|detachElementFromElement|doesPlayerHaveJetPack|engineImportCOL|engineUnloadModel|executeSQLCreateTable|executeSQLDelete|executeSQLDropTable|executeSQLInsert|executeSQLSelect|executeSQLUpdate|getAccountClient|getBansXML|getBanUsername|getCameraFixedModeTarget|getCameraMode|getCameraPosition|getClientAccount|getClientIP|getClientName|getMTAVersion|getObjectModel|getObjectRotation|getPedRotation|getPedSkin|getPlayerACInfo|getPlayerAmmoInClip|getPlayerArmor|getPlayerClothes|getPlayerContactElement|getPlayerFightingStyle|getPlayerFromNick|getPlayerGravity|getPlayerOccupiedVehicle|getPlayerOccupiedVehicleSeat|getPlayerRotation|getPlayerSimplestTask|getPlayerSkin|getPlayerStat|getPlayerTarget|getPlayerTargetCollision|getPlayerTargetEnd|getPlayerTargetStart|getPlayerTask|getPlayerTotalAmmo|getPlayerWeapon|getPlayerWeaponSlot|getVehicleID|getVehicleIDFromName|getVehicleNameFromID|getVehicleRotation|givePlayerJetPack|giveWeaponAmmo|guiEditSetCaratIndex|guiMemoSetCaratIndex|handlingGetSuspensionAntidiveMultiplier|isObjectStatic|isPedFrozen|isPedInWater|isPlayerChoking|isPlayerDead|isPlayerDoingTask|isPlayerDucked|isPlayerInVehicle|isPlayerInWater|isPlayerOnGround|isVehicleFrozen|killPlayer|makePedUseGun|onClientChangeNick|onClientLogout|randFloat|randInt|removePlayerClothes|removePlayerFromTeam|removePlayerFromVehicle|removePlayerJetPack|rotateCameraRight|rotateCameraUp|setCameraLookAt|setCameraMode|setCameraPosition|setClientName|setObjectModel|setObjectRotation|setObjectStatic|setPedAudioType|setPedFrozen|setPedRotation|setPedSkin|setPlayerArmor|setPlayerCanBeKnockedOffBike|setPlayerChoking|setPlayerFightingStyle|setPlayerGravity|setPlayerRotation|setPlayerSkin|setPlayerStat|setPlayerWeaponSlot|setVehicleFrozen|setVehicleGunsEnabled|setVehicleModel|setVehicleRotation|showPlayerHudComponent|takeWeaponAmmo|toggleCameraFixedMode|unbanIP|unbanSerial|warpPlayerIntoVehicle|xmlCreateSubNode|xmlFindSubNode)\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.class.luatypes MTADeprecatedFunction.luatypes"
+		},
+		{
+			"match": "(?<![^.]\\.|:)\\b(localPlayer|root|rootElement)\\b|(?<![.])\\.{3}(?!\\.)",
+			"name": "constant.language.luatypes MTAConstant.luatypes"
+		},
+		{
+			"match": "\\b(break|do|else|for|if|elseif|goto|return|then|repeat|while|until|end|function|local|in)\\b",
+			"name": "keyword.control.luatypes"
+		},
+		{
+			"match": "(?<![^.]\\.|:)\\b(false|nil|true|_G|_VERSION|math\\.(pi|huge))\\b|(?<![.])\\.{3}(?!\\.)",
+			"name": "constant.language.luatypes"
+		},
+		{
+			"match": "(?<![^.]\\.|:)\\b(self)\\b",
+			"name": "variable.language.self.luatypes"
+		},
+		{
+			"match": "(?<![^.]\\.|:)\\b(assert|collectgarbage|dofile|error|getfenv|getmetatable|ipairs|loadfile|loadstring|module|next|pairs|pcall|print|rawequal|rawget|rawset|require|select|setfenv|setmetatable|tonumber|tostring|type|unpack|xpcall)\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.function.luatypes support.class.luatypes"
+		},
+		{
+			"match": "(?<![^.]\\.|:)\\b(coroutine\\.(create|resume|running|status|wrap|yield)|string\\.(byte|char|dump|find|format|gmatch|gsub|len|lower|match|rep|reverse|sub|upper)|table\\.(concat|foreach|insert|maxn|remove|sort)|math\\.(abs|acos|asin|atan2?|ceil|cosh?|deg|exp|floor|fmod|frexp|ldexp|log|log10|max|min|modf|pow|rad|random|randomseed|sinh?|sqrt|tanh?)|io\\.(close|flush|input|lines|open|output|popen|read|tmpfile|type|write)|os\\.(clock|date|difftime|execute|exit|getenv|remove|rename|setlocale|time|tmpname)|package\\.(cpath|loaded|loadlib|path|preload|seeall)|debug\\.(debug|[gs]etfenv|[gs]ethook|getinfo|[gs]etlocal|[gs]etmetatable|getregistry|[gs]etupvalue|traceback))\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.function.library.luatypes support.class.luatypes"
+		},
+		{
+			"match": "\\b(and|or|not)\\b",
+			"name": "keyword.operator.luatypes keyword.control.luatypes"
+		},
+		{
+			"match": "\\b(number|int|float|string|bool|table|element|ped|player|team|vehicle|account|ban|weapon|effect|blip|searchlight|camera|browser|texture|shader|pickup|marker|projectile|object)\\b",
+			"name": "keyword.operator.luatypes keyword.control.luatypes"
+		},
+		{
+			"match": "\\b([a-zA-Z_][a-zA-Z0-9_]*)\\b(?=\\s*(?:[({\"']|\\[\\[))",
+			"name": "support.function.any-method.luatypes"
+		},
+		{
+			"match": "(?<=[^.]\\.|:)\\b([a-zA-Z_][a-zA-Z0-9_]*)",
+			"name": "variable.other.luatypes"
+		},
+		{
+			"match": "\\+|-|%|#|\\*|\\/|\\^|==?|~=|<=?|>=?|(?<!\\.)\\.{2}(?!\\.)",
+			"name": "keyword.operator.luatypes"
+		}
+	],
+	"repository": {
+		"escaped_char": {
+			"patterns": [
+				{
+					"match": "\\\\[abfnrtvz\\\\\"'\\n]",
+					"name": "constant.character.escape.luatypes"
+				},
+				{
+					"match": "\\\\\\d{1,3}",
+					"name": "constant.character.escape.byte.luatypes"
+				},
+				{
+					"match": "\\\\x[0-9A-Fa-f][0-9A-Fa-f]",
+					"name": "constant.character.escape.byte.luatypes"
+				},
+				{
+					"match": "\\\\u\\{[0-9A-Fa-f]+\\}",
+					"name": "constant.character.escape.unicode.luatypes"
+				},
+				{
+					"match": "\\\\.",
+					"name": "invalid.illegal.character.escape.luatypes"
+				}
+			]
+		}
+	},
+	"scopeName": "source.luatypes",
+	"uuid": "93E017CC-6F27-11D9-90EB-000D93589AF8"
+}

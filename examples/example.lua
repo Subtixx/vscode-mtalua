@@ -19,6 +19,8 @@ not
 ==
 ~=
 
+number
+
 -- Constants
 localPlayer
 root
