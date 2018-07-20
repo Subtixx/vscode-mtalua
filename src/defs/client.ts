@@ -4,7 +4,160 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var ClientDefinitions = new Array<LuaFunction>();
 
-var tmpDef = new MTAFunction;
+let tmpDef = new MTAFunction;
+tmpDef.label = "setWindowFlashing";
+tmpDef.description = "This function allows the window to flash in the Windows taskbar.";
+tmpDef.returnType = "bool";
+tmpDef.args = [" bool shouldFlash", "[int count = 10]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "canBrowserNavigateBack";
+tmpDef.description = "This function checks if the browser can return to the previous page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "navigateBrowserBack";
+tmpDef.description = "Returns the browser to the previous page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "navigateBrowserForward";
+tmpDef.description = "This function takes the browser to the next page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "reloadBrowserPage";
+tmpDef.description = "This function reloads the current browser's page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resizeBrowser";
+tmpDef.description = "Allows resizing of CEF browsers at runtime.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "float width", "float height"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleWindowOpen";
+tmpDef.description = " This function sets the vehicle window state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int window", "bool open"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "createTrayNotification";
+tmpDef.description = "This functions creates a notification ballon on the desktop.";
+tmpDef.returnType = "";
+tmpDef.args = ["string notificationText", "[string iconType = \"default\"", "bool useSound = true]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTrayNotificationEnabled";
+tmpDef.description = "This function returns a boolean value whether the client has enabled tray notifications in his settings or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWorldSpecialPropertyEnabled";
+tmpDef.description = "Enables or disables a special world property.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string propertyName", "bool enabled"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleModelExhaustFumesPosition";
+tmpDef.description = "This function returns the position of the exhaust fumes the vehicle model emits.";
+tmpDef.returnType = "float X", "float Y", "float Z";
+tmpDef.args = ["int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehiclesLODDistance";
+tmpDef.description = "Sets the distance of vehicles LOD.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float vehiclesDistance", "[float trainsAndPlanesDistance = vehiclesDistance * 2.14]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehiclesLODDistance";
+tmpDef.description = "Returns the distance of vehicles LOD. ";
+tmpDef.returnType = "float mostVehicles", "float trains/planes";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleModelExhaustFumesPosition";
+tmpDef.description = "This function sets the position of the exhaust fumes the vehicle model emits.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID", "float posX", "float posY", "float posZ"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineLoadIFP";
+tmpDef.description = "This function loads an animation library (IFP) file into GTA with a custom block name.";
+tmpDef.returnType = "ifp";
+tmpDef.args = ["string IfpFilePath", "string CustomBlockName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineReplaceAnimation";
+tmpDef.description = "This function replaces a specific internal (default) animation with a custom one that has been loaded using engineLoadIFP function.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["thePed", "InternalBlockName", "InternalAnimName", "CustomBlockName", "CustomAnimName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRestoreAnimation";
+tmpDef.description = "This function restores internal (default) animations that were replaced using engineReplaceAnimation function.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "[ string InternalBlockName", "string InternalAnimName]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "getSoundEffects";
 tmpDef.description = "Returns the states of all effects of a sound.";
 tmpDef.returnType = "table";
@@ -87,7 +240,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getCursorPosition";
-tmpDef.description = "This function gets the current position of the mouse cursor. Note that for performance reasons, the world position returned is always 300 units away. If you want the exact world point (similar to onClientClick), use processLineOfSight between the camera position and the worldX/Y/Z result of this function. (See example below)";
+tmpDef.description = "This function gets the current position of the mouse cursor. Note that for performance reasons, the world position returned is always 300 units away. If you want the exact world point (similar to onClientClick), use processLineOfSight between the camera position and the worldX/Y/Z result of this function.";
 tmpDef.returnType = "float float float float float";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -213,7 +366,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "focusBrowser";
-tmpDef.description = "This function will attempt to focus the browser or unfocus all browsers. The browser that is focused will retrieve keyboard input.This example creates browser and focus it";
+tmpDef.description = "This function will attempt to focus the browser or unfocus all browsers. The browser that is focused will retrieve keyboard input.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["browser webBrowser"];
 tmpDef.argDescs = {};
@@ -240,7 +393,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isPedTargetingMarkerEnabled";
-tmpDef.description = "This example will toggle the targeting markers with the command /togtargetmarkers.";
+tmpDef.description = "This function checks whether health target markers are drawn as set by setPedTargetingMarkerEnabled or not.";
 tmpDef.returnType = "bool";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -375,7 +528,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedCameraRotation";
-tmpDef.description = "";
+tmpDef.description = "This function sets the camera rotation of a ped, e.g. where its camera will look at. Don't confuse this with setCameraMatrix, because that function is designed for fixed (scripted) camera moves. ";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "float cameraRotation"];
 tmpDef.argDescs = {};
@@ -411,7 +564,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setSoundPan";
-tmpDef.description = "";
+tmpDef.description = "This function is used to change the pan level of the specified sound element. ";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theSound", "float pan"];
 tmpDef.argDescs = {};
@@ -420,7 +573,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBulletImpact";
-tmpDef.description = "This example will create a Bullet Impact Effect on the position of the bullet impact.";
+tmpDef.description = "Creates a bullet impact particle effect, consisting of a small smoke cloud and a number of sparks.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[int smokeSize=1", "int sparkCount=1", "float smokeIntensity=1.0]"];
 tmpDef.argDescs = {};
@@ -438,7 +591,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddDebris";
-tmpDef.description = "This example will create a Debris Effect next to you when typing /debris in the Chatbox.";
+tmpDef.description = "Creates a debris particle effect (e.g. bits that fly off a car when ramming a wall).";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "[int colorR=255", "int colorG=0", "int colorB=0", "int colorA=255", "float scale=1.0", "int count=1]"];
 tmpDef.argDescs = {};
@@ -456,7 +609,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddTankFire";
-tmpDef.description = "This example will create a Tank Fire Effect at your weapon's muzzle position";
+tmpDef.description = "This function creates a tank firing particle effect";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ"];
 tmpDef.argDescs = {};
@@ -465,7 +618,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddFootSplash";
-tmpDef.description = "This example will create a Foot Splash at the position of the bullet impact whenever you shoot.";
+tmpDef.description = "This function creates a foot splash particle effect, normally created when walking into water.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ"];
 tmpDef.argDescs = {};
@@ -474,18 +627,9 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBulletSplash";
-tmpDef.description = "This example will add a Bullet Splash Effect next to your player when typing /bsplash in the Chatbox.";
+tmpDef.description = "This function creates a bullet splash particle effect, normally created when shooting into water.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "Vector3";
-tmpDef.description = "";
-tmpDef.returnType = "vector3";
-tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -501,7 +645,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddSparks";
-tmpDef.description = "This example will add Fire Bins to all locations added in the table.";
+tmpDef.description = "Creates a number of sparks originating from a point or along a line.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[float force=1", "int count=1", "float acrossLineX=0", "float acrossLineY=0", "float acrossLineZ=0", "bool blur=false", "float spread=1", "float life=1]"];
 tmpDef.argDescs = {};
@@ -528,7 +672,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getPedWeaponMuzzlePosition";
-tmpDef.description = "This Example draws a red 3D-Line when a Player shoots,between the Players WeaponMuzzlePosition and the Point where the Bullet hits.[Tested]";
+tmpDef.description = "Returns the world position of the muzzle of the weapon that a ped is currently carrying. The weapon muzzle is the end of the gun barrel where the bullets/rockets/... come out. The position may not be accurate if the ped is off screen.";
 tmpDef.returnType = "float, float, float";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -582,16 +726,16 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineReplaceModel";
-tmpDef.description = "Client-side example for replacing vehicle model and texture with custom ones.Server-side example function for triggering the replace.Client-side example for replacing weapons with custom mods.Client-Side example for replacing object collision, texture and model with custom ones.Server-side example function for triggering the replace.";
+tmpDef.description = "This function replaces the given model ID with the model contained in a DFF file loaded by engineLoadDFF. This function supports vehicles, objects, peds and players.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["dff theModel", "int modelID [", "bool alphaTransparency = false ]"];
+tmpDef.args = ["dff theModel", "int modelID ", "[bool alphaTransparency = false]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isElementSyncer";
-tmpDef.description = "This function checks whether an element is synced by the local player or not. Accepted elements are peds and vehicles.This example draws a string above peds synced by local player in 50m proximity";
+tmpDef.description = "This function checks whether an element is synced by the local player or not. Accepted elements are peds and vehicles.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement"];
 tmpDef.argDescs = {};
@@ -636,7 +780,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddTyreBurst";
-tmpDef.description = "This example will create a Tyre Burst Effect next to you when typing /tyreburst in the Chatbox.";
+tmpDef.description = "Creates a tyre burst particle effect (a small white smoke puff).";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ"];
 tmpDef.argDescs = {};
@@ -645,7 +789,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxSetShaderTessellation";
-tmpDef.description = "";
+tmpDef.description = "This function sets the amount of geometric sub-division to use when drawing a shader element with dxDrawImage.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theShader", "int tessellationX", "int tessellationY"];
 tmpDef.argDescs = {};
@@ -726,7 +870,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxSetTexturePixels";
-tmpDef.description = "";
+tmpDef.description = "This function sets the pixels of a texture element. It can be used with a standard texture, render target or screen source. ";
 tmpDef.returnType = "bool";
 tmpDef.args = ["[ int surfaceIndex = 0", "] element texture", "string pixels [", "int x = 0", "int y = 0", "int width = 0", "int height = 0 ]"];
 tmpDef.argDescs = {};
@@ -735,7 +879,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawRectangle";
-tmpDef.description = "This function draws a 2D rectangle across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously. Example of MOTD (message of the day), made using DxDrawText, -Line and -Rectangle.";
+tmpDef.description = "This function draws a 2D rectangle across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float startX", "float startY", "float width", "float height [", "int color = white", "bool postGUI = false", "bool subPixelPositioning = false ]"];
 tmpDef.argDescs = {};
@@ -744,7 +888,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxSetShaderTransform";
-tmpDef.description = "";
+tmpDef.description = " This function applies a 3D transformation to a shader element when it is drawn with dxDrawImage.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theShader", "float rotationX", "float rotationY", "float rotationZ", "[ float rotationCenterOffsetX = 0", "float rotationCenterOffsetY = 0", "float rotationCenterOffsetZ = 0", "bool bRotationCenterOffsetOriginIsScreen = false", "float perspectiveCenterOffsetX = 0", "float perspectiveCenterOffsetY = 0", "bool bPerspectiveCenterOffsetOriginIsScreen = false ]"];
 tmpDef.argDescs = {};
@@ -762,7 +906,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWaterHydrant";
-tmpDef.description = "";
+tmpDef.description = "This function creates a water hydrant particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ"];
 tmpDef.argDescs = {};
@@ -780,7 +924,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddGlass";
-tmpDef.description = "";
+tmpDef.description = "This function creates a glass particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "[int colorR=255", "int colorG=0", "int colorB=0", "int colorA=255", "float scale=1.0", "int count=1]"];
 tmpDef.argDescs = {};
@@ -789,7 +933,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxGetBlendMode";
-tmpDef.description = "";
+tmpDef.description = "This function returns the current blend mode for the dxDraw functions set with dxSetBlendMode.";
 tmpDef.returnType = "string";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -816,7 +960,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWood";
-tmpDef.description = "This example will create a Wood Effect next to you when typing /woodfx in the Chatbox.";
+tmpDef.description = "Creates a wood splinter particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[int count=1", "float brightness=1.0]"];
 tmpDef.argDescs = {};
@@ -861,7 +1005,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddGunshot";
-tmpDef.description = "This example adds a gunshot with sparks in front of your face.";
+tmpDef.description = "This function creates a gunshot particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[bool includeSparks=true]"];
 tmpDef.argDescs = {};
@@ -879,7 +1023,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddBlood";
-tmpDef.description = "This example creates blood effects when a player gets shot.";
+tmpDef.description = "Creates a blood splatter particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ", "[int count=1", "float brightness=1.0]"];
 tmpDef.argDescs = {};
@@ -888,7 +1032,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddWaterSplash";
-tmpDef.description = "This example will create a Water Splash at the position of the bullet impact whenever you shoot.";
+tmpDef.description = "This function creates a water splash particle effect.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ"];
 tmpDef.argDescs = {};
@@ -924,7 +1068,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "createFire";
-tmpDef.description = "";
+tmpDef.description = "Creates a patch of fire that will spread a bit and die out after a while.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float x", "float y", "float z [", "float size = 1.8 ]"];
 tmpDef.argDescs = {};
@@ -951,7 +1095,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "fxAddPunchImpact";
-tmpDef.description = "This example will create a Punch Impact Effect next to you when typing /pimpact in the Chatbox.";
+tmpDef.description = "Creates a punch impact particle effect (a small dust cloud).";
 tmpDef.returnType = "bool";
 tmpDef.args = ["float posX", "float posY", "float posZ", "float dirX", "float dirY", "float dirZ"];
 tmpDef.argDescs = {};
@@ -960,7 +1104,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxSetBlendMode";
-tmpDef.description = "This function sets the current blend mode for the dxDraw functions. Changing the blend mode can increase the quality when drawing text or certain other images to a render target. As a general guide use modulate_add when drawing text to a render target, and add when drawing the render target to the screen. Don't forget to restore the default blend at the end - See the example below.";
+tmpDef.description = "This function sets the current blend mode for the dxDraw functions. Changing the blend mode can increase the quality when drawing text or certain other images to a render target. As a general guide use modulate_add when drawing text to a render target, and add when drawing the render target to the screen. Don't forget to restore the default blend at the end.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string blendMode"];
 tmpDef.argDescs = {};
@@ -1023,7 +1167,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "dxSetPixelColor";
-tmpDef.description = "This example creates a 64x64 texture with random pixel colors, and draw it on the screen.";
+tmpDef.description = "This function sets the color of a single pixel for pixels contained in a string. It only works with 'plain' format pixels.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string pixels", "int x", "int y", "int r", "int g", "int b [", "int a = 255 ]"];
 tmpDef.argDescs = {};
@@ -1086,7 +1230,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setProjectileCounter";
-tmpDef.description = "Will change the projectile counter timer which depending on the projectile type will do different things:With this example you can use /setbombtime to set a delay duration of a projectile explosion.";
+tmpDef.description = "This function changes the projectile counter timer which depending on the projectile type will do different things.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["projectile projectile", "int timeToDetonate"];
 tmpDef.argDescs = {};
@@ -1257,7 +1401,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isElementStreamable";
-tmpDef.description = "";
+tmpDef.description = "This function checks whether an element is streamable as set by setElementStreamable or not.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement"];
 tmpDef.argDescs = {};
@@ -1266,7 +1410,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedTargetingMarkerEnabled";
-tmpDef.description = "";
+tmpDef.description = "This function is used to toggle the health target marker on top of all pedestrians.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["bool enabled"];
 tmpDef.argDescs = {};
@@ -1311,7 +1455,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightEndPosition";
-tmpDef.description = "";
+tmpDef.description = " This function gets the end position of a searchlight element.";
 tmpDef.returnType = "float float float";
 tmpDef.args = ["searchlight theSearchLight"];
 tmpDef.argDescs = {};
@@ -1329,7 +1473,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightEndRadius";
-tmpDef.description = "";
+tmpDef.description = " This function gets the end radius of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchLight"];
 tmpDef.argDescs = {};
@@ -1428,7 +1572,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadCOL";
-tmpDef.description = "";
+tmpDef.description = "This function loads a RenderWare Collision (COL 1/2/3) file into GTA. The collisions can then be used to provide collisions for in-game objects.";
 tmpDef.returnType = "col";
 tmpDef.args = ["string col_file / string raw_data"];
 tmpDef.argDescs = {};
@@ -1455,7 +1599,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setElementMatrix";
-tmpDef.description = "";
+tmpDef.description = "This function sets the matrix of an element.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "table theMatrix"];
 tmpDef.argDescs = {};
@@ -1482,7 +1626,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineImportTXD";
-tmpDef.description = "";
+tmpDef.description = "engineImportTXD";
 tmpDef.returnType = "bool";
 tmpDef.args = ["txd texture", "int model_id"];
 tmpDef.argDescs = {};
@@ -1554,7 +1698,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getPedAnalogControlState";
-tmpDef.description = "";
+tmpDef.description = "This function retrieves the analog control state of a ped, as set by setPedAnalogControlState.";
 tmpDef.returnType = "float";
 tmpDef.args = ["ped thePed", "string controlName"];
 tmpDef.argDescs = {};
@@ -1572,7 +1716,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getHeliBladeCollisionsEnabled";
-tmpDef.description = "This function gets the state of the helicopter blades collisions on the specified vehicle.This example shows the blade collisions state";
+tmpDef.description = "This function gets the state of the helicopter blades collisions on the specified vehicle.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
@@ -1617,7 +1761,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineRestoreCOL";
-tmpDef.description = "This function restores the original collision model of the given model ID. Reverses the effect of engineReplaceCOL.Client-Side example for restoring object collision with default one.Server-side example function for triggering the restore.";
+tmpDef.description = "This function restores the original collision model of the given model ID.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int modelID"];
 tmpDef.argDescs = {};
@@ -1626,7 +1770,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadTXD";
-tmpDef.description = "";
+tmpDef.description = "This function loads a RenderWare Texture Dictionary (TXD) file into GTA. The texture dictionary can then be used to provide textures.";
 tmpDef.returnType = "txd";
 tmpDef.args = ["string txd_file / string raw_data [", "bool filteringEnabled = true ]"];
 tmpDef.argDescs = {};
@@ -1635,7 +1779,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineReplaceCOL";
-tmpDef.description = "Client-Side example for replacing object collision with custom one.Server-side example function for triggering the replace.";
+tmpDef.description = "This function replaces the collision file of the given model id to the collision file passed. Use engineLoadCOL to load the collision file first.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["col theCol", "int modelID"];
 tmpDef.argDescs = {};
@@ -1644,7 +1788,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "guiSetInputMode";
-tmpDef.description = "This function controls the input mode to define whether or not (and when) keybinds or MTA binds are overridden (disabled) so that text can be input into an editbox, for example.The binds can be either:";
+tmpDef.description = "This function controls the input mode to define whether or not (and when) keybinds or MTA binds are overridden (disabled) so that text can be input into an editbox.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string mode"];
 tmpDef.argDescs = {};
@@ -1653,7 +1797,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineLoadDFF";
-tmpDef.description = "";
+tmpDef.description = "This function loads a RenderWare Model (DFF) file into GTA.";
 tmpDef.returnType = "dff";
 tmpDef.args = ["string dff_file / string raw_data"];
 tmpDef.argDescs = {};
@@ -1662,7 +1806,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getPedMoveState";
-tmpDef.description = "Example 1: This example shows how you can output a players current movestate.";
+tmpDef.description = "This function returns the current move state for the specified ped.";
 tmpDef.returnType = "string";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -1689,7 +1833,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineRestoreModel";
-tmpDef.description = "This function restores the visual DFF model of the given model ID. This restores the result of engineReplaceModel.Client-Side example for restoring model / vehicle.Server-Side example for triggering model / vehicle restore function with \"restore\" command.";
+tmpDef.description = "This function restores the visual DFF model of the given model ID. This restores the result of engineLoadIFP.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int modelID"];
 tmpDef.argDescs = {};
@@ -1761,7 +1905,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getGarageSize";
-tmpDef.description = "This function outputs the size of garage.This example adds the command /garagesize <garage ID>";
+tmpDef.description = "This function outputs the size of garage.";
 tmpDef.returnType = "float, float, float";
 tmpDef.args = ["int garageID"];
 tmpDef.argDescs = {};
@@ -1815,7 +1959,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileCreator";
-tmpDef.description = "This function returns the creator of the specified projectile.This example will output a message in the chatbox saying who createdthe projectile.";
+tmpDef.description = "This function returns the creator of the specified projectile.";
 tmpDef.returnType = "element";
 tmpDef.args = ["projectile theProjectile"];
 tmpDef.argDescs = {};
@@ -1896,7 +2040,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getPedOxygenLevel";
-tmpDef.description = "This function returns the current oxygen level of the specified ped.This example defines a \"showoxygen\" console command that shows the player that executes it which oxygen level he has.";
+tmpDef.description = "This function returns the current oxygen level of the specified ped.";
 tmpDef.returnType = "float";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -1923,7 +2067,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightEndPosition";
-tmpDef.description = "";
+tmpDef.description = "This function sets the end position of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchLight", "float endX", "float endY", "float endZ"];
 tmpDef.argDescs = {};
@@ -1932,7 +2076,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightStartRadius";
-tmpDef.description = "";
+tmpDef.description = "This function gets the start radius of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchLight"];
 tmpDef.argDescs = {};
@@ -1941,7 +2085,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightStartRadius";
-tmpDef.description = "";
+tmpDef.description = "This function sets the start radius of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchlight", "float startRadius"];
 tmpDef.argDescs = {};
@@ -1995,7 +2139,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightEndRadius";
-tmpDef.description = "";
+tmpDef.description = "This function sets the end radius of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchlight", "float endRadius"];
 tmpDef.argDescs = {};
@@ -2004,7 +2148,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getProjectileCounter";
-tmpDef.description = "Get the time left before a projectile detonates.With this example you can find out how long does it take for a projectile to explode/end";
+tmpDef.description = "Get the time left before a projectile detonates.";
 tmpDef.returnType = "int";
 tmpDef.args = ["projectile projectile"];
 tmpDef.argDescs = {};
@@ -2031,7 +2175,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getSearchLightStartPosition";
-tmpDef.description = "";
+tmpDef.description = " This function gets the start position of a searchlight element.";
 tmpDef.returnType = "searchlight";
 tmpDef.args = ["searchlight theSearchLight"];
 tmpDef.argDescs = {};
@@ -2057,24 +2201,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "Vector2";
-tmpDef.description = "The Vector2 class is a class introduced in 1.4";
-tmpDef.returnType = "vector2";
-tmpDef.args = ["float x = 0", "float y = 0"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "Matrix";
-tmpDef.description = "Matrices are one of the most powerful features of MTA OOP. We did have a presence of Matrices before with getElementMatrix, but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.";
-tmpDef.returnType = "matrix";
-tmpDef.args = ["Vector3 position[", "Vector3 rotation]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setPedAnalogControlState";
 tmpDef.description = "Sets an analog state of a specified ped's control, as if they pressed or released it.";
 tmpDef.returnType = "bool";
@@ -2085,7 +2211,7 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedLookAt";
-tmpDef.description = "";
+tmpDef.description = "Makes a ped turn his head and look at a specific world position or element.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "float x", "float y", "float z [", "int time = 3000 [", "int blend = 1000 ]", "element target = nil ]"];
 tmpDef.argDescs = {};
@@ -2129,17 +2255,8 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "Vector4";
-tmpDef.description = "The Vector4 class is a class introduced in 1.4";
-tmpDef.returnType = "vector4";
-tmpDef.args = ["float x = 0", "float y = 0", "float z = 0", "float w = 0"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPedCameraRotation";
-tmpDef.description = "";
+tmpDef.description = "This function gets the current camera rotation of a ped.";
 tmpDef.returnType = "float";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};

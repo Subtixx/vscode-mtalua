@@ -4,7 +4,43 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var ServerDefinitions = new Array<LuaFunction>();
 
-var tmpDef = new MTAFunction;
+let tmpDef = new MTAFunction;
+tmpDef.label = "dbPrepareString";
+tmpDef.description = "This function escapes arguments in the same way as dbQuery, except dbPrepareString returns the query string instead of processing the query. This allows you to safely build complex query strings from component parts and help prevent (one class of) SQL injection.";
+tmpDef.returnType = "string";
+tmpDef.args = ["element databaseConnection", "string query", "[var param1", "var param2 ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resendPlayerACInfo";
+tmpDef.description = "This function will force the specified player to resend their AC info, triggering the onPlayerACInfo event again.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCommandHandlers";
+tmpDef.description = "[ resource theResource ]";
+tmpDef.returnType = "table";
+tmpDef.args = ["[resource theResource]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isResourceArchived";
+tmpDef.description = "Checks whether a resource is currently archived (running from within a ZIP file).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource resourceElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "copyAccountData";
 tmpDef.description = "This function copies all of the data from one account to another.";
 tmpDef.returnType = "bool";
@@ -24,7 +60,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getAccountData";
-tmpDef.description = "";
+tmpDef.description = "This function retrieves a string that has been stored using setAccountData. Data stored as account data is persistent across user's sessions and maps, unless they are logged into a guest account.";
 tmpDef.returnType = "string";
 tmpDef.args = ["account theAccount", "string key"];
 tmpDef.argDescs = {};
@@ -186,7 +222,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setAccountData";
-tmpDef.description = "";
+tmpDef.description = "This function sets a string to be stored in an account. This can then be retrieved using getAccountData. Data stored as account data is persistent across user's sessions and maps, unless they are logged into a guest account.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["account theAccount", "string key", "string value"];
 tmpDef.argDescs = {};
@@ -411,7 +447,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "kickPlayer";
-tmpDef.description = "";
+tmpDef.description = "This function will kick the specified player from the server.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["player kickedPlayer", "[ player/string responsiblePlayer", "string reason = \"\" ]"];
 tmpDef.argDescs = {};
@@ -447,7 +483,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setElementVisibleTo";
-tmpDef.description = "";
+tmpDef.description = "This function can change an element's visibility. This does not work with all entities - vehicles, players and objects are exempt. This is because these objects are required for accurate sync (they're physical objects that contribute to the physics engine). This function is particularly useful for changing the visibility of markers, radar blips and radar areas.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "element visibleTo", "bool visible"];
 tmpDef.argDescs = {};
@@ -762,7 +798,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "textItemGetPriority";
-tmpDef.description = "";
+tmpDef.description = " This function retrieves the priority of a text item. Priority defines the rate at whihc a text item is updated.";
 tmpDef.returnType = "int";
 tmpDef.args = ["textitem textitemToCheck"];
 tmpDef.argDescs = {};
@@ -780,7 +816,7 @@ ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "textItemSetPriority";
-tmpDef.description = "";
+tmpDef.description = "This function sets the priority for a text item. Priority is the importance of sending updated text to the client.";
 tmpDef.returnType = "void";
 tmpDef.args = ["textitem theTextItem", "string priority"];
 tmpDef.argDescs = {};
@@ -905,37 +941,10 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "Vector2";
-tmpDef.description = "The Vector2 class is a class introduced in 1.4";
-tmpDef.returnType = "vector2";
-tmpDef.args = ["float x = 0", "float y = 0"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "Vector4";
-tmpDef.description = "The Vector4 class is a class introduced in 1.4";
-tmpDef.returnType = "vector4";
-tmpDef.args = ["float x = 0", "float y = 0", "float z = 0", "float w = 0"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getResourceMapRootElement";
 tmpDef.description = "This function retrieves the root element of a certain map in a specified resource.";
 tmpDef.returnType = "element";
 tmpDef.args = ["resource theResource", "string mapName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "Matrix";
-tmpDef.description = "Matrices are one of the most powerful features of MTA OOP. We did have a presence of Matrices before with getElementMatrix, but we were given an ugly disgusting table to play with. Now, with the new Matrix class, we can make and magically manipulate Matrices.";
-tmpDef.returnType = "matrix";
-tmpDef.args = ["Vector3 position[", "Vector3 rotation]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -990,15 +999,6 @@ tmpDef.label = "copyResource";
 tmpDef.description = "This function copies a specified resource with a new name.";
 tmpDef.returnType = "resource";
 tmpDef.args = ["resource theResource", "string newResourceName [", "string organizationalDir ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "Vector3";
-tmpDef.description = "";
-tmpDef.returnType = "vector3";
-tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -1197,15 +1197,6 @@ tmpDef.label = "getDeadPlayers";
 tmpDef.description = "This function returns a table of all currently dead players on the server.";
 tmpDef.returnType = "table";
 tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPlayerACInfo";
-tmpDef.description = "";
-tmpDef.returnType = "table";
-tmpDef.args = ["element thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
