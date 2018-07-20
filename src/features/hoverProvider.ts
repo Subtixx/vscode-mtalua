@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 
 import { LuaFunction, LuaConst } from '../defs/defs';
 
-import { SharedDefinitions } from '../defs/shared';
+import { SharedDefinitions, SharedModuleDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
 import { DeprecatedDefinitions } from '../defs/deprecated';
@@ -24,6 +24,23 @@ export class hoverProvider implements vscode.HoverProvider {
         {
             let idef:LuaFunction = SharedDefinitions[i];
             this.functions[idef.label] = idef.toMarkdown();
+        }
+        for(let i in SharedModuleDefinitions)
+        {
+            let itype = SharedModuleDefinitions[i];
+
+            this.functions[itype.label] = itype.toMarkdown();
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+                this.functions[itype.label + "." + jmethod.label] =  jmethod.toMarkdown();
+            }
+            
+            for(let j in itype.fields)
+            {
+                let jfield = itype.fields[j];
+                this.functions[itype.label + "." + jfield.label] = jfield.toMarkdown();
+            }
         }
 
         // Server-Side definitions

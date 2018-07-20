@@ -4,7 +4,7 @@ import * as vscode from 'vscode';
 
 import { LuaFunction } from '../defs/defs';
 
-import { SharedDefinitions } from '../defs/shared';
+import { SharedDefinitions, SharedModuleDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
 import { DeprecatedDefinitions } from '../defs/deprecated';
@@ -24,6 +24,16 @@ export class signatureProvider implements vscode.SignatureHelpProvider {
         {
             let idef:LuaFunction = SharedDefinitions[i];
             this.functions[idef.label] = idef;
+        }
+
+        for(let i in SharedModuleDefinitions)
+        {
+            let itype = SharedModuleDefinitions[i];
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+                this.functions[itype.label + "." + jmethod.label] =  jmethod;
+            }
         }
 
         // Server-Side definitions
@@ -50,7 +60,21 @@ export class signatureProvider implements vscode.SignatureHelpProvider {
 
     addLuaLibs()
     {
-        // TODO
+        for(let i in luaClasses)
+        {
+            let itype = luaClasses[i];
+            for(let j in itype.methods)
+            {
+                let jmethod = itype.methods[j];
+                this.functions[itype.label + "." + jmethod.label] =  jmethod;
+            }
+        }
+
+        for(let i in luaFunctions)
+        {
+            let idef:LuaFunction = luaFunctions[i];
+            this.functions[idef.label] = idef;            
+        }
     }
 
     provideSignatureHelp(document: vscode.TextDocument, position: vscode.Position, token: vscode.CancellationToken): vscode.SignatureHelp | Thenable<vscode.SignatureHelp> {
