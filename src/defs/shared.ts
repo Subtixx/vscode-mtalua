@@ -4,16 +4,7 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var SharedDefinitions = new Array<LuaFunction>();
 
-// tmpDef = new MTAFunction;
-// tmpDef.label = "";
-// tmpDef.description = "";
-// tmpDef.returnType = "";
-// tmpDef.args = [""];
-// tmpDef.argDescs = {};
-// tmpDef.scriptSide = ScriptSide.Client;
-// SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
+let tmpDef = new MTAFunction;
 tmpDef.label = "getUserdataType";
 tmpDef.description = "This function gets the type of a userdata value, which is not always a element in the element tree.";
 tmpDef.returnType = "string";
@@ -85,7 +76,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 SharedDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "getDevelopmentMode";
 tmpDef.description = "This function is used to get the development mode of the client. For more information see setDevelopmentMode.";
 tmpDef.returnType = "bool";
@@ -94,7 +85,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "setDevelopmentMode";
 tmpDef.description = "This function is used to set the development mode. Setting development mode allows access to special commands which can assist with script debugging.";
 tmpDef.returnType = "bool";
@@ -103,7 +94,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "xmlLoadFile";
 tmpDef.description = "This function provides an alternative way to load XML files to getResourceConfig.This function loads an XML file and returns the node by specifying a specific file path, while getResourceConfig allows for loading an XML file from a resource.Print error if something wrong with xml.";
 tmpDef.returnType = "xmlnode";
@@ -1508,6 +1499,15 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "getPedSkin";
+tmpDef.description = "DEPRECATED Please use getElementModel";
+tmpDef.returnType = "int";
+tmpDef.args =["ped thePed"];
+tmpDef.argDescs = { };
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "addVehicleUpgrade";
 tmpDef.description = "This function adds an upgrade to an existing vehicle, eg: nos, hyrdraulics.This serverside function allows the user to get an upgrade by typing a command:This client-side script gives vehicles a nitro upgrade whenever they pass through a certain collision shape:";
 tmpDef.returnType = "bool";
@@ -1670,6 +1670,15 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "isPedFrozen";
+tmpDef.description = "DEPRECATED Please use isElementFrozen";
+tmpDef.returnType = "bool";
+tmpDef.args =["ped thePed"];
+tmpDef.argDescs = { };
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "getElementPosition";
 tmpDef.description = "The getElementPosition function allows you to retrieve the position coordinates of an element. This can be any real world element, including:";
 tmpDef.returnType = "float, float, float";
@@ -1689,7 +1698,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "isElementFrozen";
-tmpDef.description = "This example binds the \"p\" key to a function to freeze/unfreeze the player's current vehicle.";
+tmpDef.description = "This function checks if element has been frozen.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement "];
 tmpDef.argDescs = {};
@@ -3542,11 +3551,11 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedAnimationProgress";
-tmpDef.description = "Sets the current animation progress of a player or ped.This example creates a ped, apply animation to it, and \"freeze\" the animation at half of overall animation time.";
+tmpDef.label = "setPedFrozen";
+tmpDef.description = "DEPRECATED Please use setElement";
 tmpDef.returnType = "bool";
-tmpDef.args = [" ped thePed [", "string anim", "float progress] "];
-tmpDef.argDescs = {};
+tmpDef.args =[" ped thePed", "bool frozen "];
+tmpDef.argDescs = { };
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
@@ -4527,15 +4536,6 @@ tmpDef.label = "getRadarAreaColor";
 tmpDef.description = "This function can be used to retrieve the current color of a radar area.";
 tmpDef.returnType = "int, int, int, int";
 tmpDef.args = [" radararea theRadararea "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "isElementFrozen";
-tmpDef.description = "This example binds the \"p\" key to a function to freeze/unfreeze the player's current vehicle.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" element theElement "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);

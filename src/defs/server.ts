@@ -4,16 +4,7 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 export var ServerDefinitions = new Array<LuaFunction>();
 
-// tmpDef = new MTAFunction;
-// tmpDef.label = "";
-// tmpDef.description = "";
-// tmpDef.returnType = "";
-// tmpDef.args = [""];
-// tmpDef.argDescs = {};
-// tmpDef.scriptSide = ScriptSide.Client;
-// ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
+let tmpDef = new MTAFunction;
 tmpDef.label = "dbPrepareString";
 tmpDef.description = "This function escapes arguments in the same way as dbQuery, except dbPrepareString returns the query string instead of processing the query. This allows you to safely build complex query strings from component parts and help prevent (one class of) SQL injection.";
 tmpDef.returnType = "string";
@@ -40,7 +31,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ServerDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "isResourceArchived";
 tmpDef.description = "Checks whether a resource is currently archived (running from within a ZIP file).";
 tmpDef.returnType = "bool";
@@ -49,7 +40,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
-var tmpDef = new MTAFunction;
+tmpDef = new MTAFunction;
 tmpDef.label = "copyAccountData";
 tmpDef.description = "This function copies all of the data from one account to another.";
 tmpDef.returnType = "bool";
