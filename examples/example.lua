@@ -19,4 +19,8 @@ not
 ==
 ~=
 
+localPlayer
+root
+rootElement
 isPedFrozen()
+helloWorld()

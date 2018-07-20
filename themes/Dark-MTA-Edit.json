@@ -81,6 +81,13 @@
                 "foreground": "#9cdcfe",
                 "fontStyle": "italic underline"
             }
+        },
+        {
+            "name": "MTA Constant",
+            "scope": "MTAConstant",
+            "settings": {
+                "foreground": "#4EC9B0"
+            }
         }
     ]
 }

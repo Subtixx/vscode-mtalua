@@ -224,6 +224,10 @@
 			"name": "support.class.lua MTADeprecatedFunction.lua"
 		},
 		{
+			"match": "(?<![^.]\\.|:)\\b(localPlayer|root|rootElement)\\b|(?<![.])\\.{3}(?!\\.)",
+			"name": "constant.language.lua MTAConstant.lua"
+		},
+		{
 			"match": "\\b(break|do|else|for|if|elseif|goto|return|then|repeat|while|until|end|function|local|in)\\b",
 			"name": "keyword.control.lua"
 		},
