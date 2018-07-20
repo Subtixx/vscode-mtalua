@@ -7,6 +7,8 @@ import { LuaFunction, LuaConst } from '../defs/defs';
 import { SharedDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
+import { DeprecatedDefinitions } from '../defs/deprecated';
+
 import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
 
 export class hoverProvider implements vscode.HoverProvider {
@@ -35,6 +37,13 @@ export class hoverProvider implements vscode.HoverProvider {
         for(let i in ClientDefinitions)
         {
             let idef:LuaFunction = ClientDefinitions[i];
+            this.functions[idef.label] = idef.toMarkdown();
+        }
+
+        // Deprecated definitions
+        for(let i in DeprecatedDefinitions)
+        {
+            let idef:LuaFunction = DeprecatedDefinitions[i];
             this.functions[idef.label] = idef.toMarkdown();
         }
     }

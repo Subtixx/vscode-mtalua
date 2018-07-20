@@ -73,6 +73,14 @@
             "settings": {
                 "foreground": "#0084ff"
             }
+        },
+        {
+            "name": "MTA Deprecated Function",
+            "scope": "MTADeprecatedFunction",
+            "settings": {
+                "foreground": "#9cdcfe",
+                "fontStyle": "italic underline"
+            }
         }
     ]
 }

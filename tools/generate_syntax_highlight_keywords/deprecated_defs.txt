@@ -1,0 +1,1 @@
+getPedSkin|isPedFrozen|setPedFrozen

@@ -6,6 +6,7 @@ import { LuaFunction, ScriptSide, LuaConst } from '../defs/defs';
 import { SharedDefinitions } from '../defs/shared';
 import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
+import { DeprecatedDefinitions } from '../defs/deprecated';
 import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
 
 export class functionProvider {
@@ -37,6 +38,14 @@ export class functionProvider {
         // Client-Side definitions
         for (let i in ClientDefinitions) {
             let idef: LuaFunction = ClientDefinitions[i];
+            let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
+            def.documentation = idef.toMarkdown();
+            this.globalTypes.push(def);
+        }
+
+        // Deprecated definitions
+        for (let i in DeprecatedDefinitions) {
+            let idef: LuaFunction = DeprecatedDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
             def.documentation = idef.toMarkdown();
             this.globalTypes.push(def);
