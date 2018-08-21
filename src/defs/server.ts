@@ -1518,15 +1518,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPlayerACInfo";
-tmpDef.description = "(DEPRECATED PLEASE USE onPlayerAcInfo.) This function returns anti-cheat info for a player. The info returned by this function can change over time, so use the server event onPlayerACInfo instead.";
-tmpDef.returnType = "table";
-tmpDef.args = ["player thePlayer"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "resendPlayerModInfo";
 tmpDef.description = "This function will force the specified player to resend their mod info, triggering the onPlayerModInfo event again.";
 tmpDef.returnType = "bool";
