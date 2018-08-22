@@ -1265,98 +1265,747 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
-/*
-- aclGet => Missing
-- aclCreate => Missing
-- aclDestroy => Missing
-- aclGetName => Missing
-- aclGetRight => Missing
-- aclSetRight => Missing
-- aclListRights => Missing
-- aclRemoveRight => Missing
-- aclGetGroup => Missing
-- aclCreateGroup => Missing
-- aclDestroyGroup => Missing
-- aclGroupList => Missing
-- aclGroupAddACL => Missing
-- aclGroupAddObject => Missing
-- aclGroupGetName => Missing
-- aclGroupListACL => Missing
-- aclGroupListObjects => Missing
-- aclGroupRemoveACL => Missing
-- aclGroupRemoveObject => Missing
-- hasObjectPermissionTo => Missing
-- isObjectInACLGroup => Missing
-- getElementColShape => Missing
-- getElementsWithinColShape => Missing
-- isElementWithinColShape => Missing
-- getCancelReason => Missing
-- triggerClientEvent => Missing
-- triggerLatentClientEvent => Missing
-- httpClear => Missing
-- httpRequestLogin => Missing
-- httpSetResponseCode => Missing
-- httpSetResponseCookie => Missing
-- httpSetResponseHeader => Missing
-- httpWrite => Missing
-- resetMapInfo => Missing
-- getPedWalkingStyle => Missing
-- isPedFrozen => Missing
-- isPedInWater => Missing
-- setPedFrozen => Missing
-- getPickupRespawnInterval => Missing
-- isPickupSpawned => Missing
-- setPickupRespawnInterval => Missing
-- usePickup => Missing
-- getPlayerACInfo => Missing
-- resendPlayerModInfo => Missing
-- setPlayerAnnounceValue => Missing
-- setPlayerHudComponentVisible => Missing
-- setPlayerMuted => Missing
-- setPlayerName => Missing
-- setPlayerVoiceBroadcastTo => Missing
-- setPlayerVoiceIgnoreFrom => Missing
-- setPlayerWantedLevel => Missing
-- spawnPlayer => Missing
-- takePlayerScreenShot => Missing
-- refreshResources => Missing
-- removeResourceFile => Missing
-- renameResource => Missing
-- restartResource => Missing
-- setResourceInfo => Missing
-- startResource => Missing
-- stopResource => Missing
-- updateResourceACLRequest => Missing
-- isGlitchEnabled => Missing
-- outputServerLog => Missing
-- setGlitchEnabled => Missing
-- setMaxPlayers => Missing
-- setServerPassword => Missing
-- shutdown => Missing
-- dbConnect => Missing
-- dbExec => Missing
-- dbQuery => Missing
-- dbPoll => Missing
-- dbFree => Missing
-- getPlayerTeam => Missing
-- textCreateDisplay => Missing
-- textDestroyDisplay => Missing
-- textDisplayAddObserver => Missing
-- textDisplayAddText => Missing
-- textDisplayRemoveObserver => Missing
-- textDisplayRemoveText => Missing
-- textDisplayGetObservers => Missing
-- textDisplayIsObserver => Missing
-- iprint => Missing
-- inspect => Missing
-- isOOPEnabled => Missing
-- getVehiclesOfType => Missing
-- getModelHandling => Missing
-- setModelHandling => Missing
-- setVehicleIdleRespawnDelay => Missing
-- setVehicleRespawnDelay => Missing
-- setVehicleRespawnPosition => Missing
-- setVehicleHandling => Missing
-- setVehicleVariant => Missing
-- getSkyGradient => Missing
-*/
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGet";
+tmpDef.description = " Get the ACL with the given name. If need to get most of the ACL's, you should consider using aclList to get a table of them all.";
+tmpDef.returnType = "acl";
+tmpDef.args = ["string aclName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclCreate";
+tmpDef.description = " This function creates an ACL entry in the Access Control List system with the specified name.";
+tmpDef.returnType = "acl";
+tmpDef.args = ["string aclName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclDestroy";
+tmpDef.description = " This function destroys the ACL passed. The destroyed ACL will no longer be valid.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["acl theACL"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGetName";
+tmpDef.description = " Get the name of given ACL.";
+tmpDef.returnType = "string";
+tmpDef.args = ["acl theAcl"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGetRight";
+tmpDef.description = " This function returns whether the access for the given right is set to true or false in the ACL.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["acl theAcl", "string rightName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclSetRight";
+tmpDef.description = " This functions changes or adds the given right in the given ACL. The access can be true or false and specifies whether the ACL gives access to the right or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["acl theAcl", "string rightName", "bool hasAccess"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclListRights";
+tmpDef.description = " This function returns a table of all the rights that a given ACL has.";
+tmpDef.returnType = "table";
+tmpDef.args = ["acl theACL", "string allowedType"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclRemoveRight";
+tmpDef.description = " This function removes the given right (string) from the given ACL.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["acl theAcl", "string rightName "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGetGroup";
+tmpDef.description = " This function is used to get the ACL group with the given name. If you need most of the groups you should consider using aclGroupList instead to get a table containing them all.";
+tmpDef.returnType = "aclgroup";
+tmpDef.args = ["string groupName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclCreateGroup";
+tmpDef.description = " This function creates a group in the ACL. An ACL group can contain objects like players and resources. They specify who has access to the ACL's in this group.";
+tmpDef.returnType = "aclgroup";
+tmpDef.args = ["string groupName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclDestroyGroup";
+tmpDef.description = " This function destroys the given ACL group. The destroyed ACL group will no longer be valid.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["aclgroup aclGroup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupList";
+tmpDef.description = " This function returns a table of all the ACL groups.";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupAddACL";
+tmpDef.description = " This function adds the given ACL to the given ACL group. This makes the resources and players in the given ACL group have access to what's specified in the given ACL. The rights for something in the different ACL's in a group are OR-ed together, which means if one ACL gives access to something, this ACL group will have access to that.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["aclgroup theGroup", "acl theACL"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupAddObject";
+tmpDef.description = " This function adds an object to the given ACL group.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["aclgroup theGroup", "string theObjectName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupGetName";
+tmpDef.description = " This function is used to get the name of the given ACL group.";
+tmpDef.returnType = "string";
+tmpDef.args = ["aclgroup aclGroup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupListACL";
+tmpDef.description = " This function returns a table over all the ACL's that exist in a given ACL group.";
+tmpDef.returnType = "table";
+tmpDef.args = ["aclgroup theGroup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupListObjects";
+tmpDef.description = " This function returns a table over all the objects that exist in a given ACL group. These are objects like players and resources.";
+tmpDef.returnType = "table";
+tmpDef.args = ["aclgroup theGroup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupRemoveACL";
+tmpDef.description = " This function removes the given ACL from the given ACL group. (Please NOTE: The resource that's using this function needs the right to remove an acl.)";
+tmpDef.returnType = "bool";
+tmpDef.args = ["aclgroup theGroup", "acl theACL "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "aclGroupRemoveObject";
+tmpDef.description = " This function removes the given object (string) from the given ACL group. The object can be a resource or a player. See aclGroupAddObject for more details.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["aclgroup theGroup", "string theObjectString"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "hasObjectPermissionTo";
+tmpDef.description = " This function returns whether or not the given object has access to perform the given action.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string / element theObject", "string theAction [", "bool defaultPermission = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isObjectInACLGroup";
+tmpDef.description = "This function is used to determine if an object is in a group.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string theObject", "aclgroup theGrou"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCancelReason";
+tmpDef.description = "Gets the reason for cancelling an event. ";
+tmpDef.returnType = "string";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "triggerClientEvent";
+tmpDef.description = "This function triggers an event previously registered on a client. This is the primary means of passing information between the server and the client.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[ table/element sendTo = getRootElement() ]", "string name", "element sourceElement", "[ arguments... ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "triggerLatentClientEvent";
+tmpDef.description = "This function is the same as triggerClientEvent except the transmission rate of the data contained in the arguments can be limited and other network traffic is not blocked while the data is being transferred.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[table/element sendTo=getRootElement()]", "string name", "[int bandwidth=50000]", "[bool persist=false]", "element theElement", "[arguments...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetMapInfo";
+tmpDef.description = "This function is used to reset the state of a player. It is intended to restore a player to his default state as if he had just joined the server, without any scripts affecting him.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[player thePlayer = getRootElement()]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPickupRespawnInterval";
+tmpDef.description = "Returns the time it takes before a pickup respawns after a player picked it up. The time is specified in milliseconds.";
+tmpDef.returnType = "int";
+tmpDef.args = ["pickup thePickup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isPickupSpawned";
+tmpDef.description = "This function checks if a pickup is currently spawned (is visible and can be picked up) or not (a player picked it up recently).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["pickup thePickup"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPickupRespawnInterval";
+tmpDef.description = "Sets the time it takes for a pickup to respawn after a player picked it up. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["pickup thePickup", "int ms"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resendPlayerModInfo";
+tmpDef.description = "This function will force the specified player to resend their mod info, triggering the onPlayerModInfo event again.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerAnnounceValue";
+tmpDef.description = "This function allows you to change ASE announce values for any player using a specified key.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string key", "string value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerMuted";
+tmpDef.description = "Use this function to mute or unmute the player.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerName";
+tmpDef.description = "This function changes the specified player's name.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string newName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerVoiceBroadcastTo";
+tmpDef.description = "This function allows you to change who can hear the voice of a player.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "mixed broadcastTo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerVoiceIgnoreFrom";
+tmpDef.description = "This function allows you to mute voices for a player.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "mixed ignoreFrom"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerWantedLevel";
+tmpDef.description = " This function is used to set a player's wanted level.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "int stars"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "spawnPlayer";
+tmpDef.description = "This function spawns the player at an arbitary point on the map.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "float x", "float y", "float z", "[ int rotation = 0", "int skinID = 0", "int interior = 0", "int dimension = 0", "team theTeam = getPlayerTeam(thePlayer)]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "takePlayerScreenShot";
+tmpDef.description = "This function forces a client to capture the current screen output and send it back to the server. The image will contain the GTA HUD and the output of any dxDraw functions that are not flagged as 'post GUI'.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "int width", "int height", "[string tag = \"\"", "int quality = 30", "int maxBandwith = 5000]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "refreshResources";
+tmpDef.description = "This function finds new resources and checks for changes to the current ones.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[bool refreshAll = false", "resource targetResource = nil]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "removeResourceFile";
+tmpDef.description = "This function removes a file from the resource.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource", "string fileName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "renameResource";
+tmpDef.description = "This function renames a resource.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string resourceName", "string newResourceName","[ string organizationalPath ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "restartResource";
+tmpDef.description = "This function restarts a running resource. Restarting will destroy all the elements that the resource has created (as stopping the resource does).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource","[ bool persistent = false", "bool configs = true", "bool maps = true", "bool scripts = true", "bool html = true", "bool clientConfigs = true", "bool clientScripts = true", "bool clientFiles = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setResourceInfo";
+tmpDef.description = "This function sets the value of any attribute in a resource info tag.";
+tmpDef.returnType = "";
+tmpDef.args = ["resource theResource", "string attribute", "string value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "startResource";
+tmpDef.description = "This function starts a resource either persistently or as a dependency of the current resource. If you start the resource persistently, the resource will run until stopped either using stopResource or by the server admin. A resource started as a dependency will stop when your resource stops, if no other resources have it as a depdendency. This is the same effect as using an include in your meta.xml file.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource","[ bool persistent = false", "bool startIncludedResources = true", "bool loadServerConfigs = true", "bool loadMaps = true", "bool loadServerScripts = true", "bool loadHTML = true", "bool loadClientConfigs = true", "bool loadClientScripts = true", "bool loadFiles = true]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "stopResource";
+tmpDef.description = "This function stops a running resource";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "updateResourceACLRequest";
+tmpDef.description = "This function changes the access for one ACL request of the given resource.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource", "string rightName", "bool access","[ string byWho = \"\" ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isGlitchEnabled";
+tmpDef.description = "This function retrieves whether San Andreas game glitches are enabled or not, set by using setGlitchEnabled";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string glitchName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setGlitchEnabled";
+tmpDef.description = "This function enables or disables glitches that are found in the original Single Player game that can be used to gain an advantage in multiplayer.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string glitchName", "bool enable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "outputServerLog";
+tmpDef.description = "This outputs a line of text to the server's log. This could be useful for debugging. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string text"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setMaxPlayers";
+tmpDef.description = "This function sets the maximum number of player slots on the server. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int slots"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setServerPassword";
+tmpDef.description = "This function changes the password required to join the server to the given string.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string password"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "shutdown";
+tmpDef.description = "This function shuts down the server. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string reason"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dbConnect";
+tmpDef.description = "This function opens a connection to a database and returns an element that can be used with dbQuery.";
+tmpDef.returnType = "databaseConnection";
+tmpDef.args = ["string databaseType", "string host [", "string username = \"\"", "string password = \"\"", "string options = \"\" ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dbExec";
+tmpDef.description = "This function executes a database query using the supplied connection. No result is returned.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element databaseConnection", "string query [", "var param1 [", "var param2 ...]]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dbQuery";
+tmpDef.description = "This function starts a database query using the supplied connection. Use the returned query handle with dbPoll to get the result, or dbFree if you don't want the result.";
+tmpDef.returnType = "handle";
+tmpDef.args = ["[ function callbackFunction", "[ table callbackArguments", "] ] element databaseConnection", "string query [", "var param1 [", "var param2 ...]]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dbPoll";
+tmpDef.description = "This function checks the progress of a database query.";
+tmpDef.returnType = "table";
+tmpDef.args = ["handle queryHandle", "int timeout [", "bool multipleResults = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dbFree";
+tmpDef.description = "This function frees a database query handle. dbFree only needs to be used if a result has not been obtained with dbPoll.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["handle queryHandle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textCreateDisplay";
+tmpDef.description = "A text display is like a canvas that can contain many items of text. Each display can be seen by multiple observers (players) and each player can see multiple displays.";
+tmpDef.returnType = "textdisplay";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDestroyDisplay";
+tmpDef.description = "This function destroys a text display and will unlink all the textitems on it. This does not stop the textitems existing, but anyone who was observing the textitems through this display will stop seeing them.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["textdisplay display"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayAddObserver";
+tmpDef.description = "This function adds a player as an observer of a textdisplay. This allows the player to see any textitems that the textdisplay contains.";
+tmpDef.returnType = "void";
+tmpDef.args = ["textdisplay display", "player playerToAdd"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayAddText";
+tmpDef.description = "This function adds a textitem to a textdisplay. This allows any observers of the textdisplay to see the textitem.";
+tmpDef.returnType = "void";
+tmpDef.args = ["textdisplay displayToAddTo", "textitem itemToAdd"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayRemoveObserver";
+tmpDef.description = "This function removes a player observer of a textdisplay. This stops the player from being able to see textitems that the textdisplay contains.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["textdisplay display", "player playerToRemove"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayRemoveText";
+tmpDef.description = "This function removes a textitem from a textdisplay. This stops any observers of the textdisplay from being able to see the textitem.";
+tmpDef.returnType = "void";
+tmpDef.args = ["textdisplay displayToRemoveFrom", "textitem itemToRemove"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayGetObservers";
+tmpDef.description = "This function can be used to retrieve all the players currently observing a specified textdisplay. ";
+tmpDef.returnType = "table";
+tmpDef.args = ["textdisplay theDisplay "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "textDisplayIsObserver";
+tmpDef.description = "This function checks if a player can see the specified textdisplay.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["textdisplay display", "player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehiclesOfType";
+tmpDef.description = "This function scans through all the current vehicles and returns the ones matching the given model.";
+tmpDef.returnType = "table";
+tmpDef.args = ["int model"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getModelHandling";
+tmpDef.description = "This function returns a table containing the handling data of the specified vehicle model.";
+tmpDef.returnType = "table";
+tmpDef.args = ["int model"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setModelHandling";
+tmpDef.description = "This function is used to change the handling data of all vehicles of a specified model.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelId", "string property", "var value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleIdleRespawnDelay";
+tmpDef.description = "This function sets the time delay (in milliseconds) the vehicle will remain at its position while empty.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int timeDelay"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleRespawnDelay";
+tmpDef.description = "This function sets the time delay (in milliseconds) the vehicle will remain wrecked before respawning.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int timeDelay"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleRespawnPosition";
+tmpDef.description = "This function sets the position (and rotation) the vehicle will respawn to.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "float x", "float y", "float z [", "float rx", "float ry", "float rz ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleVariant";
+tmpDef.description = "This function sets the variant of a specified vehicle. In GTA SA some vehicles are different for example the labelling on trucks or the contents of a pick-up truck and the varying types of a motor bike.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle [", "int variant1", "int variant2 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);tmpDef = new MTAFunction;
+tmpDef.label = "httpClear";
+tmpDef.description = "This function removes all text from the current HTML output.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpRequestLogin";
+tmpDef.description = "This function makes the user's browser show a 'basic authentication' login box.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseCode";
+tmpDef.description = "This function sets the HTTP status code that will be sent for the current HTML page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int code"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseCookie";
+tmpDef.description = "This function sets the value for the specified HTTP cookie of the current HTML page. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string cookieName", "string cookieValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseHeader";
+tmpDef.description = "This function sets the value for the specified HTTP response header of the current HTML page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string headerName", "string headerValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpWrite";
+tmpDef.description = "This function adds text to the output of the current HTTP file of the HTTP interface. The function can only be used on parsed (i.e not marked as raw) HTTP pages.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string data [", "int length]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpClear";
+tmpDef.description = "This function removes all text from the current HTML output.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpRequestLogin";
+tmpDef.description = "This function makes the user's browser show a 'basic authentication' login box.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseCode";
+tmpDef.description = "This function sets the HTTP status code that will be sent for the current HTML page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int code"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseCookie";
+tmpDef.description = "This function sets the value for the specified HTTP cookie of the current HTML page. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string cookieName", "string cookieValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpSetResponseHeader";
+tmpDef.description = "This function sets the value for the specified HTTP response header of the current HTML page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string headerName", "string headerValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "httpWrite";
+tmpDef.description = "This function adds text to the output of the current HTTP file of the HTTP interface. The function can only be used on parsed (i.e not marked as raw) HTTP pages.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string data [", "int length]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
