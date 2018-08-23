@@ -23,23 +23,49 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
 # Table of contents
 
 - [Table of contents](#table-of-contents)
-- [Examples](#examples)
+- [Preview Images](#preview-images)
     - [Code Completion](#code-completion)
+    - [Syntax Highlighting](#syntax-highlighting)
+        - [Server only Function](#server-only-function)
+        - [Client only Function](#client-only-function)
+        - [Shared Function](#shared-function)
     - [VSDark](#vsdark)
-    - [Monokai](#monokai)
+        - [Server](#server)
+        - [Client](#client)
+    - [Monokai (Unsupported)](#monokai-unsupported)
 - [References](#references)
 
-# Examples
+# Preview Images
 
 ## Code Completion
 
 ![CodeCompletion](./images/CodeCompletion.gif)
 
+## Syntax Highlighting
+
+### Server only Function
+
+![Server Function](./images/Preview_ServerFunc.png)
+
+### Client only Function
+
+![Server Function](./images/Preview_ClientFunc.png)
+
+### Shared Function
+
+![Server Function](./images/Preview_SharedFunc.png)
+
 ## VSDark
 
-![VSDark](./images/VSDark.png)
+### Server
 
-## Monokai
+![Server Syntax Highlighting](./images/PreviewServer_SyntaxHighlight.png)
+
+### Client
+
+![Client Syntax Highlighting](./images/PreviewClient_SyntaxHighlight.png)
+
+## Monokai (Unsupported)
 
 ![Monokai](./images/Monokai.png)
 
