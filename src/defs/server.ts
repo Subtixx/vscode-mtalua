@@ -293,15 +293,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getBanUsername";
-tmpDef.description = "This function will return the username of the specified ban.";
-tmpDef.returnType = "string";
-tmpDef.args = ["ban theBan"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getBanAdmin";
 tmpDef.description = "This function will return the responsible admin (nickname of the admin) of the specified ban.";
 tmpDef.returnType = "string";
@@ -841,16 +832,6 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
-// TODO: ?????
-/*tmpDef = new MTAFunction;
-tmpDef.label = "getRootElement";
-tmpDef.description = "This function is used to reset the state of a player. It is intended to restore a player to his default state as if he had just joined the server, without any scripts affecting him.";
-tmpDef.returnType = "bool resetMapInfo ( [player thePlayer =";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);*/
-
 tmpDef = new MTAFunction;
 tmpDef.label = "getElementZoneName";
 tmpDef.description = "This function allows you to retrieve the zone name of an element (eg. Verdant Bluffs or Ocean Docks)";
@@ -1257,15 +1238,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerHudComponentVisible";
-tmpDef.description = "This function will show or hide a part of the player's HUD. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["player thePlayer", "string component", "bool show"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "aclGet";
 tmpDef.description = " Get the ACL with the given name. If need to get most of the ACL's, you should consider using aclList to get a table of them all.";
 tmpDef.returnType = "acl";
@@ -1279,6 +1251,15 @@ tmpDef.label = "aclCreate";
 tmpDef.description = " This function creates an ACL entry in the Access Control List system with the specified name.";
 tmpDef.returnType = "acl";
 tmpDef.args = ["string aclName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -1903,60 +1884,6 @@ tmpDef.args = ["vehicle theVehicle [", "int variant1", "int variant2 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);tmpDef = new MTAFunction;
-tmpDef.label = "httpClear";
-tmpDef.description = "This function removes all text from the current HTML output.";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "httpRequestLogin";
-tmpDef.description = "This function makes the user's browser show a 'basic authentication' login box.";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "httpSetResponseCode";
-tmpDef.description = "This function sets the HTTP status code that will be sent for the current HTML page.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int code"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "httpSetResponseCookie";
-tmpDef.description = "This function sets the value for the specified HTTP cookie of the current HTML page. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string cookieName", "string cookieValue"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "httpSetResponseHeader";
-tmpDef.description = "This function sets the value for the specified HTTP response header of the current HTML page.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string headerName", "string headerValue"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "httpWrite";
-tmpDef.description = "This function adds text to the output of the current HTTP file of the HTTP interface. The function can only be used on parsed (i.e not marked as raw) HTTP pages.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string data [", "int length]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "httpClear";
 tmpDef.description = "This function removes all text from the current HTML output.";
 tmpDef.returnType = "bool";
