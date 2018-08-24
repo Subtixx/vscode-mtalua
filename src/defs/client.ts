@@ -1788,110 +1788,902 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-/*
-- isBrowserDomainBlocked => Missing
-- isBrowserFocused => Missing
-- isBrowserLoading => Missing
-- getBrowserProperty => Missing
-- getBrowserSettings => Missing
-- getBrowserTitle => Missing
-- getBrowserURL => Missing
-- injectBrowserMouseDown => Missing
-- injectBrowserMouseMove => Missing
-- injectBrowserMouseUp => Missing
-- injectBrowserMouseWheel => Missing
-- loadBrowserURL => Missing
-- canBrowserNavigateForward => Missing
-- setBrowserProperty => Missing
-- setBrowserRenderingPaused => Missing
-- setBrowserVolume => Missing
-- requestBrowserDomains => Missing
-- setBrowserAjaxHandler => Missing
-- getBrowserSource => Missing
-- toggleBrowserDevTools => Missing
-- getCameraClip => Missing
-- getCameraGoggleEffect => Missing
-- getCameraViewMode => Missing
-- getCameraFieldOfView => Missing
-- getCameraShakeLevel => Missing
-- setCameraClip => Missing
-- setCameraGoggleEffect => Missing
-- setCameraViewMode => Missing
-- setCameraFieldOfView => Missing
-- setCameraShakeLevel => Missing
-- setCursorAlpha => Missing
-- getCursorAlpha => Missing
-- getCommandsBoundToKey => Missing
-- getKeyBoundToCommand => Missing
-- getAnalogControlState => Missing
-- isChatVisible => Missing
-- getPedSkin => Missing
-- localPlayer => Missing
-- getResourceGUIElement => Missing
-- getLocalization => Missing
-- setClipboard => Missing
-- getVehicleAdjustableProperty => Missing
-- getVehicleComponents => Missing
-- getVehicleComponentPosition => Missing
-- getVehicleComponentRotation => Missing
-- getVehicleComponentVisible => Missing
-- getVehicleGravity => Missing
-- getVehicleNitroCount => Missing
-- getVehicleNitroLevel => Missing
-- getVehicleCurrentGear => Missing
-- isVehicleNitroRecharging => Missing
-- isVehicleNitroActivated => Missing
-- isVehicleWindowOpen => Missing
-- resetVehicleComponentPosition => Missing
-- resetVehicleComponentRotation => Missing
-- setHeliBladeCollisionsEnabled => Missing
-- setHelicopterRotorSpeed => Missing
-- setVehicleAdjustableProperty => Missing
-- setVehicleComponentPosition => Missing
-- setVehicleComponentRotation => Missing
-- setVehicleComponentVisible => Missing
-- setVehicleDirtLevel => Missing
-- setVehicleGravity => Missing
-- setVehicleNitroActivated => Missing
-- setVehicleNitroCount => Missing
-- setVehicleNitroLevel => Missing
-- getWaterLevel => Missing
-- isWaterDrawnLast => Missing
-- setWaterDrawnLast => Missing
-- givePedWeapon  => Missing
-- createWeapon => Missing
-- fireWeapon => Missing
-- getWeaponState => Missing
-- getWeaponTarget => Missing
-- getWeaponOwner => Missing
-- getWeaponFlags => Missing
-- getWeaponFiringRate => Missing
-- getWeaponAmmo => Missing
-- getWeaponClipAmmo => Missing
-- resetWeaponFiringRate => Missing
-- setWeaponState => Missing
-- setWeaponTarget => Missing
-- setWeaponFlags => Missing
-- setWeaponFiringRate => Missing
-- setWeaponClipAmmo => Missing
-- getAircraftMaxHeight => Missing
-- getNearClipDistance => Missing
-- getScreenFromWorldPosition => Missing
-- getWorldFromScreenPosition => Missing
-- isAmbientSoundEnabled => Missing
-- isLineOfSightClear => Missing
-- isWorldSoundEnabled => Missing
-- isWorldSpecialPropertyEnabled => Missing
-- processLineOfSight => Missing
-- resetAmbientSounds => Missing
-- resetVehiclesLODDistance => Missing
-- resetWorldSounds => Missing
-- setAircraftMaxHeight => Missing
-- setAmbientSoundEnabled => Missing
-- setBirdsEnabled => Missing
-- setInteriorFurnitureEnabled => Missing
-- setJetpackMaxHeight => Missing
-- setNearClipDistance => Missing
-- setWorldSoundEnabled => Missing
-- testLineAgainstWater => Missing
-*/
+tmpDef = new MTAFunction;
+tmpDef.label = "isBrowserDomainBlocked";
+tmpDef.description = "This function checks if the specified URL is blocked from being loaded.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string address [", "bool isURL = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isBrowserFocused";
+tmpDef.description = "This function checks if a browser is focused.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isBrowserLoading";
+tmpDef.description = "This function checks if a browser is currently loading a website.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBrowserProperty";
+tmpDef.description = "This function gets a given property of a specified browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser theBrowser", "string key"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBrowserSettings";
+tmpDef.description = "This function returns a table containing the browser settings.";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBrowserTitle";
+tmpDef.description = "This function returns the title of the passed browser.";
+tmpDef.returnType = "string";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBrowserURL";
+tmpDef.description = "This function returns the URL of the specified browser.";
+tmpDef.returnType = "string";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "injectBrowserMouseDown";
+tmpDef.description = "This function injects a mouse click (state: down).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "string mouseButton"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "injectBrowserMouseMove";
+tmpDef.description = "This function injects a mouse movement.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "int posX", "int posY"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "injectBrowserMouseUp";
+tmpDef.description = "This function injects a mouse click (state: up).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "string mouseButton"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "injectBrowserMouseWheel";
+tmpDef.description = "This function injects mouse wheel events.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "int verticalScroll", "int horizontalScroll"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "loadBrowserURL";
+tmpDef.description = "This function loads the specified URL.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "string url [", "string postData = \"\"", "bool urlEncoded = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "canBrowserNavigateForward";
+tmpDef.description = "This function checks if the browser can go to the next page.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBrowserProperty";
+tmpDef.description = "This function sets a given property of a specified browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser theBrowser", "string key", "string value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBrowserRenderingPaused";
+tmpDef.description = "This function sets the rendering state of a browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "bool paused"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBrowserVolume";
+tmpDef.description = "This function sets either a specific browser's volume, or the overall volume for browsers.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[browser webBrowser]", "float volume"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "requestBrowserDomains";
+tmpDef.description = "This function opens a request window in order to accept the requested remote URLs.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["table pages [", "bool parseAsURL = false", "function callback ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBrowserAjaxHandler";
+tmpDef.description = "This function provides a requestable ajax resource for Lua/Javascript communication for a browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "string url [", "function handler]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBrowserSource";
+tmpDef.description = "This function can be used to retrieve the source code of a website (asynchronously). The size of the source code is limited to 2 MiB (remaining bytes are cut).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "function callback"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "toggleBrowserDevTools";
+tmpDef.description = "This function toggles the visibility of the developer tools pane.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser", "bool visible"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCameraClip";
+tmpDef.description = "This function checks if the camera will \"collide\" with any objects or vehicles in its way. Read more about this here.";
+tmpDef.returnType = "bool, bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCameraGoggleEffect";
+tmpDef.description = "This function returns what goggle effect is currently affecting the camera.";
+tmpDef.returnType = "string";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCameraViewMode";
+tmpDef.description = "This function allows you to get the camera's view mode. This indicates at what distance the camera will follow the player.";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCameraFieldOfView";
+tmpDef.description = "This function returns the field of view of the dynamic camera as set by setCameraFieldOfView.";
+tmpDef.returnType = "float";
+tmpDef.args = ["string cameraMode"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCameraShakeLevel";
+tmpDef.description = "This function gets the camera shake level set by setCameraShakeLevel.";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraClip";
+tmpDef.description = "This function sets if the camera will \"collide\" with any objects or vehicles in its way. This means that if object clip is enabled an object is in the way of where the camera actually wants to be, the camera will try to be in front of it. This function can disable that.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[ bool objects = true", "bool vehicles = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraGoggleEffect";
+tmpDef.description = "This function allows you to set the camera's current goggle effect. This means you can activate nightvision or infrared effects by script";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string goggleEffect [", "bool noiseEnabled = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraViewMode";
+tmpDef.description = "This function allows you to set the camera's view mode if you are inside a vehicle. This indicates at what distance the camera will follow the player.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int viewMode"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraFieldOfView";
+tmpDef.description = "This function sets the field of view of the dynamic camera - this is the field of view of the non-fixed camera - yes, the camera that the user can control whilst on foot or in a vehicle. The higher the field of view angle, the more you will be able to see to your sides.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string cameraMode", "float fieldOfView"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraShakeLevel";
+tmpDef.description = "This function sets the camera shake level (as seen on the Are you going to San Fierro? singleplayer mission).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int shakeLevel"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setCursorAlpha";
+tmpDef.description = "This function is used to change alpha (transparency) from the client's cursor.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int alpha"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCursorAlpha";
+tmpDef.description = "This function is used to get alpha (transparency) from the client's cursor.";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCommandsBoundToKey";
+tmpDef.description = "Gets the commands bound to a key.";
+tmpDef.returnType = "table";
+tmpDef.args = ["string theKey", "string keyState"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getKeyBoundToCommand";
+tmpDef.description = "This function allow you get first key bound to command.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string command"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAnalogControlState";
+tmpDef.description = "This retrieves the analog control state of a control.  This is useful for detecting sensitive controls, such as those used on a joypad.";
+tmpDef.returnType = "float";
+tmpDef.args = ["string control"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isChatVisible";
+tmpDef.description = "This function checks if player's chat is visible.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getResourceGUIElement";
+tmpDef.description = "This function retrieves a resource's GUI element. The resource's GUI element is the element in the element tree which is the default parent of all GUI elements that belong to a particular resource. It has a predefined variable called guiRoot, and each resource has one of these. You can attach event handlers to this element to easily capture events that originate from your resource (and global events that originate from the root element).";
+tmpDef.returnType = "element";
+tmpDef.args = ["[ resource theResource = getThisResource("];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getLocalization";
+tmpDef.description = "This function gets the player's localization setting as set in the MTA client.";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setClipboard";
+tmpDef.description = "This function sets the players clipboard text (what appears when you paste with CTRL + V) Note that there is no getClipBoard function for safety reasons.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string theText"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleAdjustableProperty";
+tmpDef.description = "Use this to get the value of a vehicles adjustable property. This property relates to movable parts of a model, for example hydra jets or dump truck tray.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleComponents";
+tmpDef.description = "This function gets a table of the components currently on a vehicle.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleComponentPosition";
+tmpDef.description = "This function gets the component position of a vehicle.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["vehicle theVehicle", "string theComponent [", "string base = \"root\" ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleComponentRotation";
+tmpDef.description = "This function gets the component rotation of a vehicle.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["vehicle theVehicle", "string theComponent [", "string base = \"parent\"]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleComponentVisible";
+tmpDef.description = "This function get component visibility for vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleGravity";
+tmpDef.description = "Retrieves the current gravity vector of a vehicle. This is the direction in which the vehicle falls, also the cameras of any passengers will be rotated to match it.";
+tmpDef.returnType = "float float float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleNitroCount";
+tmpDef.description = "This function gets the nitro count of the vehicle.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleNitroLevel";
+tmpDef.description = "This function gets the nitro level of the vehicle.";
+tmpDef.returnType = "float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleCurrentGear";
+tmpDef.description = "Gets the specified vehicle's current gear.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleNitroRecharging";
+tmpDef.description = "This function checks if nitro is recharging on the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleNitroActivated";
+tmpDef.description = "This function checks if nitro is activated on the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleWindowOpen";
+tmpDef.description = "This function gets the vehicle window state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int window"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetVehicleComponentPosition";
+tmpDef.description = "This function reset to default component position for vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetVehicleComponentRotation";
+tmpDef.description = "This function reset to default component rotation for vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setHeliBladeCollisionsEnabled";
+tmpDef.description = "This function changes the state of the helicopter blades collisions on the specified vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool collisions"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setHelicopterRotorSpeed";
+tmpDef.description = "Sets the rotor speed of a helicopter.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle heli", "float speed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleAdjustableProperty";
+tmpDef.description = "This function is used for adjusting the movable parts of a model, for example hydra jets or dump truck tray.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theVehicle", "int value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleComponentPosition";
+tmpDef.description = "This function sets the component position of a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent", "float posX", "float posY", "float posZ [", "string base = \"root\"]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleComponentRotation";
+tmpDef.description = "This function sets the component rotation of a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent", "float rotX", "float rotY", "float rotZ [", "string base = \"parent\"]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleComponentVisible";
+tmpDef.description = "This function sets component visibility for vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string theComponent", "bool visible"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleGravity";
+tmpDef.description = "Sets the gravity vector of a vehicle. The vehicle will fall in this direction, and the camera of any occupants will also be rotated to match it. Can be used for e.g. driving on walls or upside down on ceilings.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "float x", "float y", "float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleNitroActivated";
+tmpDef.description = "This function activates or deactivates the nitro on the specified vehicle, like if a player pressed the button for activating nitro.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleNitroCount";
+tmpDef.description = "This function sets how many times a player can activate the nitro on a specified vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int count"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleNitroLevel";
+tmpDef.description = "This function sets the nitro level of the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "float level"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWaterLevel";
+tmpDef.description = "This function allows you to retrieve the water level from a certain location. The water level is 0 in most places though it can vary (e.g. it's higher near the dam).";
+tmpDef.returnType = "float";
+tmpDef.args = ["float posX", "float posY", "float posZ [ ", "bool bCheckWaves = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isWaterDrawnLast";
+tmpDef.description = "This function determines whether water is drawn last in the rendering order.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWaterDrawnLast";
+tmpDef.description = "This function changes the water rendering order.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool bEnabled"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "givePedWeapon ";
+tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "int weapon [", "int ammo=30", "bool setAsCurrent=false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "createWeapon";
+tmpDef.description = "Creates a custom weapon that can fire bullets. Do not confuse this with player held weapons.";
+tmpDef.returnType = "weapon";
+tmpDef.args = ["string theType", "float x", "float y", "float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fireWeapon";
+tmpDef.description = "Fires one shot from a custom weapon.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponState";
+tmpDef.description = "This function gets the state of a custom weapon.";
+tmpDef.returnType = "string";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponTarget";
+tmpDef.description = "This functions gets the target of a custom weapon.";
+tmpDef.returnType = "nil/element/float";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponOwner";
+tmpDef.description = "This function gets the owner of a custom weapon. Weapon ownership system was, however, disabled, so this function always returns false. Please refer to setWeaponOwner for details.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponFlags";
+tmpDef.description = "This function gets the flags of a custom weapon.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "string theFlag"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponFiringRate";
+tmpDef.description = "This gets the firing rate to be used when a custom weapon opens fire.";
+tmpDef.returnType = "int";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponAmmo";
+tmpDef.description = "This function gets the total ammo a custom weapon has.";
+tmpDef.returnType = "int";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWeaponClipAmmo";
+tmpDef.description = "This function gets the amount of ammo left in a custom weapon's magazine/clip.";
+tmpDef.returnType = "int";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetWeaponFiringRate";
+tmpDef.description = "This function resets the firing rate of a custom weapon to the default one.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWeaponState";
+tmpDef.description = "This function sets a custom weapon's state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "string theState"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWeaponTarget";
+tmpDef.description = "This function sets the target of a custom weapon. There are 3 different targeting modes, which are explained below.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "element theTarget [", "int theComponent = 255]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWeaponFlags";
+tmpDef.description = "This function sets a custom weapon flags, used to change how it behaves or finds a possible target to shoot.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "string theFlag", "bool enable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWeaponFiringRate";
+tmpDef.description = "This function sets the firing rate to be used when a custom weapon is in firing state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "int firingRate"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWeaponClipAmmo";
+tmpDef.description = "This function sets the ammo left in a custom weapon's magazine/clip.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["weapon theWeapon", "int clipAmmo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getNearClipDistance";
+tmpDef.description = "This function gets the distance from the camera at which the world starts rendering. For more information about this please refer to setNearClipDistance.";
+tmpDef.returnType = "float";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getScreenFromWorldPosition";
+tmpDef.description = "This function gets the screen position of a point in the world. This is useful for attaching 2D gui elements to parts of the world (e.g. players) or detecting if a point is on the screen (though it does not check if it is actually visible, you should use processLineOfSight for that).";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["float x", "float y", "float z [", "float edgeTolerance = 0.0", "bool relative = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWorldFromScreenPosition";
+tmpDef.description = "This function allows you to retrieve the world position corresponding to a 2D position on the screen, at a certain depth.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["float x", "float y", "float depth"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isAmbientSoundEnabled";
+tmpDef.description = "This function allows you to check if some background sound effects are enabled.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string theType"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isLineOfSightClear";
+tmpDef.description = "This function checks if there are obstacles between two points of the game world, optionally ignoring certain kinds of elements. Use processLineOfSight if you want more information about what the ray hits.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isWorldSoundEnabled";
+tmpDef.description = "This function allows you to check if certain world sound effects have not been disabled by setWorldSoundEnabled";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int group", "[ int index = -1 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isWorldSpecialPropertyEnabled";
+tmpDef.description = "Checks if a special world property (cheat) is enabled or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string propname"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "processLineOfSight";
+tmpDef.description = "This function casts a ray between two points in the world, and tells you information about the point that was hit, if any. The two positions must be within the local player's draw distance as the collision data is not loaded outside this area, and the call will just fail as if the ray didn't hit.";
+tmpDef.returnType = "bool               --";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetAmbientSounds";
+tmpDef.description = "This function is used to reset the background sounds to the default setting.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetVehiclesLODDistance";
+tmpDef.description = "Resets the distance of vehicles LOD to default. Default values depends on client setting. If client has enabled high detail vehicles in video options, value will be reset to (500, 500) - otherwise to (70, 150). You can check value of this option using dxGetStatus (SettingHighDetailVehicles).";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetWorldSounds";
+tmpDef.description = "This function is used to reset the world sounds to the default setting.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setAmbientSoundEnabled";
+tmpDef.description = "This function allows you to disable some background sound effects.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string theType", "bool enable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBirdsEnabled";
+tmpDef.description = "This function allows you to disable the flying birds.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool enable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setInteriorFurnitureEnabled";
+tmpDef.description = "This function toggles furniture generation in interiors with the specified room ID.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int roomID", "bool enabled"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setNearClipDistance";
+tmpDef.description = "This function sets the distance from the camera at which the world starts rendering. Do not use this function unless you have a specific reason to do so, as any values can cause artifacts and flickering problems. It can be used in many ways, including: reducing Z-fighting, creating more sophisticated first person views, allowing the camera to fly closer to the ground without passing through it, etcetera.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float distance"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWorldSoundEnabled";
+tmpDef.description = "This function allows you to disable world sounds. A world sound is a sound effect which has not been caused by playSound or playSound3D.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int group", "[ int index = -1", "] bool enable [", "bool immediate = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "testLineAgainstWater";
+tmpDef.description = "This function checks to see if a line between two points collides with the water. This is similar to processLineOfSight, but only collides with water. Waves are taken into account when testing the line.";
+tmpDef.returnType = "bool float float float";
+tmpDef.args = ["float startX", "float startY", "float startZ", "float endX", "float endY", "float endZ"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTrainChainEngine";
+tmpDef.description = "This function checks if a train is a chain engine (moves the rest of the chain's carriages) or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theTrain"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);

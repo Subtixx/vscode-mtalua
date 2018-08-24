@@ -4811,6 +4811,1221 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "setAircraftMaxHeight";
+tmpDef.description = "This function changes the maximum flying height of aircraft.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float Height"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setJetpackMaxHeight";
+tmpDef.description = "This function changes the maximum flying height of jetpack.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float Height"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBlipVisibleDistance";
+tmpDef.description = "This function will tell you what visible distance a blip has. ";
+tmpDef.returnType = "float";
+tmpDef.args = ["blip theBlip"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBlipVisibleDistance";
+tmpDef.description = "This function will set the visible distance of a blip.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["blip theBlip", "float theDistance"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "createColPolygon";
+tmpDef.description = "This function creates a collision polygon. See Wikipedia for a definition of a polygon. The first set of X Y of this shape is not part of the colshape bounds, so can set anywhere in the game world, however for performance, place it as close to the centre of the polygon as you can. It should be noted this shape is 2D. There should be at least 3 bound points set. ";
+tmpDef.returnType = "colshape";
+tmpDef.args = ["float fX", "float fY", "float fX1", "float fY1", "float fX2", "float fY2", "float fX3", "float fY3", "..."];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getLatentEventStatus";
+tmpDef.description = "Gets the status of one queued latent event.";
+tmpDef.returnType = "table";
+tmpDef.args = ["player thePlayer", "int handle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "cancelLatentEvent";
+tmpDef.description = "Stops a latent event from completing";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "int handle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "fileGetPos";
+tmpDef.description = "Returns the current read/write position in the given file.";
+tmpDef.returnType = "int";
+tmpDef.args = ["file theFile"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getKeyBoundToFunction";
+tmpDef.description = "getKeyBoundToFunction allows retrieval of the first key bound to a function.";
+tmpDef.returnType = "string";
+tmpDef.args = ["player thePlayer", "function theFunction"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "call";
+tmpDef.description = "This function is used to call a function from another resource (which must be running).";
+tmpDef.returnType = "";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "outputChatBox";
+tmpDef.description = "This outputs the specified text string to the chatbox. It can be specified as a message to certain player(s) or all players.";
+tmpDef.returnType = "";
+tmpDef.args = ["\"#FF0000Hello #00FF00World\"", "getRootElement("];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "removeCommandHandler";
+tmpDef.description = "This function removes a command handler, that is one that has been added using addCommandHandler. This function can only remove command handlers that were added by the resource that it is called in.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string commandName [", "function handler]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setFPSLimit";
+tmpDef.description = "This function sets the maximum FPS (Frames per second) that players on the server can run their game at.  ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int fpsLimit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "toJSON";
+tmpDef.description = "Available client side in 1.2 and onwards.";
+tmpDef.returnType = "string";
+tmpDef.args = ["var value", "[ bool compact = false ][", "string prettyType = \"none\" ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getEasingValue";
+tmpDef.description = "Used for custom Lua based interpolation, returns the easing value (animation time to use in your custom interpolation) given a progress and an easing function.";
+tmpDef.returnType = "float";
+tmpDef.args = ["float fProgress", "string strEasingType [", "float fEasingPeriod", "float fEasingAmplitude", "float fEasingOvershoot]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getRealTime";
+tmpDef.description = "This function gets the server or client (if used client sided it returns time as set on client's computer) real time and returns it in a table. If you want to get the in-game time (shown on GTA's clock) use getTime.";
+tmpDef.returnType = "table";
+tmpDef.args = ["[ int seconds = current", "bool localTime = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "hash";
+tmpDef.description = "This function returns a hash of the specified string in the specified algorithm.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string algorithm", "string dataToHash"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "killTimer";
+tmpDef.description = "This function allows you to kill/halt existing timers.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["timer theTimer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetTimer";
+tmpDef.description = "This function allows you to reset the elapsed time in existing timers to zero. The function does not reset the 'times to execute' count on timers which have a limited amout of repetitions.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["timer theTimer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTimer";
+tmpDef.description = "This function allows you to trigger a function after a number of milliseconds have elapsed. You can call one of your own functions or a built-in function. For example, you could set a timer to spawn a player after a number of seconds have elapsed.";
+tmpDef.returnType = "timer";
+tmpDef.args = ["function theFunction", "int timeInterval", "int timesToExecute", "[ var arguments... ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "split";
+tmpDef.description = "This function splits a string into substrings. You specify a character that will act as a separating character; this will determine where to split the sub-strings. For example, it can split the string \"Hello World\" into two strings containing the two words, by spliting using a space as a separator.";
+tmpDef.returnType = "table";
+tmpDef.args = ["string stringToSplit", "string / int separatingChar"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTimer";
+tmpDef.description = "This function checks if a variable is a timer.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["timer theTimer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "md5";
+tmpDef.description = "Calculates the MD5 hash of the specified string and returns its hexadecimal representation.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string str"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "sha256";
+tmpDef.description = "Calculates the sha256 hash of the specified string.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string str"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "teaEncode";
+tmpDef.description = "This functions performs the Tiny Encryption Algorithm on the given string and returns the base64 representation of the encrypted string.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string text ", "string key"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "teaDecode";
+tmpDef.description = "This function decrypts given base64 representation of encrypted data using the Tiny Encryption Algorithm.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string data", "string key"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "base64Decode";
+tmpDef.description = "This function returns the decrypted data from base64 representation of the encrypted block";
+tmpDef.returnType = "string";
+tmpDef.args = ["string data"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "utfChar";
+tmpDef.description = "The function returns the string of the specified UTF code.";
+tmpDef.returnType = "string";
+tmpDef.args = ["int characterCode"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "utfCode";
+tmpDef.description = "The function returns the UTF codes of the given string.";
+tmpDef.returnType = "int";
+tmpDef.args = ["string theString"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "utfLen";
+tmpDef.description = "The function gets the real length of a string, in characters.";
+tmpDef.returnType = "int";
+tmpDef.args = ["string theString"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "utfSeek";
+tmpDef.description = "The function returns the byte position at specified character position.";
+tmpDef.returnType = "int";
+tmpDef.args = ["string theString", "int position"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "utfSub";
+tmpDef.description = "The function returns a sub string, from the specified positions on a character.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string theString", "int Start", "int End"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "pregFind";
+tmpDef.description = "This function stops at the first occurrence of the pattern in the input string and returns the result of the search.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string subject", "string pattern [", "int/string flags ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "pregReplace";
+tmpDef.description = "This function performs a regular expression search and replace and returns the replaced string.";
+tmpDef.returnType = "string";
+tmpDef.args = ["string subject", "string pattern", "string replacement [", "int/string flags ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "pregMatch";
+tmpDef.description = "This function returns all matches.";
+tmpDef.returnType = "table";
+tmpDef.args = ["string base", "string pattern [", "int/string flags = 0", "int maxResults = 100000 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitAnd";
+tmpDef.description = "This function performs a bitwise AND-conjunction on two or more (unsigned) 32-bit integers. See Bitwise operation for more details.";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var1", "uint var2", "..."];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitNot";
+tmpDef.description = "This function performs a bitwise NOT on an (unsigned) 32-bit integer. See Bitwise operation for more details.";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitOr";
+tmpDef.description = "This function performs a bitwise OR-conjunction on two or more (unsigned) 32-bit integers. See Bitwise operation for more details.";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var1", "uint var2", "..."];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitXor";
+tmpDef.description = "This function performs a bitwise XOR-conjunction (exclusive OR) on two or more (unsigned) 32-bit integers. See Bitwise operation for more details.";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var1", "uint var2", "..."];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitTest";
+tmpDef.description = "This function performs an AND-conjunction on two or more (unsigned) 32-bit integers and checks, whether the conjuncted value is zero or not. See Bitwise operation for more details.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["uint var1", "uint var2", "..."];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitLRotate";
+tmpDef.description = "This functions performs a bitwise circular left-rotation on the integer value by integer n positions.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int value", "int n"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitRRotate";
+tmpDef.description = "This functions performs a bitwise circular right-rotation on the integer value by integer n positions.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int value", "int n"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitLShift";
+tmpDef.description = "This functions performs a logical left shift on the integer value by integer n positions. In a logical shift, zeros are shifted in to replace the discarded bits.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int value", "int n"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitRShift";
+tmpDef.description = "This functions performs a logical right shift on the integer value by integer n positions. In a logical shift, zeros are shifted in to replace the discarded bits.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int value", "int n"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitArShift";
+tmpDef.description = "This functions performs an arithmetic shift on the integer value by integer n positions. In an arithmetic shift, zeros are shifted in to replace the discarded bits. In a right arithmetic shift, the sign bit is shifted in on the left, thus preserving the sign of the operand.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int value", "int n"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitExtract";
+tmpDef.description = "This function returns the unsigned number formed by the bits field to field + width - 1 (range: 0-31).";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var", "int field [", "int width = 1 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "bitReplace";
+tmpDef.description = "This function returns the unsigned number formed by var value with replacement specified at bits field to field + width - 1";
+tmpDef.returnType = "uint";
+tmpDef.args = ["uint var", "uint replaceValue", "int field", "int width = 1"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "addDebugHook";
+tmpDef.description = "This function allows tracing of MTA functions and events. It should only be used when debugging scripts as it may degrade script performance.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string hookType", "function callbackFunction [", "table nameList ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "removeDebugHook";
+tmpDef.description = "This function removes hooks added by addDebugHook";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string hookType", "function callbackFunction"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTrainDerailable";
+tmpDef.description = "This function will check if a train or tram is derailable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle vehicleToCheck"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTrainDerailed";
+tmpDef.description = "This function will check if a train or tram is derailed.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle vehicleToCheck"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleBlown";
+tmpDef.description = "This function allows you to determine whether a vehicle is blown or still intact.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleTaxiLightOn";
+tmpDef.description = "This function will get the taxi light state of a taxi (vehicle IDs 420 and 438)";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle taxi"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleDamageProof";
+tmpDef.description = "This function checks if a vehicle is damage proof (set with setVehicleDamageProof).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleFuelTankExplodable";
+tmpDef.description = "This will tell you if a vehicle's petrol tank is explodable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleLocked";
+tmpDef.description = "This will tell you if a vehicle is locked.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleOnGround";
+tmpDef.description = "Checks to see if a vehicle has contact with the ground.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getTrainTrack";
+tmpDef.description = "Gets the track of a train";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle train"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getTrainPosition";
+tmpDef.description = "Gets the position the train is currently on the track";
+tmpDef.returnType = "float";
+tmpDef.args = ["vehicle train"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleColor";
+tmpDef.description = "This function returns the color of the specified vehicle. A vehicle can have up to four colors.";
+tmpDef.returnType = "int int int int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleCompatibleUpgrades";
+tmpDef.description = "This function returns a table of all the compatible upgrades (or all for a specified slot, optionally) for a specifed vehicle.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle", "[ int slot ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleController";
+tmpDef.description = "This function is used to get the player in control of the specified vehicle which includes somebody who is trying to enter the drivers seat.";
+tmpDef.returnType = "player";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleDoorState";
+tmpDef.description = "This function returns the current state of the specifed door on the vehicle.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle", "int door"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleEngineState";
+tmpDef.description = "This function returns a vehicle's engine state (on or off).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleLandingGearDown";
+tmpDef.description = "This function is used to check whether a vehicle's landing gear is down or not. Only planes can be used with this function.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleLightState";
+tmpDef.description = "This function returns the current state of the specified light on the vehicle.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle", "int light"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleMaxPassengers";
+tmpDef.description = "This function returns the maximum number of passengers that a specified vehicle can hold. Only passenger seats are counted, the driver seat is excluded.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle / int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleName";
+tmpDef.description = "This function returns a string containing the name of the vehicle";
+tmpDef.returnType = "string";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleOccupant";
+tmpDef.description = "This function gets the player sitting/trying to enter the specified vehicle.";
+tmpDef.returnType = "player";
+tmpDef.args = ["vehicle theVehicle", "[ int seat=0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleOccupants";
+tmpDef.description = "This function gets all players sitting in the specified vehicle.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleOverrideLights";
+tmpDef.description = "This function is used to find out the current state of the override-lights setting of a vehicle.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehiclePaintjob";
+tmpDef.description = "This function gets the current paintjob on the specified vehicle. ";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehiclePanelState";
+tmpDef.description = "This function returns the current state of a specifed panel on the vehicle. A vehicle can have up to 7 panels.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle", "int panel"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehiclePlateText";
+tmpDef.description = "This function is used to retrieve the text on the number plate of a specified vehicle.";
+tmpDef.returnType = "string";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleSirensOn";
+tmpDef.description = "This function returns whether the sirens are turned on for the specified vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleTowedByVehicle";
+tmpDef.description = "This function is used to get the vehicle being towed by another.";
+tmpDef.returnType = "vehicle";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleTowingVehicle";
+tmpDef.description = "This function is used to get the vehicle that is towing another.";
+tmpDef.returnType = "vehicle";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleTurnVelocity";
+tmpDef.description = "This function is used to retrieve a vehicle's turning velocity for each axis.";
+tmpDef.returnType = "float float float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleTurretPosition";
+tmpDef.description = "This function gets the position of a vehicle's turret, if it has one. Vehicles with turrets include firetrucks and tanks.";
+tmpDef.returnType = "float, float";
+tmpDef.args = ["vehicle turretVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleType";
+tmpDef.description = "This function retrieves the type of a vehicle (such as if it is a car or a boat).";
+tmpDef.returnType = "string";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleUpgradeOnSlot";
+tmpDef.description = "This function returns the current upgrade id on the specified vehicle's 'upgrade slot'";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle", "int slot"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleUpgrades";
+tmpDef.description = "This function returns a table of all the upgrades on a specifed vehicle.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleUpgradeSlotName";
+tmpDef.description = "This function returns the name of an upgrade slot name (e.g. roof, spoiler).";
+tmpDef.returnType = "string";
+tmpDef.args = ["int slot/upgrade"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleWheelStates";
+tmpDef.description = "This function returns the current states of all the wheels on the vehicle.";
+tmpDef.returnType = "int, int, int, int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleDoorOpenRatio";
+tmpDef.description = "This function tells you how open a door is (the 'open ratio'). Doors include boots/trunks and bonnets on vehicles that have them.";
+tmpDef.returnType = "float";
+tmpDef.args = ["vehicle theVehicle", "int door"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleHandling";
+tmpDef.description = "This function returns a table of the current vehicle handling data.";
+tmpDef.returnType = "table";
+tmpDef.args = ["element theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleHeadLightColor";
+tmpDef.description = "This function will get the headlight color of a vehicle.";
+tmpDef.returnType = "int, int, int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleModelFromName";
+tmpDef.description = "This function retrieves the model ID of a vehicle as an integer value from its name.";
+tmpDef.returnType = "int";
+tmpDef.args = ["string name"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleNameFromModel";
+tmpDef.description = "Gets the name of a vehicle by its model ID.";
+tmpDef.returnType = "string";
+tmpDef.args = ["int model"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleVariant";
+tmpDef.description = "This function gets the variant of a specified vehicle. In GTA SA some vehicles are different for example the labelling on trucks or the contents of a pick-up truck and the varying types of a motor bike. For the default GTA SA variant list see: Vehicle variants";
+tmpDef.returnType = "int, int";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleSirenParams";
+tmpDef.description = "This function get the parameters of a vehicles siren.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleSirens";
+tmpDef.description = "This function gets the properties of a vehicle's sirens.";
+tmpDef.returnType = "table";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainDerailable";
+tmpDef.description = "This function will set a train or tram as derailable. This is, if it can derail when it goes above the maximum speed.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle derailableVehicle", "bool derailable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainDerailed";
+tmpDef.description = "This function will set a train or tram as derailed.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle vehicleToDerail", "bool derailed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainDirection";
+tmpDef.description = "Sets the direction in which a train or tram drives over the rails (clockwise or counterclockwise).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle train", "bool clockwise"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainSpeed";
+tmpDef.description = "Sets the on-track speed of a train.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle train", "float speed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainTrack";
+tmpDef.description = "Sets the track of a train";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle train", "int track"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setTrainPosition";
+tmpDef.description = "Sets the position the train is currently on the track";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle train", "float position"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleColor";
+tmpDef.description = "This function will set the color of a vehicle. Colors are in RGB format, vehicles can have up to 4 colors. Most vehicles have 2 colors only.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int r1", "int g1", "int b1", "[int r2", "int g2", "int b2", "int r3", "int g3", "int b3", "int r4", "int g4", "int b4]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleDamageProof";
+tmpDef.description = "This functions makes a vehicle damage proof, so it won't take damage from bullets, hits, explosions or fire. A damage proof's vehicle health can still be changed via script.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool damageProof"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleDoorState";
+tmpDef.description = "This function sets the state of the specified door on a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int door", "int state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleDoorsUndamageable";
+tmpDef.description = "This function makes a vehicle's doors undamageable, so they won't fall off when they're hit. Note that the vehicle has to be locked using setVehicleLocked for this setting to have any effect.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleEngineState";
+tmpDef.description = "This function turns a vehicle's engine on or off. Note that the engine will always be turned on when someone enters the driver seat, unless you override that behaviour with scripts.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool engineState"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleFuelTankExplodable";
+tmpDef.description = "This function changes the 'explodable state' of a vehicle's fuel tank, which toggles the ability to blow the vehicle up by shooting the tank. This function will have no effect on vehicles with tanks that cannot be shot in single player.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool explodable"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleLandingGearDown";
+tmpDef.description = "This function is used to set the landing gear state of certain vehicles.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool gearState"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleLightState";
+tmpDef.description = "This function sets the state of the light on the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int light", "int state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleLocked";
+tmpDef.description = "This function can be used to set a vehicle to be locked or unlocked.  Locking a vehicle restricts access to all doors of a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "bool locked"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleOverrideLights";
+tmpDef.description = "This function changes the light overriding setting on a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehiclePaintjob";
+tmpDef.description = "This function changes the paintjob on the specified vehicle. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehiclePanelState";
+tmpDef.description = "This function allows you to change the state of one of the six panels vehicle's can have. When executed on the server-side resources, the damage will be synched for all players, whereas the change is only client-side if the function is used in a client resource. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int panelID", "int state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehiclePlateText";
+tmpDef.description = "This function can be used to set the numberplate text of a car.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theVehicle", "string numberplate"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleSirensOn";
+tmpDef.description = "This function changes the state of the sirens on the specified vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle ", "bool sirensOn"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleTurretPosition";
+tmpDef.description = "This function sets the position of a vehicle's turret, if it has one. This can be used to influence the turret's rotation, so it doesn't follow the camera. Vehicles with turrets include firetrucks and tanks.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle turretVehicle", "float positionX", "float positionY"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleDoorOpenRatio";
+tmpDef.description = "This function sets how much a vehicle's door is open. Doors include the boot/trunk and the bonnet of the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int door", "float ratio [", "int time = 0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleTurnVelocity";
+tmpDef.description = "Sets the angular velocity of a vehicle. Basically applies a spin to it.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "float rx", "float ry", "float rz"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleWheelStates";
+tmpDef.description = "This function sets the state of wheels on the vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int frontLeft", "[ int rearLeft = -1", "int frontRight = -1", "int rearRight = -1 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleHeadLightColor";
+tmpDef.description = "This function will set the headlight color of a vehicle. valid Red Green and Blue arguments range from 0-255";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int red", "int green", "int blue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleTaxiLightOn";
+tmpDef.description = "This function will set the taxi light on in a taxi (vehicle ID's 420 and 438)";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle taxi", "bool LightState"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleSirens";
+tmpDef.description = "This function changes the properties of a vehicles siren point.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "int sirenPoint", "float posX", "float posY", "float posZ", "float red", "float green", "float blue", "[float alpha = 255", "float minAlpha = 0.0]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWaterColor";
+tmpDef.description = "This function returns the water color of the GTA world.";
+tmpDef.returnType = "int, int, int, int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWaterVertexPosition";
+tmpDef.description = "Gets the world position of a vertex (i.e. corner) of a water area. Each water area is either a triangle or quad (rectangle) so each has 3 or 4 corners.";
+tmpDef.returnType = "int int float";
+tmpDef.args = ["water theWater", "int vertexIndex"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getWaveHeight";
+tmpDef.description = "This function returns the current wave height.";
+tmpDef.returnType = "float";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetWaterColor";
+tmpDef.description = "This function reset the water color of the GTA world to default.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWaterColor";
+tmpDef.description = "This function changes the water color of the GTA world.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int red", "int green", "int blue", "[ int alpha = 200 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWaterLevel";
+tmpDef.description = "Sets the height of some or all the water in the game world.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[water theWater,] float level"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWaterVertexPosition";
+tmpDef.description = "Sets the world position of a corner point of a water area.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["water theWater", "int vertexIndex", "int x", "int y", "float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setWaveHeight";
+tmpDef.description = "This function sets the wave height to the desired value, the default is 0.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float height"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetWaterLevel";
+tmpDef.description = "This function resets the water of the GTA world back to its default level. Water elements are not affected.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlCreateChild";
+tmpDef.description = "This function creates a new child node under an XML node.";
+tmpDef.returnType = "xmlnode";
+tmpDef.args = ["xmlnode parentNode", "string tagName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlFindChild";
+tmpDef.description = "This function returns a named child node of an XML node.";
+tmpDef.returnType = "xmlnode";
+tmpDef.args = ["xmlnode parent", "string tagName", "int index"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlNodeGetAttributes";
+tmpDef.description = "Returns all the attributes of a specific XML node.";
+tmpDef.returnType = "table";
+tmpDef.args = ["xmlnode node"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlNodeGetChildren";
+tmpDef.description = "This function returns all children of a particular XML node, or a particular child node.";
+tmpDef.returnType = "table/xmlnode";
+tmpDef.args = ["xmlnode parent", "[ int index ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlNodeGetName";
+tmpDef.description = "Gets the tag name of the specified XML node.";
+tmpDef.returnType = "string";
+tmpDef.args = ["xmlnode node"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlNodeGetParent";
+tmpDef.description = "Returns the parent node of an xml node.";
+tmpDef.returnType = "xmlnode";
+tmpDef.args = ["xmlnode node"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlNodeSetName";
+tmpDef.description = "Sets the tag name of the specified XML node.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["xmlnode node", "string name"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
 let tmpModuleDef = new LuaClass("utf8", "");
 tmpModuleDef.methods.push(new LuaMethod("title", "", [], {}, ""));
 tmpModuleDef.methods.push(new LuaMethod("width", "", [], {}, ""));
@@ -4831,144 +6046,3 @@ tmpModuleDef.methods.push(new LuaMethod("find", "", [], {}, ""));
 tmpModuleDef.methods.push(new LuaMethod("ncasecmp", "", [], {}, ""));
 tmpModuleDef.methods.push(new LuaMethod("reverse", "", [], {}, ""));
 SharedModuleDefinitions.push(tmpModuleDef);
-
-/*
-- getBlipVisibleDistance => Missing
-- setBlipVisibleDistance => Missing
-- createColPolygon => Missing
-- getLatentEventStatus => Missing
-- cancelLatentEvent => Missing
-- fileGetPos => Missing
-- getKeyBoundToFunction => Missing
-- setPedAnalogControlState => Missing
-- call => Missing
-- outputChatBox => Missing
-- removeCommandHandler => Missing
-- setFPSLimit => Missing
-- toJSON => Missing
-- getEasingValue => Missing
-- getRealTime => Missing
-- hash => Missing
-- killTimer => Missing
-- resetTimer => Missing
-- setTimer => Missing
-- split => Missing
-- isTimer => Missing
-- md5 => Missing
-- sha256 => Missing
-- teaEncode => Missing
-- teaDecode => Missing
-- base64Decode => Missing
-- utfChar => Missing
-- utfCode => Missing
-- utfLen => Missing
-- utfSeek => Missing
-- utfSub => Missing
-- pregFind => Missing
-- pregReplace => Missing
-- pregMatch => Missing
-- bitAnd => Missing
-- bitNot => Missing
-- bitOr => Missing
-- bitXor => Missing
-- bitTest => Missing
-- bitLRotate => Missing
-- bitRRotate => Missing
-- bitLShift => Missing
-- bitRShift => Missing
-- bitArShift => Missing
-- bitExtract => Missing
-- bitReplace => Missing
-- addDebugHook => Missing
-- removeDebugHook => Missing
-- isTrainChainEngine => Missing
-- isTrainDerailable => Missing
-- isTrainDerailed => Missing
-- isVehicleBlown => Missing
-- isVehicleTaxiLightOn => Missing
-- isVehicleDamageProof => Missing
-- isVehicleFuelTankExplodable => Missing
-- isVehicleLocked => Missing
-- isVehicleOnGround => Missing
-- getTrainTrack => Missing
-- getTrainPosition => Missing
-- getVehicleColor => Missing
-- getVehicleCompatibleUpgrades => Missing
-- getVehicleController => Missing
-- getVehicleDoorState => Missing
-- getVehicleEngineState => Missing
-- getVehicleLandingGearDown => Missing
-- getVehicleLightState => Missing
-- getVehicleMaxPassengers => Missing
-- getVehicleName => Missing
-- getVehicleOccupant => Missing
-- getVehicleOccupants => Missing
-- getVehicleOverrideLights => Missing
-- getVehiclePaintjob => Missing
-- getVehiclePanelState => Missing
-- getVehiclePlateText => Missing
-- getVehicleSirensOn => Missing
-- getVehicleTowedByVehicle => Missing
-- getVehicleTowingVehicle => Missing
-- getVehicleTurnVelocity => Missing
-- getVehicleTurretPosition => Missing
-- getVehicleType => Missing
-- getVehicleUpgradeOnSlot => Missing
-- getVehicleUpgrades => Missing
-- getVehicleUpgradeSlotName => Missing
-- getVehicleWheelStates => Missing
-- getVehicleDoorOpenRatio => Missing
-- getVehicleHandling => Missing
-- getVehicleHeadLightColor => Missing
-- getVehicleModelFromName => Missing
-- getVehicleNameFromModel => Missing
-- getVehicleVariant => Missing
-- getVehicleSirenParams => Missing
-- getVehicleSirens => Missing
-- setTrainDerailable => Missing
-- setTrainDerailed => Missing
-- setTrainDirection => Missing
-- setTrainSpeed => Missing
-- setTrainTrack => Missing
-- setTrainPosition => Missing
-- setVehicleColor => Missing
-- setVehicleDamageProof => Missing
-- setVehicleDoorState => Missing
-- setVehicleDoorsUndamageable => Missing
-- setVehicleEngineState => Missing
-- setVehicleFuelTankExplodable => Missing
-- setVehicleLandingGearDown => Missing
-- setVehicleLightState => Missing
-- setVehicleLocked => Missing
-- setVehicleOverrideLights => Missing
-- setVehiclePaintjob => Missing
-- setVehiclePanelState => Missing
-- setVehiclePlateText => Missing
-- setVehicleSirensOn => Missing
-- setVehicleTurretPosition => Missing
-- setVehicleDoorOpenRatio => Missing
-- setVehicleTurnVelocity => Missing
-- setVehicleWheelStates => Missing
-- setVehicleHeadLightColor => Missing
-- setVehicleTaxiLightOn => Missing
-- setVehicleSirens => Missing
-- getWaterColor => Missing
-- getWaterVertexPosition => Missing
-- getWaveHeight => Missing
-- resetWaterColor => Missing
-- setWaterColor => Missing
-- setWaterLevel => Missing
-- setWaterVertexPosition => Missing
-- setWaveHeight => Missing
-- resetWaterLevel => Missing
-- getInteriorSoundsEnabled => Missing
-- xmlCreateChild => Missing
-- xmlFindChild => Missing
-- xmlNodeGetAttributes => Missing
-- xmlNodeGetChildren => Missing
-- xmlNodeGetName => Missing
-- xmlNodeGetParent => Missing
-- xmlNodeSetName => Missing
-- root => Missing
-- resourceRoot => Missing
-*/

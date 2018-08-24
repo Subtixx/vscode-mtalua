@@ -294,8 +294,20 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);
 
-/*
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawImage";
+tmpDef.description = "Draws an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float posX", "float posY", "float width", "float height", "mixed image", "[float rotation = 0", "float rotationCenterOffsetX = 0", "float rotationCenterOffsetY = 0,int color = tocolor(255, 255, 255, 255), bool postGUI = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
 
-- dxDrawImage => Missing
-- dxSetTextureEdge => Missing
-*/
+tmpDef = new MTAFunction;
+tmpDef.label = "dxSetTextureEdge";
+tmpDef.description = "This functions allows you to change the edge handling after creating the texture.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["texture theTexture", "string textureEdge", "[int border-color]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
