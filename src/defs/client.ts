@@ -916,15 +916,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "givePedWeapon";
-tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "int weapon [", "int ammo=30", "bool setAsCurrent=false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setElementCollidableWith";
 tmpDef.description = "This function can be used to set an element to collide with another element. An element with collisions disabled does not interact physically with the other element.Note: You can only use this function with the element types listed below.";
 tmpDef.returnType = "bool";
@@ -1780,15 +1771,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerHudComponentVisible";
-tmpDef.description = "This function will show or hide a part of the player's HUD. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string component", "bool show"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isBrowserDomainBlocked";
 tmpDef.description = "This function checks if the specified URL is blocked from being loaded.";
 tmpDef.returnType = "bool";
@@ -2378,15 +2360,6 @@ tmpDef.label = "setWaterDrawnLast";
 tmpDef.description = "This function changes the water rendering order.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["bool bEnabled"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "givePedWeapon ";
-tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "int weapon [", "int ammo=30", "bool setAsCurrent=false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

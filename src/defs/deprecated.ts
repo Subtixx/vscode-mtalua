@@ -288,15 +288,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedSkin";
-tmpDef.description = deprecatedText + "Please use getElementModel";
-tmpDef.returnType = "int";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-DeprecatedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPlayerACInfo";
 tmpDef.description = deprecatedText + "Please use onPlayerACInfo";
 tmpDef.returnType = "table";
@@ -585,15 +576,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "isPedFrozen";
-tmpDef.description = deprecatedText + "Please use isElementFrozen";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-DeprecatedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isPedInWater";
 tmpDef.description = deprecatedText + "Please use isElementInWater";
 tmpDef.returnType = "bool";
@@ -832,15 +814,6 @@ tmpDef.label = "setPedAudioType";
 tmpDef.description = deprecatedText + "Please use setPedVoice";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "string audio"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-DeprecatedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedFrozen";
-tmpDef.description = deprecatedText + "Please use setElementFrozen";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "bool frozen"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 DeprecatedDefinitions.push(tmpDef);
