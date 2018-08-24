@@ -1491,6 +1491,15 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "getElementInterior";
+tmpDef.description = "This function allows you to retrieve the interior of any element. An interior is the current loaded place, 0 being outside.This example shows a player if he is outside or not, when he enters the command 'AmIOutside'.";
+tmpDef.returnType = "int";
+tmpDef.args = [" element theElement "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "getElementID";
 tmpDef.description = "This function gets the ID of an element. This is the \"id\" attribute of the element and is a string, NOT a number like a model ID, weapons ID or similar.";
 tmpDef.returnType = "string";
@@ -4294,15 +4303,6 @@ tmpDef.label = "xmlNodeSetName";
 tmpDef.description = "Sets the tag name of the specified XML node.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["xmlnode node", "string name"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerHudComponentVisible";
-tmpDef.description = "This function will show or hide a part of the player's HUD. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);

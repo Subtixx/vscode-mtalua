@@ -1780,6 +1780,15 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string component", "bool show"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "isBrowserFocused";
 tmpDef.description = "This function checks if a browser is focused.";
 tmpDef.returnType = "bool";

@@ -1256,6 +1256,15 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string component", "bool show"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
 tmpDef.label = "aclDestroy";
 tmpDef.description = " This function destroys the ACL passed. The destroyed ACL will no longer be valid.";
 tmpDef.returnType = "bool";
