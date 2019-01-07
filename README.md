@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="vscode-mta-sa-lua-logo" src="./images/logo.png">
+    <img alt="vscode-mta-sa-lua-logo" src="https://github.com/Subtixx/vscode-mtalua/raw/master/images/logo.png">
 </p>
 
 <p align="center">
@@ -39,41 +39,41 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
 
 ## Code Completion
 
-![CodeCompletion](./images/CodeCompletion.gif)
+![CodeCompletion](images/CodeCompletion.gif)
 
 ## Syntax Highlighting
 
 ### Server only Function
 
-![Server Function](./images/Preview_ServerFunc.png)
+![Server Function](images/Preview_ServerFunc.png)
 
 ### Client only Function
 
-![Server Function](./images/Preview_ClientFunc.png)
+![Server Function](images/Preview_ClientFunc.png)
 
 ### Shared Function
 
-![Server Function](./images/Preview_SharedFunc.png)
+![Server Function](images/Preview_SharedFunc.png)
 
 ### Generate files (As of 2.2.0)
 
-![Generate Files](./images/Preview_GenerateFiles.png)
+![Generate Files](images/Preview_GenerateFiles.png)
 
-![Generated Meta](./images/Preview_GeneratedMeta.png)
+![Generated Meta](images/Preview_GeneratedMeta.png)
 
 ## VSDark
 
 ### Server
 
-![Server Syntax Highlighting](./images/PreviewServer_SyntaxHighlight.png)
+![Server Syntax Highlighting](images/PreviewServer_SyntaxHighlight.png)
 
 ### Client
 
-![Client Syntax Highlighting](./images/PreviewClient_SyntaxHighlight.png)
+![Client Syntax Highlighting](images/PreviewClient_SyntaxHighlight.png)
 
 ## Monokai (Unsupported)
 
-![Monokai](./images/Monokai.png)
+![Monokai](images/Monokai.png)
 
 # References
 - Thanks to 50p for the sublime text syntax highlighter. Which inspired me to create the VSCode extension.
