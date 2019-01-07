@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/maintenance/yes/2018.svg?style=flat-square">
+    <img src="https://img.shields.io/maintenance/yes/2019.svg?style=flat-square">
 </p>
 
 <h3 align="center">
@@ -54,6 +54,12 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
 ### Shared Function
 
 ![Server Function](./images/Preview_SharedFunc.png)
+
+### Generate files (As of 2.2.0)
+
+![Generate Files](./images/Preview_GenerateFiles.png)
+
+![Generated Meta](./images/Preview_GeneratedMeta.png)
 
 ## VSDark
 
