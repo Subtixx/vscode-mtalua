@@ -42,6 +42,24 @@
         "Snippets"
     ],
     "contributes": {
+        "commands": [
+            {
+                "command": "extension.mta-new-resource",
+                "title": "Generate New MTA Resource"
+            },
+            {
+                "command": "extension.mta-new-meta",
+                "title": "Generate New MTA Meta.xml file"
+            },
+            {
+                "command": "extension.mta-new-client",
+                "title": "Generate New MTA Client file"
+            },
+            {
+                "command": "extension.mta-new-server",
+                "title": "Generate New MTA Server file"
+            }
+        ],
         "languages": [
             {
                 "id": "mtalua",
@@ -57,7 +75,9 @@
             {
                 "id": "mtaluatypes",
                 "aliases": [],
-                "extensions": [".luarioeughiuer"],
+                "extensions": [
+                    ".luarioeughiuer"
+                ],
                 "configuration": "./language-configuration.json"
             }
         ],
@@ -85,6 +105,62 @@
                 "path": "./themes/Dark-MTA-Edit.json"
             }
         ],
-        "snippets": []
+        "snippets": [],
+        "configuration": {
+            "title": "MTA:SA Lua",
+            "properties": {
+                "mtalua-generate.author": {
+                    "description": "Allows you to set a custom author when generating new resources",
+                    "type": "string",
+                    "default": "VSCode MTA:SA Lua"
+                },
+                "mtalua-generate.activate_client_file_generation": {
+                    "description": "When activated generates a client file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.activate_server_file_generation": {
+                    "description": "When activated generates a server file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.default_client_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated client file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-generate.default_server_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated server file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-sense.activate_signature_help_parentheses": {
+                    "description": "Allows you to disable the expensive signature help",
+                    "type": "boolean",
+                    "default": true
+                }
+            }
+        },
+        "menus": {
+            "explorer/context": [
+                {
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-new-resource",
+                    "group": "mtasa_lua@1"
+                },
+                {
+                    "command": "extension.mta-new-meta",
+                    "group": "mtasa_lua@2"
+                },
+                {
+                    "command": "extension.mta-new-client",
+                    "group": "mtasa_lua@3"
+                },
+                {
+                    "command": "extension.mta-new-server",
+                    "group": "mtasa_lua@4"
+                }
+            ]
+        }
     }
 }
