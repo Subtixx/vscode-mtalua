@@ -6,6 +6,23 @@
     "publisher": "subtixx",
     "license": "GPL v3.0",
     "icon": "images/logo.png",
+    "badges": [
+        {
+            "url": "https://img.shields.io/maintenance/yes/2019.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Maintenance Status"
+        },
+        {
+            "url": "https://img.shields.io/vscode-marketplace/v/subtixx.mtasa-lua.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Newest Version"
+        },
+        {
+            "url": "https://img.shields.io/vscode-marketplace/d/subtixx.mtasa-lua.svg?style=flat-square",
+            "href": "https://github.com/Subtixx/vscode-mtalua",
+            "description": "Downloads"
+        }
+    ],
     "galleryBanner": {
         "color": "#C80000",
         "theme": "dark"
@@ -34,7 +51,8 @@
     "devDependencies": {
         "typescript": "^2.1.4",
         "vscode": "^1.1.10",
-        "@types/node": "^6.0.40"
+        "@types/node": "^6.0.40",
+        "@types/xml2js": "^0.4.3"
     },
     "categories": [
         "Programming Languages",
@@ -45,19 +63,19 @@
         "commands": [
             {
                 "command": "extension.mta-new-resource",
-                "title": "Generate New MTA Resource"
+                "title": "New MTA Resource"
             },
             {
                 "command": "extension.mta-new-meta",
-                "title": "Generate New MTA Meta.xml file"
+                "title": "New MTA Meta.xml file"
             },
             {
                 "command": "extension.mta-new-client",
-                "title": "Generate New MTA Client file"
+                "title": "New MTA Client file"
             },
             {
                 "command": "extension.mta-new-server",
-                "title": "Generate New MTA Server file"
+                "title": "New MTA Server file"
             }
         ],
         "languages": [
@@ -114,6 +132,78 @@
                     "type": "string",
                     "default": "VSCode MTA:SA Lua"
                 },
+                "mtalua-generate.watermarking": {
+                    "description": "Enable or disable watermarking of meta files",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.meta_default_version": {
+                    "description": "Default version when generating new resources",
+                    "type": "string",
+                    "default": "0.1.0"
+                },
+                "mtalua-generate.meta_default_type": {
+                    "description": "Default type of new resources",
+                    "type": "string",
+                    "default": "script",
+                    "enumDescriptions": [
+                        "Script",
+                        "GameMode",
+                        "Map",
+                        "Misc"
+                    ],
+                    "enum": [
+                        "script",
+                        "gamemode",
+                        "map",
+                        "misc"
+                    ]
+                },
+                "mtalua-generate.shared_prefix": {
+                    "description": "Custom suffix/prefix for shared files (Default is g_ prefix)",
+                    "type": "string",
+                    "default": "g_"
+                },
+                "mtalua-generate.shared_extension": {
+                    "description": "Custom extension for shared files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.shared_prefix_type": {
+                    "description": "If the shared is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.client_prefix": {
+                    "description": "Custom suffix/prefix for client files (Default is c_ prefix)",
+                    "type": "string",
+                    "default": "c_"
+                },
+                "mtalua-generate.client_extension": {
+                    "description": "Custom extension for client files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.client_prefix_type": {
+                    "description": "If the client is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.server_prefix": {
+                    "description": "Custom suffix/prefix for server files (Default is s_ prefix)",
+                    "type": "string",
+                    "default": "s_"
+                },
+                "mtalua-generate.server_extension": {
+                    "description": "Custom extension for server files (Default is lua)",
+                    "type": "string",
+                    "default": "lua"
+                },
+                "mtalua-generate.server_prefix_type": {
+                    "description": "If the server is a prefix (true) or a suffix (false)",
+                    "type": "boolean",
+                    "default": true
+                },
                 "mtalua-generate.activate_client_file_generation": {
                     "description": "When activated generates a client file when using generate new resource",
                     "type": "boolean",
@@ -121,6 +211,11 @@
                 },
                 "mtalua-generate.activate_server_file_generation": {
                     "description": "When activated generates a server file when using generate new resource",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.activate_shared_file_generation": {
+                    "description": "When activated generates a shared file when using generate new resource",
                     "type": "boolean",
                     "default": true
                 },
@@ -133,6 +228,28 @@
                     "description": "Allows you to set custom content that should be placed in the newly generated server file",
                     "type": "string",
                     "default": ""
+                },
+                "mtalua-generate.default_shared_content": {
+                    "description": "Allows you to set custom content that should be placed in the newly generated shared file",
+                    "type": "string",
+                    "default": ""
+                },
+                "mtalua-generate.modify_meta": {
+                    "description": "When adding new client/server-side files should the meta.xml automagically be modified?",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-generate.filesrc_extensions": {
+                    "description": "Extensions which are declated as <file>",
+                    "type": "array",
+                    "default": [
+                        ".png",
+                        ".jpg",
+                        ".mp3",
+                        ".wav",
+                        ".ttf",
+                        ".tif"
+                    ]
                 },
                 "mtalua-sense.activate_signature_help_parentheses": {
                     "description": "Allows you to disable the expensive signature help",
@@ -162,5 +279,8 @@
                 }
             ]
         }
+    },
+    "dependencies": {
+        "xml2js": "^0.4.19"
     }
 }

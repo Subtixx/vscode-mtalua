@@ -1,12 +1,14 @@
 import * as path from 'path';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
+import * as xml2js from 'xml2js';
+import { ScriptSide } from '../defs/defs';
 
-export function generateResource(uri:vscode.Uri) {
+export function generateResource(uri: vscode.Uri) {
     let fullFilePath = uri.fsPath;
-    if(fullFilePath === undefined)    
+    if (fullFilePath === undefined)
         fullFilePath = vscode.workspace.rootPath;
-    
+
     const options: vscode.InputBoxOptions = {
         ignoreFocusOut: true,
         prompt: `Type the name of the new resource, or press ESC to cancel`,
@@ -18,8 +20,10 @@ export function generateResource(uri:vscode.Uri) {
     resourceName.then(name => {
         let folderPath = path.join(fullFilePath, name);
         let metaFilePath = path.join(folderPath, "meta.xml");
-        let clientScriptFilePath = path.join(folderPath, "c_" + name + ".lua");
-        let serverScriptFilePath = path.join(folderPath, "s_" + name + ".lua");
+        let clientScriptFilePath = path.join(folderPath, getFileName(name, ScriptSide.Client));
+        let serverScriptFilePath = path.join(folderPath, getFileName(name, ScriptSide.Server));
+        let sharedScriptFilePath = path.join(folderPath, getFileName(name, ScriptSide.Shared));
+
         if (fs.existsSync(folderPath)) {
             vscode.window.showErrorMessage("Resource folder already exists.");
             return;
@@ -30,6 +34,7 @@ export function generateResource(uri:vscode.Uri) {
         generateMetaFile(name, metaFilePath);
         generateClientFile(name, clientScriptFilePath);
         generateServerFile(name, serverScriptFilePath);
+        generateSharedFile(name, sharedScriptFilePath);
 
         vscode.window.showInformationMessage("Resource '" + name + "' successfully created.");
 
@@ -39,7 +44,10 @@ export function generateResource(uri:vscode.Uri) {
     });
 }
 
-export function generateClient() {
+export function generateClient(uri: vscode.Uri) {
+    let fullFilePath = uri.fsPath;
+    if (fullFilePath === undefined)
+        fullFilePath = vscode.workspace.rootPath;
     const options: vscode.InputBoxOptions = {
         ignoreFocusOut: true,
         prompt: `Type the name of the client file to create (without extension or c_ prefix), or press ESC to cancel`,
@@ -49,16 +57,14 @@ export function generateClient() {
     if (clientFileName === undefined)
         return;
     clientFileName.then(name => {
-        let folderPath = vscode.workspace.rootPath;
-        let clientScriptFilePath = path.join(folderPath, "c_" + name + ".lua");
-        if (!fs.existsSync(folderPath)) {
+        let clientScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Client));
+        if (!fs.existsSync(fullFilePath)) {
             vscode.window.showErrorMessage("Resource folder does not exist.");
             return;
         }
 
-        fs.mkdirSync(folderPath);
-
         generateClientFile(name, clientScriptFilePath);
+        addToMeta(fullFilePath, clientScriptFilePath, ScriptSide.Client);
 
         vscode.window.showInformationMessage("Client file '" + name + "' successfully created.");
 
@@ -68,7 +74,11 @@ export function generateClient() {
     });
 }
 
-export function generateServer() {
+export function generateServer(uri: vscode.Uri) {
+    let fullFilePath = uri.fsPath;
+    if (fullFilePath === undefined)
+        fullFilePath = vscode.workspace.rootPath;
+
     const options: vscode.InputBoxOptions = {
         ignoreFocusOut: true,
         prompt: `Type the name of the server file to create (without extension or s_ prefix), or press ESC to cancel`,
@@ -78,14 +88,14 @@ export function generateServer() {
     if (serverFileName === undefined)
         return;
     serverFileName.then(name => {
-        let folderPath = vscode.workspace.rootPath;
-        let serverScriptFilePath = path.join(folderPath, "s_" + name + ".lua");
-        if (!fs.existsSync(folderPath)) {
+        let serverScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Server));
+        if (!fs.existsSync(fullFilePath)) {
             vscode.window.showErrorMessage("Resource folder does not exist.");
             return;
         }
 
         generateServerFile(name, serverScriptFilePath);
+        addToMeta(fullFilePath, serverScriptFilePath, ScriptSide.Server);
 
         vscode.window.showInformationMessage("Server file '" + name + "' successfully created.");
 
@@ -95,11 +105,44 @@ export function generateServer() {
     });
 }
 
-export function generateMeta(uri:vscode.Uri) {
+export function generateShared(uri: vscode.Uri) {
     let fullFilePath = uri.fsPath;
-    if(fullFilePath === undefined)    
+    if (fullFilePath === undefined)
+        fullFilePath = vscode.workspace.rootPath;
+
+    const options: vscode.InputBoxOptions = {
+        ignoreFocusOut: true,
+        prompt: `Type the name of the shared file to create (without extension or g_ prefix), or press ESC to cancel`,
+        placeHolder: 'newServerFile'
+    };
+    let sharedFileName = vscode.window.showInputBox(options);
+    if (sharedFileName === undefined)
+        return;
+    sharedFileName.then(name => {
+        let fileName = getFileName(name, ScriptSide.Shared);
+
+        let sharedScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Shared));
+        if (!fs.existsSync(fullFilePath)) {
+            vscode.window.showErrorMessage("Resource folder does not exist.");
+            return;
+        }
+
+        generateSharedFile(name, sharedScriptFilePath);
+        addToMeta(fullFilePath, sharedScriptFilePath, ScriptSide.Server);
+
+        vscode.window.showInformationMessage("Shared file '" + name + "' successfully created.");
+
+        vscode.workspace.openTextDocument(sharedScriptFilePath).then(doc => {
+            vscode.window.showTextDocument(doc);
+        });
+    });
+}
+
+export function generateMeta(uri: vscode.Uri) {
+    let fullFilePath = uri.fsPath;
+    if (fullFilePath === undefined)
         fullFilePath = vscode.window.activeTextEditor.document.fileName;
-    
+
     let folderPath = path.dirname(vscode.window.activeTextEditor.document.fileName);
     let resourceName = folderPath.substr(folderPath.lastIndexOf("\\") + 1, folderPath.length - folderPath.lastIndexOf("\\"));
     let filePath = path.join(folderPath, "meta.xml");
@@ -107,34 +150,51 @@ export function generateMeta(uri:vscode.Uri) {
         vscode.window.showErrorMessage("Resource folder does not exist.");
         return;
     }
-    
+
+    let fileExts: Array<string> = vscode.workspace.getConfiguration("mtalua-generate").get("filesrc_extensions", [".png", ".jpg", ".mp3", ".wav", ".ttf", ".tif"]);
+
     // TODO: This is horrible and should be changed :S, something like a file in the extension which holds our template
     let defaultAuthor = vscode.workspace.getConfiguration("mtalua-generate").get("author", "VSCode MTA:SA Lua");
+    let defaultType = vscode.workspace.getConfiguration("mtalua-generate").get("meta_default_type", "script");
+    let defaultVersion = vscode.workspace.getConfiguration("mtalua-generate").get("meta_default_version", "0.1.0");
     let content: string = "<meta>\n";
-    // TODO: Add option to turn off watermarking.
-    content += "\t<!-- Auto generated using VSCode MTA:SA Lua by Subtixx -->\n";
-    content += "\t<info author=\"" + defaultAuthor + "\" type=\"script\" name=\"" + resourceName + "\" />\n";
 
-    //fs.readdirSync(folderPath).forEach(file => {
-    walkSync(folderPath, (file : string, stat : fs.Stats) => {
-        if(path.extname(file) == ".git") return;
+    if (vscode.workspace.getConfiguration("mtalua-generate").get("watermarking", true))
+        content += "\t<!-- Auto generated using VSCode MTA:SA Lua by Subtixx -->\n";
+
+    content += "\t<info author=\"" + defaultAuthor + "\" type=\"" + defaultType + "\" name=\"" + resourceName + "\" version=\"" + defaultVersion + "\" />\n";
+
+    walkSync(folderPath, (file: string, stat: fs.Stats) => {
+        if (path.extname(file) == ".git") return;
 
         let fileName = file.substr(file.lastIndexOf("\\") + 1, file.length - file.lastIndexOf("\\"));
         let relFilePath = path.relative(folderPath, file).replace(/\\/g, "/");
 
-        // TODO: Make this a setting
-        if (path.extname(file) != ".lua" && path.extname(file) != ".clua" && path.extname(file) != ".slua" && path.extname(file) != ".luac") {
+        if (fileExts.indexOf(path.extname(file)) > -1) {
             content += "\t<file src=\"" + relFilePath + "\" />\n";
             return;
         }
-        
+
+        if (path.extname(file) != "." + vscode.workspace.getConfiguration("mtalua-generate").get("client_extension", "lua") &&
+            path.extname(file) != "." + vscode.workspace.getConfiguration("mtalua-generate").get("shared_extension", "lua") &&
+            path.extname(file) != "." + vscode.workspace.getConfiguration("mtalua-generate").get("server_extension", "lua") &&
+            path.extname(file) != ".luac" && path.extname(file) != ".clua" && path.extname(file) != ".lua" && path.extname(file) != ".slua" &&
+            path.extname(file) != ".glua"
+        ) {
+            return;
+        }
+
         if (fileName.startsWith("c_") || fileName.endsWith("_c") ||
-            fileName.startsWith("client") || fileName.endsWith("client")
+            fileName.startsWith("client") || fileName.endsWith("client") ||
+            fileName.startsWith(vscode.workspace.getConfiguration("mtalua-generate").get("client_prefix")) ||
+            fileName.endsWith(vscode.workspace.getConfiguration("mtalua-generate").get("client_prefix"))
         ) {
             // Clientside
             content += "\t<script src=\"" + fileName + "\" type=\"client\" />\n";
         } else if (fileName.startsWith("g_") || fileName.endsWith("_g") ||
-            fileName.startsWith("global") || fileName.endsWith("global")
+            fileName.startsWith("global") || fileName.endsWith("global") ||
+            fileName.startsWith(vscode.workspace.getConfiguration("mtalua-generate").get("shared_prefix")) ||
+            fileName.endsWith(vscode.workspace.getConfiguration("mtalua-generate").get("shared_prefix"))
         ) {
             // Clientside & Serverside
             content += "\t<script src=\"" + relFilePath + "\" type=\"both\" />\n";
@@ -169,6 +229,7 @@ function generateMetaFile(resourceName: string, filePath: string) {
     fs.writeFileSync(filePath, content);
 }
 
+// TODO: These three can be combined into one.
 function generateClientFile(resourceName: string, filePath: string) {
     if (!vscode.workspace.getConfiguration("mtalua-generate").get("activate_client_file_generation", true))
         return;
@@ -181,6 +242,59 @@ function generateServerFile(resourceName: string, filePath: string) {
         return;
     let content = vscode.workspace.getConfiguration("mtalua-generate").get("default_server_content", "");
     fs.writeFileSync(filePath, content);
+}
+
+function generateSharedFile(resourceName: string, filePath: string) {
+    if (!vscode.workspace.getConfiguration("mtalua-generate").get("activate_shared_file_generation", true))
+        return;
+    let content = vscode.workspace.getConfiguration("mtalua-generate").get("default_shared_content", "");
+    fs.writeFileSync(filePath, content);
+}
+
+function addToMeta(folderPath: string, filePath: string, side: ScriptSide) {
+    if (!vscode.workspace.getConfiguration("mtalua-generate").get("modify_meta", true))
+        return;
+
+    let relFilePath = path.relative(folderPath, filePath).replace(/\\/g, "/");
+    let metaFilePath = path.join(folderPath, "meta.xml");
+    let data = fs.readFileSync(metaFilePath);
+
+    xml2js.parseString(data, function (err, result) {
+        let type = "server";
+        if (side == ScriptSide.Client)
+            type = "client";
+        else if (side == ScriptSide.Shared)
+            type = "both";
+
+        var builder = new xml2js.Builder({ headless: true });
+        result.meta.script.push({ $: { src: relFilePath, type: "client" } });
+        fs.writeFileSync(metaFilePath, builder.buildObject(result));
+    });
+}
+
+// TODO: Custom extension for weird people who use .clua for client side lua, .slua for server side lua and .glua for global lua
+function getFileName(name: string, side: ScriptSide) {
+    let sideStr: string = "";
+    switch (side) {
+        case ScriptSide.Client:
+            sideStr = "client";
+            break;
+        case ScriptSide.Server:
+            sideStr = "server";
+            break;
+        case ScriptSide.Shared:
+            sideStr = "shared";
+            break;
+    }
+    let fileName: string;
+    if (vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_prefix_type"))
+        fileName = vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_prefix") + name +
+            "." + vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_extension", "lua");
+    else
+        fileName = name + vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_prefix") +
+            "." + vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_extension", "lua");
+
+    return fileName;
 }
 
 // Helper function.
