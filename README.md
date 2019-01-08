@@ -29,6 +29,7 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
         - [Server only Function](#server-only-function)
         - [Client only Function](#client-only-function)
         - [Shared Function](#shared-function)
+    - [Generate Files](#generate-files)
     - [VSDark](#vsdark)
         - [Server](#server)
         - [Client](#client)
@@ -55,7 +56,7 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
 
 ![Server Function](images/Preview_SharedFunc.png)
 
-### Generate files (As of 2.2.0)
+## Generate files
 
 ![Generate Files](images/Preview_GenerateFiles.png)
 
