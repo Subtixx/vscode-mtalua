@@ -1,8 +1,8 @@
 {
     "name": "mtasa-lua",
     "displayName": "MTA:SA Lua",
-    "description": "MTA:SA Lua Syntax Highlighting + Snippets",
-    "version": "2.2.5",
+    "description": "MTA:SA Lua Syntax Highlighting + Companion",
+    "version": "2.3.0",
     "publisher": "subtixx",
     "license": "GPL v3.0",
     "icon": "images/logo.png",
