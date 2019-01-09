@@ -49,10 +49,11 @@
         "tslint": "tslint -c tslint.json src/extension.ts"
     },
     "devDependencies": {
-        "typescript": "^2.1.4",
-        "vscode": "^1.1.10",
         "@types/node": "^6.0.40",
-        "@types/xml2js": "^0.4.3"
+        "@types/request": "^2.48.1",
+        "@types/xml2js": "^0.4.3",
+        "typescript": "^2.1.4",
+        "vscode": "^1.1.10"
     },
     "categories": [
         "Programming Languages",
@@ -61,6 +62,18 @@
     ],
     "contributes": {
         "commands": [
+            {
+                "command": "extension.mta-start-resource",
+                "title": "Start Resource"
+            },
+            {
+                "command": "extension.mta-stop-resource",
+                "title": "Stop Resource"
+            },
+            {
+                "command": "extension.mta-restart-resource",
+                "title": "Restart Resource"
+            },
             {
                 "command": "extension.mta-new-resource",
                 "title": "New MTA Resource"
@@ -127,6 +140,33 @@
         "configuration": {
             "title": "MTA:SA Lua",
             "properties": {
+                "mtalua-http.enabled": {
+                    "description": "Enable the WebAdmin Http Functionality",
+                    "type": "boolean",
+                    "default": true
+                },
+                "mtalua-http.enable_restart_on_save": {
+                    "description": "Enable restarting resources on saving them",
+                    "type": "boolean",
+                    "default": false
+                },
+
+                "mtalua-http.uri": {
+                    "description": "URL to the MTA Http Server",
+                    "type": "string",
+                    "default": "http://127.0.0.1:22005"
+                },
+                "mtalua-http.username": {
+                    "description": "Authentication username for the MTA Http Server",
+                    "type": "string",
+                    "default": "admin"
+                },
+                "mtalua-http.password": {
+                    "description": "Authentication password for the MTA Http Server",
+                    "type": "string",
+                    "default": "123456"
+                },
+
                 "mtalua-generate.author": {
                     "description": "Allows you to set a custom author when generating new resources",
                     "type": "string",
@@ -252,7 +292,7 @@
                     ]
                 },
                 "mtalua-sense.activate_signature_help_parentheses": {
-                    "description": "Allows you to disable the expensive signature help",
+                    "description": "Allows you to disable the signature help when using (",
                     "type": "boolean",
                     "default": true
                 }
@@ -262,20 +302,35 @@
             "explorer/context": [
                 {
                     "when": "explorerResourceIsFolder",
-                    "command": "extension.mta-new-resource",
+                    "command": "extension.mta-start-resource",
                     "group": "mtasa_lua@1"
                 },
                 {
-                    "command": "extension.mta-new-meta",
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-stop-resource",
                     "group": "mtasa_lua@2"
                 },
                 {
-                    "command": "extension.mta-new-client",
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-restart-resource",
                     "group": "mtasa_lua@3"
                 },
                 {
-                    "command": "extension.mta-new-server",
+                    "when": "explorerResourceIsFolder",
+                    "command": "extension.mta-new-resource",
                     "group": "mtasa_lua@4"
+                },
+                {
+                    "command": "extension.mta-new-meta",
+                    "group": "mtasa_lua@5"
+                },
+                {
+                    "command": "extension.mta-new-client",
+                    "group": "mtasa_lua@6"
+                },
+                {
+                    "command": "extension.mta-new-server",
+                    "group": "mtasa_lua@7"
                 }
             ]
         }
