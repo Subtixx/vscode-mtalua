@@ -57,9 +57,15 @@ export function generateClient(uri: vscode.Uri) {
     if (clientFileName === undefined)
         return;
     clientFileName.then(name => {
-        let clientScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Client));
+        let fileName = getFileName(name, ScriptSide.Client);
+        let clientScriptFilePath = path.join(fullFilePath, fileName);
         if (!fs.existsSync(fullFilePath)) {
             vscode.window.showErrorMessage("Resource folder does not exist.");
+            return;
+        }
+
+        if (fs.existsSync(clientScriptFilePath)) {
+            vscode.window.showErrorMessage(fileName + " already exists.");
             return;
         }
 
@@ -88,9 +94,15 @@ export function generateServer(uri: vscode.Uri) {
     if (serverFileName === undefined)
         return;
     serverFileName.then(name => {
-        let serverScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Server));
+        let fileName = getFileName(name, ScriptSide.Server);
+        let serverScriptFilePath = path.join(fullFilePath, fileName);
         if (!fs.existsSync(fullFilePath)) {
             vscode.window.showErrorMessage("Resource folder does not exist.");
+            return;
+        }
+
+        if (fs.existsSync(serverScriptFilePath)) {
+            vscode.window.showErrorMessage(fileName + " already exists.");
             return;
         }
 
@@ -120,10 +132,14 @@ export function generateShared(uri: vscode.Uri) {
         return;
     sharedFileName.then(name => {
         let fileName = getFileName(name, ScriptSide.Shared);
-
-        let sharedScriptFilePath = path.join(fullFilePath, getFileName(name, ScriptSide.Shared));
+        let sharedScriptFilePath = path.join(fullFilePath, fileName);
         if (!fs.existsSync(fullFilePath)) {
             vscode.window.showErrorMessage("Resource folder does not exist.");
+            return;
+        }
+
+        if (fs.existsSync(sharedScriptFilePath)) {
+            vscode.window.showErrorMessage(fileName + " already exists.");
             return;
         }
 
@@ -148,6 +164,11 @@ export function generateMeta(uri: vscode.Uri) {
     let filePath = path.join(folderPath, "meta.xml");
     if (folderPath === undefined || !fs.existsSync(folderPath)) {
         vscode.window.showErrorMessage("Resource folder does not exist.");
+        return;
+    }
+
+    if (fs.existsSync(filePath)) {
+        vscode.window.showErrorMessage("Meta.xml already exists.");
         return;
     }
 
