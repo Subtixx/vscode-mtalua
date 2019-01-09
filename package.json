@@ -150,6 +150,11 @@
                     "type": "boolean",
                     "default": false
                 },
+                "mtalua-http.enable_search_hinting": {
+                    "description": "Enable search hinting when restarting resources (Requires http whitelisting this ip)",
+                    "type": "boolean",
+                    "default": false
+                },
 
                 "mtalua-http.uri": {
                     "description": "URL to the MTA Http Server",
