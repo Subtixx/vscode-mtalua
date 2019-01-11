@@ -2845,30 +2845,3 @@ tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "";
-tmpDef.description = "";
-tmpDef.returnType = "";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "";
-tmpDef.description = "";
-tmpDef.returnType = "";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "";
-tmpDef.description = "";
-tmpDef.returnType = "";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);

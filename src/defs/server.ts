@@ -2000,21 +2000,3 @@ tmpDef.args = ["element theVehicle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "";
-tmpDef.description = "";
-tmpDef.returnType = "";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "";
-tmpDef.description = "";
-tmpDef.returnType = "";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
