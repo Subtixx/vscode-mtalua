@@ -1025,6 +1025,54 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 DeprecatedDefinitions.push(tmpDef);
 
+// 1.5.6
+
+tmpDef = new MTAFunction;
+tmpDef.label = "givePedJetPack";
+tmpDef.description = deprecatedText + "Please use setPedWearingJetpack";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+DeprecatedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "removePedJetPack";
+tmpDef.description = deprecatedText + "Please use setPedWearingJetpack";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+DeprecatedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "doesPedHaveJetPack";
+tmpDef.description = deprecatedText + "Please use isPedWearingJetpack";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+DeprecatedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleTurnVelocity";
+tmpDef.description = deprecatedText + "Please use getElementTurnVelocity";
+tmpDef.returnType = "float float float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+DeprecatedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleTurnVelocity";
+tmpDef.description = deprecatedText + "Please use setElementTurnVelocity";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "float rx", "float ry", "float rz"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+DeprecatedDefinitions.push(tmpDef);
+
+
 // tmpDef = new MTAFunction;
 // tmpDef.label = "onClientChangeNick";
 // tmpDef.description = deprecatedText + "Please use ??? ";

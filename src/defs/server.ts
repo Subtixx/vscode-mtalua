@@ -617,15 +617,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "givePedJetPack";
-tmpDef.description = "This function is used to give a ped a jetpack, it won't work if the ped is in a vehicle.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "createResource";
 tmpDef.description = "This function creates an new, empty resource. This creates a directory matching the name you specify on disk, then creates an empty meta.xml file with a <meta> element in it.";
 tmpDef.returnType = "resource";
@@ -1053,15 +1044,6 @@ tmpDef.label = "setPedFightingStyle";
 tmpDef.description = "Changes a ped's fighting style. Most styles only change the 'special attack' which is done using the Aim and Enter keys.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "int style"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "removePedJetPack";
-tmpDef.description = "This function is used to remove a ped's jetpack.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -1933,6 +1915,106 @@ tmpDef.label = "httpWrite";
 tmpDef.description = "This function adds text to the output of the current HTTP file of the HTTP interface. The function can only be used on parsed (i.e not marked as raw) HTTP pages.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string data [", "int length]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+// 1.5.6
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedWearingJetpack";
+tmpDef.description = "This function is used to give or take a jetpack from a ped, it won't work if the ped is in a vehicle.\n\nAs such, you should either expect it to fail sometimes, or repeatedly try to give a jetpack every second or so until isPedWearingJetpack returns true. Alternatively, you can force the ped into a 'safe' position (e.g. standing on the ground) before giving the jetpack, or use a pickup to handle it. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAccountIP";
+tmpDef.description = "This function retrieves the IP address of an account. ";
+tmpDef.returnType = "string";
+tmpDef.args = ["account theAccount"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAccountByID";
+tmpDef.description = "This function returns the account with the specific ID. ";
+tmpDef.returnType = "account";
+tmpDef.args = ["int id"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAccountID";
+tmpDef.description = "This function retrieves the ID of an account. ";
+tmpDef.returnType = "int";
+tmpDef.args = ["account theAccount"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setAccountName";
+tmpDef.description = "This function sets the name of an account. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["account theAccount", "string name [", "bool allowCaseVariations = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAccountsByData";
+tmpDef.description = "This function returns a table containing all accounts with specified dataName and value (set with setAccountData). ";
+tmpDef.returnType = "table";
+tmpDef.args = ["string dataName", "string value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getAccountsByIP";
+tmpDef.description = "This function returns a table containing all accounts that were logged onto from specified IP-address. ";
+tmpDef.returnType = "table";
+tmpDef.args = ["string ip"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleRespawnPosition";
+tmpDef.description = "This function retrieves the respawn coordinates of a vehicle.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleRespawnRotation";
+tmpDef.description = "This function retrieves the respawn rotation of a vehicle.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);

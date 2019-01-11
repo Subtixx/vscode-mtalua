@@ -4307,6 +4307,124 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
+// 1.5.6
+tmpDef = new MTAFunction;
+tmpDef.label = "isPedWearingJetpack";
+tmpDef.description = "Checks whether or not a ped is currently wearing a jetpack. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleHandling";
+tmpDef.description = "This function is used to change the handling data of a vehicle.\nImplemented also for client-sided vehicles. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theVehicle", "string property", "var value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "clearChatBox";
+tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "clearChatBox";
+tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[ element clearFor = getRootElement() ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "encodeString";
+tmpDef.description = "This function encodes a string using the specified algorithm. The counterpart of this function is decodeString. ";
+tmpDef.returnType = "string";
+tmpDef.args = ["string algorithm", "string input", "table options"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "decodeString";
+tmpDef.description = "This function decodes an encoded string using the specified algorithm. The counterpart of this function is encodeString. ";
+tmpDef.returnType = "string";
+tmpDef.args = ["string algorithm", "string input", "table options"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getColShapeType";
+tmpDef.description = "This function is used to retrieve the type of an colshape.";
+tmpDef.returnType = "string";
+tmpDef.args = ["colshape shape"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementAngularVelocity";
+tmpDef.description = "Gets the current angular velocity of a specified, supported element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementAngularVelocity";
+tmpDef.description = "Sets the angular velocity of a specified, supported element (Applies a spin to it).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement", "float rx", "float ry", "float rz"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementsWithinRange";
+tmpDef.description = "This function is used to retrieve a list of all elements of specified type within a range of 3D coordinates.\nNote:\n\n\tThis function doesn't verify whether elements are in the same dimension and interior, additional checks could be implemented manually if they are needed.\n\tThis function checks if elements are in a box, not in a circle.\n\tZ argument isn't in use currently, but make your scripts like it is for future compatibility reasons.\n\tThis function doesn't work with elements which is created by createElement.";
+tmpDef.returnType = "table";
+tmpDef.args = ["float x", "float y", "float z", "float range [", "string elemType = \"\" ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isInsideColShape";
+tmpDef.description = "This function checks if a 3D position is inside a colshape or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["colshape theShape", "float posX", "float posY", "float posZ"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedAnimationSpeed";
+tmpDef.description = "Sets the current animation speed of a player or ped.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed [", "string anim = \"\"", "float speed = 1.0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
 let tmpModuleDef = new LuaClass("utf8", "");
 tmpModuleDef.methods.push(new LuaMethod("title", "", [], {}, ""));
 tmpModuleDef.methods.push(new LuaMethod("width", "", [], {}, ""));

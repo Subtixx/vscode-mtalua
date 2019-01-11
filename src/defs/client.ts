@@ -141,33 +141,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineLoadIFP";
-tmpDef.description = "This function loads an animation library (IFP) file into GTA with a custom block name.";
-tmpDef.returnType = "ifp";
-tmpDef.args = ["string IfpFilePath", "string CustomBlockName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineReplaceAnimation";
-tmpDef.description = "This function replaces a specific internal (default) animation with a custom one that has been loaded using engineLoadIFP function.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["thePed", "InternalBlockName", "InternalAnimName", "CustomBlockName", "CustomAnimName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineRestoreAnimation";
-tmpDef.description = "This function restores internal (default) animations that were replaced using engineReplaceAnimation function.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "[ string InternalBlockName", "string InternalAnimName]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getSoundEffects";
 tmpDef.description = "Returns the states of all effects of a sound.";
 tmpDef.returnType = "table";
@@ -2644,15 +2617,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setWorldSoundEnabled";
-tmpDef.description = "This function allows you to disable world sounds. A world sound is a sound effect which has not been caused by playSound or playSound3D.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int group", "[ int index = -1", "] bool enable [", "bool immediate = false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "testLineAgainstWater";
 tmpDef.description = "This function checks to see if a line between two points collides with the water. This is similar to processLineOfSight, but only collides with water. Waves are taken into account when testing the line.";
 tmpDef.returnType = "bool float float float";
@@ -2666,6 +2630,245 @@ tmpDef.label = "isTrainChainEngine";
 tmpDef.description = "This function checks if a train is a chain engine (moves the rest of the chain's carriages) or not.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theTrain"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+// 1.5.6
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isVehicleWheelOnGround";
+tmpDef.description = "This function returns a boolean whether the vehicle's wheel is on ground (true) or in air (false).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle", "string|int wheel"];
+/*
+wheel The wheel name or number, see list below:
+
+"front_left" or 0
+"rear_left" or 1
+"front_right" or 2
+"rear_right" or 3
+*/
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isPedReloadingWeapon";
+tmpDef.description = "This function is used to determine whether or not a ped is currently reloading their weapon. Useful to stop certain quick reload exploits. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "extinguishFire";
+tmpDef.description = "This function is used to extinguish all spreading fire, or spreading fire at specified coordinates.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[ float x", "float y", "float z [", "float radius = 1.0 ] ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineLoadIFP";
+tmpDef.description = "This function loads an animation library (IFP) file into GTA with a custom block name.";
+tmpDef.returnType = "ifp";
+tmpDef.args = ["string IfpFilePath", "string CustomBlockName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineReplaceAnimation";
+tmpDef.description = "This function replaces a specific internal (default) animation with a custom one that has been loaded using engineLoadIFP function.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["thePed", "InternalBlockName", "InternalAnimName", "CustomBlockName", "CustomAnimName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRestoreAnimation";
+tmpDef.description = "This function restores internal (default) animations that were replaced using engineReplaceAnimation function.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "[ string InternalBlockName", "string InternalAnimName]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoIsReadOnly";
+tmpDef.description = "This function checking if memo is read only or no.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-memo theMemo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditIsReadOnly";
+tmpDef.description = "This function checks if an edit box is read-only.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoGetVerticalScrollPosition";
+tmpDef.description = "This function is used to get the vertical scroll position of a memo as a percentage.";
+tmpDef.returnType = "float";
+tmpDef.args = ["gui-memo theMemo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoSetVerticalScrollPosition";
+tmpDef.description = "This function is used to set the vertical scroll position of a memo as a percentage.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-memo theMemo", "float position"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPedsLODDistance";
+tmpDef.description = "This function gets the peds LOD distance. ";
+tmpDef.returnType = "float";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedsLODDistance";
+tmpDef.description = "This function sets the peds LOD distance.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float distance"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetPedsLODDistance";
+tmpDef.description = "Resets the distance of peds LOD to default. Default values depends on client setting. If client has enabled high detail peds in video options, value will be reset to 500 - otherwise to 60. ";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditGetMaxLength";
+tmpDef.description = "This function returns the maximum text length that can be typed within an edit box.";
+tmpDef.returnType = "int";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditIsMasked";
+tmpDef.description = "This function checks if an edit box is masked.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiWindowIsMovable";
+tmpDef.description = "This function checks if a GUI window is movable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-window guiWindow"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiWindowIsSizable";
+tmpDef.description = "This function checks if a GUI window is sizable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-window guiWindow"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawCircle";
+tmpDef.description = "This function draws a circle shape on the screen - rendered for *one* frame. This should be used in conjunction with onClientRender in order to be display continuously. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float posX", "float posY", "float radius [", "float startAngle = 0.0", "float stopAngle = 360.0", "color theColor = white", "color theCenterColor = theColor", "int segments = 32", "int ratio = 1", "postGUI = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+// New immediate argument
+tmpDef = new MTAFunction;
+tmpDef.label = "setWorldSoundEnabled";
+tmpDef.description = "This function allows you to disable world sounds. A world sound is a sound effect which has not been caused by playSound or playSound3D.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int group", "[ int index = -1", "] bool enable [", "bool immediate = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+// New postGUI argument
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawMaterialLine3D";
+tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.\n\nThe 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.\n\n3D lines are drawn at a particular place in the game processing order, so use onClientPreRender for drawing if you are attaching them to world elements. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float startX", " float startY", " float startZ", " float endX", " float endY", " float endZ", " element material", " float width", " [ int color = white", " [ bool postGUI = false", " ] float faceTowardX", " float faceTowardY", " float faceTowardZ ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+// New noiseEnable argument
+tmpDef = new MTAFunction;
+tmpDef.label = "setCameraGoggleEffect";
+tmpDef.description = "";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string goggleEffect [", "bool noiseEnabled = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+// New SettingFullScreenStyle
+tmpDef = new MTAFunction;
+tmpDef.label = "dxGetStatus";
+tmpDef.description = "Returns a table with the following entries:\nTestMode : The current dx test mode. See dxSetTestMode.\nVideoCardName : The name of the graphics card.\nVideoCardRAM : The installed memory in MB of the graphics card.\nVideoCardPSVersion : The maximum pixel shader version of the graphics card.\nVideoCardNumRenderTargets: The maximum number of simultaneous render targets a shader can use.\nVideoCardMaxAnisotropy: The maximum anisotropic filtering available. (0-4 which respectively mean: off,2x,4x,8x,16x)\nVideoMemoryFreeForMTA : The amount of memory in MB available for MTA to use. When this gets to zero, guiCreateFont, dxCreateFont and dxCreateRenderTarget will fail.\nVideoMemoryUsedByFonts : The amount of graphic memory in MB used by custom fonts.\nVideoMemoryUsedByTextures : The amount of graphic memory in MB used by textures.\nVideoMemoryUsedByRenderTargets : The amount of graphic memory in MB used by render targets.\nSettingWindowed : The windowed setting. (true/false)\nSettingFullScreenStyle : Display style when in full screen mode. (0-2 which respectively mean: Standard, Borderless window, Borderless keep res)\nSettingFXQuality : The FX Quality. (0-3)\nSettingDrawDistance : The draw distance setting. (0-100)\nSettingVolumetricShadows : The volumetric shadows setting. (true/false)\nSettingStreamingVideoMemoryForGTA : The usable graphics memory setting. (64-256)\nSettingAnisotropicFiltering: The anisotropic filtering setting. (0-4 which respectively mean: off,2x,4x,8x,16x)\nSettingAntiAliasing: The anti-aliasing setting. (0-3 which respectively mean: off,1x,2x,3x)\nSettingHeatHaze: The heat haze setting. (true/false)\nSettingGrassEffect: The grass effect setting. (true/false)\nSetting32BitColor: The color depth of the screen. (false is 16bit, true is 32bit)\nSettingHUDMatchAspectRatio: The hud match aspect ratio setting (true/false)\nSettingAspectRatio: The aspect ratio setting (\"auto\", \"4:3\", \"16:10\", \"16:9\")\nSettingFOV: The FOV setting\n\nSettingHighDetailVehicles: High detail vehicles setting (true/false).\nAllowScreenUpload : The allows screen uploads setting. (true/false)\nDepthBufferFormat: The format of the shader readable depth buffer, or 'unknown' if not available\nUsingDepthBuffer: true if the depth buffer is used, false otherwise";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "";
+tmpDef.description = "";
+tmpDef.returnType = "";
+tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
