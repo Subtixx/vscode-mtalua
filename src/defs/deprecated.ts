@@ -1029,7 +1029,7 @@ DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "givePedJetPack";
-tmpDef.description = deprecatedText + "Please use setPedWearingJetpack";
+tmpDef.description = deprecatedText + "Please use setPedWearingJetpack after 1.5.6";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -1038,7 +1038,7 @@ DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "removePedJetPack";
-tmpDef.description = deprecatedText + "Please use setPedWearingJetpack";
+tmpDef.description = deprecatedText + "Please use setPedWearingJetpack after 1.5.6";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -1047,7 +1047,7 @@ DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "doesPedHaveJetPack";
-tmpDef.description = deprecatedText + "Please use isPedWearingJetpack";
+tmpDef.description = deprecatedText + "Please use isPedWearingJetpack after 1.5.6";
 tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
@@ -1056,7 +1056,7 @@ DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getVehicleTurnVelocity";
-tmpDef.description = deprecatedText + "Please use getElementTurnVelocity";
+tmpDef.description = deprecatedText + "Please use getElementTurnVelocity after 1.5.6";
 tmpDef.returnType = "float float float";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
@@ -1065,7 +1065,7 @@ DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setVehicleTurnVelocity";
-tmpDef.description = deprecatedText + "Please use setElementTurnVelocity";
+tmpDef.description = deprecatedText + "Please use setElementTurnVelocity after 1.5.6";
 tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "float rx", "float ry", "float rz"];
 tmpDef.argDescs = {};
