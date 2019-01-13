@@ -1,6 +1,6 @@
 'use strict';
 
-import {LuaFunction, MTAFunction, ScriptSide} from "../defs";
+import {MTAFunction, ScriptSide} from "../defs";
 
 export var EngineFunctionDefinitions = new Array<MTAFunction>();
 
