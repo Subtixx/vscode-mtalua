@@ -310,6 +310,11 @@
                     "description": "Only show relevant functions (A serverside script is open, only serverside & shared functions will show)",
                     "type": "boolean",
                     "default": false
+                },
+                "mtalua-sense.show_reference_links": {
+                    "description": "Make functions clickable which redirect directly to the MTA Wiki (BETA)",
+                    "type": "boolean",
+                    "default": false
                 }
             }
         },

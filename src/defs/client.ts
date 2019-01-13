@@ -1868,7 +1868,6 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-// TODO: Issue
 tmpDef = new MTAFunction;
 tmpDef.label = "processLineOfSight";
 tmpDef.description = "This function casts a ray between two points in the world, and tells you information about the point that was hit, if any. The two positions must be within the local player's draw distance as the collision data is not loaded outside this area, and the call will just fail as if the ray didn't hit.";

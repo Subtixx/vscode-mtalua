@@ -6,6 +6,7 @@ import { signatureProvider } from './features/signatureHelpProvider';
 import { hoverProvider } from './features/hoverProvider';
 import { generateResource, generateMeta, generateClient, generateServer } from './features/resourceGenerator';
 import { startResource, stopResource, restartResource, restartResourceSave } from './features/serverInteractions';
+import { documentLinkProvider } from './features/documentLinkProvider';
 
 export function activate(context: vscode.ExtensionContext) {
 	console.log("MTA:SA LUA: Init");
@@ -29,6 +30,8 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// TODO: Write a CompletionItemProvider/SignatureHelpProvider/HoverProvider for meta.xml files. See https://github.com/Subtixx/vscode-mtalua/issues/10
 
+	vscode.languages.registerDocumentLinkProvider({scheme: "file", language: "mtalua"}, new documentLinkProvider(context.extensionPath));
+	
 	// Register the built-in function definitions
 	vscode.languages.registerCompletionItemProvider({ scheme: "file", language: "mtalua" }, new functionProvider(context.extensionPath), ".");
 	vscode.languages.registerHoverProvider({ scheme: "file", language: "mtalua" }, new hoverProvider(context.extensionPath));
