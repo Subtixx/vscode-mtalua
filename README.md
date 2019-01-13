@@ -76,5 +76,38 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
 
 ![Monokai](images/Monokai.png)
 
+# Changelog
+
+## v2.3.2 (13. Jan 2019)
+
+- Added ability to only show relevant functions (Serverside only functions will only display in server lua files)
+- Removed duplicated functions
+- Scriptside will now show in completion items
+
+## v2.3.1 (11. Jan 2019)
+
+- Added 1.5.6 functions and deprecations
+- Search hinting for new resource manager
+- Added verification if resource exists
+
+## v2.3.0 (9. Jan 2019)
+
+- Added resource manager to start/stop/restart resources
+- Fixed existing files in generate classes will break extension
+- Fixed some missing information in some functions
+
+## v2.2.5 (8. Jan 2019)
+
+- Added more settings
+- Added the ability to modify existing meta files
+- Added the ability to customize file extensions, file prefix/suffixes
+- Added the ability to turn off watermarking
+- Fixed generating client files
+- Fixed extension upload
+
+## v2.2.0 (7. Jan 2019)
+
+- Added the ability to create meta/client/server files on the fly
+
 # References
 - Thanks to 50p for the sublime text syntax highlighter. Which inspired me to create the VSCode extension.
