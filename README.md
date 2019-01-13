@@ -11,7 +11,7 @@
 </h3>
 
 <p align="center">
-MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion for MTA San Andreas LUA to VS Code.
+    MTA:SA Lua is a VS Code extension to add syntax highlighting, code completion and other useful functions for MTA San Andreas LUA to VS Code.
 </p>
 
 <p align="center">
@@ -34,6 +34,7 @@ MTA:SA Lua is a VS Code extension to add syntax highlighting and code completion
         - [Server](#server)
         - [Client](#client)
     - [Monokai (Unsupported)](#monokai-unsupported)
+- [Changelog](#changelog)
 - [References](#references)
 
 # Preview Images
