@@ -3165,15 +3165,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "outputChatBox";
-tmpDef.description = "This outputs the specified text string to the chatbox. It can be specified as a message to certain player(s) or all players.";
-tmpDef.returnType = "";
-tmpDef.args = ["\"#FF0000Hello #00FF00World\"", "getRootElement("];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "removeCommandHandler";
 tmpDef.description = "This function removes a command handler, that is one that has been added using addCommandHandler. This function can only remove command handlers that were added by the resource that it is called in.";
 tmpDef.returnType = "bool";

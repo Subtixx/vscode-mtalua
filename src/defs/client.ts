@@ -2643,6 +2643,15 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "outputChatBox";
+tmpDef.description = "This outputs the specified text string to the chatbox. It can be specified as a message to certain player(s) or all players.";
+tmpDef.returnType = "";
+tmpDef.args = ["string text [", "int r = 231", "int g = 217", "int b = 176", "bool colorCoded = false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
 // 1.5.6
 
 tmpDef = new MTAFunction;

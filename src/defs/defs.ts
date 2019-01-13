@@ -72,10 +72,12 @@ export class LuaFunction {
 
 export class MTAFunction extends LuaFunction {
     scriptSide: ScriptSide;
+    deprecated: boolean;
 
     constructor() {
         super();
         this.scriptSide = ScriptSide.Shared;
+        this.deprecated = false;
     }
 }
 

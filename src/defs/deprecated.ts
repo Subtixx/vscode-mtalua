@@ -15,6 +15,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -24,6 +25,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -33,6 +35,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = [" ped thePed", "bool frozen"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -42,6 +45,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "string clothesTexture", "string clothesModel", "int clothesType"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -51,6 +55,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "element theAttachToElement", "[ float xPosOffset", "float yPosOffset", "float zPosOffset", "float xRotOffset", "float yRotOffset", "float zRotOffset ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -60,6 +65,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string theSerial"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -69,6 +75,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -78,6 +85,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "string functionName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -87,6 +95,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "[ element theAttachToElement ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -96,6 +105,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -105,6 +115,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["col", "int model_id"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -114,6 +125,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["int model_id"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -123,6 +135,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string tableName", "string definition"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -132,6 +145,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string tableName", "string conditions"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -141,6 +155,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string tableName string tableName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -150,6 +165,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = [" string tableName", "string values", "( [string columns] ) string tableName", "string values", "( [string columns] )"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -159,6 +175,7 @@ tmpDef.returnType = "table";
 tmpDef.args = ["string tableName", "string fields", "[ string conditions", "int limit ]string tableName", "string fields", "[ string conditions", "int limit ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -168,6 +185,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = [" string tableName", "string set", "[ string conditions ] string tableName", "string set", "[ string conditions ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -177,6 +195,7 @@ tmpDef.returnType = "client";
 tmpDef.args = ["account theAccount"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -186,6 +205,7 @@ tmpDef.returnType = "xmlnode";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -195,6 +215,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["ban theBan"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -204,6 +225,7 @@ tmpDef.returnType = "";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -213,6 +235,7 @@ tmpDef.returnType = "stringfloat x", "float y", "float z";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -222,6 +245,7 @@ tmpDef.returnType = "float x", "float y", "float z";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -231,6 +255,7 @@ tmpDef.returnType = "account";
 tmpDef.args = ["client theClient"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -240,6 +265,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["client theClient"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -249,6 +275,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["client theClient"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -258,6 +285,7 @@ tmpDef.returnType = "string";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -267,6 +295,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["object theObject"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -276,6 +305,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["object theObject"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -285,6 +315,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -294,6 +325,7 @@ tmpDef.returnType = "table";
 tmpDef.args = ["element thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -303,6 +335,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer", "int weaponSlot"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -312,6 +345,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -321,6 +355,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["player thePlayer", "int clothesType"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -330,6 +365,7 @@ tmpDef.returnType = "element";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -339,6 +375,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -348,6 +385,7 @@ tmpDef.returnType = "player";
 tmpDef.args = ["string playerName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -357,6 +395,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -366,6 +405,7 @@ tmpDef.returnType = "vehicle";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -375,6 +415,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -384,6 +425,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -393,6 +435,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -402,6 +445,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -411,6 +455,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["player thePlayer", "int stat"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -420,6 +465,7 @@ tmpDef.returnType = "element";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -429,6 +475,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["player targetingPlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -438,6 +485,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["player targetingPlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -447,6 +495,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["player targetingPlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -456,6 +505,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["player thePlayer", "string priority", "int taskType", "[int index = 0]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -465,6 +515,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer [", "int weaponSlot = current ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -474,6 +525,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer", "[ int weaponSlot = current ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -483,6 +535,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -492,6 +545,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -501,6 +555,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["string name"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -510,6 +565,7 @@ tmpDef.returnType = "string";
 tmpDef.args = ["int id"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -519,6 +575,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -528,6 +585,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -537,6 +595,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int weapon", "int ammo"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -546,6 +605,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "int index"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -555,6 +615,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["gui-memo theMemo", "int index"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -564,6 +625,7 @@ tmpDef.returnType = "float";
 tmpDef.args = ["handling theHandling/int vehicleI"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -573,6 +635,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -582,6 +645,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -591,6 +655,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -600,6 +665,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -609,6 +675,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "string taskName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -618,6 +685,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -627,6 +695,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -636,6 +705,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -645,6 +715,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -654,6 +725,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -663,6 +735,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "[ player theKiller = nil", "int weapon=255", "int bodyPart=255 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -672,6 +745,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "int useType", "element target"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -681,6 +755,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -690,6 +765,7 @@ tmpDef.returnType = "int";
 tmpDef.args = ["int lowerbound", "int upperbound"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -699,6 +775,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int clothesType", "[ string clothesTexture", "string clothesModel ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -708,6 +785,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -717,6 +795,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -726,6 +805,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -735,6 +815,7 @@ tmpDef.returnType = "";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -744,6 +825,7 @@ tmpDef.returnType = "";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -753,6 +835,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "float x", "float y", "float z"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -762,6 +845,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "string mode"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -771,6 +855,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "float x", "float y", "float z"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -780,6 +865,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["client theClient", "string newName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -789,6 +875,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject", "int id"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -798,6 +885,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject", "float rotX", "float rotY", "float rotZ"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -807,6 +895,7 @@ tmpDef.returnType = "";
 tmpDef.args = ["object theObject", "bool toggle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -816,6 +905,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "string audio"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -825,6 +915,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "float rotation [", "bool conformPedRotation = false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -834,6 +925,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed", "int skinID"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -843,6 +935,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "float playerArmor"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -852,6 +945,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "bool canBeKnockedOffBike"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -861,6 +955,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "bool choking"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -870,6 +965,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int style"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -879,6 +975,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "float level"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -888,6 +985,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "float rotation"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -897,6 +995,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int skinID"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -906,6 +1005,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int stat", "float value"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -915,6 +1015,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player theplayer", "int weapon_slot"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -924,6 +1025,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "bool freezeStatus"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -933,6 +1035,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "bool gunsEnabled"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -942,6 +1045,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "int model"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -951,6 +1055,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "rx", "ry", "rz"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -960,6 +1065,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["[player thePlayer]", "string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -969,6 +1075,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "int weapon", "int ammo"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -978,6 +1085,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["bool fixed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -987,6 +1095,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string ipToUnban", "[player unbanningPlayer = nil]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -996,6 +1105,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["string serialToUnban"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -1005,6 +1115,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer", "vehicle theVehicle", "[ int seat=0 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -1014,6 +1125,7 @@ tmpDef.returnType = "xmlnode";
 tmpDef.args = ["xmlnode parentNode", "string tagname"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -1023,6 +1135,7 @@ tmpDef.returnType = "xmlnode";
 tmpDef.args = ["xmlnode parent", "string subnode", "int index"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 // 1.5.6
@@ -1052,6 +1165,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -1061,6 +1175,7 @@ tmpDef.returnType = "float float float";
 tmpDef.args = ["vehicle theVehicle"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -1070,6 +1185,7 @@ tmpDef.returnType = "bool";
 tmpDef.args = ["vehicle theVehicle", "float rx", "float ry", "float rz"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
 
@@ -1080,6 +1196,7 @@ DeprecatedDefinitions.push(tmpDef);
 // tmpDef.args = [""];
 // tmpDef.argDescs = {};
 // tmpDef.scriptSide = ScriptSide.Shared;
+//tmpDef.deprecated = true;
 // DeprecatedDefinitions.push(tmpDef);
 
 // tmpDef = new MTAFunction;
@@ -1089,4 +1206,5 @@ DeprecatedDefinitions.push(tmpDef);
 // tmpDef.args = [""];
 // tmpDef.argDescs = {};
 // tmpDef.scriptSide = ScriptSide.Shared;
+//tmpDef.deprecated = true;
 // DeprecatedDefinitions.push(tmpDef);

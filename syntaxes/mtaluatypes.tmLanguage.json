@@ -250,7 +250,7 @@
 			"name": "keyword.operator.luatypes keyword.control.luatypes"
 		},
 		{
-			"match": "\\b(number|int|float|string|bool|table|element|ped|player|team|vehicle|account|ban|weapon|effect|blip|searchlight|camera|browser|texture|shader|pickup|marker|projectile|object)\\b",
+			"match": "\\b(var|number|int|uint|float|string|bool|table|timer|element|ped|player|team|vehicle|account|ban|weapon|effect|blip|searchlight|camera|browser|texture|shader|pickup|marker|projectile|object|colshape|xmlnode|water)\\b",
 			"name": "keyword.operator.luatypes keyword.control.luatypes"
 		},
 		{

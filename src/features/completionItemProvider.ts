@@ -28,35 +28,42 @@ export class functionProvider {
 
         // Shared definitions
         for (let i in SharedDefinitions) {
-            let idef: LuaFunction = SharedDefinitions[i];
+            let idef: MTAFunction = SharedDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
-            def.detail ="Scriptside: Shared";
+            def.detail = "Scriptside: Shared";
+            if (idef.deprecated)
+                def.detail += " (DEPRECATED)";
             def.documentation = idef.toMarkdown();
             this.globalTypes.push(def);
         }
 
         // Server-Side definitions
         for (let i in ServerDefinitions) {
-            let idef: LuaFunction = ServerDefinitions[i];
+            let idef: MTAFunction = ServerDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
-            def.detail ="Scriptside: Server";
+            def.detail = "Scriptside: Server";
+            if (idef.deprecated)
+                def.detail += " (DEPRECATED)";
             def.documentation = idef.toMarkdown();
             this.serverGlobalTypes.push(def);
         }
 
         // Client-Side definitions
         for (let i in ClientDefinitions) {
-            let idef: LuaFunction = ClientDefinitions[i];
+            let idef: MTAFunction = ClientDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
-            def.detail ="Scriptside: Client";
+            def.detail = "Scriptside: Client";
+            if (idef.deprecated)
+                def.detail += " (DEPRECATED)";
             def.documentation = idef.toMarkdown();
             this.clientGlobalTypes.push(def);
         }
 
         // Deprecated definitions
         for (let i in DeprecatedDefinitions) {
-            let idef: LuaFunction = DeprecatedDefinitions[i];
+            let idef: MTAFunction = DeprecatedDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
+            def.detail = "Scriptside: " + ScriptSide[idef.scriptSide] + " (DEPRECATED)";
             def.documentation = idef.toMarkdown();
             this.globalTypes.push(def);
         }
