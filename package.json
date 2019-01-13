@@ -301,6 +301,11 @@
                     "type": "boolean",
                     "default": true
                 },
+                "mtalua-sense.activate_signature_help": {
+                    "description": "Allows you to disable the signature help completely",
+                    "type": "boolean",
+                    "default": true
+                },
                 "mtalua-sense.show_relevant_only": {
                     "description": "Only show relevant functions (A serverside script is open, only serverside & shared functions will show)",
                     "type": "boolean",

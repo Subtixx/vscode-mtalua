@@ -30,6 +30,7 @@ export class functionProvider {
         for (let i in SharedDefinitions) {
             let idef: LuaFunction = SharedDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
+            def.detail ="Scriptside: Shared";
             def.documentation = idef.toMarkdown();
             this.globalTypes.push(def);
         }
@@ -38,6 +39,7 @@ export class functionProvider {
         for (let i in ServerDefinitions) {
             let idef: LuaFunction = ServerDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
+            def.detail ="Scriptside: Server";
             def.documentation = idef.toMarkdown();
             this.serverGlobalTypes.push(def);
         }
@@ -46,6 +48,7 @@ export class functionProvider {
         for (let i in ClientDefinitions) {
             let idef: LuaFunction = ClientDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
+            def.detail ="Scriptside: Client";
             def.documentation = idef.toMarkdown();
             this.clientGlobalTypes.push(def);
         }
