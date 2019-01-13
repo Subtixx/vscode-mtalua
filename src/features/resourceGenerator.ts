@@ -1,8 +1,11 @@
+'use strict';
+
 import * as path from 'path';
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as xml2js from 'xml2js';
 import { ScriptSide } from '../defs/defs';
+import { walkSync, getScriptSide } from '../utils';
 
 export function generateResource(uri: vscode.Uri) {
     let fullFilePath = uri.fsPath;
@@ -159,7 +162,7 @@ export function generateMeta(uri: vscode.Uri) {
     if (fullFilePath === undefined)
         fullFilePath = vscode.window.activeTextEditor.document.fileName;
 
-    let folderPath = path.dirname(vscode.window.activeTextEditor.document.fileName);
+    let folderPath = path.dirname(fullFilePath);
     let resourceName = folderPath.substr(folderPath.lastIndexOf("\\") + 1, folderPath.length - folderPath.lastIndexOf("\\"));
     let filePath = path.join(folderPath, "meta.xml");
     if (folderPath === undefined || !fs.existsSync(folderPath)) {
@@ -205,6 +208,25 @@ export function generateMeta(uri: vscode.Uri) {
             return;
         }
 
+        let side = getScriptSide(fileName);
+
+        switch (side) {
+            case ScriptSide.Client:
+                // Clientside
+                content += "\t<script src=\"" + fileName + "\" type=\"client\" />\n";
+                break;
+
+            case ScriptSide.Server:
+                // Serverside
+                content += "\t<script src=\"" + relFilePath + "\" type=\"server\" />\n";
+                break;
+
+            default:
+                // Clientside & Serverside / Shared
+                content += "\t<script src=\"" + relFilePath + "\" type=\"both\" />\n";
+                break;
+        }
+        /*
         if (fileName.startsWith("c_") || fileName.endsWith("_c") ||
             fileName.startsWith("client") || fileName.endsWith("client") ||
             fileName.startsWith(vscode.workspace.getConfiguration("mtalua-generate").get("client_prefix")) ||
@@ -222,7 +244,7 @@ export function generateMeta(uri: vscode.Uri) {
         } else {
             // Serverside
             content += "\t<script src=\"" + relFilePath + "\" type=\"server\" />\n";
-        }
+        }*/
     });
     content += "</meta>";
 
@@ -316,17 +338,4 @@ function getFileName(name: string, side: ScriptSide) {
             "." + vscode.workspace.getConfiguration("mtalua-generate").get(sideStr + "_extension", "lua");
 
     return fileName;
-}
-
-// Helper function.
-function walkSync(currentDirPath, callback) {
-    fs.readdirSync(currentDirPath).forEach(function (name) {
-        var filePath = path.join(currentDirPath, name);
-        var stat = fs.statSync(filePath);
-        if (stat.isFile()) {
-            callback(filePath, stat);
-        } else if (stat.isDirectory()) {
-            walkSync(filePath, callback);
-        }
-    });
 }

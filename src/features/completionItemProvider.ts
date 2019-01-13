@@ -1,5 +1,6 @@
 'use strict';
 import * as vscode from 'vscode';
+import * as path from 'path';
 
 import { LuaFunction, ScriptSide, LuaConst, MTAFunction } from '../defs/defs';
 
@@ -8,14 +9,20 @@ import { ClientDefinitions } from '../defs/client';
 import { ServerDefinitions } from '../defs/server';
 import { DeprecatedDefinitions } from '../defs/deprecated';
 import { luaClasses, luaConsts, luaFunctions } from '../defs/lualibs';
+import { getScriptSide } from '../utils';
 
 export class functionProvider {
     functions: { [key: string]: vscode.CompletionItem[] };
+    clientGlobalTypes: vscode.CompletionItem[];
+    serverGlobalTypes: vscode.CompletionItem[];
+
     globalTypes: vscode.CompletionItem[];
 
     constructor(extensionPath: string) {
         this.functions = {};
         this.globalTypes = new Array<vscode.CompletionItem>();
+        this.clientGlobalTypes = new Array<vscode.CompletionItem>();
+        this.serverGlobalTypes = new Array<vscode.CompletionItem>();
 
         this.addLuaLibs();
 
@@ -32,7 +39,7 @@ export class functionProvider {
             let idef: LuaFunction = ServerDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
             def.documentation = idef.toMarkdown();
-            this.globalTypes.push(def);
+            this.serverGlobalTypes.push(def);
         }
 
         // Client-Side definitions
@@ -40,7 +47,7 @@ export class functionProvider {
             let idef: LuaFunction = ClientDefinitions[i];
             let def = new vscode.CompletionItem(idef.label, vscode.CompletionItemKind.Function);
             def.documentation = idef.toMarkdown();
-            this.globalTypes.push(def);
+            this.clientGlobalTypes.push(def);
         }
 
         // Deprecated definitions
@@ -115,7 +122,22 @@ export class functionProvider {
         context: vscode.CompletionContext): Thenable<vscode.CompletionItem[]> | vscode.CompletionItem[] {
         return new Promise<vscode.CompletionItem[]>((resolve, reject) => {
             if (context.triggerKind != vscode.CompletionTriggerKind.TriggerCharacter) {
-                resolve(this.globalTypes);
+                let funcs = this.globalTypes;
+                if (vscode.workspace.getConfiguration("mtalua-sense").get("show_relevant_only", false)) {
+                    let activeFilePath: string = vscode.window.activeTextEditor.document.fileName;
+                    let activeFileName: string = path.basename(activeFilePath);
+
+                    let side = getScriptSide(activeFileName);
+
+                    if (side == ScriptSide.Client)
+                        funcs = funcs.concat(this.clientGlobalTypes);
+                    else if (side == ScriptSide.Server)
+                        funcs = funcs.concat(this.serverGlobalTypes);
+                } else {
+                    funcs = funcs.concat(this.serverGlobalTypes, this.clientGlobalTypes);
+                }
+
+                resolve(funcs);
                 return;
             }
 
