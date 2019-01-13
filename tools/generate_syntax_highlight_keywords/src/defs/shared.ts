@@ -897,7 +897,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setElementData";
-tmpDef.description = "This example allows a player to add a custom tag onto their nickname, and also reverts it back to normal if they wish.";
+tmpDef.description = "This function stores element data under a certain key, attached to an element. Element data set using this is then synced with all clients and the server. The data can contain server created elements, but you should avoid passing data that is not able to be synced such as xmlnodes, acls, aclgroups etc.\n\nAs element data is synced to all clients, it can generate a lot of network traffic and consume server CPU. Events are much more efficient for sending data from a client to the server only, or from the server to a specific client.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement", "string key", "var value [", "bool synchronize = true ] "];
 tmpDef.argDescs = {};
@@ -4068,15 +4068,6 @@ tmpDef.label = "isPedChoking";
 tmpDef.description = "This function checks if the specified ped is choking (coughing) or not. This happens as a result of weapons that produce smoke - smoke grenades, fire extinguisher and the spray can. This example checks if a random player is choking or not, and if so displays a message in the chat box.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" ped thePed "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setElementData";
-tmpDef.description = "This example allows a player to add a custom tag onto their nickname, and also reverts it back to normal if they wish.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" element theElement", "string key", "var value [", "bool synchronize = true ] "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
