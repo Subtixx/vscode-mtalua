@@ -6,6 +6,7 @@ import { GuiFunctionDefinitions } from "./client/gui";
 import { DxFunctionDefinitions } from "./client/dx";
 import { EngineFunctionDefinitions } from "./client/engine";
 import { VehicleFunctionDefinitions } from "./client/vehicle";
+import { PedFunctionDefinitions } from "./client/ped";
 
 export var ClientDefinitions = new Array<MTAFunction>();
 
@@ -17,6 +18,8 @@ for(let i in EngineFunctionDefinitions)
     ClientDefinitions.push(EngineFunctionDefinitions[i]);
 for(let i in VehicleFunctionDefinitions)
     ClientDefinitions.push(VehicleFunctionDefinitions[i]);
+for(let i in PedFunctionDefinitions)
+    ClientDefinitions.push(PedFunctionDefinitions[i]);
 
 let tmpDef : MTAFunction;
 
@@ -435,33 +438,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedAimTarget";
-tmpDef.description = "This function allows you to set a ped's aim target to a specific point. If a ped is within a certain range defined by getPedTargetStart and getPedTargetEnd he will be targeted and shot.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "float x", "float y", "float z"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedCameraRotation";
-tmpDef.description = "This function sets the camera rotation of a ped, e.g. where its camera will look at. Don't confuse this with setCameraMatrix, because that function is designed for fixed (scripted) camera moves. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "float cameraRotation"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "isPedDoingTask";
-tmpDef.description = "This function checks if the specified ped is carrying out a certain task.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string taskName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setSoundMinDistance";
 tmpDef.description = "Sets a custom sound Minimum distance at which the sound stops getting louder.";
 tmpDef.returnType = "bool";
@@ -561,37 +537,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedVoice";
-tmpDef.description = "Gets the current voice of a ped.";
-tmpDef.returnType = "string string";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedWeaponMuzzlePosition";
-tmpDef.description = "Returns the world position of the muzzle of the weapon that a ped is currently carrying. The weapon muzzle is the end of the gun barrel where the bullets/rockets/... come out. The position may not be accurate if the ped is off screen.";
-tmpDef.returnType = "float, float, float";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPlayerMapBoundingBox";
 tmpDef.description = "This function gets the GUI bounding box of the radar map texture.";
 tmpDef.returnType = "int, int, int, int";
 tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "canPedBeKnockedOffBike";
-tmpDef.description = "This function checks if the given ped can fall off bikes.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -606,15 +555,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "givePedWeapon";
-tmpDef.description = "This function gives the specified weapon to the specified ped. This function can't be used on players, use giveWeapon for that.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "int weapon [", "int ammo=30", "bool setAsCurrent=false ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isElementSyncer";
 tmpDef.description = "This function checks whether an element is synced by the local player or not. Accepted elements are peds and vehicles.";
 tmpDef.returnType = "bool";
@@ -623,12 +563,11 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-// TODO: Issue
 tmpDef = new MTAFunction;
 tmpDef.label = "tocolor";
-tmpDef.description = "Draws an image on the screen for a single frame. In order for the image to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).Image files should ideally have dimensions that are a power of two, to prevent possible blurring.Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...";
-tmpDef.returnType = "bool dxDrawImage ( float posX, float posY, float width, float height, mixed image, [ float rotation = 0, float rotationCenterOffsetX = 0, float rotationCenterOffsetY = 0, int color =";
-tmpDef.args = ["255,255,255,255"];
+tmpDef.description = "This function retrieves the hex number of a specified color, useful for the dx functions. Added server-side. ";
+tmpDef.returnType = "int";
+tmpDef.args = ["int red", "int green", "int blue [", "int alpha = 255 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -733,15 +672,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedTargetCollision";
-tmpDef.description = "This function allows retrieval of where a ped's target is blocked. It will only be blocked if there is an obstacle within a ped's target range.";
-tmpDef.returnType = "float float float";
-tmpDef.args = ["ped targetingPed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "createFire";
 tmpDef.description = "Creates a patch of fire that will spread a bit and die out after a while.";
 tmpDef.returnType = "bool";
@@ -778,28 +708,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedTask";
-tmpDef.description = "This function is used to get any simple or complex task of a certain type for a ped.";
-tmpDef.returnType = "string, string, string, string";
-tmpDef.args = ["ped thePed", "string priority", "int taskType"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getObjectMass";
 tmpDef.description = "This function returns the mass of a specified object.";
 tmpDef.returnType = "float";
 tmpDef.args = ["object theObject"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedOxygenLevel";
-tmpDef.description = "This function allows you to set the oxygen level of a ped.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "float oxygen"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -836,15 +748,6 @@ tmpDef.label = "setElementCollidableWith";
 tmpDef.description = "This function can be used to set an element to collide with another element. An element with collisions disabled does not interact physically with the other element.Note: You can only use this function with the element types listed below.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement", "element withElement", "bool enabled"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedAnimation";
-tmpDef.description = "Gets the animation of a player or ped that was set using setPedAnimation.";
-tmpDef.returnType = "string string";
-tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -931,28 +834,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedTargetingMarkerEnabled";
-tmpDef.description = "This function is used to toggle the health target marker on top of all pedestrians.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["bool enabled"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getLocalPlayer";
 tmpDef.description = "This function gets the player element of the client running the current script.";
 tmpDef.returnType = "player";
 tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedControlState";
-tmpDef.description = "This function makes a ped press or release a certain control. It doesn't work with the local player, so use setControlState instead.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string control", "bool state"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1003,15 +888,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedTargetStart";
-tmpDef.description = "This function allows retrieval of the position a ped's target range begins, when he is aiming with a weapon.";
-tmpDef.returnType = "float float float";
-tmpDef.args = ["ped targetingPed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "toggleObjectRespawn";
 tmpDef.description = "This function is used to toggle if an object should respawn after it got destroyed";
 tmpDef.returnType = "bool";
@@ -1021,28 +897,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedControlState";
-tmpDef.description = "Checks whether a ped has a certain control pressed.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string control"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "triggerLatentServerEvent";
 tmpDef.description = "This function is the same as triggerServerEvent except the transmission rate of the data contained in the arguments can be limited and other network traffic is not blocked while the data is being transferred.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string event", "[int bandwidth=5000", "bool persist=false,] element theElement", "[arguments...]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedTargetEnd";
-tmpDef.description = "This function allows retrieval of the position where a ped's target range ends, when he is aiming with a weapon.";
-tmpDef.returnType = "float float float";
-tmpDef.args = ["ped targetingPed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1061,15 +919,6 @@ tmpDef.label = "setObjectMass";
 tmpDef.description = "This function sets the mass of a specified object. Changing the mass leads to a different movement behavior for especially dynamic objects.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject", "float mass"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedVoice";
-tmpDef.description = "Changes the voice of a ped.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string voiceType", "string voiceName"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1138,15 +987,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedAnalogControlState";
-tmpDef.description = "This function retrieves the analog control state of a ped, as set by setPedAnalogControlState.";
-tmpDef.returnType = "float";
-tmpDef.args = ["ped thePed", "string controlName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getBirdsEnabled";
 tmpDef.description = "This function will tell you if the birds are enabled or disabled.";
 tmpDef.returnType = "bool";
@@ -1169,15 +1009,6 @@ tmpDef.label = "getGaragePosition";
 tmpDef.description = "This function outputs X, Y and Z position of given garage.This element has to create a blip at the nearest garage and removes it in 10 seconds.";
 tmpDef.returnType = "float, float, float";
 tmpDef.args = ["int garageID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedMoveState";
-tmpDef.description = "This function returns the current move state for the specified ped.";
-tmpDef.returnType = "string";
-tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1318,15 +1149,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedOxygenLevel";
-tmpDef.description = "This function returns the current oxygen level of the specified ped.";
-tmpDef.returnType = "float";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setSearchLightEndPosition";
 tmpDef.description = "This function sets the end position of a searchlight element.";
 tmpDef.returnType = "searchlight";
@@ -1426,46 +1248,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedCanBeKnockedOffBike";
-tmpDef.description = "This function controls if a ped can fall of his bike by accident - namely by banging into a wall.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "bool canBeKnockedOffBike"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedAnalogControlState";
-tmpDef.description = "Sets an analog state of a specified ped's control, as if they pressed or released it.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "string control", "float state"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedLookAt";
-tmpDef.description = "Makes a ped turn his head and look at a specific world position or element.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "float x", "float y", "float z [", "int time = 3000 [", "int blend = 1000 ]", "element target = nil ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isTransferBoxActive";
 tmpDef.description = "This function returns whether the file downloading dialog box is active or not. This appears when a resource is started and the client doesn't have all the files that resource requires the client to have.";
 tmpDef.returnType = "bool";
 tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedBonePosition";
-tmpDef.description = "Returns the 3D world coordinates of a specific bone of a given ped.";
-tmpDef.returnType = "float float float";
-tmpDef.args = ["ped thePed", "int bone"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1489,15 +1275,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedCameraRotation";
-tmpDef.description = "This function gets the current camera rotation of a ped.";
-tmpDef.returnType = "float";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isObjectBreakable";
 tmpDef.description = "This function checks if an object is breakable.";
 tmpDef.returnType = "bool";
@@ -1511,15 +1288,6 @@ tmpDef.label = "respawnObject";
 tmpDef.description = "This function respawns a specific object.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedSimplestTask";
-tmpDef.description = "This function is used to get the name of a specified ped's current simplest task.";
-tmpDef.returnType = "string";
-tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2100,6 +1868,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
+// TODO: Issue
 tmpDef = new MTAFunction;
 tmpDef.label = "processLineOfSight";
 tmpDef.description = "This function casts a ray between two points in the world, and tells you information about the point that was hit, if any. The two positions must be within the local player's draw distance as the collision data is not loaded outside this area, and the call will just fail as if the ray didn't hit.";
@@ -2202,46 +1971,10 @@ ClientDefinitions.push(tmpDef);
 // 1.5.6
 
 tmpDef = new MTAFunction;
-tmpDef.label = "isPedReloadingWeapon";
-tmpDef.description = "This function is used to determine whether or not a ped is currently reloading their weapon. Useful to stop certain quick reload exploits. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "extinguishFire";
 tmpDef.description = "This function is used to extinguish all spreading fire, or spreading fire at specified coordinates.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["[ float x", "float y", "float z [", "float radius = 1.0 ] ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getPedsLODDistance";
-tmpDef.description = "This function gets the peds LOD distance. ";
-tmpDef.returnType = "float";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedsLODDistance";
-tmpDef.description = "This function sets the peds LOD distance.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float distance"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "resetPedsLODDistance";
-tmpDef.description = "Resets the distance of peds LOD to default. Default values depends on client setting. If client has enabled high detail peds in video options, value will be reset to 500 - otherwise to 60. ";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

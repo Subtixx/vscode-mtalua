@@ -1946,6 +1946,17 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
+// 1.5.5
+
+tmpDef = new MTAFunction;
+tmpDef.label = "tocolor";
+tmpDef.description = "This function retrieves the hex number of a specified color, useful for the dx functions. Added server-side. ";
+tmpDef.returnType = "int";
+tmpDef.args = ["int red", "int green", "int blue [", "int alpha = 255 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
 // 1.5.6
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedWearingJetpack";
