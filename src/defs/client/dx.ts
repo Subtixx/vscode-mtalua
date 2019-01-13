@@ -315,3 +315,12 @@ tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawCircle";
+tmpDef.description = "This function draws a circle shape on the screen - rendered for *one* frame. This should be used in conjunction with onClientRender in order to be display continuously. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float posX", "float posY", "float radius [", "float startAngle = 0.0", "float stopAngle = 360.0", "color theColor = white", "color theCenterColor = theColor", "int segments = 32", "int ratio = 1", "postGUI = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);

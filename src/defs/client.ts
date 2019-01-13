@@ -4,6 +4,7 @@ import {LuaFunction, MTAFunction, ScriptSide} from "./defs";
 
 import { GuiFunctionDefinitions } from "./client/gui";
 import { DxFunctionDefinitions } from "./client/dx";
+import { EngineFunctionDefinitions } from "./client/engine";
 
 export var ClientDefinitions = new Array<MTAFunction>();
 
@@ -11,6 +12,8 @@ for(let i in GuiFunctionDefinitions)
     ClientDefinitions.push(GuiFunctionDefinitions[i]);
 for(let i in DxFunctionDefinitions)
     ClientDefinitions.push(DxFunctionDefinitions[i]);
+for(let i in EngineFunctionDefinitions)
+    ClientDefinitions.push(EngineFunctionDefinitions[i]);
 
 let tmpDef : MTAFunction;
 
@@ -663,15 +666,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineReplaceModel";
-tmpDef.description = "This function replaces the given model ID with the model contained in a DFF file loaded by engineLoadDFF. This function supports vehicles, objects, peds and players.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["dff theModel", "int modelID ", "[bool alphaTransparency = false]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isElementSyncer";
 tmpDef.description = "This function checks whether an element is synced by the local player or not. Accepted elements are peds and vehicles.";
 tmpDef.returnType = "bool";
@@ -979,15 +973,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineGetVisibleTextureNames";
-tmpDef.description = "This function returns a list of the world textures which are being used to draw the current scene.";
-tmpDef.returnType = "table";
-tmpDef.args = ["[ string nameFilter = \"*\"", "string modelId = \"\" ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isElementStreamable";
 tmpDef.description = "This function checks whether an element is streamable as set by setElementStreamable or not.";
 tmpDef.returnType = "bool";
@@ -1123,15 +1108,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineLoadCOL";
-tmpDef.description = "This function loads a RenderWare Collision (COL 1/2/3) file into GTA. The collisions can then be used to provide collisions for in-game objects.";
-tmpDef.returnType = "col";
-tmpDef.args = ["string col_file / string raw_data"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setObjectMass";
 tmpDef.description = "This function sets the mass of a specified object. Changing the mass leads to a different movement behavior for especially dynamic objects.";
 tmpDef.returnType = "bool";
@@ -1159,37 +1135,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineRemoveShaderFromWorldTexture";
-tmpDef.description = "This function removes a shader from one or more world textures.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element shader", "string textureName [", "element targetElement = nil ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "isElementOnScreen";
 tmpDef.description = "This function will check if an element is on the screen. Elements behind objects but still in the camera view count as being on screen.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theElement"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineImportTXD";
-tmpDef.description = "engineImportTXD";
-tmpDef.returnType = "bool";
-tmpDef.args = ["txd texture", "int model_id"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineGetModelTextureNames";
-tmpDef.description = "This function returns a table of the world textures which are applied to the specified model.";
-tmpDef.returnType = "table";
-tmpDef.args = ["string modelId = \"\""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1294,60 +1243,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineGetModelLODDistance";
-tmpDef.description = "This function gets the LOD distance for any object / model ID.";
-tmpDef.returnType = "float";
-tmpDef.args = ["int model"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineSetAsynchronousLoading";
-tmpDef.description = "This function enables or disables asynchronous model loading. Enabling asynchronous model loading may reduce the small pauses that occur when a new model is displayed for the first time. However, it can cause the new models to appear slightly later than they might have otherwise.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["bool enable", "bool force"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineRestoreCOL";
-tmpDef.description = "This function restores the original collision model of the given model ID.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int modelID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineLoadTXD";
-tmpDef.description = "This function loads a RenderWare Texture Dictionary (TXD) file into GTA. The texture dictionary can then be used to provide textures.";
-tmpDef.returnType = "txd";
-tmpDef.args = ["string txd_file / string raw_data [", "bool filteringEnabled = true ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineReplaceCOL";
-tmpDef.description = "This function replaces the collision file of the given model id to the collision file passed. Use engineLoadCOL to load the collision file first.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["col theCol", "int modelID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineLoadDFF";
-tmpDef.description = "This function loads a RenderWare Model (DFF) file into GTA.";
-tmpDef.returnType = "dff";
-tmpDef.args = ["string dff_file / string raw_data"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPedMoveState";
 tmpDef.description = "This function returns the current move state for the specified ped.";
 tmpDef.returnType = "string";
@@ -1357,55 +1252,10 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineGetModelNameFromID";
-tmpDef.description = "This function gets the model name of an object model from model ID.";
-tmpDef.returnType = "string";
-tmpDef.args = ["int modelID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineRestoreModel";
-tmpDef.description = "This function restores the visual DFF model of the given model ID. This restores the result of engineLoadIFP.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int modelID"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineApplyShaderToWorldTexture";
-tmpDef.description = "This function applies a shader to one or more world textures.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element shader", "string textureName [", "element targetElement = nil", "bool appendLayers = true ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getChatboxLayout";
 tmpDef.description = "Returns information about how the chatbox looks.";
 tmpDef.returnType = "bool/int/table";
 tmpDef.args = ["[ string CVar ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineGetModelIDFromName";
-tmpDef.description = "This function gets the model ID of an object model from object name. This function is the inverse of engineGetModelNameFromID";
-tmpDef.returnType = "int";
-tmpDef.args = ["string modelName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineSetModelLODDistance";
-tmpDef.description = "This function sets a custom LOD distance for any object / model ID. This is the distance at which objects of that model ID are switched to their LOD model, or (if there is no LOD model) become invisible.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["int model", "float distance"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2690,69 +2540,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "engineLoadIFP";
-tmpDef.description = "This function loads an animation library (IFP) file into GTA with a custom block name.";
-tmpDef.returnType = "ifp";
-tmpDef.args = ["string IfpFilePath", "string CustomBlockName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineReplaceAnimation";
-tmpDef.description = "This function replaces a specific internal (default) animation with a custom one that has been loaded using engineLoadIFP function.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["thePed", "InternalBlockName", "InternalAnimName", "CustomBlockName", "CustomAnimName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "engineRestoreAnimation";
-tmpDef.description = "This function restores internal (default) animations that were replaced using engineReplaceAnimation function.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "[ string InternalBlockName", "string InternalAnimName]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiMemoIsReadOnly";
-tmpDef.description = "This function checking if memo is read only or no.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-memo theMemo"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiEditIsReadOnly";
-tmpDef.description = "This function checks if an edit box is read-only.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-edit guiEdit"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiMemoGetVerticalScrollPosition";
-tmpDef.description = "This function is used to get the vertical scroll position of a memo as a percentage.";
-tmpDef.returnType = "float";
-tmpDef.args = ["gui-memo theMemo"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiMemoSetVerticalScrollPosition";
-tmpDef.description = "This function is used to set the vertical scroll position of a memo as a percentage.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-memo theMemo", "float position"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPedsLODDistance";
 tmpDef.description = "This function gets the peds LOD distance. ";
 tmpDef.returnType = "float";
@@ -2775,51 +2562,6 @@ tmpDef.label = "resetPedsLODDistance";
 tmpDef.description = "Resets the distance of peds LOD to default. Default values depends on client setting. If client has enabled high detail peds in video options, value will be reset to 500 - otherwise to 60. ";
 tmpDef.returnType = "bool";
 tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiEditGetMaxLength";
-tmpDef.description = "This function returns the maximum text length that can be typed within an edit box.";
-tmpDef.returnType = "int";
-tmpDef.args = ["gui-edit guiEdit"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiEditIsMasked";
-tmpDef.description = "This function checks if an edit box is masked.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-edit guiEdit"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiWindowIsMovable";
-tmpDef.description = "This function checks if a GUI window is movable.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-window guiWindow"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "guiWindowIsSizable";
-tmpDef.description = "This function checks if a GUI window is sizable.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["gui-window guiWindow"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawCircle";
-tmpDef.description = "This function draws a circle shape on the screen - rendered for *one* frame. This should be used in conjunction with onClientRender in order to be display continuously. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float posX", "float posY", "float radius [", "float startAngle = 0.0", "float stopAngle = 360.0", "color theColor = white", "color theCenterColor = theColor", "int segments = 32", "int ratio = 1", "postGUI = false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

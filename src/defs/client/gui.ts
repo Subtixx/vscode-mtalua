@@ -1031,3 +1031,76 @@ tmpDef.args = ["element theElement", "bool status"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 GuiFunctionDefinitions.push(tmpDef);
+
+// 1.5.6
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoIsReadOnly";
+tmpDef.description = "This function checking if memo is read only or no.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-memo theMemo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditIsReadOnly";
+tmpDef.description = "This function checks if an edit box is read-only.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoGetVerticalScrollPosition";
+tmpDef.description = "This function is used to get the vertical scroll position of a memo as a percentage.";
+tmpDef.returnType = "float";
+tmpDef.args = ["gui-memo theMemo"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiMemoSetVerticalScrollPosition";
+tmpDef.description = "This function is used to set the vertical scroll position of a memo as a percentage.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-memo theMemo", "float position"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditGetMaxLength";
+tmpDef.description = "This function returns the maximum text length that can be typed within an edit box.";
+tmpDef.returnType = "int";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiEditIsMasked";
+tmpDef.description = "This function checks if an edit box is masked.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-edit guiEdit"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiWindowIsMovable";
+tmpDef.description = "This function checks if a GUI window is movable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-window guiWindow"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiWindowIsSizable";
+tmpDef.description = "This function checks if a GUI window is sizable.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["gui-window guiWindow"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
