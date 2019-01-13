@@ -30,8 +30,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// TODO: Write a CompletionItemProvider/SignatureHelpProvider/HoverProvider for meta.xml files. See https://github.com/Subtixx/vscode-mtalua/issues/10
 
-	vscode.languages.registerDocumentLinkProvider({scheme: "file", language: "mtalua"}, new documentLinkProvider(context.extensionPath));
-	
+	if (vscode.workspace.getConfiguration("mtalua-sense").get("show_reference_links", false))
+		vscode.languages.registerDocumentLinkProvider({ scheme: "file", language: "mtalua" }, new documentLinkProvider(context.extensionPath));
+
 	// Register the built-in function definitions
 	vscode.languages.registerCompletionItemProvider({ scheme: "file", language: "mtalua" }, new functionProvider(context.extensionPath), ".");
 	vscode.languages.registerHoverProvider({ scheme: "file", language: "mtalua" }, new hoverProvider(context.extensionPath));
