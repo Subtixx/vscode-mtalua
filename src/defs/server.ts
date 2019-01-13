@@ -1919,6 +1919,24 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "getKeyBoundToFunction";
+tmpDef.description = "getKeyBoundToFunction allows retrieval of the first key bound to a function./key command gives bounded key to our chat function";
+tmpDef.returnType = "string";
+tmpDef.args = ["player thePlayer", "function theFunction"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "clearChatBox";
+tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["[ element clearFor = getRootElement() ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
 // 1.5.6
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedWearingJetpack";

@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
 		restartResourceSave(document);
 	});
 
-	// TODO: Write a CompletionItemProvider/SignatureHelpProvider/HoverProvider for meta.xml files.
+	// TODO: Write a CompletionItemProvider/SignatureHelpProvider/HoverProvider for meta.xml files. See https://github.com/Subtixx/vscode-mtalua/issues/10
 
 	// Register the built-in function definitions
 	vscode.languages.registerCompletionItemProvider({ scheme: "file", language: "mtalua" }, new functionProvider(context.extensionPath), ".");

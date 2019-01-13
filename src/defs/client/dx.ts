@@ -115,15 +115,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "dxGetStatus";
-tmpDef.description = "This function gets information about various internal datum";
-tmpDef.returnType = "table";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-DxFunctionDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "dxSetTexturePixels";
 tmpDef.description = "This function sets the pixels of a texture element. It can be used with a standard texture, render target or screen source. ";
 tmpDef.returnType = "bool";
@@ -182,15 +173,6 @@ tmpDef.label = "dxSetShaderValue";
 tmpDef.description = "This sets a named parameter for a shader element";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theShader", "string parameterName", "mixed value"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-DxFunctionDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawMaterialLine3D";
-tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.Draws an Image ( \"test.png\" Download : test.png ) from the Position 0,0,3 to 0,0,15";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", "float startY", "float startZ", "float endX", "float endY", "float endZ", "element material", "float width", "[ int color = white", "float faceTowardX", "float faceTowardY", "float faceTowardZ ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);
@@ -308,6 +290,28 @@ tmpDef.label = "dxSetTextureEdge";
 tmpDef.description = "This functions allows you to change the edge handling after creating the texture.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["texture theTexture", "string textureEdge", "[int border-color]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+// 1.5.6
+
+// New postGUI argument
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawMaterialLine3D";
+tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.\n\nThe 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.\n\n3D lines are drawn at a particular place in the game processing order, so use onClientPreRender for drawing if you are attaching them to world elements. ";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float startX", " float startY", " float startZ", " float endX", " float endY", " float endZ", " element material", " float width", " [ int color = white", " [ bool postGUI = false", " ] float faceTowardX", " float faceTowardY", " float faceTowardZ ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+// New SettingFullScreenStyle
+tmpDef = new MTAFunction;
+tmpDef.label = "dxGetStatus";
+tmpDef.description = "Returns a table with the following entries:\nTestMode : The current dx test mode. See dxSetTestMode.\nVideoCardName : The name of the graphics card.\nVideoCardRAM : The installed memory in MB of the graphics card.\nVideoCardPSVersion : The maximum pixel shader version of the graphics card.\nVideoCardNumRenderTargets: The maximum number of simultaneous render targets a shader can use.\nVideoCardMaxAnisotropy: The maximum anisotropic filtering available. (0-4 which respectively mean: off,2x,4x,8x,16x)\nVideoMemoryFreeForMTA : The amount of memory in MB available for MTA to use. When this gets to zero, guiCreateFont, dxCreateFont and dxCreateRenderTarget will fail.\nVideoMemoryUsedByFonts : The amount of graphic memory in MB used by custom fonts.\nVideoMemoryUsedByTextures : The amount of graphic memory in MB used by textures.\nVideoMemoryUsedByRenderTargets : The amount of graphic memory in MB used by render targets.\nSettingWindowed : The windowed setting. (true/false)\nSettingFullScreenStyle : Display style when in full screen mode. (0-2 which respectively mean: Standard, Borderless window, Borderless keep res)\nSettingFXQuality : The FX Quality. (0-3)\nSettingDrawDistance : The draw distance setting. (0-100)\nSettingVolumetricShadows : The volumetric shadows setting. (true/false)\nSettingStreamingVideoMemoryForGTA : The usable graphics memory setting. (64-256)\nSettingAnisotropicFiltering: The anisotropic filtering setting. (0-4 which respectively mean: off,2x,4x,8x,16x)\nSettingAntiAliasing: The anti-aliasing setting. (0-3 which respectively mean: off,1x,2x,3x)\nSettingHeatHaze: The heat haze setting. (true/false)\nSettingGrassEffect: The grass effect setting. (true/false)\nSetting32BitColor: The color depth of the screen. (false is 16bit, true is 32bit)\nSettingHUDMatchAspectRatio: The hud match aspect ratio setting (true/false)\nSettingAspectRatio: The aspect ratio setting (\"auto\", \"4:3\", \"16:10\", \"16:9\")\nSettingFOV: The FOV setting\n\nSettingHighDetailVehicles: High detail vehicles setting (true/false).\nAllowScreenUpload : The allows screen uploads setting. (true/false)\nDepthBufferFormat: The format of the shader readable depth buffer, or 'unknown' if not available\nUsingDepthBuffer: true if the depth buffer is used, false otherwise";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);

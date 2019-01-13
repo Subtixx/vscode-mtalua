@@ -157,20 +157,20 @@ export class functionProvider {
 
         let check = new Array<MTAFunction>();
         SharedDefinitions.forEach(element => {
-            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
-                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            if (check[element.label] !== undefined && element.scriptSide == check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + ScriptSide[element.scriptSide] + " vs " + ScriptSide[check[element.label].scriptSide]);
             } else
                 check[element.label] = element;
         });
         ServerDefinitions.forEach(element => {
-            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
-                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            if (check[element.label] !== undefined && element.scriptSide == check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + ScriptSide[element.scriptSide] + " vs " + ScriptSide[check[element.label].scriptSide]);
             } else
                 check[element.label] = element;
         });
         ClientDefinitions.forEach(element => {
-            if (check[element.label] !== undefined && element.scriptSide != check[element.label].scriptSide) {
-                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + element.scriptSide + " vs " + check[element.label].scriptSide);
+            if (check[element.label] !== undefined && element.scriptSide == check[element.label].scriptSide) {
+                console.log("ERROR! ALREADY ADDED: " + element.label + ", Side: " + ScriptSide[element.scriptSide] + " vs " + ScriptSide[check[element.label].scriptSide]);
             } else
                 check[element.label] = element;
         });

@@ -1221,15 +1221,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "addDebugHook";
-tmpDef.description = "This function allows tracing of MTA functions and events. It should only be used when debugging scripts as it may degrade script performance.This example shows how to disable addDebugHook";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string hookType", "function callbackFunction [", "table nameList ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "outputDebugString";
 tmpDef.description = "This script notifies when its resource has been loaded using a debug message:";
 tmpDef.returnType = "bool";
@@ -2292,24 +2283,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getkeyBoundToFunction";
-tmpDef.description = "getKeyBoundToFunction allows retrieval of the first key bound to a function./key command gives bounded key to our chat function";
-tmpDef.returnType = "string";
-tmpDef.args = ["player thePlayer", "function theFunction"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getkeyBoundToFunction";
-tmpDef.description = "getKeyBoundToFunction allows retrieval of the first key bound to a function./key command gives bounded key to our chat function";
-tmpDef.returnType = "string";
-tmpDef.args = ["function theFunction"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getWeather";
 tmpDef.description = "This function returns the current Weather ID.\n\nReturns two integers indicating the weather type that is currently active. The first integer says what weather is currently considered to be active. The second integer is the weather id that is being blended into if any, otherwise it is nil.";
 tmpDef.returnType = "int, int";
@@ -3336,15 +3309,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "base64Decode";
-tmpDef.description = "This function returns the decrypted data from base64 representation of the encrypted block";
-tmpDef.returnType = "string";
-tmpDef.args = ["string data"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "utfChar";
 tmpDef.description = "The function returns the string of the specified UTF code.";
 tmpDef.returnType = "string";
@@ -4331,24 +4295,6 @@ tmpDef.label = "setVehicleHandling";
 tmpDef.description = "This function is used to change the handling data of a vehicle.\nImplemented also for client-sided vehicles. ";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element theVehicle", "string property", "var value"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "clearChatBox";
-tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
-tmpDef.returnType = "bool";
-tmpDef.args = [""];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "clearChatBox";
-tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["[ element clearFor = getRootElement() ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);

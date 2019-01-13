@@ -77,6 +77,33 @@ export class MTAFunction extends LuaFunction {
         super();
         this.scriptSide = ScriptSide.Shared;
     }
+
+    toMarkdown(): vscode.MarkdownString {
+        let result = new vscode.MarkdownString();
+        result.appendCodeblock(this.label + " ( " + this.args.join(", ") + " )", "mtaluatypes");
+        result.appendMarkdown(this.description + "\n\n");        
+
+        if(this.scriptSide == ScriptSide.Client)
+            result.appendMarkdown("Side: *Client-Side*\n");
+        else if(this.scriptSide == ScriptSide.Server)
+            result.appendMarkdown("Side: *Server-Side*\n");
+        else
+            result.appendMarkdown("Side: *Shared*\n");
+        //result.appendMarkdown("- Returns: " + this.returnType + "\n");
+        if(this.returnType != "")
+        {
+            result.appendMarkdown("- Returns:");
+            result.appendCodeblock(this.returnType, "mtaluatypes");
+        }
+            
+        for (const key in this.argDescs) {
+            if (this.argDescs.hasOwnProperty(key)) {
+                const element = this.argDescs[key];
+                result.appendMarkdown("- **" + key + "**: " + element + "\n");
+            }
+        }
+        return result;
+    }
 }
 
 export class LuaMethod extends LuaFunction {

@@ -226,25 +226,6 @@ export function generateMeta(uri: vscode.Uri) {
                 content += "\t<script src=\"" + relFilePath + "\" type=\"both\" />\n";
                 break;
         }
-        /*
-        if (fileName.startsWith("c_") || fileName.endsWith("_c") ||
-            fileName.startsWith("client") || fileName.endsWith("client") ||
-            fileName.startsWith(vscode.workspace.getConfiguration("mtalua-generate").get("client_prefix")) ||
-            fileName.endsWith(vscode.workspace.getConfiguration("mtalua-generate").get("client_prefix"))
-        ) {
-            // Clientside
-            content += "\t<script src=\"" + fileName + "\" type=\"client\" />\n";
-        } else if (fileName.startsWith("g_") || fileName.endsWith("_g") ||
-            fileName.startsWith("global") || fileName.endsWith("global") ||
-            fileName.startsWith(vscode.workspace.getConfiguration("mtalua-generate").get("shared_prefix")) ||
-            fileName.endsWith(vscode.workspace.getConfiguration("mtalua-generate").get("shared_prefix"))
-        ) {
-            // Clientside & Serverside
-            content += "\t<script src=\"" + relFilePath + "\" type=\"both\" />\n";
-        } else {
-            // Serverside
-            content += "\t<script src=\"" + relFilePath + "\" type=\"server\" />\n";
-        }*/
     });
     content += "</meta>";
 

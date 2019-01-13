@@ -1987,15 +1987,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setCameraGoggleEffect";
-tmpDef.description = "This function allows you to set the camera's current goggle effect. This means you can activate nightvision or infrared effects by script";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string goggleEffect [", "bool noiseEnabled = true ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "setCameraViewMode";
 tmpDef.description = "This function allows you to set the camera's view mode if you are inside a vehicle. This indicates at what distance the camera will follow the player.";
 tmpDef.returnType = "bool";
@@ -2634,6 +2625,24 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "getKeyBoundToFunction";
+tmpDef.description = "getKeyBoundToFunction allows retrieval of the first key bound to a function./key command gives bounded key to our chat function";
+tmpDef.returnType = "string";
+tmpDef.args = ["function theFunction"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "clearChatBox";
+tmpDef.description = "This function clears the chatbox. It does not clear the console (F8) ";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
 // 1.5.6
 
 tmpDef = new MTAFunction;
@@ -2816,32 +2825,12 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
-// New postGUI argument
-tmpDef = new MTAFunction;
-tmpDef.label = "dxDrawMaterialLine3D";
-tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.\n\nThe 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.\n\n3D lines are drawn at a particular place in the game processing order, so use onClientPreRender for drawing if you are attaching them to world elements. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", " float startY", " float startZ", " float endX", " float endY", " float endZ", " element material", " float width", " [ int color = white", " [ bool postGUI = false", " ] float faceTowardX", " float faceTowardY", " float faceTowardZ ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
 // New noiseEnable argument
 tmpDef = new MTAFunction;
 tmpDef.label = "setCameraGoggleEffect";
-tmpDef.description = "";
+tmpDef.description = "This function allows you to set the camera's current goggle effect. This means you can activate nightvision or infrared effects by script";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string goggleEffect [", "bool noiseEnabled = true ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-// New SettingFullScreenStyle
-tmpDef = new MTAFunction;
-tmpDef.label = "dxGetStatus";
-tmpDef.description = "Returns a table with the following entries:\nTestMode : The current dx test mode. See dxSetTestMode.\nVideoCardName : The name of the graphics card.\nVideoCardRAM : The installed memory in MB of the graphics card.\nVideoCardPSVersion : The maximum pixel shader version of the graphics card.\nVideoCardNumRenderTargets: The maximum number of simultaneous render targets a shader can use.\nVideoCardMaxAnisotropy: The maximum anisotropic filtering available. (0-4 which respectively mean: off,2x,4x,8x,16x)\nVideoMemoryFreeForMTA : The amount of memory in MB available for MTA to use. When this gets to zero, guiCreateFont, dxCreateFont and dxCreateRenderTarget will fail.\nVideoMemoryUsedByFonts : The amount of graphic memory in MB used by custom fonts.\nVideoMemoryUsedByTextures : The amount of graphic memory in MB used by textures.\nVideoMemoryUsedByRenderTargets : The amount of graphic memory in MB used by render targets.\nSettingWindowed : The windowed setting. (true/false)\nSettingFullScreenStyle : Display style when in full screen mode. (0-2 which respectively mean: Standard, Borderless window, Borderless keep res)\nSettingFXQuality : The FX Quality. (0-3)\nSettingDrawDistance : The draw distance setting. (0-100)\nSettingVolumetricShadows : The volumetric shadows setting. (true/false)\nSettingStreamingVideoMemoryForGTA : The usable graphics memory setting. (64-256)\nSettingAnisotropicFiltering: The anisotropic filtering setting. (0-4 which respectively mean: off,2x,4x,8x,16x)\nSettingAntiAliasing: The anti-aliasing setting. (0-3 which respectively mean: off,1x,2x,3x)\nSettingHeatHaze: The heat haze setting. (true/false)\nSettingGrassEffect: The grass effect setting. (true/false)\nSetting32BitColor: The color depth of the screen. (false is 16bit, true is 32bit)\nSettingHUDMatchAspectRatio: The hud match aspect ratio setting (true/false)\nSettingAspectRatio: The aspect ratio setting (\"auto\", \"4:3\", \"16:10\", \"16:9\")\nSettingFOV: The FOV setting\n\nSettingHighDetailVehicles: High detail vehicles setting (true/false).\nAllowScreenUpload : The allows screen uploads setting. (true/false)\nDepthBufferFormat: The format of the shader readable depth buffer, or 'unknown' if not available\nUsingDepthBuffer: true if the depth buffer is used, false otherwise";
-tmpDef.returnType = "table";
-tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
