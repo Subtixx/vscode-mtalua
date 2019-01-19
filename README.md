@@ -227,6 +227,10 @@ Make functions clickable which redirect directly to the MTA Wiki
 
 # Changelog
 
+## v2.3.6 (19. Jan 2019)
+
+- Bugfix for dependency 'request'
+
 ## v2.3.5 (13. Jan 2019)
 
 - Added ability to make document full of links to the MTA Wiki

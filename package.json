@@ -2,7 +2,7 @@
     "name": "mtasa-lua",
     "displayName": "MTA:SA Lua",
     "description": "MTA:SA Lua Syntax Highlighting + Companion",
-    "version": "2.3.5",
+    "version": "2.3.6",
     "publisher": "subtixx",
     "license": "GPL v3.0",
     "icon": "images/logo.png",
@@ -356,6 +356,7 @@
         }
     },
     "dependencies": {
-        "xml2js": "^0.4.19"
+        "xml2js": "^0.4.19",
+        "request": "^2.85.0"
     }
 }
