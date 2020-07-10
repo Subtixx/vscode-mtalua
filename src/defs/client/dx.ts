@@ -324,3 +324,67 @@ tmpDef.args = ["float posX", "float posY", "float radius [", "float startAngle =
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawMaterialPrimitive";
+tmpDef.description = "This function draws a 2D primitive shape with material applied to it across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously. If image file is used, it should ideally have dimensions that are a power of two, to prevent possible blurring. Power of two: 2px, 4px, 8px, 16px, 32px, 64px, 128px, 256px, 512px, 1024px...";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string pType"," mixed material"," bool postGUI"," table vertice1 ["," table vertice2"," ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawPrimitive";
+tmpDef.description = "This function draws a 2D primitive shape across the screen - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string pType"," bool postGUI"," table vertice1 ["," table vertice2"," ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawMaterialPrimitive3D";
+tmpDef.description = "This function draws a 3D primitive in the 3D world - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string primitiveType"," mixed material"," bool postGUI"," table vertex1"," table vertex2"," table vertex3 ["," table vertex4"," ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawPrimitive3D";
+tmpDef.description = "This function draws a 3D primitive in the 3D world - rendered for one frame. This should be used in conjunction with onClientRender in order to display continuously.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string primitiveType"," bool postGUI"," table vertex1"," table vertex2"," table vertex3 ["," table vertex4"," ...]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxDrawWiredSphere";
+tmpDef.description = "This function drawn same sphere as /showcol. It provides 4 levels of iterations which mean density of sphere. Adjust radius to iterations to get optimum density of mesh. About 50 spheres with iterations = 4 can cause fps drop.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["float x"," float y"," float z"," float radius"," color theColor"," float fLineWidth"," uint iterations"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxGetTextSize";
+tmpDef.description = "This function retrieves the theoretical width and height (in pixels) of a certain piece of text, if it were to be drawn using dxDrawText.\n\nNOTE: This function already takes the client's screen resolution into account.";
+tmpDef.returnType = "float, float";
+tmpDef.args = ["string text"," [float width=0"," float scaleXY=1.0"," float=scaleY=1.0"," mixed font='default'"," bool wordBreak=false"," bool colorCoded=false]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "dxIsAspectRatioAdjustmentEnabled";
+tmpDef.description = "This function gets the current aspect ratio set by dxSetAspectRatioAdjustmentEnabled.";
+tmpDef.returnType = "bool, float";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+DxFunctionDefinitions.push(tmpDef);

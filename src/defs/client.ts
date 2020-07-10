@@ -564,15 +564,6 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "tocolor";
-tmpDef.description = "This function retrieves the hex number of a specified color, useful for the dx functions. Added server-side. ";
-tmpDef.returnType = "int";
-tmpDef.args = ["int red", "int green", "int blue [", "int alpha = 255 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "fxAddTyreBurst";
 tmpDef.description = "Creates a tyre burst particle effect (a small white smoke puff).";
 tmpDef.returnType = "bool";
@@ -834,8 +825,8 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getLocalPlayer";
-tmpDef.description = "This function gets the player element of the client running the current script.";
+tmpDef.label = "localPlayer";
+tmpDef.description = "returns the player element of the local player.";
 tmpDef.returnType = "player";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -919,15 +910,6 @@ tmpDef.label = "setObjectMass";
 tmpDef.description = "This function sets the mass of a specified object. Changing the mass leads to a different movement behavior for especially dynamic objects.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["object theObject", "float mass"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setElementMatrix";
-tmpDef.description = "This function sets the matrix of an element.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["element theElement", "table theMatrix"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1297,15 +1279,6 @@ tmpDef.label = "isBrowserDomainBlocked";
 tmpDef.description = "This function checks if the specified URL is blocked from being loaded.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string address [", "bool isURL = false]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ClientDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerHudComponentVisible";
-tmpDef.description = "This function will show or hide a part of the player's HUD. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1994,6 +1967,88 @@ tmpDef.label = "setCameraGoggleEffect";
 tmpDef.description = "This function allows you to set the camera's current goggle effect. This means you can activate nightvision or infrared effects by script";
 tmpDef.returnType = "bool";
 tmpDef.args = ["string goggleEffect [", "bool noiseEnabled = true ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "getSoundBufferLength";
+tmpDef.description = "This function gets the buffer playback length of the specified sound. Works only with streams.";
+tmpDef.returnType = "float";
+tmpDef.args = ["element theSound"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getObjectProperty";
+tmpDef.description = "This function gets a property of the specified object.";
+tmpDef.returnType = "mixed";
+tmpDef.args = ["object theObject"," string property"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setObjectProperty";
+tmpDef.description = "This function sets a property of the specified object.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["object theObject"," string property"," var value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "downloadFile";
+tmpDef.description = "This function ensures the requested resource file is correct and then triggers onClientFileDownloadComplete. If the file has been previously downloaded and the CRC matches, the file will not be downloaded again but onClientFileDownloadComplete will still run. The file should also be included in the resource meta.xml with the download attribute set to 'false', see meta.xml for more details.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["string fileName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getKeyboardLayout";
+tmpDef.description = "This function gets the player's keyboard layout settings, which they are currently (keyboard layout can be changed at any moment) using at the time of invocation.";
+tmpDef.returnType = "table";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetNearClipDistance";
+tmpDef.description = "This function resets near clip distance set by setNearClipDistance.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getBlurLevel";
+tmpDef.description = "This function allows you to check the current blur level of a specified player.";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetBlurLevel";
+tmpDef.description = "Resets the motion blur level on the clients screen to default value (36).";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setBlurLevel";
+tmpDef.description = "Sets the motion blur level on the clients screen. Accepts a value between 0 and 255.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int level"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

@@ -186,3 +186,112 @@ tmpDef.args = ["ped thePed", "[ string InternalBlockName", "string InternalAnimN
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 EngineFunctionDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetModelPhysicalPropertiesGroup";
+tmpDef.description = "This function gets physical properties group id used by given model.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRestoreModelPhysicalPropertiesGroup";
+tmpDef.description = "This function restores original physical properties group used by given model.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineSetModelPhysicalPropertiesGroup";
+tmpDef.description = "This function sets physical properties group id used by given model.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"," int groupID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetObjectGroupPhysicalProperty";
+tmpDef.description = "This function gets physical property of given properties group.";
+tmpDef.returnType = "var";
+tmpDef.args = ["int groupID"," objectgroup-modifiable property"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRestoreObjectGroupPhysicalProperties";
+tmpDef.description = "This function restores physical property of given properties group.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int groupID"," objectgroup-modifiable property"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineSetObjectGroupPhysicalProperty";
+tmpDef.description = "This function sets physical property of given properties group.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int groupID"," objectgroup-modifiable property"," var newValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRequestModel";
+tmpDef.description = "This function is used to assign the next available model ID to a certain element type. Currently only 'ped' is supported.";
+tmpDef.returnType = "int";
+tmpDef.args = ["str elementType"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineFreeModel";
+tmpDef.description = "This function is used to un-assign the specified model ID from the engineRequestModel assignment.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetModelTextures";
+tmpDef.description = "This function allows you to get the textures of any model.";
+tmpDef.returnType = "table";
+tmpDef.args = ["string/int modelName/modelID ["," string/table textureNames ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineSetSurfaceProperties";
+tmpDef.description = "This function changes a property of a surface.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int surfaceID"," string property"," mixed value"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetSurfaceProperties";
+tmpDef.description = "This function retrieves the value of a surface property.";
+tmpDef.returnType = "mixed";
+tmpDef.args = ["int surfaceID"," string property"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineResetSurfaceProperties";
+tmpDef.description = "This function resets a surface property to its default value. If no ID is provided, it will reset all surfaces' properties to their original values.";
+tmpDef.returnType = "mixed";
+tmpDef.args = ["[ int surfaceID ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);

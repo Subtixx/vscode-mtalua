@@ -1104,3 +1104,67 @@ tmpDef.args = ["gui-window guiWindow"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 GuiFunctionDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "guiBlur";
+tmpDef.description = "This function defocuses a focused GUI element. Used primarily for edit fields and memos.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element guiElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiFocus";
+tmpDef.description = "This function focuses a defocused GUI element. Used primarily for edit fields and memos.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element guiElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiComboBoxGetItemCount";
+tmpDef.description = "This function returns the number of items in a combo box.";
+tmpDef.returnType = "int";
+tmpDef.args = ["element comboBox"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiComboBoxIsOpen";
+tmpDef.description = "This function returns the state of combobox.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element comboBox"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiComboBoxSetOpen";
+tmpDef.description = "This function set combo box state as open or close.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element comboBox"," bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiGridListGetSelectionMode";
+tmpDef.description = "This function retrieves the current selection mode of a gui gridlist.";
+tmpDef.returnType = "int";
+tmpDef.args = ["gui-Element gridlist"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "guiGridListIsSortingEnabled";
+tmpDef.description = "This function checks whether the gridlist sorting is enabled or disabled.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element guiGridlist"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+GuiFunctionDefinitions.push(tmpDef);

@@ -11,7 +11,7 @@ tmpDef.description = "This function gets the type of a userdata value, which is 
 tmpDef.returnType = "string";
 tmpDef.args = ["userdata value"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -20,7 +20,7 @@ tmpDef.description = "This function creates a new password hash using a specifie
 tmpDef.returnType = "string";
 tmpDef.args = ["string password", "string algorithm", "table options = {}", "[function callback]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -29,7 +29,7 @@ tmpDef.description = "This function verifies whether a password matches a passwo
 tmpDef.returnType = "bool";
 tmpDef.args = ["string password", "string hash", "[function callback]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -38,7 +38,7 @@ tmpDef.description = "This is default constructor for the Vector2 class and retu
 tmpDef.returnType = "vector2";
 tmpDef.args = ["[ float x = 0", "float y = 0]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -47,7 +47,7 @@ tmpDef.description = "This is default constructor for the Vector3 class and retu
 tmpDef.returnType = "vector3";
 tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0 ]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -56,7 +56,7 @@ tmpDef.description = "This is default constructor for the Vector4 class and retu
 tmpDef.returnType = "vector4";
 tmpDef.args = ["[ float x = 0", "float y = 0", "float z = 0", "float w = 0 ]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -65,7 +65,7 @@ tmpDef.description = "Matrices are one of the most powerful features of MTA OOP.
 tmpDef.returnType = "matrix";
 tmpDef.args = ["Vector3 position[", "Vector3 rotation]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -74,7 +74,7 @@ tmpDef.description = "WARNING: ONLY USE THIS FUNCTION IF YOU KNOW WHAT YOU ARE D
 tmpDef.returnType = "bool";
 tmpDef.args = ["int miliseconds"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -880,7 +880,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setElementData";
-tmpDef.description = "This function stores element data under a certain key, attached to an element. Element data set using this is then synced with all clients and the server. The data can contain server created elements, but you should avoid passing data that is not able to be synced such as xmlnodes, acls, aclgroups etc.\n\nAs element data is synced to all clients, it can generate a lot of network traffic and consume server CPU. Events are much more efficient for sending data from a client to the server only, or from the server to a specific client.";
+tmpDef.description = "This function stores element data under a certain key, attached to an element. Element data set using this is then synced with all clients and the server. The data can contain server created elements, but you should avoid passing data that is not able to be synced such as xmlnodes, acls, aclgroups etc.\n\nAs element data is synced to all clients, it can generate a lot of network traffic and consume server CPU. Events are much more efficient for sending data from a client to the server only, or from the server to a specific client.\n\nA subscription mode has been introduced for setElementData serverside. When setting data in subscription mode, only clients that are added through addElementDataSubscriber will receive the data, which is good for performance. Note this mode only works when setting element data serverside. Setting data clientside still sends the update to all clients if 'synchronize' is set to true.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" element theElement", "string key", "var value [", "bool synchronize = true ] "];
 tmpDef.argDescs = {};
@@ -1161,7 +1161,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "setPedAnimation";
 tmpDef.description = "This example creates a ped, rotates him, and makes him walk:This example makes the player sit down and remain seated.";
 tmpDef.returnType = "bool";
-tmpDef.args = [" ped thePed [", "string block=nil", "string anim=nil", "int time=-1", "bool loop=true", "bool updatePosition=true", "bool interruptable=true", "bool freezeLastFrame=true", "int blendTime=250] "];
+tmpDef.args = [" ped thePed [", "string block=nil", "string anim=nil", "int time=-1", "bool loop=true", "bool updatePosition=true", "bool interruptable=true", "bool freezeLastFrame=true", "int blendTime=250"," bool retainPedState = false] "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -2112,15 +2112,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerBlurLevel";
-tmpDef.description = "This example allows the player to set their blur level via a command";
-tmpDef.returnType = "bool";
-tmpDef.args = [" player thePlayer", "int level "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getCameraMatrix";
 tmpDef.description = "This function gets the position of the camera and the position of the point it is facing.";
 tmpDef.returnType = "float float float float float float float float";
@@ -2238,15 +2229,6 @@ tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPlayerBlurLevel";
-tmpDef.description = "This example adds a command blurlevel with which you can check your current blur level.";
-tmpDef.returnType = "int";
-tmpDef.args = [" player thePlayer "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPickupType";
 tmpDef.description = "This function retrieves the type of a pickup, either a health, armour or weapon pickup.";
 tmpDef.returnType = "int";
@@ -2269,15 +2251,6 @@ tmpDef.label = "getCameraInterior";
 tmpDef.description = "Returns the interior of the local camera (independent of the interior of the local player).";
 tmpDef.returnType = "int";
 tmpDef.args = [" player thePlayer "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getControlState";
-tmpDef.description = "This example starts a repeating check when a player spawns, if a player presses the fire key, they'll be killed.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" player thePlayer", "string controlName "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -2395,15 +2368,6 @@ tmpDef.label = "setMoonSize";
 tmpDef.description = "This function sets the moon size. Using this function server-side will overwrite the value that was previously set client-side.This example change moon size to looks more realistic for everyone when the resource is started.";
 tmpDef.returnType = "bool";
 tmpDef.args = [" int size "];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Shared;
-SharedDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setControlState";
-tmpDef.description = "This example will disable the use of the accelerate, brake/reverse and handbrake keys, then force the accelerate on for any player who enters a vehicle. This example will disable the use of the accelerate, brake/reverse and handbrake keys, then force the accelerate on for any player who enters a vehicle.";
-tmpDef.returnType = "bool";
-tmpDef.args = [" player thePlayer", "string control", "bool state "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -4139,7 +4103,7 @@ SharedDefinitions.push(tmpDef);
 tmpDef = new MTAFunction;
 tmpDef.label = "getWaterVertexPosition";
 tmpDef.description = "Gets the world position of a vertex (i.e. corner) of a water area. Each water area is either a triangle or quad (rectangle) so each has 3 or 4 corners.";
-tmpDef.returnType = "int int float";
+tmpDef.returnType = "int, int, float";
 tmpDef.args = ["water theWater", "int vertexIndex"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
@@ -4294,7 +4258,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "encodeString";
 tmpDef.description = "This function encodes a string using the specified algorithm. The counterpart of this function is decodeString. ";
 tmpDef.returnType = "string";
-tmpDef.args = ["string algorithm", "string input", "table options"];
+tmpDef.args = ["string algorithm", "string input", "table options ["," function callback ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -4303,7 +4267,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "decodeString";
 tmpDef.description = "This function decodes an encoded string using the specified algorithm. The counterpart of this function is encodeString. ";
 tmpDef.returnType = "string";
-tmpDef.args = ["string algorithm", "string input", "table options"];
+tmpDef.args = ["string algorithm", "string input", "table options ["," function callback ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -4311,7 +4275,7 @@ SharedDefinitions.push(tmpDef);
 tmpDef = new MTAFunction;
 tmpDef.label = "getColShapeType";
 tmpDef.description = "This function is used to retrieve the type of an colshape.";
-tmpDef.returnType = "string";
+tmpDef.returnType = "int";
 tmpDef.args = ["colshape shape"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
@@ -4357,7 +4321,206 @@ tmpDef = new MTAFunction;
 tmpDef.label = "setPedAnimationSpeed";
 tmpDef.description = "Sets the current animation speed of a player or ped.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed [string anim = \"\"", "float speed = 1.0 ]"];
+tmpDef.args = ["ped thePed ["," string anim = \"\"", "float speed = 1.0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "addColPolygonPoin";
+tmpDef.description = "This function is used to add a new point to an existing colshape polygon.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["colshape shape"," float fX"," float fY ["," int index = 0 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getColShapeRadius";
+tmpDef.description = "This function is used to get the radius of a colshape. Valid types are circle, sphere and tube.";
+tmpDef.returnType = "float";
+tmpDef.args = ["colshape shape"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getColShapeSize";
+tmpDef.description = "This function is used to get the size of a colshape. Valid types are rectangle, cuboid and tube.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["colshape shape"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setColShapeRadius";
+tmpDef.description = "This function is used to set the radius of a colshape. Valid types are circle, sphere and tube.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["colshape shape"," float radius"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setColShapeSize";
+tmpDef.description = "This function is used to set the size of a colshape. Valid types are rectangle, cuboid and tube.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["colshape shape["," float width"," float depth"," float height]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "hasElementData";
+tmpDef.description = "This function checks if an element has element data available under a certain key.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," string key ["," bool inherit = true]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getCommandHandlers";
+tmpDef.description = "This function is used to retrieve a list of all the registered command handlers of a given resource (or of all resources).";
+tmpDef.returnType = "table";
+tmpDef.args = ["[resource theResource]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPedFightingStyle";
+tmpDef.description = "Retrieves the fighting style a player/ped is currently using.";
+tmpDef.returnType = "int";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedArmor";
+tmpDef.description = "This function allows you to set the armor value of a ped.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "float armor"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedFightingStyle";
+tmpDef.description = "Changes a ped's fighting style. Most styles only change the 'special attack' which is done using the Aim and Enter keys.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed", "int style"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "usePickup";
+tmpDef.description = "This function is used to simulate the player using a pickup";
+tmpDef.returnType = "bool";
+tmpDef.args = ["pickup thePickup"," player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerHudComponentVisible";
+tmpDef.description = "This function will show or hide a part of the player's HUD.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["player thePlayer", "string component", "bool show"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getRemoteRequests";
+tmpDef.description = "Gets all fetchRemote and callRemote requests currently running.";
+tmpDef.returnType = "table";
+tmpDef.args = ["[ resource theResource = nil ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getRemoteRequestInfo";
+tmpDef.description = "Gets informations of an fetchRemote or callRemote request info.";
+tmpDef.returnType = "table";
+tmpDef.args = ["request theRequest["," int postDataLength = 0["," bool includeHeaders = false]]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "abortRemoteRequest";
+tmpDef.description = "Aborts a fetchRemote or callRemote request.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["request theRequest"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "deref";
+tmpDef.description = "This function will take a reference and returns its Lua element.";
+tmpDef.returnType = "mixed";
+tmpDef.args = ["int reference"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isOOPEnabled";
+tmpDef.description = "This function checks whether OOP (Object Oriented Programming) is enabled in the current resource or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "ref";
+tmpDef.description = "This function will create a reference to the given argument.";
+tmpDef.returnType = "int";
+tmpDef.args = ["mixed objectToReference"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "tocolor";
+tmpDef.description = "This function retrieves the hex number of a specified color, useful for the dx functions.";
+tmpDef.returnType = "int";
+tmpDef.args = ["int red", "int green", "int blue [", "int alpha = 255 ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "xmlLoadString";
+tmpDef.description = "This function creates an Xmlnode from a string input.";
+tmpDef.returnType = "xmlnode";
+tmpDef.args = ["string xmlString"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementMatrix";
+tmpDef.description = "This function sets the matrix of an element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement", "table theMatrix"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resourceRoot";
+tmpDef.description = "returns a resource root element of the resource the snippet was executed in";
+tmpDef.returnType = "resource";
+tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
