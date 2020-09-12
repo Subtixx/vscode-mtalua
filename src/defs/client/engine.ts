@@ -295,3 +295,12 @@ tmpDef.args = ["[ int surfaceID ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineResetModelLODDistance";
+tmpDef.description = "This function resets the LOD distance for an object / model ID.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int model"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);

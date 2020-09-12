@@ -384,3 +384,39 @@ tmpDef.args = ["int modelID"," string dummy"," float x"," float y"," float z"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleModelWheelSize";
+tmpDef.description = "This function gets the size of a group of wheels for a vehicle model.";
+tmpDef.returnType = "float|table";
+tmpDef.args = ["int vehicleModel ["," string wheelGroup ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleWheelScale";
+tmpDef.description = "This function gets the scale of all the wheels of a vehicle.";
+tmpDef.returnType = "float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleModelWheelSize";
+tmpDef.description = "This function sets the size of a group of wheels for a vehicle model. The wheel size mainly determines their width, collision box (used to check if a bullet hits a tire, for example) and the ground clearance of vehicles with that model (i.e., the minimum distance from the center of the car geometry to the ground). It also changes the visual scale and rotation of the wheels, if not all the wheel groups have equal size. The visual scaling is applied before the per-vehicle wheel scale.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int vehicleModel"," string wheelGroup"," float wheelSize"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleWheelScale";
+tmpDef.description = "This function sets the scale of all the wheels of a vehicle. The wheel scale multiplies the visible height and length (but not width) of all the wheels in a vehicle, without affecting their collisions or the handling, similarly to setVehicleComponentScale. The wheel scale is applied after the model wheel size.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," float wheelScale"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
