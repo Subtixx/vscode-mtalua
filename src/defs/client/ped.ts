@@ -277,3 +277,13 @@ tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 PedFunctionDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "isPedFootBloodEnabled";
+tmpDef.description = "This function checks if player feets are bleeding.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+PedFunctionDefinitions.push(tmpDef);

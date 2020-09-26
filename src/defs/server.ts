@@ -10,7 +10,7 @@ tmpDef.description = "This function escapes arguments in the same way as dbQuery
 tmpDef.returnType = "string";
 tmpDef.args = ["element databaseConnection", "string query", "[var param1", "var param2 ...]"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -19,16 +19,7 @@ tmpDef.description = "This function will force the specified player to resend th
 tmpDef.returnType = "bool";
 tmpDef.args = ["player thePlayer"];
 tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "getCommandHandlers";
-tmpDef.description = "[ resource theResource ]";
-tmpDef.returnType = "table";
-tmpDef.args = ["[resource theResource]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Client;
+tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
@@ -161,7 +152,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "getAccount";
 tmpDef.description = "This function returns an account for a specific user. This function checks if the account mentioned exists in the internal.db database file.";
 tmpDef.returnType = "account";
-tmpDef.args = ["string username", "[ string password ]"];
+tmpDef.args = ["string username ["," string password"," bool caseSensitive = true ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -788,24 +779,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "getPedFightingStyle";
-tmpDef.description = "Retrieves the fighting style a player/ped is currently using.";
-tmpDef.returnType = "int";
-tmpDef.args = ["ped thePed"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPedArmor";
-tmpDef.description = "This function allows you to set the armor value of a ped.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "float armor"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getElementSyncer";
 tmpDef.description = "This function gets the syncer of an element. The syncer is the player who is in control of the element.";
 tmpDef.returnType = "element";
@@ -1040,15 +1013,6 @@ tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "setPedFightingStyle";
-tmpDef.description = "Changes a ped's fighting style. Most styles only change the 'special attack' which is done using the Aim and Enter keys.";
-tmpDef.returnType = "bool";
-tmpDef.args = ["ped thePed", "int style"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
 tmpDef.label = "getPlayerAnnounceValue";
 tmpDef.description = "This function retrieves a players ASE announce value under a certain key.";
 tmpDef.returnType = "string";
@@ -1233,15 +1197,6 @@ tmpDef.label = "aclCreate";
 tmpDef.description = " This function creates an ACL entry in the Access Control List system with the specified name.";
 tmpDef.returnType = "acl";
 tmpDef.args = ["string aclName"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
-tmpDef = new MTAFunction;
-tmpDef.label = "setPlayerHudComponentVisible";
-tmpDef.description = "This function will show or hide a part of the player's HUD. ";
-tmpDef.returnType = "bool";
-tmpDef.args = ["player thePlayer", "string component", "bool show"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
@@ -1948,15 +1903,6 @@ ServerDefinitions.push(tmpDef);
 
 // 1.5.5
 
-tmpDef = new MTAFunction;
-tmpDef.label = "tocolor";
-tmpDef.description = "This function retrieves the hex number of a specified color, useful for the dx functions. Added server-side. ";
-tmpDef.returnType = "int";
-tmpDef.args = ["int red", "int green", "int blue [", "int alpha = 255 ]"];
-tmpDef.argDescs = {};
-tmpDef.scriptSide = ScriptSide.Server;
-ServerDefinitions.push(tmpDef);
-
 // 1.5.6
 tmpDef = new MTAFunction;
 tmpDef.label = "setPedWearingJetpack";
@@ -2035,6 +1981,106 @@ tmpDef.label = "getVehicleRespawnRotation";
 tmpDef.description = "This function retrieves the respawn rotation of a vehicle.";
 tmpDef.returnType = "float, float, float";
 tmpDef.args = ["element theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "addElementDataSubscriber";
+tmpDef.description = "This function subscribes a player to specific element data. This function is used together with setElementData in 'subscribe' mode.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," string key"," player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "hasElementDataSubscriber";
+tmpDef.description = "This function returns whether a player is subscribed to specific element data. This function is used together with setElementData in 'subscribe' mode.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," string key"," player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "removeElementDataSubscriber";
+tmpDef.description = "This function unsubscribes a player from specific element data. This function is used together with setElementData in 'subscribe' mode.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," string key"," player thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setControlState";
+tmpDef.description = "This example will disable the use of the accelerate, brake/reverse and handbrake keys, then force the accelerate on for any player who enters a vehicle. This example will disable the use of the accelerate, brake/reverse and handbrake keys, then force the accelerate on for any player who enters a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = [" player thePlayer", "string control", "bool state "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getControlState";
+tmpDef.description = "This example starts a repeating check when a player spawns, if a player presses the fire key, they'll be killed.";
+tmpDef.returnType = "bool";
+tmpDef.args = [" player thePlayer", "string controlName "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPlayerBlurLevel";
+tmpDef.description = "This example adds a command blurlevel with which you can check your current blur level.";
+tmpDef.returnType = "int";
+tmpDef.args = [" player thePlayer "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPlayerScriptDebugLevel";
+tmpDef.description = "This will allow you to retrieve the player current debug script level.";
+tmpDef.returnType = "int";
+tmpDef.args = [" player thePlayer "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerBlurLevel";
+tmpDef.description = "This example allows the player to set their blur level via a command";
+tmpDef.returnType = "bool";
+tmpDef.args = [" player thePlayer", "int level "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPlayerScriptDebugLevel";
+tmpDef.description = "This will set player's debug level, equivalent to debugscript <level>.";
+tmpDef.returnType = "bool";
+tmpDef.args = [" player thePlayer", "int level "];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isResourceProtected";
+tmpDef.description = "This will check if a resource is currently protected, as defined in mtaserver.conf.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["resource theResource"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Server;
+ServerDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleRespawnRotation";
+tmpDef.description = "This function sets the rotation the vehicle will respawn to.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," float rx"," float ry"," float rz"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);

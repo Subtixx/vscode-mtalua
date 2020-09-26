@@ -329,3 +329,94 @@ wheel The wheel name or number, see list below:
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 VehicleFunctionDefinitions.push(tmpDef);
+
+//1.5.7 by Vadya963
+tmpDef = new MTAFunction;
+tmpDef.label = "areVehicleLightsOn";
+tmpDef.description = "This function is used to find out whether the lights of the vehicle are on.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleComponentScale";
+tmpDef.description = "This function gets the component scale of a vehicle.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["vehicle theVehicle"," string theComponent ["," string base = 'root' ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleModelDummyPosition";
+tmpDef.description = "This function gets position of the dummies contained in a vehicle model.";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["int modelID"," string dummy"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetVehicleComponentScale";
+tmpDef.description = "This function reset to default component scale for vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," string theComponent"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleComponentScale";
+tmpDef.description = "This function sets the component scale of a vehicle.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," string theComponent"," float scaleX"," float scaleY"," float scaleZ ["," string base = 'root']"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleModelDummyPosition";
+tmpDef.description = "This function sets the position of the dummies contained in a vehicle model. Use setVehicleComponentPosition to adjust the vehicle component positions.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"," string dummy"," float x"," float y"," float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleModelWheelSize";
+tmpDef.description = "This function gets the size of a group of wheels for a vehicle model.";
+tmpDef.returnType = "float|table";
+tmpDef.args = ["int vehicleModel ["," string wheelGroup ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleWheelScale";
+tmpDef.description = "This function gets the scale of all the wheels of a vehicle.";
+tmpDef.returnType = "float";
+tmpDef.args = ["vehicle theVehicle"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleModelWheelSize";
+tmpDef.description = "This function sets the size of a group of wheels for a vehicle model. The wheel size mainly determines their width, collision box (used to check if a bullet hits a tire, for example) and the ground clearance of vehicles with that model (i.e., the minimum distance from the center of the car geometry to the ground). It also changes the visual scale and rotation of the wheels, if not all the wheel groups have equal size. The visual scaling is applied before the per-vehicle wheel scale.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int vehicleModel"," string wheelGroup"," float wheelSize"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleWheelScale";
+tmpDef.description = "This function sets the scale of all the wheels of a vehicle. The wheel scale multiplies the visible height and length (but not width) of all the wheels in a vehicle, without affecting their collisions or the handling, similarly to setVehicleComponentScale. The wheel scale is applied after the model wheel size.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," float wheelScale"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);
