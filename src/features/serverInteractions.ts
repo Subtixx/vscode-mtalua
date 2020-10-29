@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as request from 'request';
 import { isArray } from 'util';
 import * as fs from 'fs';
+import { getResourceNameFromPath } from '../utils';
 
 export enum CallType {
     Start,
@@ -153,19 +154,10 @@ export function restartResource(uri: vscode.Uri) {
     else
         folderPath = path.dirname(uri.fsPath);
 
-    let resourceName = folderPath.substr(folderPath.lastIndexOf("deathmatch\\resources"))
-        .split("\\")
-        .filter(
-            path => !path.includes("[") && 
-                    !path.includes("]") && 
-                    path !== "deathmatch" && 
-                    path !== "resources"
-        )[0];
-    
-    /* This means that either the user created a file in the ..\deathmatch\resources folder or 
-       some of its resources contain the directory deathmatch\resources in it */
+    let resourceName = getResourceNameFromPath(folderPath);
+
     if (!resourceName) {
-        vscode.window.showErrorMessage("Invalid resource structure");
+        vscode.window.showErrorMessage("Could not find meta.xml");
         return;
     }
 
