@@ -59,7 +59,6 @@ export function getResourceNameFromPath(filePath: string): string {
             continue;
 
         if (fs.existsSync(paths.slice(0, i + 1).join("\\") + "\\meta.xml")) {
-            console.timeEnd("forexec");
             return paths[i];
         }
     }
