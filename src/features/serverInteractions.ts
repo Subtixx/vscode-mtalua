@@ -152,7 +152,22 @@ export function restartResource(uri: vscode.Uri) {
         folderPath = path.dirname(uri.fsPath + "\\fakePath");
     else
         folderPath = path.dirname(uri.fsPath);
-    let resourceName = folderPath.substr(folderPath.lastIndexOf("\\") + 1, folderPath.length - folderPath.lastIndexOf("\\"));
+
+    let resourceName = folderPath.substr(folderPath.lastIndexOf("deathmatch\\resources"))
+        .split("\\")
+        .filter(
+            path => !path.includes("[") && 
+                    !path.includes("]") && 
+                    path !== "deathmatch" && 
+                    path !== "resources"
+        )[0];
+    
+    /* This means that either the user created a file in the ..\deathmatch\resources folder or 
+       some of its resources contain the directory deathmatch\resources in it */
+    if (!resourceName) {
+        vscode.window.showErrorMessage("Invalid resource structure");
+        return;
+    }
 
     searchResource(resourceName, (result, response, index, resourceName) => {
         if (!result) {
