@@ -41,3 +41,27 @@ export function getScriptSide(fileName: string): ScriptSide {
 
     return ScriptSide.Shared;
 }
+
+/**
+ * Determines the resource name based on the given path
+ *  
+ * @param path path of a file within the resource directory
+ */
+export function getResourceNameFromPath(filePath: string): string {
+    const paths = filePath                    
+        .replace("/", "\\")
+        .split("\\");
+    
+    for (let i = paths.length - 1; i > 0; i--) {
+
+        // Folders surrounded by square brackets are invalid
+        if (paths[i].startsWith("[") && paths[i].endsWith("]"))
+            continue;
+
+        if (fs.existsSync(paths.slice(0, i + 1).join("\\") + "\\meta.xml")) {
+            return paths[i];
+        }
+    }
+
+    return;
+}

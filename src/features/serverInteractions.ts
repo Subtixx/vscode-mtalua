@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as request from 'request';
 import { isArray } from 'util';
 import * as fs from 'fs';
+import { getResourceNameFromPath } from '../utils';
 
 export enum CallType {
     Start,
@@ -152,7 +153,13 @@ export function restartResource(uri: vscode.Uri) {
         folderPath = path.dirname(uri.fsPath + "\\fakePath");
     else
         folderPath = path.dirname(uri.fsPath);
-    let resourceName = folderPath.substr(folderPath.lastIndexOf("\\") + 1, folderPath.length - folderPath.lastIndexOf("\\"));
+
+    let resourceName = getResourceNameFromPath(folderPath);
+
+    if (!resourceName) {
+        vscode.window.showErrorMessage("Could not find meta.xml");
+        return;
+    }
 
     searchResource(resourceName, (result, response, index, resourceName) => {
         if (!result) {
