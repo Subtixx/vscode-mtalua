@@ -2,7 +2,7 @@
     "name": "mtasa-lua",
     "displayName": "MTA:SA Lua",
     "description": "MTA:SA Lua Syntax Highlighting + Companion",
-    "version": "2.3.6",
+    "version": "2.4.0",
     "publisher": "subtixx",
     "license": "GPL v3.0",
     "icon": "images/logo.png",
@@ -36,7 +36,7 @@
         "url": "https://github.com/Subtixx/vscode-mtalua.git"
     },
     "engines": {
-        "vscode": "^1.18.0"
+        "vscode": "^1.51.0"
     },
     "activationEvents": [
         "*"
@@ -45,15 +45,14 @@
     "scripts": {
         "vscode:prepublish": "tsc -p ./",
         "compile": "tsc -watch -p ./",
-        "postinstall": "node ./node_modules/vscode/bin/install",
         "tslint": "tslint -c tslint.json src/extension.ts"
     },
     "devDependencies": {
-        "@types/node": "^6.14.13",
+        "@types/node": "^14.14.7",
         "@types/request": "^2.48.5",
         "@types/vscode": "^1.51.0",
         "@types/xml2js": "^0.4.5",
-        "typescript": "^2.1.4"
+        "typescript": "^4.0.5"
     },
     "categories": [
         "Programming Languages",
