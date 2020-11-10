@@ -49,8 +49,9 @@
         "tslint": "tslint -c tslint.json src/extension.ts"
     },
     "devDependencies": {
-        "@types/node": "^6.0.40",
+        "@types/node": "^6.14.13",
         "@types/request": "^2.48.1",
+        "@types/vscode": "^1.51.0",
         "@types/xml2js": "^0.4.3",
         "typescript": "^2.1.4",
         "vscode": "^1.1.10"
@@ -155,7 +156,6 @@
                     "type": "boolean",
                     "default": false
                 },
-
                 "mtalua-http.uri": {
                     "description": "URL to the MTA Http Server",
                     "type": "string",
@@ -171,7 +171,6 @@
                     "type": "string",
                     "default": "123456"
                 },
-
                 "mtalua-generate.author": {
                     "description": "Allows you to set a custom author when generating new resources",
                     "type": "string",
