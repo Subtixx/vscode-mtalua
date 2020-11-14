@@ -4140,7 +4140,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "setWaterLevel";
 tmpDef.description = "Sets the height of some or all the water in the game world.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["[water theWater,] float level"];
+tmpDef.args = ["float level ["," bool includeWaterFeatures = true"," bool includeWaterElements = true"," bool includeWorldSea = true"," bool includeOutsideWorld = false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
@@ -4557,6 +4557,16 @@ tmpDef.label = "setColPolygonPointPosition";
 tmpDef.description = "This function is used to set the position of a bound point in a colshape polygon.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["colshape shape"," int index"," float fX"," float fY"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+//1.5.8
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleVariant";
+tmpDef.description = "This function sets the variant of a specified vehicle. In GTA SA some vehicles are different for example the labelling on trucks or the contents of a pick-up truck and the varying types of a motor bike.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle [", "int variant1", "int variant2 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);

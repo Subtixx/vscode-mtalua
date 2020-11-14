@@ -825,8 +825,8 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "localPlayer";
-tmpDef.description = "returns the player element of the local player.";
+tmpDef.label = "getLocalPlayer";
+tmpDef.description = "This function gets the player element of the client running the current script. You can use the predefined variable localPlayer instead of typing getLocalPlayer()";
 tmpDef.returnType = "player";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -2049,6 +2049,24 @@ tmpDef.label = "setBlurLevel";
 tmpDef.description = "Sets the motion blur level on the clients screen. Accepts a value between 0 and 255.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int level"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setColorFilter";
+tmpDef.description = "This function is used to override the default color filtering values.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int aRed"," int aGreen"," int aBlue"," int aAlpha"," int bRed"," int bGreen"," int bBlue"," int bAlpha"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetColorFilter";
+tmpDef.description = "This function is used to reset the color filtering to its default values.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
