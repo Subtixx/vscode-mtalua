@@ -230,7 +230,7 @@ Make functions clickable which redirect directly to the MTA Wiki
 
 # Changelog
 
-## (2.4.0 (10. Novembre 2020)
+## (2.4.0 (10. Nov 2020)
 
 - Updated packages
 - Implemented new MTA Functions
