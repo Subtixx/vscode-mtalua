@@ -2053,6 +2053,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
+//1.5.8
 tmpDef = new MTAFunction;
 tmpDef.label = "setColorFilter";
 tmpDef.description = "This function is used to override the default color filtering values.";
@@ -2067,6 +2068,69 @@ tmpDef.label = "resetColorFilter";
 tmpDef.description = "This function is used to reset the color filtering to its default values.";
 tmpDef.returnType = "bool";
 tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBoneMatrix";
+tmpDef.description = "This function returns the transformation matrix of a specific bone. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "table";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBonePosition";
+tmpDef.description = "Returns the 3D world coordinates of a specific bone of a given element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBoneRotation";
+tmpDef.description = "Returns the orientation of a specific bone relative to the element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBoneMatrix";
+tmpDef.description = "This function sets the transformation matrix of a specific bone. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," matrix matrix"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBonePosition";
+tmpDef.description = "This function sets the position of a bone to the specified coordinates. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," float x"," float y"," float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBoneRotation";
+tmpDef.description = "This function sets the rotation of a specific bone relative to the element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," float yaw"," float pitch"," float roll"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "updateElementRpHAnim";
+tmpDef.description = "This function updates GTA bone animation for a given element. Currently the following element types are accepted: Player, Ped. This function must be called after setElementBoneRotation for changes to take effect. It should only be called once per frame, after you are done rotating bones on that element, as it is quite heavy.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

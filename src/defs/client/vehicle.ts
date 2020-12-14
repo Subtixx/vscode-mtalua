@@ -385,6 +385,7 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 VehicleFunctionDefinitions.push(tmpDef);
 
+//1.5.8
 tmpDef = new MTAFunction;
 tmpDef.label = "getVehicleModelWheelSize";
 tmpDef.description = "This function gets the size of a group of wheels for a vehicle model.";
