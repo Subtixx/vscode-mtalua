@@ -421,3 +421,12 @@ tmpDef.args = ["vehicle theVehicle"," float wheelScale"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 VehicleFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getVehicleWheelFrictionState";
+tmpDef.description = "This function returns the current wheel friction state of the vehicle.";
+tmpDef.returnType = "int";
+tmpDef.args = ["vehicle theVehicle"," int wheel"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+VehicleFunctionDefinitions.push(tmpDef);

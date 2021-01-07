@@ -2134,3 +2134,30 @@ tmpDef.args = ["element theElement"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getRoofPosition";
+tmpDef.description = "This function gets the Z level of the lowest roof above a point. It is required that the point is near enough to the local player so that it's within the area where collision data is loaded.";
+tmpDef.returnType = "float";
+tmpDef.args = ["float x"," float y"," float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setSoundLooped";
+tmpDef.description = "This function is used to change the loop option of the sound element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theSound"," bool loop"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isSoundLooped";
+tmpDef.description = "This function is used to return the current loop option of the sound element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theSound"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
