@@ -80,7 +80,7 @@ ClientDefinitions.push(tmpDef);
 tmpDef = new MTAFunction;
 tmpDef.label = "createTrayNotification";
 tmpDef.description = "This functions creates a notification ballon on the desktop.";
-tmpDef.returnType = "";
+tmpDef.returnType = "bool";
 tmpDef.args = ["string notificationText", "[string iconType = \"default\"", "bool useSound = true]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;

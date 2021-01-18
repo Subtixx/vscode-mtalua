@@ -314,3 +314,21 @@ tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineSetModelVisibleTime";
+tmpDef.description = "This function changes model visibility time, this is used for example for building lights being shown after 23:00.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"," int timeOn"," int timeOff"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetModelVisibleTime";
+tmpDef.description = "This function returns model visibility time, this is used for example for building lights being shown after 23:00.";
+tmpDef.returnType = "int, int";
+tmpDef.args = ["int modelID"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
