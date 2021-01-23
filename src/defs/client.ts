@@ -2170,3 +2170,12 @@ tmpDef.args = ["object theObject"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isBrowserRenderingPaused";
+tmpDef.description = "This function gets the rendering state of a browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);

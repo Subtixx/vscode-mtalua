@@ -4589,6 +4589,24 @@ tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "setColPolygonHeight";
+tmpDef.description = "This function is used to change height of an existing colshape polygon.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["colshape shape"," float fFloor"," float fCeil"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getColPolygonHeight";
+tmpDef.description = "This function is used to get the height of an existing colshape polygon.";
+tmpDef.returnType = "float, float";
+tmpDef.args = ["colshape shape"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+SharedDefinitions.push(tmpDef);
+
 let tmpModuleDef = new LuaClass("utf8", "");
 tmpModuleDef.methods.push(new LuaMethod("title", "", [], {}, ""));
 tmpModuleDef.methods.push(new LuaMethod("width", "", [], {}, ""));
