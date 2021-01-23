@@ -2161,3 +2161,12 @@ tmpDef.args = ["element theSound"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isObjectMoving";
+tmpDef.description = "This function checks if an object is moving.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["object theObject"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
