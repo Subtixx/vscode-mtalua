@@ -4591,9 +4591,9 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setColPolygonHeight";
-tmpDef.description = "This function is used to change height of an existing colshape polygon.";
+tmpDef.description = "This function is used to change height of an existing colshape polygon. By default, a colshape polygon is infinitely tall.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["colshape shape"," float fFloor"," float fCeil"];
+tmpDef.args = ["colshape shape"," float floor"," float ceil"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
