@@ -4301,7 +4301,7 @@ SharedDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getElementsWithinRange";
-tmpDef.description = "This function is used to retrieve a list of all elements of specified type within a range of 3D coordinates.\nNote:\n\n\tThis function doesn't verify whether elements are in the same dimension and interior, additional checks could be implemented manually if they are needed.\n\tThis function checks if elements are in a box, not in a circle.\n\tZ argument isn't in use currently, but make your scripts like it is for future compatibility reasons.\n\tThis function doesn't work with elements which is created by createElement.";
+tmpDef.description = "This function is used to retrieve a list of all elements of specified type within a range of 3D coordinates. Note: This function checks if elements are in a box, not in a sphere. Z argument isn't in use currently, but make your scripts like it is for future compatibility reasons. This function doesn't work with elements which is created by createElement.";
 tmpDef.returnType = "table";
 tmpDef.args = ["float x", "float y", "float z", "float range [", "string elemType = \"\", int interior = nil"," int dimension = nil ] ]"];
 tmpDef.argDescs = {};
