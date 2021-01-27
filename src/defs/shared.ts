@@ -3924,7 +3924,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "setVehicleDoorState";
 tmpDef.description = "This function sets the state of the specified door on a vehicle.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["vehicle theVehicle", "int door", "int state"];
+tmpDef.args = ["vehicle theVehicle", "int door", "int state ["," bool spawnFlyingComponent = true ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
