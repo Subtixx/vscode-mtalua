@@ -99,7 +99,7 @@ PedFunctionDefinitions.push(tmpDef);
 tmpDef = new MTAFunction;
 tmpDef.label = "getPedAnimation";
 tmpDef.description = "Gets the animation of a player or ped that was set using setPedAnimation.";
-tmpDef.returnType = "string string";
+tmpDef.returnType = "string, string, int, int, bool, bool, bool, int, bool";
 tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
@@ -284,6 +284,25 @@ tmpDef.label = "isPedFootBloodEnabled";
 tmpDef.description = "This function checks if player feets are bleeding.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["element thePlayer"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+PedFunctionDefinitions.push(tmpDef);
+
+//1.5.8
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedEnterVehicle";
+tmpDef.description = "This function makes a ped enter a vehicle, similar to the enter_exit control state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed ["," vehicle = nil"," passenger = false ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+PedFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedExitVehicle";
+tmpDef.description = "This function makes a ped exit a vehicle, similar to the enter_exit control state.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 PedFunctionDefinitions.push(tmpDef);

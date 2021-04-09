@@ -80,7 +80,7 @@ ClientDefinitions.push(tmpDef);
 tmpDef = new MTAFunction;
 tmpDef.label = "createTrayNotification";
 tmpDef.description = "This functions creates a notification ballon on the desktop.";
-tmpDef.returnType = "";
+tmpDef.returnType = "bool";
 tmpDef.args = ["string notificationText", "[string iconType = \"default\"", "bool useSound = true]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
@@ -825,8 +825,8 @@ tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
-tmpDef.label = "localPlayer";
-tmpDef.description = "returns the player element of the local player.";
+tmpDef.label = "getLocalPlayer";
+tmpDef.description = "This function gets the player element of the client running the current script. You can use the predefined variable localPlayer instead of typing getLocalPlayer()";
 tmpDef.returnType = "player";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
@@ -855,7 +855,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "setAnalogControlState";
 tmpDef.description = "This sets the analog control state of a control for the local player.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["string controlName [", "float state]"];
+tmpDef.args = ["string control ["," float state"," bool forceOverrideNextFrame = false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2049,6 +2049,133 @@ tmpDef.label = "setBlurLevel";
 tmpDef.description = "Sets the motion blur level on the clients screen. Accepts a value between 0 and 255.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int level"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+//1.5.8
+tmpDef = new MTAFunction;
+tmpDef.label = "setColorFilter";
+tmpDef.description = "This function is used to override the default color filtering values.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int aRed"," int aGreen"," int aBlue"," int aAlpha"," int bRed"," int bGreen"," int bBlue"," int bAlpha"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "resetColorFilter";
+tmpDef.description = "This function is used to reset the color filtering to its default values.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBoneMatrix";
+tmpDef.description = "This function returns the transformation matrix of a specific bone. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "table";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBonePosition";
+tmpDef.description = "Returns the 3D world coordinates of a specific bone of a given element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getElementBoneRotation";
+tmpDef.description = "Returns the orientation of a specific bone relative to the element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "float, float, float";
+tmpDef.args = ["element theElement"," int bone"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBoneMatrix";
+tmpDef.description = "This function sets the transformation matrix of a specific bone. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," matrix matrix"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBonePosition";
+tmpDef.description = "This function sets the position of a bone to the specified coordinates. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," float x"," float y"," float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setElementBoneRotation";
+tmpDef.description = "This function sets the rotation of a specific bone relative to the element. Currently the following element types are accepted: Player, Ped";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"," int bone"," float yaw"," float pitch"," float roll"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "updateElementRpHAnim";
+tmpDef.description = "This function updates GTA bone animation for a given element. Currently the following element types are accepted: Player, Ped. This function must be called after setElementBoneRotation for changes to take effect. It should only be called once per frame, after you are done rotating bones on that element, as it is quite heavy.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getRoofPosition";
+tmpDef.description = "This function gets the Z level of the lowest roof above a point. It is required that the point is near enough to the local player so that it's within the area where collision data is loaded.";
+tmpDef.returnType = "float";
+tmpDef.args = ["float x"," float y"," float z"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setSoundLooped";
+tmpDef.description = "This function is used to change the loop option of the sound element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theSound"," bool loop"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isSoundLooped";
+tmpDef.description = "This function is used to return the current loop option of the sound element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element theSound"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isObjectMoving";
+tmpDef.description = "This function checks if an object is moving.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["object theObject"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isBrowserRenderingPaused";
+tmpDef.description = "This function gets the rendering state of a browser.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["browser webBrowser"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);

@@ -244,9 +244,9 @@ EngineFunctionDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "engineRequestModel";
-tmpDef.description = "This function is used to assign the next available model ID to a certain element type. Currently only 'ped' is supported.";
+tmpDef.description = "This function is used to assign the next available model ID to a certain element type. After release 1.5.8-20716 this function supports 'vehicle' and 'object' too.";
 tmpDef.returnType = "int";
-tmpDef.args = ["str elementType"];
+tmpDef.args = ["str elementType ["," int parentID ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 EngineFunctionDefinitions.push(tmpDef);
@@ -301,6 +301,34 @@ tmpDef.label = "engineResetModelLODDistance";
 tmpDef.description = "This function resets the LOD distance for an object / model ID.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["int model"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+//1.5.8
+tmpDef = new MTAFunction;
+tmpDef.label = "engineRestreamWorld";
+tmpDef.description = "This function re-streams everything in world.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineSetModelVisibleTime";
+tmpDef.description = "This function changes model visibility time, this is used for example for building lights being shown after 23:00.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["int modelID"," int timeOn"," int timeOff"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+EngineFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "engineGetModelVisibleTime";
+tmpDef.description = "This function returns model visibility time, this is used for example for building lights being shown after 23:00.";
+tmpDef.returnType = "int, int";
+tmpDef.args = ["int modelID"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 EngineFunctionDefinitions.push(tmpDef);
