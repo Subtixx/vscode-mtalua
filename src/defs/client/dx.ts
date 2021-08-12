@@ -301,7 +301,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawMaterialLine3D";
 tmpDef.description = "This function draws a textured 3D line between two points in the 3D world - rendered for one frame. This should be used in conjunction with onClientPreRender in order to display continuously.\n\nThe 3D line with a large width value effectively becomes a rectangle, so it it possible to construct basic shapes such as boxes with several large width lines and the appropriate values for 'faceToward'.\n\n3D lines are drawn at a particular place in the game processing order, so use onClientPreRender for drawing if you are attaching them to world elements. ";
 tmpDef.returnType = "bool";
-tmpDef.args = ["float startX", " float startY", " float startZ", " float endX", " float endY", " float endZ", " element material", " float width", " [ int color = white", " [ bool postGUI = false", " ] float faceTowardX", " float faceTowardY", " float faceTowardZ ]"];
+tmpDef.args = ["float startX", " float startY", " float startZ", " float endX", " float endY", " float endZ"," [ bool flipUV = false"," ] element material", " float width", " [ int color = white", " [ bool postGUI = false", " ] float faceTowardX", " float faceTowardY", " float faceTowardZ ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);

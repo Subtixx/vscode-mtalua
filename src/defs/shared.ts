@@ -1305,7 +1305,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "showChat";
 tmpDef.description = "This function is used to show or hide the player's chat.This example toggle's the player's chat when they press the \"i\" key.";
 tmpDef.returnType = "bool";
-tmpDef.args = [" bool show "];
+tmpDef.args = [" player thePlayer"," bool show ["," bool inputBlocked ] "];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Shared;
 SharedDefinitions.push(tmpDef);
