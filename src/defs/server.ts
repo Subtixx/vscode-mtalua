@@ -1637,7 +1637,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "shutdown";
 tmpDef.description = "This function shuts down the server. ";
 tmpDef.returnType = "bool";
-tmpDef.args = ["string reason"];
+tmpDef.args = ["[ string reason = 'No reason specified'"," number exitCode = 0 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Server;
 ServerDefinitions.push(tmpDef);
