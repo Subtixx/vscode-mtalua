@@ -28,7 +28,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "dxDrawText";
 tmpDef.description = "Draws a string of text on the screen for one frame. In order for the text to stay visible continuously, you need to call this function with the same parameters on each frame update (see onClientRender).";
 tmpDef.returnType = "bool";
-tmpDef.args = ["string text", "float left", "float top [", "float right=left", "float bottom=top", "int color=white", "float scale=1", "mixed font=\"default\"", "string alignX=\"left\"", "string alignY=\"top\"", "bool clip=false", "bool wordBreak=false", "bool postGUI=false", "bool colorCoded=false", "bool subPixelPositioning=false", "float fRotation=0", "float fRotationCenterX=0", "float fRotationCenterY=0 ]"];
+tmpDef.args = ["string text", "float left", "float top [", "float right=left", "float bottom=top", "int color=white", "float scale=1", "mixed font=\"default\"", "string alignX=\"left\"", "string alignY=\"top\"", "bool clip=false", "bool wordBreak=false", "bool postGUI=false", "bool colorCoded=false", "bool subPixelPositioning=false", "float fRotation=0", "float fRotationCenterX=0", "float fRotationCenterY=0"," float fLineSpacing = 0.0 ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 DxFunctionDefinitions.push(tmpDef);

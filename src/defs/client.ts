@@ -2206,3 +2206,57 @@ tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isChatInputBlocked";
+tmpDef.description = "This function checks if the player's chat input is blocked.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPlayerMapOpacity";
+tmpDef.description = "This function allows to get the opacity of the radar map (F11).";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isShowCollisionsEnabled";
+tmpDef.description = "This function gets the collision previews state.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isShowSoundEnabled";
+tmpDef.description = "This function indicates if world sound IDs should be printed in the debug window or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "showSound";
+tmpDef.description = "Prints world sound IDs in the debug output window to help when writing scripts with setWorldSoundEnabled.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "showCol";
+tmpDef.description = "Shows collision previews for developers (colshapes in wireframe, useful when writing scripts).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
