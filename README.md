@@ -3,20 +3,23 @@
 </p>
 
 <p align="center">
-    <img src="https://img.shields.io/maintenance/yes/2019.svg?style=flat-square">
+    <img src="https://img.shields.io/maintenance/yes/2020.svg?style=flat-square">
 </p>
 
 <h3 align="center">
   MTA:SA Lua
 </h3>
 
+<h2 align="center" style="color:#FF0000;">
+    ⚠️ Due to an issue with Microsoft / Visual Studio Marketplace I'm unable to upload new versions to it. See <a href="https://github.com/Subtixx/vscode-mtalua/issues/19#issuecomment-724635624">this comment</a> ⚠️
+</h2>
+
 <p align="center">
     MTA:SA Lua is a VS Code extension to add syntax highlighting, code completion and other useful functions for MTA San Andreas LUA to VS Code.
 </p>
 
 <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=subtixx.mtasa-lua"><img src="https://img.shields.io/vscode-marketplace/v/subtixx.mtasa-lua.svg?style=flat-square" /></a>
-    <a href="https://marketplace.visualstudio.com/items?itemName=subtixx.mtasa-lua"><img src="https://img.shields.io/vscode-marketplace/d/subtixx.mtasa-lua.svg?style=flat-square" /></a>
+    <a href="https://github.com/Subtixx/vscode-mtalua/releases/latest"><img src="https://img.shields.io/github/v/release/subtixx/vscode-mtalua" /></a>
 <p/>
 
 
@@ -226,6 +229,12 @@ Only show relevant functions (A serverside script is open, only serverside & sha
 Make functions clickable which redirect directly to the MTA Wiki
 
 # Changelog
+
+## (2.4.0 (10. Nov 2020)
+
+- Updated packages
+- Implemented new MTA Functions
+- Removed old MTA Functions
 
 ## v2.3.6 (19. Jan 2019)
 
