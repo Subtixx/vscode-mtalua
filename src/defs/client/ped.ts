@@ -306,3 +306,21 @@ tmpDef.args = ["ped thePed"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 PedFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setPedBleeding";
+tmpDef.description = "This function allows you to set player's or ped's bleeding effect.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"," bool bleeding"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+PedFunctionDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isPedBleeding";
+tmpDef.description = "This function gets the state of a player's or ped's bleeding effect.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["ped thePed"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+PedFunctionDefinitions.push(tmpDef);

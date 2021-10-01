@@ -1474,8 +1474,8 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "getCameraViewMode";
-tmpDef.description = "This function allows you to get the camera's view mode. This indicates at what distance the camera will follow the player.";
-tmpDef.returnType = "int";
+tmpDef.description = "This function allows you to get the camera's view mode. This indicates at what distance the camera will follow the player. Now you can get the camera mode when the player is not inside a vehicle.";
+tmpDef.returnType = "int, int";
 tmpDef.args = [""];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
@@ -1510,9 +1510,9 @@ ClientDefinitions.push(tmpDef);
 
 tmpDef = new MTAFunction;
 tmpDef.label = "setCameraViewMode";
-tmpDef.description = "This function allows you to set the camera's view mode if you are inside a vehicle. This indicates at what distance the camera will follow the player.";
+tmpDef.description = "This function allows you to set the camera's view mode if you are inside a vehicle. This indicates at what distance the camera will follow the player. Now you can change the camera mode when the player is not inside a vehicle.";
 tmpDef.returnType = "bool";
-tmpDef.args = ["int viewMode"];
+tmpDef.args = ["int vehicleCameraMode ["," int pedCameraMode ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -1620,7 +1620,7 @@ tmpDef = new MTAFunction;
 tmpDef.label = "getWaterLevel";
 tmpDef.description = "This function allows you to retrieve the water level from a certain location. The water level is 0 in most places though it can vary (e.g. it's higher near the dam).";
 tmpDef.returnType = "float";
-tmpDef.args = ["float posX", "float posY", "float posZ [ ", "bool bCheckWaves = false ]"];
+tmpDef.args = ["float posX", "float posY", "float posZ [ ", "bool ignoreDistanceToWaterThreshold = false ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
@@ -2176,6 +2176,132 @@ tmpDef.label = "isBrowserRenderingPaused";
 tmpDef.description = "This function gets the rendering state of a browser.";
 tmpDef.returnType = "bool";
 tmpDef.args = ["browser webBrowser"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "setSoundEffectParameter";
+tmpDef.description = "This function sets the parameter of a sound effect.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["element sound"," string effectName"," string effectParam"," var paramValue"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getSoundEffectParameters";
+tmpDef.description = "This function gets the parameters of a sound effect.";
+tmpDef.returnType = "table";
+tmpDef.args = ["element sound"," string effectName"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "clearDebugBox";
+tmpDef.description = "This function clears the debug box.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isChatInputBlocked";
+tmpDef.description = "This function checks if the player's chat input is blocked.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "getPlayerMapOpacity";
+tmpDef.description = "This function allows to get the opacity of the radar map (F11).";
+tmpDef.returnType = "int";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isShowCollisionsEnabled";
+tmpDef.description = "This function gets the collision previews state.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isShowSoundEnabled";
+tmpDef.description = "This function indicates if world sound IDs should be printed in the debug window or not.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "showSound";
+tmpDef.description = "Prints world sound IDs in the debug output window to help when writing scripts with setWorldSoundEnabled.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "showCol";
+tmpDef.description = "Shows collision previews for developers (colshapes in wireframe, useful when writing scripts).";
+tmpDef.returnType = "bool";
+tmpDef.args = ["bool state"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "svgCreate";
+tmpDef.description = "Creates an svg from size (blank document), filepath or raw data.";
+tmpDef.returnType = "svg";
+tmpDef.args = ["int width"," int height ["," string pathOrRawdata"," function callback ( bool didLoad ) ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "svgGetDocumentXML";
+tmpDef.description = "Gets the underlying XML document from an SVG element.";
+tmpDef.returnType = "xmlnode";
+tmpDef.args = ["svg svgElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "svgGetSize";
+tmpDef.description = "Gets the underlying XML document from an SVG element.";
+tmpDef.returnType = "int, int";
+tmpDef.args = ["svg svgElement"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "svgSetDocumentXML";
+tmpDef.description = "Sets the underlying XML document of an SVG element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["svg svgElement"," xmlnode xmlDocument ["," function callback ( bool didLoad ) ]"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "svgSetSize";
+tmpDef.description = "Sets the underlying XML document from an SVG element.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["svg svgElement"," int width"," int height ["," function callback ( bool didLoad ) ]"];
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
