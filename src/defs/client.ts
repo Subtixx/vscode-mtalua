@@ -2305,3 +2305,12 @@ tmpDef.args = ["svg svgElement"," int width"," int height ["," function callback
 tmpDef.argDescs = {};
 tmpDef.scriptSide = ScriptSide.Client;
 ClientDefinitions.push(tmpDef);
+
+tmpDef = new MTAFunction;
+tmpDef.label = "isTransferBoxAlwaysVisible";
+tmpDef.description = "Determines if the transfer box should be always visible during downloads. Players can forcefully show the transfer box through a user setting, even if disabled by scripts.";
+tmpDef.returnType = "bool";
+tmpDef.args = [""];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Client;
+ClientDefinitions.push(tmpDef);

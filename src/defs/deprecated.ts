@@ -1188,6 +1188,16 @@ tmpDef.scriptSide = ScriptSide.Shared;
 tmpDef.deprecated = true;
 DeprecatedDefinitions.push(tmpDef);
 
+tmpDef = new MTAFunction;
+tmpDef.label = "setVehicleDirtLevel";
+tmpDef.description = "Function has been disabled.";
+tmpDef.returnType = "bool";
+tmpDef.args = ["vehicle theVehicle"," int dirtLevel"];
+tmpDef.argDescs = {};
+tmpDef.scriptSide = ScriptSide.Shared;
+tmpDef.deprecated = true;
+DeprecatedDefinitions.push(tmpDef);
+
 
 // tmpDef = new MTAFunction;
 // tmpDef.label = "onClientChangeNick";
